@@ -18,7 +18,6 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = "Your Files"
         self.fetchList(self.id!)
     }
 
@@ -90,6 +89,7 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
         if fileIcon!.rangeOfString("folder.png", options: nil) != nil {
             let fileViewController:FilesViewController = FilesViewController()
             fileViewController.id = file["id"] as? NSNumber
+            fileViewController.navigationItem.title = file["name"] as? NSString
 
             self.navigationController?.pushViewController(fileViewController, animated: true)
         }
