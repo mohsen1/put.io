@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		825B078919F3312700E65789 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B078819F3312700E65789 /* AppDelegate.swift */; };
-		825B078B19F3312700E65789 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B078A19F3312700E65789 /* ViewController.swift */; };
 		825B078E19F3312700E65789 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 825B078C19F3312700E65789 /* Main.storyboard */; };
 		825B079019F3312700E65789 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 825B078F19F3312700E65789 /* Images.xcassets */; };
 		825B079319F3312700E65789 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825B079119F3312700E65789 /* LaunchScreen.xib */; };
@@ -45,7 +44,6 @@
 		825B078319F3312700E65789 /* put.io.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = put.io.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		825B078719F3312700E65789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		825B078819F3312700E65789 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		825B078A19F3312700E65789 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		825B078D19F3312700E65789 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		825B078F19F3312700E65789 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		825B079219F3312700E65789 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 			children = (
 				825B07B419F337C900E65789 /* FilesViewController.swift */,
 				825B078819F3312700E65789 /* AppDelegate.swift */,
-				825B078A19F3312700E65789 /* ViewController.swift */,
 				825B078C19F3312700E65789 /* Main.storyboard */,
 				825B078F19F3312700E65789 /* Images.xcassets */,
 				825B079119F3312700E65789 /* LaunchScreen.xib */,
@@ -265,7 +262,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				825B078B19F3312700E65789 /* ViewController.swift in Sources */,
 				825B07B519F337C900E65789 /* FilesViewController.swift in Sources */,
 				825B078919F3312700E65789 /* AppDelegate.swift in Sources */,
 			);
@@ -459,6 +455,7 @@
 				825B07A419F3312700E65789 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		825B07A519F3312700E65789 /* Build configuration list for PBXNativeTarget "put.ioTests" */ = {
 			isa = XCConfigurationList;
@@ -467,6 +464,7 @@
 				825B07A719F3312700E65789 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
