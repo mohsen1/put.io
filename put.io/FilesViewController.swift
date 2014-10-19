@@ -13,12 +13,21 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
 
     var files = NSArray()
     var id:NSNumber?
+    var token:String?
     
 
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.fetchList(self.id!)
+        self.token = UserManager.getUserToken()
+        
+        // if user not logged in
+        if (token == nil) {
+            let login = LoginWebViewController()
+            self.navigationController?.pushViewController(login, animated: false)
+        } else {
+            self.fetchList(self.id!)
+        }
     }
 
     override func viewDidLoad() {
@@ -35,7 +44,7 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
         var request = HTTPTask()
         var url = "https://api.put.io/v2/files/list"
         var params = [
-            "oauth_token": "",
+            "oauth_token": "\(self.token!)",
             "parent_id": "\(id)"
         ]
         
