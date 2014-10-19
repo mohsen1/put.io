@@ -84,10 +84,15 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let file = self.files[indexPath.row] as NSDictionary
-        let fileViewController:FilesViewController = FilesViewController()
-        fileViewController.id = file["id"] as? NSNumber
+        let fileIcon = file["icon"] as? String
 
-        self.navigationController?.pushViewController(fileViewController, animated: true)
+        // if it's a folder drill down navigation
+        if fileIcon!.rangeOfString("folder.png", options: nil) != nil {
+            let fileViewController:FilesViewController = FilesViewController()
+            fileViewController.id = file["id"] as? NSNumber
+
+            self.navigationController?.pushViewController(fileViewController, animated: true)
+        }
     }
 
 }
