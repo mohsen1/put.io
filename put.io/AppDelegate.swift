@@ -19,8 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         filesViewController.id = 0 // Load root
         filesViewController.navigationItem.title = "Your Files"
         var navigationController = UINavigationController(rootViewController: filesViewController)
-
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
         window?.rootViewController = navigationController
+        
+//        var startup = StartupViewController()
+//        window?.rootViewController = startup
+        
+    
+        window?.backgroundColor = UIColor.whiteColor()
+        window?.makeKeyAndVisible()
+
         return true
     }
 
