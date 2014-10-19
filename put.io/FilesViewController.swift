@@ -14,21 +14,6 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
     var files = NSArray()
     var id:NSNumber?
     var token:String?
-    
-
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.token = UserManager.getUserToken()
-        
-        // if user not logged in
-        if (token == nil) {
-            let login = LoginWebViewController()
-            self.navigationController?.pushViewController(login, animated: false)
-        } else {
-            self.fetchList(self.id!)
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

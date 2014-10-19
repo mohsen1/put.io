@@ -51,13 +51,24 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         transfersViewController.navigationItem.title = "Transfers"
         
         // Account
-        let accountViewController = UIViewController()
-        accountViewController.view = UIView()
-        accountViewController.view.backgroundColor = UIColor.blueColor()
+        let accountViewController = AccountViewController()
         accountViewController.tabBarItem = accountTabBarItem
-
         
-        viewControllers = [filesNavigationController, transfersNavigationViewController, accountViewController]
+        
+        viewControllers = [
+            filesNavigationController,
+            transfersNavigationViewController,
+            accountViewController
+        ]
+
+        var token = UserManager.getUserToken()
+        
+        // if user not logged in
+        if (token == nil) {
+            selectedIndex = 2
+        } else {
+            selectedIndex = 0
+        }
     }
     
 
