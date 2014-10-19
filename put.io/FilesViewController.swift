@@ -38,7 +38,9 @@ class FilesViewController: UITableViewController {
                 var jsonError:NSError?
                 if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
                     self.files = json["files"] as NSArray
-                    self.tableView.reloadData()
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.tableView.reloadData()
+                    }
                 }
             }
             }, failure: {(error: NSError) in
@@ -46,27 +48,20 @@ class FilesViewController: UITableViewController {
         })
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
-    }
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.files.count
     }
 
-    /*
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
-
-        // Configure the cell...
-
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
+        let file:NSDictionary = self.files[indexPath.row] as NSDictionary
+        
+        cell.textLabel?.text = file["name"] as NSString
+ 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
