@@ -28,7 +28,10 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         let filesTabBarItem = UITabBarItem(title: "Files", image: fileTabBarIcon, tag: 0)
         let transfersTabBarIcon = UIImage(named: "TransfersTabBarIcon")
         let transfersTabBarItem = UITabBarItem(title: "Transfers", image: transfersTabBarIcon, tag: 1)
+        let accountTabBarIcon = UIImage(named: "AccountTabBarIcon")
+        let accountTabBarItem = UITabBarItem(title: "Account", image: accountTabBarIcon, tag: 2)
         
+        // Files
         let filesViewController = FilesViewController()
         var filesNavigationController:UINavigationController
         filesNavigationController = UINavigationController(rootViewController: filesViewController)
@@ -36,8 +39,9 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         filesViewController.id = 0 // Load root
         filesViewController.navigationItem.title = "Your Files"
         
-        let transfersViewController = UIViewController()
         
+        // Transfers
+        let transfersViewController = UIViewController()
         //todo:
         transfersViewController.view = UIView()
         transfersViewController.view.backgroundColor = UIColor.redColor()
@@ -45,9 +49,15 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         var transfersNavigationViewController = UINavigationController(rootViewController: transfersViewController)
         transfersNavigationViewController.tabBarItem = transfersTabBarItem
         transfersViewController.navigationItem.title = "Transfers"
+        
+        // Account
+        let accountViewController = UIViewController()
+        accountViewController.view = UIView()
+        accountViewController.view.backgroundColor = UIColor.blueColor()
+        accountViewController.tabBarItem = accountTabBarItem
 
         
-        viewControllers = [filesNavigationController, transfersNavigationViewController]
+        viewControllers = [filesNavigationController, transfersNavigationViewController, accountViewController]
     }
     
 
