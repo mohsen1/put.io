@@ -7,22 +7,43 @@
 //
 
 import UIKit
+import SwiftHTTP
 
 class FilesViewController: UITableViewController {
+    var files = NSArray()
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "Your Files"
+        self.fetchFeed()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - HTTP
+    func fetchFeed() {
+        var request = HTTPTask()
+        var url = "https://api.put.io/v2/files/list?oauth_token="
+
+        request.GET(url, parameters: nil, success: {(response: HTTPResponse) in
+            if let data = response.responseObject as? NSData {
+                var jsonError:NSError?
+                if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
+                    self.files = json["files"] as NSArray
+                    self.tableView.reloadData()
+                }
+            }
+            }, failure: {(error: NSError) in
+                println("error: \(error)")
+        })
     }
 
     // MARK: - Table view data source
@@ -34,9 +55,7 @@ class FilesViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+        return self.files.count
     }
 
     /*

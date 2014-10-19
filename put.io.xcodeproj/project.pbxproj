@@ -53,7 +53,7 @@
 		825B079D19F3312700E65789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		825B079E19F3312700E65789 /* put_ioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = put_ioTests.swift; sourceTree = "<group>"; };
 		825B07A819F331A100E65789 /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = ../../../Desktop/SwiftHTTP/SwiftHTTP.xcodeproj; sourceTree = "<group>"; };
-		825B07B419F337C900E65789 /* FilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilesViewController.swift; path = put.io/FilesViewController.swift; sourceTree = "<group>"; };
+		825B07B419F337C900E65789 /* FilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +78,6 @@
 		825B077A19F3312700E65789 = {
 			isa = PBXGroup;
 			children = (
-				825B07B419F337C900E65789 /* FilesViewController.swift */,
 				825B07A819F331A100E65789 /* SwiftHTTP.xcodeproj */,
 				825B078519F3312700E65789 /* put.io */,
 				825B079B19F3312700E65789 /* put.ioTests */,
@@ -98,6 +97,7 @@
 		825B078519F3312700E65789 /* put.io */ = {
 			isa = PBXGroup;
 			children = (
+				825B07B419F337C900E65789 /* FilesViewController.swift */,
 				825B078819F3312700E65789 /* AppDelegate.swift */,
 				825B078A19F3312700E65789 /* ViewController.swift */,
 				825B078C19F3312700E65789 /* Main.storyboard */,
