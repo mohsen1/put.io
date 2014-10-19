@@ -15,7 +15,7 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = "Your Files"
-        self.fetchFeed()
+        self.fetchList()
     }
 
     override func viewDidLoad() {
@@ -28,11 +28,15 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
     }
     
     // MARK: - HTTP
-    func fetchFeed() {
+    func fetchList(id:String = "") {
         var request = HTTPTask()
-        var url = "https://api.put.io/v2/files/list?oauth_token="
+        var url = "https://api.put.io/v2/files/list"
+        var params = [
+            "oauth_token": "",
+            "parent_id": id
+        ]
 
-        request.GET(url, parameters: nil, success: {(response: HTTPResponse) in
+        request.GET(url, parameters: params, success: {(response: HTTPResponse) in
             if let data = response.responseObject as? NSData {
                 var jsonError:NSError?
                 if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
@@ -54,7 +58,7 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
 
     func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
         if buttonIndex == 1 {
-            self.fetchFeed()
+            self.fetchList()
         }
     }
     
@@ -74,6 +78,9 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
         return cell
     }
     
-
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var file = self.files[indexPath.row]
+        
+    }
 
 }
