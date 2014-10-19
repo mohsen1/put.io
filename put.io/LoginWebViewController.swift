@@ -22,7 +22,7 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
         self.webView = UIWebView(frame: self.view.bounds)
         self.view.addSubview(self.webView!)
         self.webView?.delegate = self
-        var url = "https://api.put.io/v2/oauth2/authenticate?client_id=1653&response_type=token&redirect_uri=http://mohsenweb.com"
+        var url = "https://api.put.io/v2/oauth2/authenticate?client_id=1655&response_type=token&redirect_uri=http://mohsenweb.com/put.io/"
         let URL = NSURL(string: url)
         self.webView?.loadRequest(NSURLRequest(URL: URL))
     }
