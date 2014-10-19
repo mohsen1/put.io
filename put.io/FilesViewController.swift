@@ -96,11 +96,19 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
 
         // if it's a folder drill down navigation
         if fileIcon!.rangeOfString("folder.png", options: nil) != nil {
-            let fileViewController:FilesViewController = FilesViewController()
-            fileViewController.id = file["id"] as? NSNumber
-            fileViewController.navigationItem.title = file["name"] as? NSString
+            let filesViewController:FilesViewController = FilesViewController()
+            filesViewController.id = file["id"] as? NSNumber
+            filesViewController.navigationItem.title = file["name"] as? NSString
 
+            self.navigationController?.pushViewController(filesViewController, animated: true)
+        }
+        
+        // else, it's a file. open file view controoler
+        else {
+            let fileViewController = FileViewController()
+            fileViewController.file = file
             self.navigationController?.pushViewController(fileViewController, animated: true)
+            
         }
     }
 
