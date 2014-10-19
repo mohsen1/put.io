@@ -9,7 +9,7 @@
 import UIKit
 import SwiftHTTP
 
-class FilesViewController: UITableViewController {
+class FilesViewController: UITableViewController, UIAlertViewDelegate {
     var files = NSArray()
     
     override func viewWillAppear(animated: Bool) {
@@ -44,8 +44,19 @@ class FilesViewController: UITableViewController {
                 }
             }
             }, failure: {(error: NSError) in
-                println("error: \(error)")
+                var alert = UIAlertView(title: "Network Error", message: "Error fetching your files!", delegate: self, cancelButtonTitle: "OK", otherButtonTitles: "Retry")
+
+                dispatch_async(dispatch_get_main_queue()) {
+                    alert.show()
+                }
+
         })
+    }
+
+    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
+        if buttonIndex == 1 {
+            self.fetchFeed()
+        }
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
