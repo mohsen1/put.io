@@ -26,13 +26,28 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewWillAppear(animated)
         let fileTabBarIcon = UIImage(named: "FilesTabBarIcon")
         let filesTabBarItem = UITabBarItem(title: "Files", image: fileTabBarIcon, tag: 0)
+        let transfersTabBarIcon = UIImage(named: "TransfersTabBarIcon")
+        let transfersTabBarItem = UITabBarItem(title: "Transfers", image: transfersTabBarIcon, tag: 1)
+        
         let filesViewController = FilesViewController()
-        var navigationController:UINavigationController
-        navigationController = UINavigationController(rootViewController: filesViewController)
-        navigationController.tabBarItem = filesTabBarItem
+        var filesNavigationController:UINavigationController
+        filesNavigationController = UINavigationController(rootViewController: filesViewController)
+        filesNavigationController.tabBarItem = filesTabBarItem
         filesViewController.id = 0 // Load root
         filesViewController.navigationItem.title = "Your Files"
-        viewControllers = [navigationController]
+        
+        let transfersViewController = UIViewController()
+        
+        //todo:
+        transfersViewController.view = UIView()
+        transfersViewController.view.backgroundColor = UIColor.redColor()
+        
+        var transfersNavigationViewController = UINavigationController(rootViewController: transfersViewController)
+        transfersNavigationViewController.tabBarItem = transfersTabBarItem
+        transfersViewController.navigationItem.title = "Transfers"
+
+        
+        viewControllers = [filesNavigationController, transfersNavigationViewController]
     }
     
 
