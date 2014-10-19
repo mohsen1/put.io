@@ -10,12 +10,16 @@ import UIKit
 import SwiftHTTP
 
 class FilesViewController: UITableViewController, UIAlertViewDelegate {
+
     var files = NSArray()
+    var id:NSNumber?
+    
+
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = "Your Files"
-        self.fetchList()
+        self.fetchList(self.id!)
     }
 
     override func viewDidLoad() {
@@ -28,14 +32,14 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
     }
     
     // MARK: - HTTP
-    func fetchList(id:String = "") {
+    func fetchList(id:NSNumber) {
         var request = HTTPTask()
         var url = "https://api.put.io/v2/files/list"
         var params = [
             "oauth_token": "",
-            "parent_id": id
+            "parent_id": "\(id)"
         ]
-
+        
         request.GET(url, parameters: params, success: {(response: HTTPResponse) in
             if let data = response.responseObject as? NSData {
                 var jsonError:NSError?
@@ -58,7 +62,7 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
 
     func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
         if buttonIndex == 1 {
-            self.fetchList()
+            self.fetchList(self.id!)
         }
     }
     
@@ -79,8 +83,11 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var file = self.files[indexPath.row]
-        
+        let file = self.files[indexPath.row] as NSDictionary
+        let fileViewController:FilesViewController = FilesViewController()
+        fileViewController.id = file["id"] as? NSNumber
+
+        self.navigationController?.pushViewController(fileViewController, animated: true)
     }
 
 }

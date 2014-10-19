@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         var filesViewController = FilesViewController()
+        filesViewController.id = 0 // Load root
         var navigationController = UINavigationController(rootViewController: filesViewController)
 
         window?.rootViewController = navigationController
