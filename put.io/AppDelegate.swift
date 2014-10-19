@@ -15,16 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        var filesViewController = FilesViewController()
-        var navigationController:UINavigationController
         
-        filesViewController.id = 0 // Load root
-        filesViewController.navigationItem.title = "Your Files"
+        let main = MainViewController()
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        navigationController = UINavigationController(rootViewController: filesViewController)
-
-        window?.rootViewController = navigationController
+        window?.rootViewController = main
         window?.makeKeyAndVisible()
 
         return true
