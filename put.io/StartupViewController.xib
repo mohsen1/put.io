@@ -14,17 +14,33 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAV-Io-LeL">
-                    <rect key="frame" x="279" y="289" width="42" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please login" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="di8-ut-jUr">
+                    <rect key="frame" x="254" y="289" width="93" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spg-7Z-S6n">
+                    <rect key="frame" x="235" y="508" width="130" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="GNZ-dp-wiy"/>
+                    </constraints>
+                    <state key="normal" title="Login">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="login:" destination="-1" eventType="touchUpInside" id="QIt-TJ-PYB"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="PAV-Io-LeL" secondAttribute="centerY" constant="0.5" id="acZ-o9-pdI"/>
-                <constraint firstAttribute="centerX" secondItem="PAV-Io-LeL" secondAttribute="centerX" id="sGH-A0-dG8"/>
+                <constraint firstAttribute="bottom" secondItem="spg-7Z-S6n" secondAttribute="bottom" constant="62" id="akH-gL-Jpt"/>
+                <constraint firstAttribute="centerY" secondItem="di8-ut-jUr" secondAttribute="centerY" constant="0.5" id="bGO-QV-Aqm"/>
+                <constraint firstAttribute="centerX" secondItem="di8-ut-jUr" secondAttribute="centerX" constant="-0.5" id="gLq-Gh-Nhe"/>
+                <constraint firstItem="spg-7Z-S6n" firstAttribute="centerX" secondItem="di8-ut-jUr" secondAttribute="centerX" id="sVU-a1-Nqa"/>
             </constraints>
+            <point key="canvasLocation" x="306" y="280"/>
         </view>
     </objects>
 </document>

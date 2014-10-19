@@ -21,16 +21,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         filesViewController.id = 0 // Load root
         filesViewController.navigationItem.title = "Your Files"
-        navigationController = UINavigationController(rootViewController: filesViewController)
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
 
         // if user logged
         if false {
-            window?.rootViewController = navigationController
+            navigationController = UINavigationController(rootViewController: filesViewController)
+            
         } else {
-           window?.rootViewController = startup
+            navigationController = UINavigationController(rootViewController: startup)
         }
 
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
 
         return true
