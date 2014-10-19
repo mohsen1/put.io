@@ -13,7 +13,6 @@
 		8258E8F419F3E00D00BB5E12 /* FileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8258E8F219F3E00D00BB5E12 /* FileViewController.xib */; };
 		8258E92819F4402D00BB5E12 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E92619F4402D00BB5E12 /* MainViewController.swift */; };
 		8258E92E19F4579400BB5E12 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E92C19F4579400BB5E12 /* AccountViewController.swift */; };
-		8258E92F19F4579400BB5E12 /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8258E92D19F4579400BB5E12 /* AccountViewController.xib */; };
 		825B078919F3312700E65789 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B078819F3312700E65789 /* AppDelegate.swift */; };
 		825B079019F3312700E65789 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 825B078F19F3312700E65789 /* Images.xcassets */; };
 		825B079F19F3312700E65789 /* put_ioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B079E19F3312700E65789 /* put_ioTests.swift */; };
@@ -52,7 +51,6 @@
 		8258E8F219F3E00D00BB5E12 /* FileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FileViewController.xib; sourceTree = "<group>"; };
 		8258E92619F4402D00BB5E12 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8258E92C19F4579400BB5E12 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		8258E92D19F4579400BB5E12 /* AccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
 		825B078319F3312700E65789 /* put.io.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = put.io.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		825B078719F3312700E65789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		825B078819F3312700E65789 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,7 +111,6 @@
 				8258E8F119F3E00D00BB5E12 /* FileViewController.swift */,
 				8258E8F219F3E00D00BB5E12 /* FileViewController.xib */,
 				8258E92C19F4579400BB5E12 /* AccountViewController.swift */,
-				8258E92D19F4579400BB5E12 /* AccountViewController.xib */,
 				825B078F19F3312700E65789 /* Images.xcassets */,
 				825B078619F3312700E65789 /* Supporting Files */,
 			);
@@ -258,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8258E8F419F3E00D00BB5E12 /* FileViewController.xib in Resources */,
-				8258E92F19F4579400BB5E12 /* AccountViewController.xib in Resources */,
 				825B079019F3312700E65789 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

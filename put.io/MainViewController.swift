@@ -52,13 +52,14 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         
         // Account
         let accountViewController = AccountViewController()
-        accountViewController.tabBarItem = accountTabBarItem
+        let accountNavigationViewController = UINavigationController(rootViewController: accountViewController)
+        accountNavigationViewController.tabBarItem = accountTabBarItem
         
         
         viewControllers = [
             filesNavigationController,
             transfersNavigationViewController,
-            accountViewController
+            accountNavigationViewController
         ]
 
         var token = UserManager.getUserToken()

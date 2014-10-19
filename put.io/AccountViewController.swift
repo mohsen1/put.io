@@ -8,10 +8,17 @@
 
 import UIKit
 
-class AccountViewController: UIViewController {
+class AccountViewController: UITableViewController {
+    
+    override func viewWillAppear(animated: Bool) {
+        navigationItem.title = "Account"
+        super.viewWillAppear(animated)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        var login = LoginWebViewController()
+        navigationController?.pushViewController(login, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
