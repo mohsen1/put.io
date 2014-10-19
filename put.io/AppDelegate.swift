@@ -16,18 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         var filesViewController = FilesViewController()
+        var navigationController:UINavigationController
+        var startup = StartupViewController(nibName: "StartupViewController", bundle: NSBundle.mainBundle())
+        
         filesViewController.id = 0 // Load root
         filesViewController.navigationItem.title = "Your Files"
-        var navigationController = UINavigationController(rootViewController: filesViewController)
+        navigationController = UINavigationController(rootViewController: filesViewController)
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
-        window?.rootViewController = navigationController
-        
-//        var startup = StartupViewController()
-//        window?.rootViewController = startup
-        
-    
-        window?.backgroundColor = UIColor.whiteColor()
+
+        // if user logged
+        if false {
+            window?.rootViewController = navigationController
+        } else {
+           window?.rootViewController = startup
+        }
+
         window?.makeKeyAndVisible()
 
         return true

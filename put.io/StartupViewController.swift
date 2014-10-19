@@ -15,6 +15,14 @@ class StartupViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 
     
     override func viewWillAppear(animated: Bool) {
