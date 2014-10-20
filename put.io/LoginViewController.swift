@@ -57,7 +57,7 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        spinner.hidden = true
+        spinner?.hidden = true
     }
 
     override func viewDidLoad() {
