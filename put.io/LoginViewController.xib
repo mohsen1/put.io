@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="put_io" customModuleProvider="target">
+            <connections>
+                <outlet property="passwordField" destination="Bof-t9-Khj" id="9Qf-Nh-nAj"/>
+                <outlet property="sp" destination="DeJ-kz-6Xc" id="s3w-gt-l8p"/>
+                <outlet property="usernameField" destination="KAV-Ab-Fct" id="NZa-NF-eGx"/>
+                <outlet property="view" destination="iN0-l3-epB" id="YSi-VI-zKe"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KAV-Ab-Fct">
+                    <rect key="frame" x="8" y="107" width="304" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMR-0i-zhL">
+                    <rect key="frame" x="8" y="78" width="304" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dj7-30-E3V">
+                    <rect key="frame" x="8" y="145" width="304" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bof-t9-Khj">
+                    <rect key="frame" x="8" y="173" width="304" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bl-jL-rhT">
+                    <rect key="frame" x="8" y="212" width="304" height="30"/>
+                    <state key="normal" title="Login">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="loginTapped:" destination="-1" eventType="touchDown" id="db7-eU-zbm"/>
+                    </connections>
+                </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DeJ-kz-6Xc">
+                    <rect key="frame" x="150" y="274" width="20" height="20"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="2bl-jL-rhT" secondAttribute="trailing" constant="8" id="3SC-io-Kba"/>
+                <constraint firstItem="pMR-0i-zhL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="EXi-vN-Pl8"/>
+                <constraint firstItem="KAV-Ab-Fct" firstAttribute="top" secondItem="pMR-0i-zhL" secondAttribute="bottom" constant="8.5" id="F03-qu-Xdh"/>
+                <constraint firstItem="2bl-jL-rhT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="J2W-qs-O2T"/>
+                <constraint firstItem="2bl-jL-rhT" firstAttribute="top" secondItem="Bof-t9-Khj" secondAttribute="bottom" constant="9" id="Qve-uP-t2u"/>
+                <constraint firstAttribute="centerX" secondItem="DeJ-kz-6Xc" secondAttribute="centerX" id="ULE-GC-uKp"/>
+                <constraint firstItem="Bof-t9-Khj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="h0w-CU-7nC"/>
+                <constraint firstAttribute="trailing" secondItem="pMR-0i-zhL" secondAttribute="trailing" constant="8" id="iAk-3U-Eov"/>
+                <constraint firstAttribute="trailing" secondItem="Bof-t9-Khj" secondAttribute="trailing" constant="8" id="l2W-lk-Ej0"/>
+                <constraint firstAttribute="trailing" secondItem="KAV-Ab-Fct" secondAttribute="trailing" constant="8" id="n4o-Js-9Ki"/>
+                <constraint firstItem="pMR-0i-zhL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="78" id="quj-UV-vN4"/>
+                <constraint firstItem="Bof-t9-Khj" firstAttribute="top" secondItem="dj7-30-E3V" secondAttribute="bottom" constant="8" id="x3j-Nv-Czx"/>
+                <constraint firstItem="dj7-30-E3V" firstAttribute="top" secondItem="KAV-Ab-Fct" secondAttribute="bottom" constant="8" id="xl8-NT-UD0"/>
+                <constraint firstAttribute="trailing" secondItem="dj7-30-E3V" secondAttribute="trailing" constant="8" id="y6I-ja-31K"/>
+                <constraint firstItem="dj7-30-E3V" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="yDO-4g-2RN"/>
+                <constraint firstItem="KAV-Ab-Fct" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="yu8-ie-uFZ"/>
+                <constraint firstAttribute="centerY" secondItem="DeJ-kz-6Xc" secondAttribute="centerY" id="yyY-qD-Hqx"/>
+            </constraints>
+            <point key="canvasLocation" x="324" y="392"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

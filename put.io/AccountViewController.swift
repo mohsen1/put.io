@@ -8,38 +8,7 @@
 
 import UIKit
 
-class AccountViewController: UITableViewController, UIWebViewDelegate {
-
-    func login(){
-        let url = "https://api.put.io/v2/oauth2/authenticate?client_id=1655" +
-            "&response_type=token&redirect_uri=http://mohsenweb.com/put.io/"
-        var webView = UIWebView()
-        let URL = NSURL(string: url)
-        
-        webView.delegate = self
-        view.addSubview(webView)
-        webView.loadRequest(NSURLRequest(URL: URL))
-    }
-    
-    func webViewDidFinishLoad(webView: UIWebView) {
-        let fragment:NSString? = webView.request!.URL.fragment
-        let url = webView.request!.URL.standardizedURL
-        let loginJs = "document.querySelector('[name=\"name\"]').value = '';" +
-            "document.querySelector('[name=\"password\"]').value = '';" +
-            "document.querySelector('[type=\"submit\"]').click();"
-        
-        if fragment != nil {
-            if let range = fragment?.rangeOfString("access_token=") {
-                if let token = fragment?.substringFromIndex(13) { // 13 is "access_token=" length
-                    UserManager.saveUserToken(token)
-                    tabBarController?.tabBar.hidden = false;
-                    tabBarController?.selectedIndex = 0
-                }
-            }
-        } else {
-            webView.stringByEvaluatingJavaScriptFromString(loginJs)
-        }
-    }
+class AccountViewController: UITableViewController {
     
     // MARK: View
     override func viewWillAppear(animated: Bool) {
@@ -70,8 +39,8 @@ class AccountViewController: UITableViewController, UIWebViewDelegate {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 0 {
-//            openLogin()
-            login()
+            let loginViewController = LoginViewController()
+            navigationController?.pushViewController(loginViewController, animated: true)
         }
 
     }
