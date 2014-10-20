@@ -67,9 +67,15 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         // if user not logged in
         if (token == nil) {
             selectedIndex = 2
+            tabBar.hidden = true
         } else {
-            selectedIndex = 0
+            loggedIn()
         }
+    }
+    
+    internal func loggedIn(){
+        selectedIndex = 0
+        tabBar.hidden = false
     }
     
 

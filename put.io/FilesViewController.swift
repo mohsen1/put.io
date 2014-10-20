@@ -13,11 +13,15 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
 
     var files = NSArray()
     var id:NSNumber?
-    var token:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
+        if self.id != nil {
+            self.fetchList(self.id!)
+        } else {
+            self.fetchList(0)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,10 +30,11 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
     
     // MARK: - HTTP
     func fetchList(id:NSNumber) {
-        var request = HTTPTask()
-        var url = "https://api.put.io/v2/files/list"
-        var params = [
-            "oauth_token": "\(self.token!)",
+        let request = HTTPTask()
+        let url = "https://api.put.io/v2/files/list"
+        let token = UserManager.getUserToken()
+        let params = [
+            "oauth_token": "\(token!)",
             "parent_id": "\(id)"
         ]
         
