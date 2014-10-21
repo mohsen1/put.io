@@ -9,19 +9,15 @@
 import UIKit
 
 class LoginViewController: UIViewController , UIWebViewDelegate {
-    @IBOutlet weak var usernameField: UITextField!
+    var username:String = ""
+    var password:String = ""
     
+    @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     @IBAction func loginTapped(sender: AnyObject) {
-        let username = usernameField.text
-        let password = passwordField.text
-        
-        if username != nil && password != nil {
-            login()
-        }
+        login()
     }
     func login(){
         let url = "https://api.put.io/v2/oauth2/authenticate?client_id=1655" +
@@ -29,19 +25,27 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
         var webView = UIWebView()
         let URL = NSURL(string: url)
         
-        spinner.hidden = false
-        spinner?.startAnimating()
-        
-        webView.delegate = self
-        view.addSubview(webView)
-        webView.loadRequest(NSURLRequest(URL: URL))
+        username = usernameField.text
+        password = passwordField.text
+
+        username = username.stringByTrimmingCharactersInSet(.whitespaceAndNewlineCharacterSet())
+        password = password.stringByTrimmingCharactersInSet(.whitespaceAndNewlineCharacterSet())
+        if !username.isEmpty && !password.isEmpty {
+            spinner.hidden = false
+            spinner?.startAnimating()
+            webView.delegate = self
+            view.addSubview(webView)
+            webView.loadRequest(NSURLRequest(URL: URL))
+        } else {
+            
+        }
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
         let fragment:NSString? = webView.request!.URL.fragment
         let url = webView.request!.URL.standardizedURL
-        let loginJs = "document.querySelector('[name=\"name\"]').value = '\(usernameField.text!)';" +
-            "document.querySelector('[name=\"password\"]').value = '\(passwordField.text!)';" +
+        let loginJs = "document.querySelector('[name=\"name\"]').value = '\(username)';" +
+            "document.querySelector('[name=\"password\"]').value = '\(password)';" +
         "document.querySelector('[type=\"submit\"]').click();"
         
         if fragment != nil {
