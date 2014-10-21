@@ -8,7 +8,6 @@
             <connections>
                 <outlet property="fileNameLabel" destination="7QD-gz-10p" id="Cx1-AT-On3"/>
                 <outlet property="thumbnail" destination="9rW-dR-Lx9" id="69D-lc-Aak"/>
-                <outlet property="title" destination="7QD-gz-10p" id="PFe-SC-HxO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

@@ -12,7 +12,7 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
     @IBOutlet weak var usernameField: UITextField!
     
     @IBOutlet weak var passwordField: UITextField!
-    
+
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     @IBAction func loginTapped(sender: AnyObject) {
@@ -55,9 +55,16 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
         }
     }
     
+    override func loadView() {
+        super.loadView()
+        let nib = UINib(nibName: "LoginViewController", bundle: nil)
+        nib.instantiateWithOwner(self, options: nil)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         spinner?.hidden = true
+        spinner?.startAnimating()
     }
 
     override func viewDidLoad() {
