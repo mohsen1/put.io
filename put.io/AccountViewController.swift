@@ -44,13 +44,14 @@ class AccountViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
 
         
-        cell.textLabel?.text = "Login"
+        cell.textLabel?.text = "Logout"
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 0 {
+            UserManager.deleteUserToken()
             openLogin(true)
         }
 

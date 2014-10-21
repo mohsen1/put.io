@@ -28,6 +28,11 @@ class UserManager: NSObject {
         token = token_
         storeToken(token!)
     }
+    
+    class func deleteUserToken() {
+        token = nil
+        NSFileManager.defaultManager().removeItemAtPath(fileName, error: nil)
+    }
 }
 
 

@@ -54,6 +54,8 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
                     UserManager.saveUserToken(token)
                     tabBarController?.tabBar.hidden = false;
                     tabBarController?.selectedIndex = 0
+                    navigationController?.setNavigationBarHidden(false, animated: false)
+                    navigationController?.popToRootViewControllerAnimated(false)
                 }
             }
         } else {
