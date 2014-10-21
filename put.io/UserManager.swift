@@ -8,36 +8,17 @@
 
 import UIKit
 
-private var token:String?
-private let fileName = "token.secret"
-
 class UserManager: NSObject {
+    
     class func getUserToken() -> String? {
-        if token != nil {
-            return token
-        } else {
-            if (NSFileManager.defaultManager().fileExistsAtPath(fileName)) {
-                token = NSString.stringWithContentsOfFile(fileName, encoding: NSUTF8StringEncoding, error: nil) as String
-                return token
-            }
-            return nil
-        }
+        return NSUserDefaults.standardUserDefaults().objectForKey("token") as String?
     }
     
-    class func saveUserToken(token_:String) {
-        token = token_
-        storeToken(token!)
+    class func saveUserToken(token:String) {
+         NSUserDefaults.standardUserDefaults().setObject(token, forKey: "token")
     }
     
     class func deleteUserToken() {
-        token = nil
-        NSFileManager.defaultManager().removeItemAtPath(fileName, error: nil)
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("token")
     }
-}
-
-
-func storeToken(token:NSString) {
-    let tokenData = token.dataUsingEncoding(NSUTF8StringEncoding)
-    NSFileManager.defaultManager().createFileAtPath(fileName, contents: tokenData, attributes: [NSFileProtectionKey: NSFileProtectionComplete])
-    
 }
