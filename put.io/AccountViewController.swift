@@ -10,11 +10,23 @@ import UIKit
 
 class AccountViewController: UITableViewController {
     
+    func openLogin(animated:Bool) {
+        let loginViewController = LoginViewController()
+        navigationController?.pushViewController(loginViewController, animated: animated)
+    }
+    
     // MARK: View
     override func viewWillAppear(animated: Bool) {
         navigationItem.title = "Account"
         self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
         super.viewWillAppear(animated)
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if UserManager.getUserToken() == nil {
+            openLogin(false)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,8 +51,7 @@ class AccountViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 0 {
-            let loginViewController = LoginViewController()
-            navigationController?.pushViewController(loginViewController, animated: true)
+            openLogin(true)
         }
 
     }

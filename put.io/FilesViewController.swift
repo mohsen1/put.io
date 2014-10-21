@@ -32,11 +32,13 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
     func fetchList(id:NSNumber) {
         let request = HTTPTask()
         let url = "https://api.put.io/v2/files/list"
-        let token = UserManager.getUserToken()
-        let params = [
-            "oauth_token": "\(token!)",
-            "parent_id": "\(id)"
-        ]
+        var params = Dictionary<String, String>()
+        if let token = UserManager.getUserToken() {
+            params = [
+                "oauth_token": "\(token)",
+                "parent_id": "\(id)"
+            ]
+        }
         
         request.GET(url, parameters: params, success: {(response: HTTPResponse) in
             if let data = response.responseObject as? NSData {

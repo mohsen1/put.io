@@ -30,6 +30,8 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
         let URL = NSURL(string: url)
         
         spinner.hidden = false
+        spinner?.startAnimating()
+        
         webView.delegate = self
         view.addSubview(webView)
         webView.loadRequest(NSURLRequest(URL: URL))
@@ -64,13 +66,12 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         spinner?.hidden = true
-        spinner?.startAnimating()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Login"
-        // Do any additional setup after loading the view.
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
