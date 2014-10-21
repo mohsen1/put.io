@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		821C11DC19F647260031122A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821C11DB19F647260031122A /* Extensions.swift */; };
 		8258E8EE19F3D4F700BB5E12 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E8ED19F3D4F700BB5E12 /* UserManager.swift */; };
 		8258E8F319F3E00D00BB5E12 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E8F119F3E00D00BB5E12 /* FileViewController.swift */; };
 		8258E8F419F3E00D00BB5E12 /* FileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8258E8F219F3E00D00BB5E12 /* FileViewController.xib */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		821C11DB19F647260031122A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8258E8ED19F3D4F700BB5E12 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		8258E8F119F3E00D00BB5E12 /* FileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileViewController.swift; sourceTree = "<group>"; };
 		8258E8F219F3E00D00BB5E12 /* FileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FileViewController.xib; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				8258E8F219F3E00D00BB5E12 /* FileViewController.xib */,
 				8258E92C19F4579400BB5E12 /* AccountViewController.swift */,
 				829F52AD19F4DC3E0032B485 /* LoginViewController.swift */,
+				821C11DB19F647260031122A /* Extensions.swift */,
 				829F52B119F4DC8E0032B485 /* LoginViewController.xib */,
 				825B078F19F3312700E65789 /* Images.xcassets */,
 				825B078619F3312700E65789 /* Supporting Files */,
@@ -280,6 +283,7 @@
 				829F52AE19F4DC3E0032B485 /* LoginViewController.swift in Sources */,
 				825B07B519F337C900E65789 /* FilesViewController.swift in Sources */,
 				8258E8F319F3E00D00BB5E12 /* FileViewController.swift in Sources */,
+				821C11DC19F647260031122A /* Extensions.swift in Sources */,
 				8258E92E19F4579400BB5E12 /* AccountViewController.swift in Sources */,
 				8258E92819F4402D00BB5E12 /* MainViewController.swift in Sources */,
 				8258E8EE19F3D4F700BB5E12 /* UserManager.swift in Sources */,
