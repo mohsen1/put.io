@@ -54,8 +54,9 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
         request.GET(url, parameters: params, success: {(response: HTTPResponse) in
             if let data = response.responseObject as? NSData {
                 var jsonError:NSError?
-                if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
+                if var json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
                     self.info = json["info"] as NSDictionary
+                    
                     dispatch_async(dispatch_get_main_queue()) {
                         self.tableView.reloadData()
                     }
@@ -81,13 +82,18 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
 
-        let key = info.allKeys[indexPath.row] as? NSString
-        let value = info.allValues[indexPath.row] as? NSString
-        
-        if key != nil && value != nil {
-            cell.textLabel?.text = "\(key!): \(value!)"
-        } else {
-            cell.textLabel?.text = "Unknown"
+        if let key = info.allKeys[indexPath.row] as? NSString {
+            if let value = info.allValues[indexPath.row] as? NSString {
+                cell.textLabel?.text = "\(key): \(value)"
+            }
+            else if let value = info.allValues[indexPath.row] as? NSDictionary {
+                cell.textLabel?.text = key
+                cell.accessoryType = .DisclosureIndicator
+            }
+            else if let value = info.allValues[indexPath.row] as? NSArray {
+                let values = value.componentsJoinedByString(", ")
+                cell.textLabel?.text = "\(key): \(values)"
+            }
         }
         
         return cell
