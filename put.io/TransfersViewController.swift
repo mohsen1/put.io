@@ -1,4 +1,4 @@
-//
+    //
 //  TransfersViewController.swift
 //  put.io
 //
@@ -14,7 +14,9 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
+        var nib = UINib(nibName: "TransferCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "TransferCell")
+//        tableView.registerClass(TransferCell.classForCoder(), forCellReuseIdentifier: "TransferCell")
         self.fetchList()
     }
     
@@ -23,10 +25,6 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         navigationItem.title = "Transfers"
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     // MARK: - HTTP
     func fetchList() {
         let request = HTTPTask()
@@ -63,12 +61,14 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
     }
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TransferCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("TransferCell", forIndexPath: indexPath) as TransferCell
         let transfer:NSDictionary = self.transfers[indexPath.row] as NSDictionary
         
-        cell.textLabel?.text = transfer["name"] as NSString
-        
+        if let percentage = transfer["percent_done"] as NSInteger? {
+            cell.percentage?.text = "%\(percentage)"
+        }
+        cell.title?.text = transfer["name"] as NSString
         return cell
     }
     

@@ -17,6 +17,8 @@
 		825B079F19F3312700E65789 /* put_ioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B079E19F3312700E65789 /* put_ioTests.swift */; };
 		825B07B519F337C900E65789 /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B07B419F337C900E65789 /* FilesViewController.swift */; };
 		8290F98019F76CBC00158036 /* TransfersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F97F19F76CBC00158036 /* TransfersViewController.swift */; };
+		8290F98319F770E300158036 /* TransferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F98119F770E300158036 /* TransferCell.swift */; };
+		8290F98419F770E300158036 /* TransferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8290F98219F770E300158036 /* TransferCell.xib */; };
 		829F52AE19F4DC3E0032B485 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829F52AD19F4DC3E0032B485 /* LoginViewController.swift */; };
 		829F52B219F4DC8E0032B485 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829F52B119F4DC8E0032B485 /* LoginViewController.xib */; };
 		82C726E319F399020045496A /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C726E019F398A00045496A /* SwiftHTTP.framework */; };
@@ -61,6 +63,8 @@
 		825B079E19F3312700E65789 /* put_ioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = put_ioTests.swift; sourceTree = "<group>"; };
 		825B07B419F337C900E65789 /* FilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
 		8290F97F19F76CBC00158036 /* TransfersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransfersViewController.swift; sourceTree = "<group>"; };
+		8290F98119F770E300158036 /* TransferCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCell.swift; sourceTree = "<group>"; };
+		8290F98219F770E300158036 /* TransferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransferCell.xib; sourceTree = "<group>"; };
 		829F52AD19F4DC3E0032B485 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		829F52B119F4DC8E0032B485 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		82C726DA19F398A00045496A /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = Libraries/SwiftHTTP/SwiftHTTP.xcodeproj; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				8290F97F19F76CBC00158036 /* TransfersViewController.swift */,
+				8290F98119F770E300158036 /* TransferCell.swift */,
+				8290F98219F770E300158036 /* TransferCell.xib */,
 			);
 			name = Transfers;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 			files = (
 				8258E8F419F3E00D00BB5E12 /* FileViewController.xib in Resources */,
 				825B079019F3312700E65789 /* Images.xcassets in Resources */,
+				8290F98419F770E300158036 /* TransferCell.xib in Resources */,
 				829F52B219F4DC8E0032B485 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8290F98319F770E300158036 /* TransferCell.swift in Sources */,
 				829F52AE19F4DC3E0032B485 /* LoginViewController.swift in Sources */,
 				825B07B519F337C900E65789 /* FilesViewController.swift in Sources */,
 				8258E8F319F3E00D00BB5E12 /* FileViewController.swift in Sources */,
