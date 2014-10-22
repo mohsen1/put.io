@@ -15,6 +15,7 @@ class TransferCell: UITableViewCell {
     @IBOutlet weak var progress: UIProgressView!
     override func awakeFromNib() {
         super.awakeFromNib()
+
         // Initialization code
     }
 

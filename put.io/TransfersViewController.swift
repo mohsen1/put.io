@@ -23,6 +23,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.title = "Transfers"
+        tableView.rowHeight = 60
     }
 
     // MARK: - HTTP
@@ -67,9 +68,11 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         
         if let percentage = transfer["percent_done"] as NSInteger? {
             cell.percentage?.text = "%\(percentage)"
-            cell.progress?.progress = Float(percentage)
+            cell.progress?.progress = (Float(percentage) / 100)
         }
         cell.title?.text = transfer["name"] as NSString
+        
+
         return cell
     }
     
