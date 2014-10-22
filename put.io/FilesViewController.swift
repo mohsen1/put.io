@@ -13,6 +13,11 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
 
     var files = NSArray()
     var id:NSNumber?
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = "Your Files"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

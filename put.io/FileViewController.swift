@@ -22,7 +22,7 @@ class FileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationItem.title = "Your Files"
         // Do any additional setup after loading the view.
     }
     

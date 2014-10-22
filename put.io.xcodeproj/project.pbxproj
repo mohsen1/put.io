@@ -16,6 +16,7 @@
 		825B079019F3312700E65789 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 825B078F19F3312700E65789 /* Images.xcassets */; };
 		825B079F19F3312700E65789 /* put_ioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B079E19F3312700E65789 /* put_ioTests.swift */; };
 		825B07B519F337C900E65789 /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B07B419F337C900E65789 /* FilesViewController.swift */; };
+		8290F98019F76CBC00158036 /* TransfersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F97F19F76CBC00158036 /* TransfersViewController.swift */; };
 		829F52AE19F4DC3E0032B485 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829F52AD19F4DC3E0032B485 /* LoginViewController.swift */; };
 		829F52B219F4DC8E0032B485 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829F52B119F4DC8E0032B485 /* LoginViewController.xib */; };
 		82C726E319F399020045496A /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C726E019F398A00045496A /* SwiftHTTP.framework */; };
@@ -59,6 +60,7 @@
 		825B079D19F3312700E65789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		825B079E19F3312700E65789 /* put_ioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = put_ioTests.swift; sourceTree = "<group>"; };
 		825B07B419F337C900E65789 /* FilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
+		8290F97F19F76CBC00158036 /* TransfersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransfersViewController.swift; sourceTree = "<group>"; };
 		829F52AD19F4DC3E0032B485 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		829F52B119F4DC8E0032B485 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		82C726DA19F398A00045496A /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = Libraries/SwiftHTTP/SwiftHTTP.xcodeproj; sourceTree = "<group>"; };
@@ -105,15 +107,11 @@
 		825B078519F3312700E65789 /* put.io */ = {
 			isa = PBXGroup;
 			children = (
+				8290F97C19F76C4E00158036 /* Transfers */,
+				8290F97B19F76C2000158036 /* Account */,
+				8290F97819F76BFE00158036 /* Files */,
 				825B078819F3312700E65789 /* AppDelegate.swift */,
 				8258E92619F4402D00BB5E12 /* MainViewController.swift */,
-				825B07B419F337C900E65789 /* FilesViewController.swift */,
-				8258E8ED19F3D4F700BB5E12 /* UserManager.swift */,
-				8258E8F119F3E00D00BB5E12 /* FileViewController.swift */,
-				8258E8F219F3E00D00BB5E12 /* FileViewController.xib */,
-				8258E92C19F4579400BB5E12 /* AccountViewController.swift */,
-				829F52AD19F4DC3E0032B485 /* LoginViewController.swift */,
-				829F52B119F4DC8E0032B485 /* LoginViewController.xib */,
 				825B078F19F3312700E65789 /* Images.xcassets */,
 				825B078619F3312700E65789 /* Supporting Files */,
 			);
@@ -143,6 +141,35 @@
 				825B079D19F3312700E65789 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8290F97819F76BFE00158036 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				8258E8F119F3E00D00BB5E12 /* FileViewController.swift */,
+				8258E8F219F3E00D00BB5E12 /* FileViewController.xib */,
+				825B07B419F337C900E65789 /* FilesViewController.swift */,
+			);
+			name = Files;
+			sourceTree = "<group>";
+		};
+		8290F97B19F76C2000158036 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				829F52AD19F4DC3E0032B485 /* LoginViewController.swift */,
+				829F52B119F4DC8E0032B485 /* LoginViewController.xib */,
+				8258E8ED19F3D4F700BB5E12 /* UserManager.swift */,
+				8258E92C19F4579400BB5E12 /* AccountViewController.swift */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
+		8290F97C19F76C4E00158036 /* Transfers */ = {
+			isa = PBXGroup;
+			children = (
+				8290F97F19F76CBC00158036 /* TransfersViewController.swift */,
+			);
+			name = Transfers;
 			sourceTree = "<group>";
 		};
 		82C726DB19F398A00045496A /* Products */ = {
@@ -284,6 +311,7 @@
 				8258E92819F4402D00BB5E12 /* MainViewController.swift in Sources */,
 				8258E8EE19F3D4F700BB5E12 /* UserManager.swift in Sources */,
 				825B078919F3312700E65789 /* AppDelegate.swift in Sources */,
+				8290F98019F76CBC00158036 /* TransfersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,7 +26,7 @@
 		<key>38D9009B322140394B9DA7467F68950B56B35FF5</key>
 		<string>../../../Desktop/SwiftHTTP</string>
 		<key>4E2F5E824C021282D3F5789E108FCDC580F66A19</key>
-		<string>../../Libraries/Dollar.swift/</string>
+		<string>../../Libraries/Dollar.swift</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:mohsen1/put.io.git</string>

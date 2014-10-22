@@ -33,22 +33,16 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         
         // Files
         let filesViewController = FilesViewController()
-        var filesNavigationController:UINavigationController
-        filesNavigationController = UINavigationController(rootViewController: filesViewController)
+        var filesNavigationController = UINavigationController(rootViewController: filesViewController)
         filesNavigationController.tabBarItem = filesTabBarItem
         filesViewController.id = 0 // Load root
-        filesViewController.navigationItem.title = "Your Files"
         
         
         // Transfers
-        let transfersViewController = UIViewController()
-        //todo:
-        transfersViewController.view = UIView()
-        transfersViewController.view.backgroundColor = UIColor.redColor()
-        
-        var transfersNavigationViewController = UINavigationController(rootViewController: transfersViewController)
-        transfersNavigationViewController.tabBarItem = transfersTabBarItem
-        transfersViewController.navigationItem.title = "Transfers"
+        let transfersViewController = TransfersViewController()
+        var transfersNavigationController = UINavigationController(rootViewController: transfersViewController)
+        transfersNavigationController.tabBarItem = transfersTabBarItem
+
         
         // Account
         let accountViewController = AccountViewController()
@@ -58,7 +52,7 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         
         viewControllers = [
             filesNavigationController,
-            transfersNavigationViewController,
+            transfersNavigationController,
             accountNavigationViewController
         ]
 
