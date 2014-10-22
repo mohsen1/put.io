@@ -47,6 +47,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="percentage" destination="lxC-d7-PS1" id="UGK-KS-7ug"/>
+                <outlet property="progress" destination="9mC-9a-4XL" id="KRD-Qi-H1T"/>
                 <outlet property="title" destination="05c-57-Jqg" id="xDN-DY-hZG"/>
             </connections>
         </tableViewCell>

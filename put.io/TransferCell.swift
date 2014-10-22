@@ -12,7 +12,7 @@ class TransferCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var percentage: UILabel!
-
+    @IBOutlet weak var progress: UIProgressView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
