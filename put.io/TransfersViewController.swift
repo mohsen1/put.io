@@ -25,11 +25,28 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         
         let refresh = UIBarButtonItem(title: "Refresh", style: .Plain, target: self, action: "fetchList")
         navigationItem.rightBarButtonItem = refresh
-        
+
+        let clean = UIBarButtonItem(title: "Clean", style: .Plain, target: self, action: "clean")
+        navigationItem.leftBarButtonItem = clean
         tableView.rowHeight = 60
     }
 
     // MARK: - HTTP
+    func clean() {
+        let request = HTTPTask()
+        let url = "https://api.put.io/v2/transfers/clean"
+        var params = Dictionary<String, String>()
+        if let token = UserManager.getUserToken() {
+            params = ["oauth_token": "\(token)"]
+        }
+        
+        request.POST(url, parameters: params, success: {(response: HTTPResponse) in
+            self.fetchList()
+        }, failure: {(error: NSError) in
+            print("\(error)")
+        })
+    }
+
     func fetchList() {
         let request = HTTPTask()
         let url = "https://api.put.io/v2/transfers/list"
