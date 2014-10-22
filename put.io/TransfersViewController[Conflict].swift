@@ -23,7 +23,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         super.viewWillAppear(animated)
         navigationItem.title = "Transfers"
         
-        let refresh = UIBarButtonItem(title: "Refresh", style: .Plain, target: self, action: "fetchList")
+        let refresh = UIBarButtonItem(title: "↻", style: .Plain, target: self, action: "fetchList")
         navigationItem.rightBarButtonItem = refresh
         
         tableView.rowHeight = 60
