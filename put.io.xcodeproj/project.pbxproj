@@ -16,6 +16,12 @@
 		825B079019F3312700E65789 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 825B078F19F3312700E65789 /* Images.xcassets */; };
 		825B079F19F3312700E65789 /* put_ioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B079E19F3312700E65789 /* put_ioTests.swift */; };
 		825B07B519F337C900E65789 /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B07B419F337C900E65789 /* FilesViewController.swift */; };
+		825CA1E619FB771E007281AB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825CA1E519FB771E007281AB /* CoreData.framework */; };
+		825CA1F119FB7771007281AB /* data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 825CA1EF19FB7771007281AB /* data.xcdatamodeld */; };
+		825CA22119FB7E9C007281AB /* FileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825CA22019FB7E9C007281AB /* FileStore.swift */; };
+		825CA22319FB8239007281AB /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825CA22219FB8239007281AB /* File.swift */; };
+		825CA22619FB914F007281AB /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825CA22519FB914F007281AB /* CoreDataStore.swift */; };
+		825CA22C19FB9164007281AB /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825CA22B19FB9164007281AB /* CoreDataHelper.swift */; };
 		8290F98019F76CBC00158036 /* TransfersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F97F19F76CBC00158036 /* TransfersViewController.swift */; };
 		8290F98319F770E300158036 /* TransferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F98119F770E300158036 /* TransferCell.swift */; };
 		8290F98419F770E300158036 /* TransferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8290F98219F770E300158036 /* TransferCell.xib */; };
@@ -31,6 +37,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 825B078219F3312700E65789;
 			remoteInfo = put.io;
+		};
+		825CA1EB19FB771E007281AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82C726DA19F398A00045496A /* SwiftHTTP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D958025919E6EEEB003C8218;
+			remoteInfo = SwiftHTTPOSX;
+		};
+		825CA1ED19FB771E007281AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82C726DA19F398A00045496A /* SwiftHTTP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D958026319E6EEEB003C8218;
+			remoteInfo = SwiftHTTPOSXTests;
 		};
 		82C726DF19F398A00045496A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -62,6 +82,12 @@
 		825B079D19F3312700E65789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		825B079E19F3312700E65789 /* put_ioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = put_ioTests.swift; sourceTree = "<group>"; };
 		825B07B419F337C900E65789 /* FilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
+		825CA1E519FB771E007281AB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		825CA1F019FB7771007281AB /* data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = data.xcdatamodel; sourceTree = "<group>"; };
+		825CA22019FB7E9C007281AB /* FileStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStore.swift; sourceTree = "<group>"; };
+		825CA22219FB8239007281AB /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		825CA22519FB914F007281AB /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
+		825CA22B19FB9164007281AB /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		8290F97F19F76CBC00158036 /* TransfersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransfersViewController.swift; sourceTree = "<group>"; };
 		8290F98119F770E300158036 /* TransferCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCell.swift; sourceTree = "<group>"; };
 		8290F98219F770E300158036 /* TransferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransferCell.xib; sourceTree = "<group>"; };
@@ -75,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				825CA1E619FB771E007281AB /* CoreData.framework in Frameworks */,
 				82C726E319F399020045496A /* SwiftHTTP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,6 +119,7 @@
 		825B077A19F3312700E65789 = {
 			isa = PBXGroup;
 			children = (
+				825CA1E519FB771E007281AB /* CoreData.framework */,
 				82C726DA19F398A00045496A /* SwiftHTTP.xcodeproj */,
 				825B078519F3312700E65789 /* put.io */,
 				825B079B19F3312700E65789 /* put.ioTests */,
@@ -117,6 +145,9 @@
 				825B078819F3312700E65789 /* AppDelegate.swift */,
 				8258E92619F4402D00BB5E12 /* MainViewController.swift */,
 				825B078F19F3312700E65789 /* Images.xcassets */,
+				825CA1EF19FB7771007281AB /* data.xcdatamodeld */,
+				825CA22519FB914F007281AB /* CoreDataStore.swift */,
+				825CA22B19FB9164007281AB /* CoreDataHelper.swift */,
 				825B078619F3312700E65789 /* Supporting Files */,
 			);
 			path = put.io;
@@ -153,6 +184,8 @@
 				8258E8F119F3E00D00BB5E12 /* FileViewController.swift */,
 				8258E8F219F3E00D00BB5E12 /* FileViewController.xib */,
 				825B07B419F337C900E65789 /* FilesViewController.swift */,
+				825CA22019FB7E9C007281AB /* FileStore.swift */,
+				825CA22219FB8239007281AB /* File.swift */,
 			);
 			name = Files;
 			sourceTree = "<group>";
@@ -183,6 +216,8 @@
 			children = (
 				82C726E019F398A00045496A /* SwiftHTTP.framework */,
 				82C726E219F398A00045496A /* SwiftHTTPTests.xctest */,
+				825CA1EC19FB771E007281AB /* SwiftHTTPOSX.framework */,
+				825CA1EE19FB771E007281AB /* SwiftHTTPOSXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -269,6 +304,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		825CA1EC19FB771E007281AB /* SwiftHTTPOSX.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftHTTPOSX.framework;
+			remoteRef = 825CA1EB19FB771E007281AB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		825CA1EE19FB771E007281AB /* SwiftHTTPOSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftHTTPOSXTests.xctest;
+			remoteRef = 825CA1ED19FB771E007281AB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		82C726E019F398A00045496A /* SwiftHTTP.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -312,12 +361,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8290F98319F770E300158036 /* TransferCell.swift in Sources */,
+				825CA22319FB8239007281AB /* File.swift in Sources */,
+				825CA22119FB7E9C007281AB /* FileStore.swift in Sources */,
 				829F52AE19F4DC3E0032B485 /* LoginViewController.swift in Sources */,
 				825B07B519F337C900E65789 /* FilesViewController.swift in Sources */,
 				8258E8F319F3E00D00BB5E12 /* FileViewController.swift in Sources */,
+				825CA22619FB914F007281AB /* CoreDataStore.swift in Sources */,
 				8258E92E19F4579400BB5E12 /* AccountViewController.swift in Sources */,
 				8258E92819F4402D00BB5E12 /* MainViewController.swift in Sources */,
 				8258E8EE19F3D4F700BB5E12 /* UserManager.swift in Sources */,
+				825CA22C19FB9164007281AB /* CoreDataHelper.swift in Sources */,
+				825CA1F119FB7771007281AB /* data.xcdatamodeld in Sources */,
 				825B078919F3312700E65789 /* AppDelegate.swift in Sources */,
 				8290F98019F76CBC00158036 /* TransfersViewController.swift in Sources */,
 			);
@@ -504,6 +558,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		825CA1EF19FB7771007281AB /* data.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				825CA1F019FB7771007281AB /* data.xcdatamodel */,
+			);
+			currentVersion = 825CA1F019FB7771007281AB /* data.xcdatamodel */;
+			path = data.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 825B077B19F3312700E65789 /* Project object */;
 }
