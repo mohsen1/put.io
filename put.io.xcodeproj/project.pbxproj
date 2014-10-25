@@ -15,7 +15,7 @@
 		825B078919F3312700E65789 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B078819F3312700E65789 /* AppDelegate.swift */; };
 		825B079019F3312700E65789 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 825B078F19F3312700E65789 /* Images.xcassets */; };
 		825B079F19F3312700E65789 /* put_ioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B079E19F3312700E65789 /* put_ioTests.swift */; };
-		825B07B519F337C900E65789 /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B07B419F337C900E65789 /* FilesViewController.swift */; };
+		825B07B519F337C900E65789 /* FolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B07B419F337C900E65789 /* FolderViewController.swift */; };
 		825CA1E619FB771E007281AB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825CA1E519FB771E007281AB /* CoreData.framework */; };
 		825CA1F119FB7771007281AB /* data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 825CA1EF19FB7771007281AB /* data.xcdatamodeld */; };
 		825CA22119FB7E9C007281AB /* FileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825CA22019FB7E9C007281AB /* FileStore.swift */; };
@@ -81,7 +81,7 @@
 		825B079819F3312700E65789 /* put.ioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = put.ioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		825B079D19F3312700E65789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		825B079E19F3312700E65789 /* put_ioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = put_ioTests.swift; sourceTree = "<group>"; };
-		825B07B419F337C900E65789 /* FilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
+		825B07B419F337C900E65789 /* FolderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderViewController.swift; sourceTree = "<group>"; };
 		825CA1E519FB771E007281AB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		825CA1F019FB7771007281AB /* data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = data.xcdatamodel; sourceTree = "<group>"; };
 		825CA22019FB7E9C007281AB /* FileStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStore.swift; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 			children = (
 				8258E8F119F3E00D00BB5E12 /* FileViewController.swift */,
 				8258E8F219F3E00D00BB5E12 /* FileViewController.xib */,
-				825B07B419F337C900E65789 /* FilesViewController.swift */,
+				825B07B419F337C900E65789 /* FolderViewController.swift */,
 				825CA22019FB7E9C007281AB /* FileStore.swift */,
 				825CA22219FB8239007281AB /* File.swift */,
 			);
@@ -364,7 +364,7 @@
 				825CA22319FB8239007281AB /* File.swift in Sources */,
 				825CA22119FB7E9C007281AB /* FileStore.swift in Sources */,
 				829F52AE19F4DC3E0032B485 /* LoginViewController.swift in Sources */,
-				825B07B519F337C900E65789 /* FilesViewController.swift in Sources */,
+				825B07B519F337C900E65789 /* FolderViewController.swift in Sources */,
 				8258E8F319F3E00D00BB5E12 /* FileViewController.swift in Sources */,
 				825CA22619FB914F007281AB /* CoreDataStore.swift in Sources */,
 				8258E92E19F4579400BB5E12 /* AccountViewController.swift in Sources */,

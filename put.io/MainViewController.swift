@@ -32,10 +32,10 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         let accountTabBarItem = UITabBarItem(title: "Account", image: accountTabBarIcon, tag: 2)
         
         // Files
-        let filesViewController = FilesViewController()
-        var filesNavigationController = UINavigationController(rootViewController: filesViewController)
+        let folderViewController = FolderViewController()
+        var filesNavigationController = UINavigationController(rootViewController: folderViewController)
         filesNavigationController.tabBarItem = filesTabBarItem
-        filesViewController.id = 0 // Load root
+        folderViewController.id = 0 // Load root
         
         
         // Transfers

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwiftHTTP
 
 private let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     
@@ -37,5 +38,39 @@ class FileStore {
         
         return result as NSArray
     }
+    
+    class func getFolder (id:Int, completionHandler: ([File])->()) {
+        fetchList(id, completionHandler: completionHandler)
+    }
+    
+    // MARK: - HTTP
+    private class func fetchList(id:Int, completionHandler: ([File])->()) {
+        let request = HTTPTask()
+        let url = "https://api.put.io/v2/files/list"
+        var params = Dictionary<String, String>()
+        if let token = UserManager.getUserToken() {
+            params = [
+                "oauth_token": "\(token)",
+                "parent_id": "\(id)"
+            ]
+        }
+        
+        request.GET(url, parameters: params, success: {(response: HTTPResponse) in
+            if let data = response.responseObject as? NSData {
+                var jsonError:NSError?
+                if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
+                    if let jsonFiles = json["files"] as? NSArray {
+                        let resultFiles = FileStore.filesFromJsonArray(jsonFiles) as [File]
+                        completionHandler(resultFiles)
+                    }
+                    
+                }
+            }
+            }, failure: {(error: NSError, response: HTTPResponse?) in
+                // TODO
+                print(error)
+        })
+    }
+
     
 }
