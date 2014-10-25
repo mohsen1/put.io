@@ -58,6 +58,24 @@ class FileStore {
         
     }
     
+    class func getFile (id:Int, completionHandler: (File)->()) {
+        var error: NSError? = nil
+        var fetchReq = NSFetchRequest(entityName: "File")
+        
+        fetchReq.predicate = NSPredicate(format: "id == \(id)")
+        
+        if let result = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchReq, error:&error) as? [File]{
+            
+            if result.count > 0 {
+                completionHandler(result[0])
+            } else {
+                fetchList(id, completionHandler: { fetchResult in
+                    completionHandler(fetchResult[0])
+                })
+            }
+        }
+    }
+    
     // MARK: - HTTP
     private class func fetchList(id:Int, completionHandler: ([File])->()) {
         let request = HTTPTask()

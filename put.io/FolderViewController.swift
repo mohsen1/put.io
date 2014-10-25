@@ -12,6 +12,7 @@ import SwiftHTTP
 class FolderViewController: UITableViewController, UIAlertViewDelegate {
 
     var files = [File]()
+    var folder = File()
     var id:Int?
 
     override func viewDidLoad() {
@@ -23,6 +24,11 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
             dispatch_async(dispatch_get_main_queue()) {
                 self.tableView.reloadData()
             }
+        })
+        
+        FileStore.getFile(id!, { (result:File) in
+            //self.folder = result
+
         })
     }
 
