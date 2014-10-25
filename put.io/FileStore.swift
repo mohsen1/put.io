@@ -40,7 +40,22 @@ class FileStore {
     }
     
     class func getFolder (id:Int, completionHandler: ([File])->()) {
-        fetchList(id, completionHandler: completionHandler)
+        var error: NSError? = nil
+        var fetchReq = NSFetchRequest(entityName: "File")
+        let sorter: NSSortDescriptor = NSSortDescriptor(key: "name" , ascending: false)
+        
+        fetchReq.predicate = NSPredicate(format: "parent_id == \(id)")
+        fetchReq.sortDescriptors = [sorter]
+        
+        if let result = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchReq, error:&error) as? [File]{
+            
+            if result.count > 0 {
+                completionHandler(result)
+            } else {
+                fetchList(id, completionHandler: completionHandler)
+            }
+        }
+        
     }
     
     // MARK: - HTTP
@@ -61,6 +76,8 @@ class FileStore {
                 if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
                     if let jsonFiles = json["files"] as? NSArray {
                         let resultFiles = FileStore.filesFromJsonArray(jsonFiles) as [File]
+                        appDelegate.cdh.saveContext(appDelegate.cdh.managedObjectContext!)
+                        
                         completionHandler(resultFiles)
                     }
                     

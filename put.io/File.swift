@@ -16,6 +16,8 @@ class File: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var content_type: String
     @NSManaged var isFolder: Bool
+//    @NSManaged var parent: File
+//    @NSManaged var children: NSSet
     
     func fillWithJson(json:NSDictionary){
         if let _name = json["name"] as? String {
@@ -26,13 +28,17 @@ class File: NSManagedObject {
         }
         if let _parent_id = json["parent_id"] as? Int {
             parent_id = _parent_id
+//            parent = FileStore.getFile(parent_id)
         }
         if let _content_type = json["content_type"] as? String {
             content_type = _content_type
         }
         
         
-        // Determine if it's a folder
-        isFolder = content_type == "application/x-directory"
+        // Determine if it's a folder and assign children
+        if content_type == "application/x-directory" {
+            isFolder = true
+//            FileStore.getFolder(id, { (files:[File]) in self.children = files})
+        }
     }
 }

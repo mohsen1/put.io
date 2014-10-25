@@ -13,7 +13,7 @@
         <attribute name="size" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="File" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="File" positionX="-65" positionY="114" width="128" height="118"/>
         <element name="Transfer" positionX="-54" positionY="-9" width="128" height="90"/>
     </elements>
 </model>
