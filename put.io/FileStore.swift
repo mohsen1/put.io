@@ -13,7 +13,7 @@ private let appDelegate = UIApplication.sharedApplication().delegate as AppDeleg
     
 class FileStore {
     class func newFile(json: NSDictionary)-> File {
-        var file: File = NSEntityDescription.insertNewObjectForEntityForName("File", inManagedObjectContext: appDelegate.cdh.backgroundContext!) as File
+        var file = NSEntityDescription.insertNewObjectForEntityForName("File", inManagedObjectContext: appDelegate.cdh.managedObjectContext!) as File
         file.fillWithJson(json)
         
         return file

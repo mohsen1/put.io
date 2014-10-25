@@ -9,7 +9,7 @@
 import UIKit
 
 class FileViewController: UIViewController {
-    var file:NSDictionary?
+    var file:File?
     
     @IBOutlet weak var fileNameLabel: UILabel!
     @IBOutlet weak var thumbnail: UIImageView!
@@ -27,10 +27,8 @@ class FileViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        let name = self.file!["name"] as NSString?
-        if name != nil {
+        if let name = self.file?.name {
             self.navigationItem.title = name
-           // fileNameLabel.text = name
         }
         
     }

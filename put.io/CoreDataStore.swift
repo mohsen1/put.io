@@ -13,7 +13,7 @@ import CoreData
 class CoreDataStore: NSObject{
     
     let storeName = "data"
-    let storeFilename = "PutIO.sqlite"
+    let storeFilename = "dataa.sqlite"
     
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "me.iascchen.MyTTT" in the application's documents Application Support directory.

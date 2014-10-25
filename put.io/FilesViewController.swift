@@ -13,11 +13,6 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
 
     var files = NSArray()
     var id:NSNumber?
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationItem.title = "Your Files"
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +24,6 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     // MARK: - HTTP
     func fetchList(id:NSNumber) {
@@ -49,8 +41,9 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
             if let data = response.responseObject as? NSData {
                 var jsonError:NSError?
                 if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
-                    let jsonFiles = json["files"] as NSArray
-                    self.files = FileStore.filesFromJsonArray(jsonFiles)
+                    if let jsonFiles = json["files"] as? NSArray {
+                        self.files = FileStore.filesFromJsonArray(jsonFiles)
+                    }
                     
                     dispatch_async(dispatch_get_main_queue()) {
                         self.tableView.reloadData()
@@ -90,25 +83,23 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let file = self.files[indexPath.row] as NSDictionary
-//        let fileIcon = file["icon"] as? String
-//
-//        // if it's a folder drill down navigation
-//        if fileIcon!.rangeOfString("folder.png", options: nil) != nil {
-//            let filesViewController:FilesViewController = FilesViewController()
-//            filesViewController.id = file["id"] as? NSNumber
-//            filesViewController.navigationItem.title = file["name"] as? NSString
-//
-//            self.navigationController?.pushViewController(filesViewController, animated: true)
-//        }
+        let file = self.files[indexPath.row] as File
+
+        // if it's a folder drill down navigation
+        if file.isFolder {
+            let filesViewController = FilesViewController()
+            filesViewController.id = file.id
+
+            self.navigationController?.pushViewController(filesViewController, animated: true)
+        }
         
         // else, it's a file. open file view controoler
-//        else {
-//            let fileViewController = FileViewController()
-//            fileViewController.file = file
-//            self.navigationController?.pushViewController(fileViewController, animated: true)
-//            
-//        }
+        else {
+            let fileViewController = FileViewController()
+            fileViewController.file = file
+            self.navigationController?.pushViewController(fileViewController, animated: true)
+            
+        }
     }
 
 }
