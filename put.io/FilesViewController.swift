@@ -55,7 +55,7 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
                     }
                 }
             }
-            }, failure: {(error: NSError) in
+            }, failure: {(error: NSError, response: HTTPResponse?) in
                 var alert = UIAlertView(title: "Network Error", message: "Error fetching your files!", delegate: self, cancelButtonTitle: "OK", otherButtonTitles: "Retry")
 
                 dispatch_async(dispatch_get_main_queue()) {
@@ -82,7 +82,7 @@ class FilesViewController: UITableViewController, UIAlertViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
         let file:NSDictionary = self.files[indexPath.row] as NSDictionary
         
-        cell.textLabel?.text = file["name"] as NSString
+        cell.textLabel.text = file["name"] as NSString
  
         return cell
     }

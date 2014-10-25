@@ -43,7 +43,7 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
         spinner?.startAnimating()
         webView.delegate = self
         view.addSubview(webView)
-        webView.loadRequest(NSURLRequest(URL: URL))
+        webView.loadRequest(NSURLRequest(URL: URL!))
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {

@@ -42,7 +42,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         
         request.POST(url, parameters: params, success: {(response: HTTPResponse) in
             self.fetchList()
-        }, failure: {(error: NSError) in
+            }, failure: {(error: NSError, response: HTTPResponse?) in
             print("\(error)")
         })
     }
@@ -65,7 +65,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
                     }
                 }
             }
-            }, failure: {(error: NSError) in
+            }, failure: {(error: NSError, response: HTTPResponse?) in
                 var alert = UIAlertView(title: "Network Error", message: "Error fetching transfers!", delegate: self, cancelButtonTitle: "OK", otherButtonTitles: "Retry")
                 
                 dispatch_async(dispatch_get_main_queue()) {

@@ -62,7 +62,7 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
                     }
                 }
             }
-            }, failure: {(error: NSError) in
+            }, failure: {(error: NSError, response: HTTPResponse?) in
                 var alert = UIAlertView(title: "Network Error", message: "Error fetching account inoformation!", delegate: self, cancelButtonTitle: "OK", otherButtonTitles: "Retry")
                 
                 dispatch_async(dispatch_get_main_queue()) {
@@ -84,15 +84,15 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
 
         if let key = info.allKeys[indexPath.row] as? NSString {
             if let value = info.allValues[indexPath.row] as? NSString {
-                cell.textLabel?.text = "\(key): \(value)"
+                cell.textLabel.text = "\(key): \(value)"
             }
             else if let value = info.allValues[indexPath.row] as? NSDictionary {
-                cell.textLabel?.text = key
+                cell.textLabel.text = key
                 cell.accessoryType = .DisclosureIndicator
             }
             else if let value = info.allValues[indexPath.row] as? NSArray {
                 let values = value.componentsJoinedByString(", ")
-                cell.textLabel?.text = "\(key): \(values)"
+                cell.textLabel.text = "\(key): \(values)"
             }
         }
         
