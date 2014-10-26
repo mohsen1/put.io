@@ -9,66 +9,14 @@
 import UIKit
 
 class LoginViewController: UIViewController , UIWebViewDelegate {
-    var username:String = ""
-    var password:String = ""
-    var triedUsernamePassword:Bool = false
     
-    @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    
-    @IBAction func loginTapped(sender: AnyObject) {
-        login()
-    }
-    
-    func login(){
-        username = usernameField.text
-        password = passwordField.text
+    @IBOutlet weak var webView: UIWebView!
 
-        username = username.stringByTrimmingCharactersInSet(.whitespaceAndNewlineCharacterSet())
-        password = password.stringByTrimmingCharactersInSet(.whitespaceAndNewlineCharacterSet())
-        if !username.isEmpty && !password.isEmpty {
-            triedUsernamePassword = false
-            makeRequest()
-        }
-    }
     
-    func makeRequest(){
-        let url = "https://api.put.io/v2/oauth2/authenticate?client_id=1655" +
-        "&response_type=token&redirect_uri=http://mohsenweb.com/put.io/"
-        var webView = UIWebView()
-        let URL = NSURL(string: url)
-        
-        spinner.hidden = false
-        spinner?.startAnimating()
-        webView.delegate = self
-        view.addSubview(webView)
-        webView.loadRequest(NSURLRequest(URL: URL!))
-    }
-    
-    func webViewDidFinishLoad(webView: UIWebView) {
-        let fragment:NSString? = webView.request!.URL.fragment
-        let url = webView.request!.URL.standardizedURL
-        let loginJs = "document.querySelector('[name=\"name\"]').value = '\(username)';" +
-            "document.querySelector('[name=\"password\"]').value = '\(password)';" +
-        "document.querySelector('[type=\"submit\"]').click();"
-        let range = fragment?.rangeOfString("access_token=")
-        let token = fragment?.substringFromIndex(13) // 13 is "access_token=" length
-        
-        if (fragment != nil) && (range != nil) && (token != nil){
-            FinishLogin(token!)
-        } else if !triedUsernamePassword {
-            triedUsernamePassword = true
-            webView.stringByEvaluatingJavaScriptFromString(loginJs)
-        } else {
-            passwordField.text = ""
-            spinner.hidden = true
-        }
-    }
-    
+   
     func FinishLogin(token:String) {
         AccountStore.initAccount(token, { _ in
-            self.tabBarController?.tabBar.hidden = false;
+            self.tabBarController?.tabBar.hidden = false
             self.tabBarController?.selectedIndex = 0
             self.navigationController?.setNavigationBarHidden(false, animated: false)
             self.navigationController?.popToRootViewControllerAnimated(false)
@@ -81,20 +29,34 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
         nib.instantiateWithOwner(self, options: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        spinner?.hidden = true
-    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Login"
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        self.tabBarController?.tabBar.hidden = true
+        webView.delegate = self
+        let startUrl = "https://api.put.io/v2/oauth2/authenticate?client_id=1655&response_type=token&redirect_uri=http://mohsenweb.com/put.io/"
+        var startRequest = NSMutableURLRequest(URL: NSURL(string: startUrl)!)
+        webView.loadRequest(startRequest)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func webViewDidFinishLoad(webView: UIWebView) {
+        let js = "document.querySelector('img').remove();" +
+            "document.querySelector('h1').innerText = 'Please login';" +
+            "document.querySelector('form').style.textAlign = 'center';" +
+        "document.querySelector('[name=\"name\"]').style.margin = '1em auto';" +
+        "document.querySelector('[name=\"password\"]').style.margin = '2em auto';"
+        
+        webView.stringByEvaluatingJavaScriptFromString(js)
+        
+        if let fragment:NSString? = webView.request!.URL.fragment {
+            if let range = fragment?.rangeOfString("access_token=") {
+                if let token = fragment?.substringFromIndex(13) { // 13 is "access_token=" length
+                    FinishLogin(token)
+                }
+            }
+        }
     }
 
 }
