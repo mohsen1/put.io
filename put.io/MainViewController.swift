@@ -57,9 +57,11 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         ]
         
         // if user not logged in
-        if AccountStore.getAccount().token == nil {
-            selectedIndex = 2
-            tabBar.hidden = true
+        if let account = AccountStore.getAccountSync(){
+            if account.token == nil {
+                selectedIndex = 2
+                tabBar.hidden = true
+            }
         } else {
             loggedIn()
         }

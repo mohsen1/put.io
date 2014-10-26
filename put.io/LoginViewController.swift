@@ -67,13 +67,12 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
     }
     
     func FinishLogin(token:String) {
-        var account = AccountStore.getAccount()
-        account.token = token
-        
-        tabBarController?.tabBar.hidden = false;
-        tabBarController?.selectedIndex = 0
-        navigationController?.setNavigationBarHidden(false, animated: false)
-        navigationController?.popToRootViewControllerAnimated(false)
+        AccountStore.initAccount(token, { _ in
+            self.tabBarController?.tabBar.hidden = false;
+            self.tabBarController?.selectedIndex = 0
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
+            self.navigationController?.popToRootViewControllerAnimated(false)
+        })
     }
     
     override func loadView() {

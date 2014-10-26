@@ -11,10 +11,10 @@ import CoreData
 
 @objc(Account)
 class Account : NSManagedObject {
-    @NSManaged var avatar_url: String
-    @NSManaged var mail: String
+    @NSManaged var avatar_url: String?
+    @NSManaged var mail: String?
     @NSManaged var token: String?
-    @NSManaged var username: String
+    @NSManaged var username: String?
     @NSManaged var disk_avail: Int
     @NSManaged var disk_size: Int
     @NSManaged var disk_used: Int

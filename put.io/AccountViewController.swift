@@ -10,90 +10,54 @@ import UIKit
 import SwiftHTTP
 
 class AccountViewController: UITableViewController, UIAlertViewDelegate {
-    var info = NSDictionary()
+    var account:Account?
     
     func openLogin() {
         AccountStore.deleteAccount()
-        let loginViewController = LoginViewController()
-        navigationController?.pushViewController(loginViewController, animated: true)
+        navigationController?.pushViewController(LoginViewController(), animated: true)
     }
     
     // MARK: View
     override func viewWillAppear(animated: Bool) {
-        navigationItem.title = "Account"
-        self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
-        
         let logout = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: "openLogin")
+        navigationItem.title = "Account"
         navigationItem.rightBarButtonItem = logout
-        self.fetchList()
+        
+        AccountStore.getAccount({ (acct) in
+            if acct.token == nil {
+                self.openLogin()
+            } else {
+                self.account = acct
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.tableView.reloadData()
+                }
+            }
+        })
+    
+        tableView.rowHeight = 180
+        tableView.separatorStyle = .None
+        
+        var nib = UINib(nibName: "AccountInfoCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "AccountInfoCell")
+        
         super.viewWillAppear(animated)
     }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        if AccountStore.getAccount().token == nil{
-            openLogin()
-        }
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    // MARK: - HTTP
-    func fetchList() {
-        let request = HTTPTask()
-        let url = "https://api.put.io/v2/account/info"
-        let account = AccountStore.getAccount()
-        var params = ["oauth_token": "\(account.token)"]
-        
-        request.GET(url, parameters: params, success: {(response: HTTPResponse) in
-            if let data = response.responseObject as? NSData {
-                var jsonError:NSError?
-                if var json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
-                    self.info = json["info"] as NSDictionary
-                    
-                    dispatch_async(dispatch_get_main_queue()) {
-                        self.tableView.reloadData()
-                    }
-                }
-            }
-            }, failure: {(error: NSError, response: HTTPResponse?) in
-                var alert = UIAlertView(title: "Network Error", message: "Error fetching account inoformation!", delegate: self, cancelButtonTitle: "OK", otherButtonTitles: "Retry")
-                
-                dispatch_async(dispatch_get_main_queue()) {
-                    alert.show()
-                }
-                
-        })
-    }
-    
     
     // MARK: - TableView
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return info.count
+        return 1
     }
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> AccountInfoCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("AccountInfoCell", forIndexPath: indexPath) as AccountInfoCell
 
-        if let key = info.allKeys[indexPath.row] as? NSString {
-            if let value = info.allValues[indexPath.row] as? NSString {
-                cell.textLabel.text = "\(key): \(value)"
-            }
-            else if let value = info.allValues[indexPath.row] as? NSDictionary {
-                cell.textLabel.text = key
-                cell.accessoryType = .DisclosureIndicator
-            }
-            else if let value = info.allValues[indexPath.row] as? NSArray {
-                let values = value.componentsJoinedByString(", ")
-                cell.textLabel.text = "\(key): \(values)"
-            }
-        }
+        print(account?.username)
         
+        cell.username?.text = account?.username
+        cell.email?.text = account?.mail
         return cell
     }
     

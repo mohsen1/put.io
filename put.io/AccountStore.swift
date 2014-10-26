@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwiftHTTP
 
 private let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 
@@ -24,34 +25,74 @@ class AccountStore {
     }
     
     class func deleteAccount() {
-        var account = getAccount()
-        appDelegate.cdh.managedObjectContext!.deleteObject(account)
+        if let account = getAccountSync() {
+            appDelegate.cdh.managedObjectContext!.deleteObject(account)
+        }
     }
     
-    class func updateAccount(json:NSDictionary) {
-        var account = getAccount()
-        
+    class func updateAccount(account:Account, json:NSDictionary) {
         account.fill(json)
         saveAccount()
     }
     
-    class func getAccount() -> Account {
+    class func getAccount(completionHandler: (Account)->()) -> () {
         var error: NSError? = nil
         var fetchReq = NSFetchRequest(entityName: "Account")
         
-        if let accounts = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchReq, error:&error) as? [Account]{
+        if let result = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchReq, error:&error) as? [Account]{
             
 
-            if accounts.count > 0 {
-                return accounts[0]
+            if result.count > 0 && result[0].username != nil{
+                completionHandler(result[0])
             }
         }
         let account = createEmptyAccount()
-        return account
+        fetchInfo(account, completionHandler: completionHandler)
         
     }
     
-    class func saveAccount() {
+    class func getAccountSync() -> Account? {
+        var error: NSError? = nil
+        var fetchReq = NSFetchRequest(entityName: "Account")
+        
+        if let result = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchReq, error:&error) as? [Account]{
+            
+            
+            if result.count > 0 && result[0].username != nil{
+                return result[0]
+            }
+        }
+        return nil
+    }
+    
+    class func initAccount(token:String, completionHandler: (Account)->()) {
+        var account = self.createEmptyAccount()
+        account.token = token
+        self.fetchInfo(account, completionHandler: completionHandler)
+    }
+    
+    private class func saveAccount() {
         appDelegate.cdh.saveContext(appDelegate.cdh.managedObjectContext!)
     }
+    
+    // MARK: - HTTP
+    class func fetchInfo(acct: Account, completionHandler: (Account)->()) {
+        let request = HTTPTask()
+        let url = "https://api.put.io/v2/account/info"
+        var params = ["oauth_token": "\(acct.token)"]
+        
+        request.GET(url, parameters: params, success: {(response: HTTPResponse) in
+            if let data = response.responseObject as? NSData {
+                var jsonError:NSError?
+                if var json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
+                    
+                    self.updateAccount(acct, json: json)
+                    completionHandler(acct)
+                }
+            }
+            }, failure: {(error: NSError, response: HTTPResponse?) in
+                print(error) // TODO
+        })
+    }
+    
 }

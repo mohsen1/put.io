@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82084F2F19FC7AA6005DF388 /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82084F2D19FC7AA6005DF388 /* AccountInfoCell.swift */; };
+		82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */; };
 		8258E8EE19F3D4F700BB5E12 /* AccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E8ED19F3D4F700BB5E12 /* AccountStore.swift */; };
 		8258E8F319F3E00D00BB5E12 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E8F119F3E00D00BB5E12 /* FileViewController.swift */; };
 		8258E8F419F3E00D00BB5E12 /* FileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8258E8F219F3E00D00BB5E12 /* FileViewController.xib */; };
@@ -70,6 +72,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		82084F2D19FC7AA6005DF388 /* AccountInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
+		82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountInfoCell.xib; sourceTree = "<group>"; };
 		8258E8ED19F3D4F700BB5E12 /* AccountStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountStore.swift; sourceTree = "<group>"; };
 		8258E8F119F3E00D00BB5E12 /* FileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileViewController.swift; sourceTree = "<group>"; };
 		8258E8F219F3E00D00BB5E12 /* FileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FileViewController.xib; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				829F52AD19F4DC3E0032B485 /* LoginViewController.swift */,
+				82084F2D19FC7AA6005DF388 /* AccountInfoCell.swift */,
+				82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */,
 				829F52B119F4DC8E0032B485 /* LoginViewController.xib */,
 				8258E8ED19F3D4F700BB5E12 /* AccountStore.swift */,
 				826A6EF319FC3F1300D348F1 /* Account.swift */,
@@ -342,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */,
 				8258E8F419F3E00D00BB5E12 /* FileViewController.xib in Resources */,
 				825B079019F3312700E65789 /* Images.xcassets in Resources */,
 				8290F98419F770E300158036 /* TransferCell.xib in Resources */,
@@ -372,6 +379,7 @@
 				8258E8F319F3E00D00BB5E12 /* FileViewController.swift in Sources */,
 				825CA22619FB914F007281AB /* CoreDataStore.swift in Sources */,
 				8258E92E19F4579400BB5E12 /* AccountViewController.swift in Sources */,
+				82084F2F19FC7AA6005DF388 /* AccountInfoCell.swift in Sources */,
 				8258E92819F4402D00BB5E12 /* MainViewController.swift in Sources */,
 				8258E8EE19F3D4F700BB5E12 /* AccountStore.swift in Sources */,
 				825CA22C19FB9164007281AB /* CoreDataHelper.swift in Sources */,

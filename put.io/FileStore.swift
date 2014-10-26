@@ -13,6 +13,7 @@ import SwiftHTTP
 private let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     
 class FileStore {
+    
     class func newFile(json: NSDictionary)-> File {
         var file = NSEntityDescription.insertNewObjectForEntityForName("File", inManagedObjectContext: appDelegate.cdh.managedObjectContext!) as File
         file.fillWithJson(json)
@@ -80,12 +81,15 @@ class FileStore {
     private class func fetchList(id:Int, completionHandler: ([File])->()) {
         let request = HTTPTask()
         let url = "https://api.put.io/v2/files/list"
-        let account = AccountStore.getAccount()
-        
-        let params = [
-            "oauth_token": "\(account.token!)",
-            "parent_id": "\(id)"
-        ]
+        var params = [String:String]()
+        if let account = AccountStore.getAccountSync() {
+            let params = [
+                "oauth_token": "\(account.token!)",
+                "parent_id": "\(id)"
+            ]
+        } else {
+            print("Not logged in and trying to access files")
+        }
         
         request.GET(url, parameters: params, success: {(response: HTTPResponse) in
             if let data = response.responseObject as? NSData {

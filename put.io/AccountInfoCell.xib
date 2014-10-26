@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AccountInfoCell" customModule="put_io" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="AccountInfoCell" customModule="put_io" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sou-yG-ZLd" userLabel="avatar">
+                        <rect key="frame" x="8" y="8" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="iTH-p9-XbH"/>
+                            <constraint firstAttribute="width" constant="60" id="pUU-db-JGd"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="example@example.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gW-Ta-RcG" userLabel="email">
+                        <rect key="frame" x="76" y="43" width="236" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storage: 20GB free of 50GB" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dW-R3-SSR" userLabel="disk">
+                        <rect key="frame" x="8" y="83" width="304" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default subtitle language: Eng" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeB-6i-NHd" userLabel="subtitles">
+                        <rect key="frame" x="8" y="112" width="304" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your plan  expires at 2014/10/28" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZP-Zl-FDF" userLabel="expires">
+                        <rect key="frame" x="8" y="140" width="304" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgl-gb-hnd" userLabel="username">
+                        <rect key="frame" x="76" y="8" width="236" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="KeB-6i-NHd" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="01e-Ff-M87"/>
+                    <constraint firstItem="wgl-gb-hnd" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="0nf-Cb-iBI"/>
+                    <constraint firstItem="sou-yG-ZLd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="75Y-WA-RdC"/>
+                    <constraint firstItem="1gW-Ta-RcG" firstAttribute="top" secondItem="wgl-gb-hnd" secondAttribute="bottom" constant="11" id="H34-CW-gRo"/>
+                    <constraint firstItem="KeB-6i-NHd" firstAttribute="top" secondItem="0dW-R3-SSR" secondAttribute="bottom" constant="8.5" id="SgT-uY-Uee"/>
+                    <constraint firstItem="0dW-R3-SSR" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Ubr-7m-ChL"/>
+                    <constraint firstItem="1gW-Ta-RcG" firstAttribute="leading" secondItem="sou-yG-ZLd" secondAttribute="trailing" constant="8" id="UwV-1c-sW0"/>
+                    <constraint firstItem="wgl-gb-hnd" firstAttribute="leading" secondItem="sou-yG-ZLd" secondAttribute="trailing" constant="8" id="VOG-GJ-rQW"/>
+                    <constraint firstItem="0dW-R3-SSR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Zrd-eP-ZeK"/>
+                    <constraint firstItem="aZP-Zl-FDF" firstAttribute="top" secondItem="KeB-6i-NHd" secondAttribute="bottom" constant="8.5" id="cKi-P0-iXd"/>
+                    <constraint firstItem="aZP-Zl-FDF" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="e2t-CH-Fwa"/>
+                    <constraint firstItem="wgl-gb-hnd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="krU-aX-XMT"/>
+                    <constraint firstItem="sou-yG-ZLd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="q1t-0D-f1L"/>
+                    <constraint firstItem="KeB-6i-NHd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="qOe-Nc-vFC"/>
+                    <constraint firstItem="0dW-R3-SSR" firstAttribute="top" secondItem="sou-yG-ZLd" secondAttribute="bottom" constant="15" id="rHg-6r-dtA"/>
+                    <constraint firstItem="1gW-Ta-RcG" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="xdy-py-WX2"/>
+                    <constraint firstItem="aZP-Zl-FDF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="z3I-4c-0gU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="email" destination="1gW-Ta-RcG" id="FCU-0l-AZB"/>
+                <outlet property="username" destination="wgl-gb-hnd" id="iR2-qP-Qhh"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
