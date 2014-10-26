@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8258E8EE19F3D4F700BB5E12 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E8ED19F3D4F700BB5E12 /* UserManager.swift */; };
+		8258E8EE19F3D4F700BB5E12 /* AccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E8ED19F3D4F700BB5E12 /* AccountStore.swift */; };
 		8258E8F319F3E00D00BB5E12 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E8F119F3E00D00BB5E12 /* FileViewController.swift */; };
 		8258E8F419F3E00D00BB5E12 /* FileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8258E8F219F3E00D00BB5E12 /* FileViewController.xib */; };
 		8258E92819F4402D00BB5E12 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E92619F4402D00BB5E12 /* MainViewController.swift */; };
@@ -22,6 +22,7 @@
 		825CA22319FB8239007281AB /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825CA22219FB8239007281AB /* File.swift */; };
 		825CA22619FB914F007281AB /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825CA22519FB914F007281AB /* CoreDataStore.swift */; };
 		825CA22C19FB9164007281AB /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825CA22B19FB9164007281AB /* CoreDataHelper.swift */; };
+		826A6EF419FC3F1300D348F1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A6EF319FC3F1300D348F1 /* Account.swift */; };
 		8290F98019F76CBC00158036 /* TransfersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F97F19F76CBC00158036 /* TransfersViewController.swift */; };
 		8290F98319F770E300158036 /* TransferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F98119F770E300158036 /* TransferCell.swift */; };
 		8290F98419F770E300158036 /* TransferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8290F98219F770E300158036 /* TransferCell.xib */; };
@@ -69,7 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8258E8ED19F3D4F700BB5E12 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		8258E8ED19F3D4F700BB5E12 /* AccountStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountStore.swift; sourceTree = "<group>"; };
 		8258E8F119F3E00D00BB5E12 /* FileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileViewController.swift; sourceTree = "<group>"; };
 		8258E8F219F3E00D00BB5E12 /* FileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FileViewController.xib; sourceTree = "<group>"; };
 		8258E92619F4402D00BB5E12 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +89,7 @@
 		825CA22219FB8239007281AB /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		825CA22519FB914F007281AB /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
 		825CA22B19FB9164007281AB /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		826A6EF319FC3F1300D348F1 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		8290F97F19F76CBC00158036 /* TransfersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransfersViewController.swift; sourceTree = "<group>"; };
 		8290F98119F770E300158036 /* TransferCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCell.swift; sourceTree = "<group>"; };
 		8290F98219F770E300158036 /* TransferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransferCell.xib; sourceTree = "<group>"; };
@@ -195,7 +197,8 @@
 			children = (
 				829F52AD19F4DC3E0032B485 /* LoginViewController.swift */,
 				829F52B119F4DC8E0032B485 /* LoginViewController.xib */,
-				8258E8ED19F3D4F700BB5E12 /* UserManager.swift */,
+				8258E8ED19F3D4F700BB5E12 /* AccountStore.swift */,
+				826A6EF319FC3F1300D348F1 /* Account.swift */,
 				8258E92C19F4579400BB5E12 /* AccountViewController.swift */,
 			);
 			name = Account;
@@ -365,11 +368,12 @@
 				825CA22119FB7E9C007281AB /* FileStore.swift in Sources */,
 				829F52AE19F4DC3E0032B485 /* LoginViewController.swift in Sources */,
 				825B07B519F337C900E65789 /* FolderViewController.swift in Sources */,
+				826A6EF419FC3F1300D348F1 /* Account.swift in Sources */,
 				8258E8F319F3E00D00BB5E12 /* FileViewController.swift in Sources */,
 				825CA22619FB914F007281AB /* CoreDataStore.swift in Sources */,
 				8258E92E19F4579400BB5E12 /* AccountViewController.swift in Sources */,
 				8258E92819F4402D00BB5E12 /* MainViewController.swift in Sources */,
-				8258E8EE19F3D4F700BB5E12 /* UserManager.swift in Sources */,
+				8258E8EE19F3D4F700BB5E12 /* AccountStore.swift in Sources */,
 				825CA22C19FB9164007281AB /* CoreDataHelper.swift in Sources */,
 				825CA1F119FB7771007281AB /* data.xcdatamodeld in Sources */,
 				825B078919F3312700E65789 /* AppDelegate.swift in Sources */,

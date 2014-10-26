@@ -35,10 +35,8 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
     func clean() {
         let request = HTTPTask()
         let url = "https://api.put.io/v2/transfers/clean"
-        var params = Dictionary<String, String>()
-        if let token = UserManager.getUserToken() {
-            params = ["oauth_token": "\(token)"]
-        }
+        let account = AccountStore.getAccount()
+        var params = ["oauth_token": "\(account.token)"]
         
         request.POST(url, parameters: params, success: {(response: HTTPResponse) in
             self.fetchList()
@@ -50,10 +48,8 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
     func fetchList() {
         let request = HTTPTask()
         let url = "https://api.put.io/v2/transfers/list"
-        var params = Dictionary<String, String>()
-        if let token = UserManager.getUserToken() {
-            params = ["oauth_token": "\(token)"]
-        }
+        let account = AccountStore.getAccount()
+        let params = ["oauth_token": "\(account.token)"]
         
         request.GET(url, parameters: params, success: {(response: HTTPResponse) in
             if let data = response.responseObject as? NSData {

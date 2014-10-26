@@ -12,7 +12,6 @@ import SwiftHTTP
 class FolderViewController: UITableViewController, UIAlertViewDelegate {
 
     var files = [File]()
-    var folder = File()
     var id:Int?
 
     override func viewDidLoad() {
@@ -26,10 +25,13 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
             }
         })
         
-        FileStore.getFile(id!, { (result:File) in
-            //self.folder = result
-
-        })
+        if id == 0 {
+            self.navigationItem.title = "Files"
+        } else {
+            FileStore.getFile(id!, { (result:File) in
+                self.navigationItem.title = result.name
+            })
+        }
     }
 
     

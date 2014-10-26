@@ -13,7 +13,7 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
     var info = NSDictionary()
     
     func openLogin() {
-        UserManager.deleteUserToken()
+        AccountStore.deleteAccount()
         let loginViewController = LoginViewController()
         navigationController?.pushViewController(loginViewController, animated: true)
     }
@@ -31,7 +31,7 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        if UserManager.getUserToken() == nil {
+        if AccountStore.getAccount().token == nil{
             openLogin()
         }
     }
@@ -46,10 +46,8 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
     func fetchList() {
         let request = HTTPTask()
         let url = "https://api.put.io/v2/account/info"
-        var params = Dictionary<String, String>()
-        if let token = UserManager.getUserToken() {
-            params = ["oauth_token": "\(token)"]
-        }
+        let account = AccountStore.getAccount()
+        var params = ["oauth_token": "\(account.token)"]
         
         request.GET(url, parameters: params, success: {(response: HTTPResponse) in
             if let data = response.responseObject as? NSData {

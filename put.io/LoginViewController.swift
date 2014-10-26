@@ -67,7 +67,9 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
     }
     
     func FinishLogin(token:String) {
-        UserManager.saveUserToken(token)
+        var account = AccountStore.getAccount()
+        account.token = token
+        
         tabBarController?.tabBar.hidden = false;
         tabBarController?.selectedIndex = 0
         navigationController?.setNavigationBarHidden(false, animated: false)

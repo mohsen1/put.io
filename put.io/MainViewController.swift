@@ -55,11 +55,9 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
             transfersNavigationController,
             accountNavigationViewController
         ]
-
-        var token = UserManager.getUserToken()
         
         // if user not logged in
-        if (token == nil) {
+        if AccountStore.getAccount().token == nil {
             selectedIndex = 2
             tabBar.hidden = true
         } else {
