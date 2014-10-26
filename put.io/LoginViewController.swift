@@ -29,15 +29,21 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
         nib.instantiateWithOwner(self, options: nil)
     }
     
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.tabBarController?.tabBar.hidden = true
+        super.viewWillAppear(animated)
+    }
 
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.title = "Login"
-        self.tabBarController?.tabBar.hidden = true
-        webView.delegate = self
         let startUrl = "https://api.put.io/v2/oauth2/authenticate?client_id=1655&response_type=token&redirect_uri=http://mohsenweb.com/put.io/"
         var startRequest = NSMutableURLRequest(URL: NSURL(string: startUrl)!)
+        
+        super.viewDidLoad()
+        
+        webView.delegate = self
         webView.loadRequest(startRequest)
     }
 
@@ -45,8 +51,8 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
         let js = "document.querySelector('img').remove();" +
             "document.querySelector('h1').innerText = 'Please login';" +
             "document.querySelector('form').style.textAlign = 'center';" +
-        "document.querySelector('[name=\"name\"]').style.margin = '1em auto';" +
-        "document.querySelector('[name=\"password\"]').style.margin = '2em auto';"
+            "document.querySelector('[name=\"name\"]').style.margin = '1em auto';" +
+            "document.querySelector('[name=\"password\"]').style.margin = '2em auto';"
         
         webView.stringByEvaluatingJavaScriptFromString(js)
         

@@ -56,31 +56,16 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
             accountNavigationViewController
         ]
         
-        // if user not logged in
+        // if user not logged in go to inxex 2 (Account) else go to index 0 (Files)
         if let account = AccountStore.getAccountSync(){
             if account.token == nil {
                 selectedIndex = 2
-                tabBar.hidden = true
+            } else {
+                selectedIndex = 0
             }
         } else {
-            loggedIn()
+            selectedIndex = 2
         }
     }
-    
-    internal func loggedIn(){
-        selectedIndex = 0
-        tabBar.hidden = false
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

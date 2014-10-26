@@ -23,7 +23,7 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
         navigationItem.title = "Account"
         navigationItem.rightBarButtonItem = logout
         
-        AccountStore.getAccount({ (acct) in
+        if let acct = AccountStore.getAccountSync() {
             if acct.token == nil {
                 self.openLogin()
             } else {
@@ -32,7 +32,9 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
                     self.tableView.reloadData()
                 }
             }
-        })
+        } else {
+            self.openLogin()
+        }
     
         tableView.rowHeight = 180
         tableView.separatorStyle = .None
