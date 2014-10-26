@@ -55,8 +55,6 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> AccountInfoCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("AccountInfoCell", forIndexPath: indexPath) as AccountInfoCell
-
-        print(account?.username)
         
         cell.username?.text = account?.username
         cell.email?.text = account?.mail

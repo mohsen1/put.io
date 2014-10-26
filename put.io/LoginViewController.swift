@@ -65,9 +65,12 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
         if currentUrl?.rangeOfString("/login") != nil {
             webView.stringByEvaluatingJavaScriptFromString(js)
         }
-        
+
         if let token = webView.stringByEvaluatingJavaScriptFromString("if(location.hash.indexOf('access_token=') > -1) location.hash.split('=')[1]") {
-                FinishLogin(token)
+                if token != "" {
+                    FinishLogin(token)
+                }
+
         }
     }
 

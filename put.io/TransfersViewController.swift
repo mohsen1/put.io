@@ -44,9 +44,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
 
         request.POST(url, parameters: params, success: {(response: HTTPResponse) in
             self.fetchList()
-            }, failure: {(error: NSError, response: HTTPResponse?) in
-            print("\(error)")
-        })
+            }, failure: {(error: NSError, response: HTTPResponse?) in print(error)})
     }
 
     func fetchList() {
