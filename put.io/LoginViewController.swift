@@ -10,17 +10,19 @@ import UIKit
 
 class LoginViewController: UIViewController , UIWebViewDelegate {
     
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var loginWebView: UIWebView!
+    @IBOutlet weak var refreshButton: UIButton!
+    @IBOutlet weak var loadingMessageLabel: UILabel!
+    @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
 
     
    
     func FinishLogin(token:String) {
-        AccountStore.initAccount(token, { _ in
-            self.tabBarController?.tabBar.hidden = false
-            self.tabBarController?.selectedIndex = 0
-            self.navigationController?.setNavigationBarHidden(false, animated: false)
-            self.navigationController?.popToRootViewControllerAnimated(false)
-        })
+        AccountStore.initAccount(token)
+        self.tabBarController?.tabBar.hidden = false
+        self.tabBarController?.selectedIndex = 0
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.popToRootViewControllerAnimated(false)
     }
     
     override func loadView() {
@@ -31,20 +33,21 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
     
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.tabBarController?.tabBar.hidden = true
-        super.viewWillAppear(animated)
     }
 
 
     override func viewDidLoad() {
-        let startUrl = "https://api.put.io/v2/oauth2/authenticate?client_id=1655&response_type=token&redirect_uri=http://mohsenweb.com/put.io/"
-        var startRequest = NSMutableURLRequest(URL: NSURL(string: startUrl)!)
-        
         super.viewDidLoad()
-        
-        webView.delegate = self
-        webView.loadRequest(startRequest)
+        startRequest()
+    }
+    
+    func webViewDidStartLoad(webView: UIWebView) {
+        loadingActivityIndicator.hidden = false
+        loadingActivityIndicator.startAnimating()
+        loadingMessageLabel.text = "Loading..."
     }
 
     func webViewDidFinishLoad(webView: UIWebView) {
@@ -53,16 +56,37 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
             "document.querySelector('form').style.textAlign = 'center';" +
             "document.querySelector('[name=\"name\"]').style.margin = '1em auto';" +
             "document.querySelector('[name=\"password\"]').style.margin = '2em auto';"
+        let currentUrl = webView.stringByEvaluatingJavaScriptFromString("window.location.href")
         
-        webView.stringByEvaluatingJavaScriptFromString(js)
+        loadingActivityIndicator.hidden = true
+        loadingActivityIndicator.stopAnimating()
+        loadingMessageLabel.text = ""
         
-        if let fragment:NSString? = webView.request!.URL.fragment {
-            if let range = fragment?.rangeOfString("access_token=") {
-                if let token = fragment?.substringFromIndex(13) { // 13 is "access_token=" length
-                    FinishLogin(token)
-                }
-            }
+        if currentUrl?.rangeOfString("/login") != nil {
+            webView.stringByEvaluatingJavaScriptFromString(js)
+        }
+        
+        if let token = webView.stringByEvaluatingJavaScriptFromString("if(location.hash.indexOf('access_token=') > -1) location.hash.split('=')[1]") {
+                FinishLogin(token)
         }
     }
 
+    @IBAction func refresh(sender: AnyObject) {
+        loginWebView.loadHTMLString("", baseURL: nil)
+        startRequest()
+        loginWebView.reload()
+    }
+    
+    
+    func startRequest() {
+        let startUrl = "https://api.put.io/v2/oauth2/authenticate?client_id=1655&response_type=token&redirect_uri=http://mohsenweb.com/put.io/"
+        var startRequest = NSMutableURLRequest(URL: NSURL(string: startUrl)!)
+        
+        loadingActivityIndicator.hidden = false
+        loadingActivityIndicator.startAnimating()
+        loadingMessageLabel.text = "Loading..."
+        
+        loginWebView.delegate = self
+        loginWebView.loadRequest(startRequest)
+    }
 }

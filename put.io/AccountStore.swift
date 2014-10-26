@@ -65,10 +65,10 @@ class AccountStore {
         return nil
     }
     
-    class func initAccount(token:String, completionHandler: (Account)->()) {
+    class func initAccount(token:String) {
         var account = self.createEmptyAccount()
         account.token = token
-        self.fetchInfo(account, completionHandler: completionHandler)
+        self.fetchInfo(account, completionHandler: {_ in })
     }
     
     private class func saveAccount() {
@@ -79,14 +79,15 @@ class AccountStore {
     class func fetchInfo(acct: Account, completionHandler: (Account)->()) {
         let request = HTTPTask()
         let url = "https://api.put.io/v2/account/info"
-        var params = ["oauth_token": "\(acct.token)"]
-        
+        var params = ["oauth_token": "\(acct.token!)"]
+
         request.GET(url, parameters: params, success: {(response: HTTPResponse) in
             if let data = response.responseObject as? NSData {
                 var jsonError:NSError?
                 if var json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
                     
                     self.updateAccount(acct, json: json)
+                    self.saveAccount()
                     completionHandler(acct)
                 }
             }
