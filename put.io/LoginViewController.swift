@@ -85,8 +85,9 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
     }
 
     @IBAction func refresh(sender: AnyObject) {
+        loginWebView.stopLoading()
         loginWebView.loadRequest(NSURLRequest(URL: NSURL(string: "about:blank")!))
-        startRequest()
+        self.startRequest()
     }
     
     

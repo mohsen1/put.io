@@ -13,6 +13,14 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
     var account:Account?
     
     func openLogin(animated:Bool = true) {
+        let appDomain = NSBundle.mainBundle().bundleIdentifier
+        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+        let cookies = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+
+        for cookie in cookies.cookies! {
+            cookies.deleteCookie(cookie as NSHTTPCookie)
+        }
+
         AccountStore.deleteAccount()
         navigationController?.pushViewController(LoginViewController(), animated: animated)
     }
