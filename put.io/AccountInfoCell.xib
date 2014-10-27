@@ -74,7 +74,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="email" destination="1gW-Ta-RcG" id="FCU-0l-AZB"/>
+                <outlet property="expires" destination="aZP-Zl-FDF" id="rS6-Lp-mhF"/>
                 <outlet property="storage" destination="0dW-R3-SSR" id="3ju-hU-qY9"/>
+                <outlet property="subtitleLang" destination="KeB-6i-NHd" id="TVZ-mb-8BV"/>
                 <outlet property="username" destination="wgl-gb-hnd" id="iR2-qP-Qhh"/>
             </connections>
         </tableViewCell>

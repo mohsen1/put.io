@@ -12,12 +12,14 @@ import CoreData
 @objc(Account)
 class Account : NSManagedObject {
     @NSManaged var avatar_url: String
-    @NSManaged var mail: String
+    @NSManaged var mail: String?
     @NSManaged var token: String?
     @NSManaged var username: String?
     @NSManaged var disk_avail: Double
     @NSManaged var disk_size: Double
     @NSManaged var disk_used: Double
+    @NSManaged var default_subtitle_language: String?
+    @NSManaged var plan_expiration_date: NSDate?
     
     func fill(json:NSDictionary) {
         if let _username = json["username"] as? String {
@@ -33,6 +35,14 @@ class Account : NSManagedObject {
             disk_avail = disk["avail"] as Double
             disk_size = disk["size"] as Double
             disk_used = disk["used"] as Double
+        }
+        if let _default_subtitle_language = json["default_subtitle_language"] as? String {
+            default_subtitle_language = _default_subtitle_language
+        }
+        if let _plan_expiration_date = json["plan_expiration_date"] as? String {
+            var formatter = NSDateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            plan_expiration_date = formatter.dateFromString(_plan_expiration_date)!
         }
     }
 }
