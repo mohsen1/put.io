@@ -21,10 +21,12 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
         println("Init acount with token: \(token)")
         AccountStore.initAccount(token, { _ in
             println("account init callback")
-            self.tabBarController?.tabBar.hidden = false
-            self.tabBarController?.selectedIndex = 0
-            self.navigationController?.setNavigationBarHidden(false, animated: false)
-            self.navigationController?.popToRootViewControllerAnimated(true)
+            dispatch_async(dispatch_get_main_queue()) {
+                self.tabBarController?.tabBar.hidden = false
+                self.tabBarController?.selectedIndex = 0
+                self.navigationController?.setNavigationBarHidden(false, animated: false)
+                self.navigationController?.popToRootViewControllerAnimated(true)
+            }
         })
     }
     
