@@ -73,6 +73,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="avatarImage" destination="sou-yG-ZLd" id="edC-aD-Hhy"/>
                 <outlet property="email" destination="1gW-Ta-RcG" id="FCU-0l-AZB"/>
                 <outlet property="expires" destination="aZP-Zl-FDF" id="rS6-Lp-mhF"/>
                 <outlet property="storage" destination="0dW-R3-SSR" id="3ju-hU-qY9"/>

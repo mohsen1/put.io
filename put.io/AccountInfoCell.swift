@@ -9,6 +9,7 @@
 import UIKit
 
 class AccountInfoCell: UITableViewCell {
+    @IBOutlet weak var avatarImage: UIImageView!
 
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var storage: UILabel!
@@ -43,6 +44,16 @@ class AccountInfoCell: UITableViewCell {
         var formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
         let stringDate = formatter.stringFromDate(date!)
-        expires?.text = "Your plan expires at \(stringDate)"
+        expires?.text = "Plan expires at \(stringDate)"
+
+        if let avatarUrl = account?.avatar_url {
+            if let imageUrl = NSURL(string: avatarUrl) {
+                if let imageData = NSData(contentsOfURL: imageUrl) {
+                    if let image = UIImage(data: imageData) {
+                        avatarImage.image = image
+                    }
+                }
+            }
+        }
     }
 }
