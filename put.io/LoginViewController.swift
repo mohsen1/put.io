@@ -41,6 +41,7 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.tabBarController?.tabBar.hidden = true
+        self.loginWebView.backgroundColor = UIColor.whiteColor()
     }
 
 

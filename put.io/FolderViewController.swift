@@ -17,13 +17,13 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
-        
-        FileStore.getFolder(id!, { result in
-            self.files = result
-            dispatch_async(dispatch_get_main_queue()) {
-                self.tableView.reloadData()
-            }
-        })
+//        
+//        FileStore.getFolder(id!, { result in
+//            self.files = result
+//            dispatch_async(dispatch_get_main_queue()) {
+//                self.tableView.reloadData()
+//            }
+//        })
         
         if id == 0 {
             self.navigationItem.title = "Files"

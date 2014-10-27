@@ -12,21 +12,25 @@ import SwiftHTTP
 class AccountViewController: UITableViewController, UIAlertViewDelegate {
     var account:Account?
     
-    func openLogin() {
+    func openLogin(animated:Bool = true) {
         AccountStore.deleteAccount()
-        navigationController?.pushViewController(LoginViewController(), animated: true)
+        navigationController?.pushViewController(LoginViewController(), animated: animated)
+    }
+    
+    func openLoginAnimated(){
+        openLogin(animated: true)
     }
     
     // MARK: View
     override func viewWillAppear(animated: Bool) {
-        let logout = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: "openLogin")
+        let logout = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: "openLoginAnimated")
         navigationItem.title = "Account"
         navigationItem.rightBarButtonItem = logout
         
         if let acct = AccountStore.getAccountSync() {
             println("account token after getting accountSync in accountvc is \(acct.token)")
             if acct.token == nil {
-                self.openLogin()
+                self.openLogin(animated: false)
             } else {
                 self.account = acct
                 dispatch_async(dispatch_get_main_queue()) {
@@ -34,7 +38,7 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
                 }
             }
         } else {
-            self.openLogin()
+            self.openLogin(animated: false)
         }
     
         tableView.rowHeight = 180
