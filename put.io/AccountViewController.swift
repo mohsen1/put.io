@@ -24,6 +24,7 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
         navigationItem.rightBarButtonItem = logout
         
         if let acct = AccountStore.getAccountSync() {
+            println("account token after getting accountSync in accountvc is \(acct.token)")
             if acct.token == nil {
                 self.openLogin()
             } else {

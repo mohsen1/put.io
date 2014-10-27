@@ -11,8 +11,8 @@ import CoreData
 
 @objc(Account)
 class Account : NSManagedObject {
-    @NSManaged var avatar_url: String?
-    @NSManaged var mail: String?
+    @NSManaged var avatar_url: String
+    @NSManaged var mail: String
     @NSManaged var token: String?
     @NSManaged var username: String?
     @NSManaged var disk_avail: Int
@@ -21,7 +21,7 @@ class Account : NSManagedObject {
     
     func fill(json:NSDictionary) {
         if let _username = json["username"] as? String {
-            avatar_url = _username
+            username = _username
         }
         if let _avatar_url = json["avatar_url"] as? String {
             avatar_url = _avatar_url

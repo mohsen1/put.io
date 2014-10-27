@@ -18,11 +18,14 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
     
    
     func FinishLogin(token:String) {
-        AccountStore.initAccount(token)
-        self.tabBarController?.tabBar.hidden = false
-        self.tabBarController?.selectedIndex = 0
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-        self.navigationController?.popToRootViewControllerAnimated(false)
+        println("Init acount with token: \(token)")
+        AccountStore.initAccount(token, { _ in
+            println("account init callback")
+            self.tabBarController?.tabBar.hidden = false
+            self.tabBarController?.selectedIndex = 0
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        })
     }
     
     override func loadView() {
@@ -51,12 +54,16 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
     }
 
     func webViewDidFinishLoad(webView: UIWebView) {
+        println("webViewDidFinishLoad")
+        
         let js = "document.querySelector('img').remove();" +
             "document.querySelector('h1').innerText = 'Please login';" +
             "document.querySelector('form').style.textAlign = 'center';" +
             "document.querySelector('[name=\"name\"]').style.margin = '1em auto';" +
             "document.querySelector('[name=\"password\"]').style.margin = '2em auto';"
         let currentUrl = webView.stringByEvaluatingJavaScriptFromString("window.location.href")
+        
+        println("current url is \(currentUrl!)")
         
         loadingActivityIndicator.hidden = true
         loadingActivityIndicator.stopAnimating()
@@ -75,9 +82,8 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
     }
 
     @IBAction func refresh(sender: AnyObject) {
-        loginWebView.loadHTMLString("", baseURL: nil)
+        loginWebView.loadRequest(NSURLRequest(URL: NSURL(string: "about:blank")!))
         startRequest()
-        loginWebView.reload()
     }
     
     

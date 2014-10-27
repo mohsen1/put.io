@@ -59,11 +59,13 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         // if user not logged in go to inxex 2 (Account) else go to index 0 (Files)
         if let account = AccountStore.getAccountSync(){
             if account.token == nil {
+                println("token is nil")
                 selectedIndex = 2
             } else {
                 selectedIndex = 0
             }
         } else {
+            println("account is nil")
             selectedIndex = 2
         }
     }
