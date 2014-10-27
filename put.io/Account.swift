@@ -15,9 +15,9 @@ class Account : NSManagedObject {
     @NSManaged var mail: String
     @NSManaged var token: String?
     @NSManaged var username: String?
-    @NSManaged var disk_avail: Int
-    @NSManaged var disk_size: Int
-    @NSManaged var disk_used: Int
+    @NSManaged var disk_avail: Double
+    @NSManaged var disk_size: Double
+    @NSManaged var disk_used: Double
     
     func fill(json:NSDictionary) {
         if let _username = json["username"] as? String {
@@ -29,10 +29,10 @@ class Account : NSManagedObject {
         if let _mail = json["mail"] as? String {
             mail = _mail
         }
-        if let disk = json["size"] as? NSDictionary {
-            disk_avail = disk["avail"] as Int
-            disk_size = disk["size"] as Int
-            disk_used = disk["used"] as Int
+        if let disk = json["disk"] as? NSDictionary {
+            disk_avail = disk["avail"] as Double
+            disk_size = disk["size"] as Double
+            disk_used = disk["used"] as Double
         }
     }
 }
