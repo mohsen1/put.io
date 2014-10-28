@@ -58,7 +58,13 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
         super.viewWillAppear(animated)
     }
 
+    override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
+        return 1
+    }
 
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Account Information"
+    }
     
     // MARK: - TableView
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
