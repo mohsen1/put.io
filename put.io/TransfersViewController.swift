@@ -35,7 +35,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         self.progressBarButtton = UIBarButtonItem(customView: activityIndicator)
         self.refreshBarButton = UIBarButtonItem(title: "Refresh", style: .Plain, target: self, action: "fetchList")
         
-        startProgress()
+        stopProgress() // put Refresh button up there
     }
     
     func startProgress() {
