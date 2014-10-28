@@ -9,7 +9,7 @@
 import UIKit
 import SwiftHTTP
 
-class FolderViewController: UITableViewController, UIAlertViewDelegate {
+class FolderViewController: UITableViewController {
 
     var files = [File]()
     var id:Double?
@@ -35,12 +35,6 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
     }
 
     
-//    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
-//        if buttonIndex == 1 {
-//            self.fetchList(self.id!)
-//        }
-//    }
-    
     // MARK: - TableView
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,6 +47,7 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
         let file = self.files[indexPath.row] as File
         
         cell.textLabel.text = file.name
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
  
         return cell
     }
