@@ -12,23 +12,23 @@ import SwiftHTTP
 class FolderViewController: UITableViewController {
 
     var files = [File]()
-    var id:Double?
+    var id = "0"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
         
-        FileStore.getFolder(id!, { result in
+        FileStore.getFolder(id, { result in
             self.files = result
             dispatch_async(dispatch_get_main_queue()) {
                 self.tableView.reloadData()
             }
         })
         
-        if id == 0 {
+        if self.id == "0" {
             self.navigationItem.title = "Files"
         } else {
-            FileStore.getFile(id!, { (result:File) in
+            FileStore.getFile(id, { (result:File) in
                 self.navigationItem.title = result.name
             })
         }

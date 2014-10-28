@@ -13,10 +13,10 @@
     </entity>
     <entity name="File" representedClassName="File" syncable="YES">
         <attribute name="content_type" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Double" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="id" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="isFolder" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="parent_id" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="parent_id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Transfer" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>

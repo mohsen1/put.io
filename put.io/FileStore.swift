@@ -36,21 +36,23 @@ class FileStore {
                 result.addObject(newFile(f))
             }
         }
-        
+        appDelegate.cdh.saveContext()
         return result as NSArray
     }
     
-    class func getFolder (id:Double, completionHandler: ([File])->()) {
+    class func getFolder (id:String, completionHandler: ([File])->()) {
         var error: NSError? = nil
         var fetchReq = NSFetchRequest(entityName: "File")
         let sorter: NSSortDescriptor = NSSortDescriptor(key: "name" , ascending: false)
         
-        fetchReq.predicate = NSPredicate(format: "parent_id == \(id)")
+        println("id in getFolder is \(id)")
+        fetchReq.predicate = NSPredicate(format: "parent_id = \(id)")
         fetchReq.sortDescriptors = [sorter]
         
         if let result = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchReq, error:&error) as? [File]{
             
             if result.count > 0 {
+                println("Found \(result.count) in local database")
                 completionHandler(result)
             } else {
                 fetchList(id, completionHandler: completionHandler)
@@ -59,7 +61,7 @@ class FileStore {
         
     }
     
-    class func getFile (id:Double, completionHandler: (File)->()) {
+    class func getFile (id:String, completionHandler: (File)->()) {
         var error: NSError? = nil
         var fetchReq = NSFetchRequest(entityName: "File")
         
@@ -78,18 +80,16 @@ class FileStore {
     }
     
     // MARK: - HTTP
-    private class func fetchList(id:Double, completionHandler: ([File])->()) {
+    private class func fetchList(id:String, completionHandler: ([File])->()) {
         let request = HTTPTask()
         let url = "https://api.put.io/v2/files/list"
         var params = [String:String]()
         if let account = AccountStore.getAccountSync() {
-            let params = [
-                "oauth_token": "\(account.token!)",
-                "parent_id": "\(id)"
-            ]
+            params["oauth_token"] = "\(account.token!)"
         } else {
             print("Not logged in and trying to access files")
         }
+        params["parent_id"] = id
         
         request.GET(url, parameters: params, success: {(response: HTTPResponse) in
             if let data = response.responseObject as? NSData {

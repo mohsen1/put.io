@@ -35,7 +35,6 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         let folderViewController = FolderViewController()
         var filesNavigationController = UINavigationController(rootViewController: folderViewController)
         filesNavigationController.tabBarItem = filesTabBarItem
-        folderViewController.id = 0 // Load root
         
         
         // Transfers
