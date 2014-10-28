@@ -40,7 +40,7 @@ class FileStore {
         return result as NSArray
     }
     
-    class func getFolder (id:Int, completionHandler: ([File])->()) {
+    class func getFolder (id:Double, completionHandler: ([File])->()) {
         var error: NSError? = nil
         var fetchReq = NSFetchRequest(entityName: "File")
         let sorter: NSSortDescriptor = NSSortDescriptor(key: "name" , ascending: false)
@@ -59,7 +59,7 @@ class FileStore {
         
     }
     
-    class func getFile (id:Int, completionHandler: (File)->()) {
+    class func getFile (id:Double, completionHandler: (File)->()) {
         var error: NSError? = nil
         var fetchReq = NSFetchRequest(entityName: "File")
         
@@ -78,7 +78,7 @@ class FileStore {
     }
     
     // MARK: - HTTP
-    private class func fetchList(id:Int, completionHandler: ([File])->()) {
+    private class func fetchList(id:Double, completionHandler: ([File])->()) {
         let request = HTTPTask()
         let url = "https://api.put.io/v2/files/list"
         var params = [String:String]()
