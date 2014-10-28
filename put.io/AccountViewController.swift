@@ -94,8 +94,10 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        if indexPath.section == 0 {
+            return nil
+        }
+        return indexPath
     }
-
 }
