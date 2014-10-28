@@ -12,6 +12,8 @@ import SwiftHTTP
 class TransfersViewController: UITableViewController, UIAlertViewDelegate {
     var transfers = NSArray()
 
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         var nib = UINib(nibName: "TransferCell", bundle: nil)
@@ -22,13 +24,24 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.title = "Transfers"
-        
-        let refresh = UIBarButtonItem(title: "Refresh", style: .Plain, target: self, action: "fetchList")
-        navigationItem.rightBarButtonItem = refresh
-
         let clean = UIBarButtonItem(title: "Clean", style: .Plain, target: self, action: "clean")
         navigationItem.leftBarButtonItem = clean
         tableView.rowHeight = 60
+        
+        startProgress()
+    }
+    
+    func startProgress() {
+        var activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 20, 20))
+        let progressBarButtton = UIBarButtonItem(customView: activityIndicator)
+        activityIndicator.startAnimating()
+        activityIndicator.activityIndicatorViewStyle = .Gray
+        navigationItem.rightBarButtonItem = progressBarButtton
+    }
+    
+    func stopProgress() {
+        let refreshBarButton = UIBarButtonItem(title: "Refresh", style: .Plain, target: self, action: "fetchList")
+        navigationItem.rightBarButtonItem = refreshBarButton
     }
 
     // MARK: - HTTP
@@ -42,9 +55,14 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
             print("Not logged in, trying to access transfers")
         }
 
+        startProgress()
         request.POST(url, parameters: params, success: {(response: HTTPResponse) in
             self.fetchList()
-            }, failure: {(error: NSError, response: HTTPResponse?) in print(error)})
+            self.startProgress()
+        }, failure: {(error: NSError, response: HTTPResponse?) in
+            print(error)
+            self.startProgress()
+        })
     }
 
     func fetchList() {
@@ -57,12 +75,14 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
             print("Not logged in, trying to access transfers")
         }
         
+        self.startProgress()
         request.GET(url, parameters: params, success: {(response: HTTPResponse) in
             if let data = response.responseObject as? NSData {
                 var jsonError:NSError?
                 if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
                     self.transfers = json["transfers"] as NSArray
                     dispatch_async(dispatch_get_main_queue()) {
+                        self.stopProgress()
                         self.tableView.reloadData()
                     }
                 }
@@ -72,6 +92,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     alert.show()
+                    self.stopProgress()
                 }
                 
         })
