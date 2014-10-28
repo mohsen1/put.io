@@ -49,38 +49,53 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
             self.openLogin(animated: false)
         }
     
-        tableView.rowHeight = 180
         tableView.separatorStyle = .None
+        tableView.backgroundColor = UIColor(white: 1, alpha: 0.95)
         
-        var nib = UINib(nibName: "AccountInfoCell", bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: "AccountInfoCell")
+        var accountInfoCellNib = UINib(nibName: "AccountInfoCell", bundle: nil)
+
+        tableView.registerNib(accountInfoCellNib, forCellReuseIdentifier: "AccountInfoCell")
+        tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
         
         super.viewWillAppear(animated)
     }
 
+    // MARK: - TableView
     override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Account Information"
+        return " "
     }
     
-    // MARK: - TableView
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
+    override func  tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 180.0
+        }
+        return 40.0
+    }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> AccountInfoCell {
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
+            cell.textLabel.text = "Settings"
+            cell.accessoryType = .DisclosureIndicator
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("AccountInfoCell", forIndexPath: indexPath) as AccountInfoCell
         cell.loadAccount(account)
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
-
+        
     }
 
 }
