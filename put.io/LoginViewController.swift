@@ -80,7 +80,10 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
                 if token != "" {
                     FinishLogin(token)
                 }
-
+        }
+        
+        if currentUrl == "http://mohsenweb.com/put.io/" {
+            refresh(0)
         }
     }
 
