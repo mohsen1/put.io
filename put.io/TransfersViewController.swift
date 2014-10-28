@@ -15,12 +15,15 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
     var activityIndicator = UIActivityIndicatorView()
     var progressBarButtton = UIBarButtonItem()
     var refreshBarButton = UIBarButtonItem()
+    var timer = NSTimer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         var nib = UINib(nibName: "TransferCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "TransferCell")
-        self.fetchList()
+        self.fetchList(false)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("fetchListSilent"), userInfo: nil, repeats: true)
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -33,9 +36,14 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         // Makae Navigation Bar buttons 
         self.activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 20, 20))
         self.progressBarButtton = UIBarButtonItem(customView: activityIndicator)
-        self.refreshBarButton = UIBarButtonItem(title: "Refresh", style: .Plain, target: self, action: "fetchList")
+        self.refreshBarButton = UIBarButtonItem(title: "Refresh", style: .Plain, target: self, action: "fetchListLaud")
         
         stopProgress() // put Refresh button up there
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.timer.invalidate()
     }
     
     func startProgress() {
@@ -61,7 +69,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
 
         startProgress()
         request.POST(url, parameters: params, success: {(response: HTTPResponse) in
-            self.fetchList()
+            self.fetchList(true)
             self.startProgress()
         }, failure: {(error: NSError, response: HTTPResponse?) in
             print(error)
@@ -69,7 +77,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         })
     }
 
-    func fetchList() {
+    func fetchList(silent: Bool) {
         let request = HTTPTask()
         let url = "https://api.put.io/v2/transfers/list"
         var params = [String:String]()
@@ -79,14 +87,14 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
             print("Not logged in, trying to access transfers")
         }
         
-        self.startProgress()
+        if !silent { self.startProgress() }
         request.GET(url, parameters: params, success: {(response: HTTPResponse) in
             if let data = response.responseObject as? NSData {
                 var jsonError:NSError?
                 if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
                     self.transfers = json["transfers"] as NSArray
                     dispatch_async(dispatch_get_main_queue()) {
-                        self.stopProgress()
+                        if !silent { self.stopProgress() }
                         self.tableView.reloadData()
                     }
                 }
@@ -96,12 +104,19 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     alert.show()
-                    self.stopProgress()
+                    if !silent { self.stopProgress() }
                 }
                 
         })
     }
     
+    func fetchListSilent() {
+        fetchList(true)
+    }
+    
+    func fetchListLaud() {
+        fetchList(false)
+    }
     // MARK: - TableView
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
