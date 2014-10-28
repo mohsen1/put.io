@@ -9,10 +9,12 @@
 import UIKit
 import SwiftHTTP
 
+    
 class TransfersViewController: UITableViewController, UIAlertViewDelegate {
     var transfers = NSArray()
-
-
+    var activityIndicator = UIActivityIndicatorView()
+    var progressBarButtton = UIBarButtonItem()
+    var refreshBarButton = UIBarButtonItem()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,19 +30,21 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         navigationItem.leftBarButtonItem = clean
         tableView.rowHeight = 60
         
+        // Makae Navigation Bar buttons 
+        self.activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 20, 20))
+        self.progressBarButtton = UIBarButtonItem(customView: activityIndicator)
+        self.refreshBarButton = UIBarButtonItem(title: "Refresh", style: .Plain, target: self, action: "fetchList")
+        
         startProgress()
     }
     
     func startProgress() {
-        var activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 20, 20))
-        let progressBarButtton = UIBarButtonItem(customView: activityIndicator)
         activityIndicator.startAnimating()
         activityIndicator.activityIndicatorViewStyle = .Gray
         navigationItem.rightBarButtonItem = progressBarButtton
     }
     
     func stopProgress() {
-        let refreshBarButton = UIBarButtonItem(title: "Refresh", style: .Plain, target: self, action: "fetchList")
         navigationItem.rightBarButtonItem = refreshBarButton
     }
 
