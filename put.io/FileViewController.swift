@@ -11,8 +11,10 @@ import UIKit
 class FileViewController: UIViewController {
     var file:File?
     
-    @IBOutlet weak var fileNameLabel: UILabel!
-    @IBOutlet weak var thumbnail: UIImageView!
+    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var sizeLabel: UILabel!
+
 
     override func loadView() {
         super.loadView()
@@ -27,10 +29,12 @@ class FileViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        if let name = self.file?.name {
-            self.navigationItem.title = name
-        }
-        
+        navigationItem.title = file?.name
+        icon.image = UIImage(named: "ImageIcon")
+        nameLabel.text = file?.name
+        nameLabel.numberOfLines = 0
+        nameLabel.lineBreakMode = NSLineBreakMode.ByCharWrapping
+        sizeLabel.text = "Size: 1Bytes"
     }
 
     override func didReceiveMemoryWarning() {

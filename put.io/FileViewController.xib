@@ -6,8 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FileViewController" customModule="put_io" customModuleProvider="target">
             <connections>
-                <outlet property="fileNameLabel" destination="7QD-gz-10p" id="Cx1-AT-On3"/>
-                <outlet property="thumbnail" destination="9rW-dR-Lx9" id="69D-lc-Aak"/>
+                <outlet property="icon" destination="lvR-vC-flV" id="tUh-2F-uQ2"/>
+                <outlet property="nameLabel" destination="07u-mc-68d" id="F4D-JT-5AQ"/>
+                <outlet property="sizeLabel" destination="RYt-Z5-F1g" id="ZKZ-RD-GOI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,29 +17,39 @@
             <rect key="frame" x="0.0" y="64" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9rW-dR-Lx9">
-                    <rect key="frame" x="8" y="74" width="100" height="100"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lvR-vC-flV">
+                    <rect key="frame" x="8" y="75" width="75" height="75"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="100" id="Gh6-Fl-8Bs"/>
-                        <constraint firstAttribute="width" constant="100" id="YhR-Ta-e8z"/>
+                        <constraint firstAttribute="width" constant="75" id="HW4-54-nS5"/>
+                        <constraint firstAttribute="height" constant="75" id="yAn-Yc-V7E"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7QD-gz-10p">
-                    <rect key="frame" x="116" y="74" width="476" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07u-mc-68d">
+                    <rect key="frame" x="91" y="75" width="501" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size 200MB" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYt-Z5-F1g">
+                    <rect key="frame" x="91" y="104" width="501" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="7QD-gz-10p" secondAttribute="trailing" constant="8" id="0Tz-eY-M1v"/>
-                <constraint firstItem="9rW-dR-Lx9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="2UR-GZ-Lu7"/>
-                <constraint firstItem="7QD-gz-10p" firstAttribute="top" secondItem="9rW-dR-Lx9" secondAttribute="top" id="IK4-NW-DSU"/>
-                <constraint firstItem="7QD-gz-10p" firstAttribute="leading" secondItem="9rW-dR-Lx9" secondAttribute="trailing" constant="8" id="Jjj-m4-zkU"/>
-                <constraint firstItem="9rW-dR-Lx9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="vrO-r3-5FC"/>
+                <constraint firstItem="07u-mc-68d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="Jha-Xz-zuh"/>
+                <constraint firstItem="lvR-vC-flV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="KJu-zB-p4q"/>
+                <constraint firstAttribute="trailing" secondItem="RYt-Z5-F1g" secondAttribute="trailing" constant="8" id="LhA-Id-ush"/>
+                <constraint firstItem="07u-mc-68d" firstAttribute="leading" secondItem="lvR-vC-flV" secondAttribute="trailing" constant="8" id="Qtp-yC-oaF"/>
+                <constraint firstAttribute="trailing" secondItem="07u-mc-68d" secondAttribute="trailing" constant="8" id="hlf-Yh-N68"/>
+                <constraint firstItem="lvR-vC-flV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="wZd-dz-gDr"/>
+                <constraint firstItem="RYt-Z5-F1g" firstAttribute="leading" secondItem="lvR-vC-flV" secondAttribute="trailing" constant="8" id="whk-LH-MeT"/>
+                <constraint firstItem="RYt-Z5-F1g" firstAttribute="top" secondItem="07u-mc-68d" secondAttribute="bottom" constant="8.5" id="yNu-n0-qIH"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <point key="canvasLocation" x="394" y="294"/>
         </view>
     </objects>
 </document>
