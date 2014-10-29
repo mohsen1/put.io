@@ -28,7 +28,7 @@ class FolderViewController: UITableViewController {
         }
         refresh(false)
     }
-    
+
     func refresh(forceFetch: Bool) {
         startProgress()
         FileStore.getFolder(id, forceFetch: forceFetch, { result in
@@ -39,29 +39,29 @@ class FolderViewController: UITableViewController {
             }
         })
     }
-    
+
     func forceRefressh() {
         refresh(true)
     }
-    
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 20, 20))
         self.progressBarButtton = UIBarButtonItem(customView: activityIndicator)
         self.refreshBarButton = UIBarButtonItem(title: "Refresh", style: .Plain, target: self, action: "forceRefressh")
     }
-    
+
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        startProgress()
     }
-    
+
     func startProgress() {
         activityIndicator.startAnimating()
         activityIndicator.activityIndicatorViewStyle = .Gray
         navigationItem.rightBarButtonItem = progressBarButtton
     }
-    
+
     func stopProgress() {
         navigationItem.rightBarButtonItem = refreshBarButton
     }
