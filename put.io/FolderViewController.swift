@@ -10,21 +10,15 @@ import UIKit
 import SwiftHTTP
 
 class FolderViewController: UITableViewController {
-
     var files = [File]()
     var id = "0"
+    var activityIndicator = UIActivityIndicatorView()
+    var progressBarButtton = UIBarButtonItem()
+    var refreshBarButton = UIBarButtonItem()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
-        
-        FileStore.getFolder(id, { result in
-            self.files = result
-            dispatch_async(dispatch_get_main_queue()) {
-                self.tableView.reloadData()
-            }
-        })
-        
         if self.id == "0" {
             self.navigationItem.title = "Files"
         } else {
@@ -32,6 +26,44 @@ class FolderViewController: UITableViewController {
                 self.navigationItem.title = result.name
             })
         }
+        refresh(false)
+    }
+    
+    func refresh(forceFetch: Bool) {
+        startProgress()
+        FileStore.getFolder(id, forceFetch: forceFetch, { result in
+            self.files = result
+            dispatch_async(dispatch_get_main_queue()) {
+                self.tableView.reloadData()
+                self.stopProgress()
+            }
+        })
+    }
+    
+    func forceRefressh() {
+        refresh(true)
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 20, 20))
+        self.progressBarButtton = UIBarButtonItem(customView: activityIndicator)
+        self.refreshBarButton = UIBarButtonItem(title: "Refresh", style: .Plain, target: self, action: "forceRefressh")
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
+    func startProgress() {
+        activityIndicator.startAnimating()
+        activityIndicator.activityIndicatorViewStyle = .Gray
+        navigationItem.rightBarButtonItem = progressBarButtton
+    }
+    
+    func stopProgress() {
+        navigationItem.rightBarButtonItem = refreshBarButton
     }
 
     

@@ -40,7 +40,7 @@ class FileStore {
         return result as NSArray
     }
     
-    class func getFolder (id:String, completionHandler: ([File])->()) {
+    class func getFolder (id:String, forceFetch:Bool, completionHandler: ([File])->()) {
         var error: NSError? = nil
         var fetchReq = NSFetchRequest(entityName: "File")
         let sorter: NSSortDescriptor = NSSortDescriptor(key: "name" , ascending: false)
@@ -51,7 +51,7 @@ class FileStore {
         
         if let result = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchReq, error:&error) as? [File]{
             
-            if result.count > 0 {
+            if result.count > 0 && !forceFetch {
                 println("Found \(result.count) in local database")
                 completionHandler(result)
             } else {
