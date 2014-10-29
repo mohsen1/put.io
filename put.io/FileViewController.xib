@@ -39,12 +39,14 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="07u-mc-68d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="Jha-Xz-zuh"/>
                 <constraint firstItem="lvR-vC-flV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="KJu-zB-p4q"/>
                 <constraint firstAttribute="trailing" secondItem="RYt-Z5-F1g" secondAttribute="trailing" constant="8" id="LhA-Id-ush"/>
                 <constraint firstItem="07u-mc-68d" firstAttribute="leading" secondItem="lvR-vC-flV" secondAttribute="trailing" constant="8" id="Qtp-yC-oaF"/>
                 <constraint firstAttribute="trailing" secondItem="07u-mc-68d" secondAttribute="trailing" constant="8" id="hlf-Yh-N68"/>
-                <constraint firstItem="lvR-vC-flV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="wZd-dz-gDr"/>
+                <constraint firstItem="07u-mc-68d" firstAttribute="top" secondItem="lvR-vC-flV" secondAttribute="top" id="mqN-26-eKe"/>
+                <constraint firstItem="lvR-vC-flV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="wZd-dz-gDr">
+                    <variation key="heightClass=compact" constant="40"/>
+                </constraint>
                 <constraint firstItem="RYt-Z5-F1g" firstAttribute="leading" secondItem="lvR-vC-flV" secondAttribute="trailing" constant="8" id="whk-LH-MeT"/>
                 <constraint firstItem="RYt-Z5-F1g" firstAttribute="top" secondItem="07u-mc-68d" secondAttribute="bottom" constant="8.5" id="yNu-n0-qIH"/>
             </constraints>
