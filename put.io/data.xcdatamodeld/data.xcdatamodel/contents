@@ -13,10 +13,17 @@
     </entity>
     <entity name="File" representedClassName="File" syncable="YES">
         <attribute name="content_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="first_accessed_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="id" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="is_mp4_available" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="is_shared" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isFolder" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="opensubtitles_hash" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="parent_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="screenshot" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Transfer" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
@@ -25,7 +32,7 @@
     </entity>
     <elements>
         <element name="Account" positionX="-63" positionY="90" width="128" height="180"/>
-        <element name="File" positionX="-65" positionY="114" width="128" height="118"/>
+        <element name="File" positionX="-65" positionY="114" width="128" height="225"/>
         <element name="Transfer" positionX="-54" positionY="-9" width="128" height="90"/>
     </elements>
 </model>
