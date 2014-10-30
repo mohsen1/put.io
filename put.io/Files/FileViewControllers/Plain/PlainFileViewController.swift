@@ -8,13 +8,11 @@
 
 import UIKit
 
-class PlainFileViewController: UIViewController {
-    var file:File?
+class PlainFileViewController: FileViewController {
     
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
-
 
     override func loadView() {
         super.loadView()
@@ -22,12 +20,6 @@ class PlainFileViewController: UIViewController {
         nib.instantiateWithOwner(self, options: nil)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.title = "Your Files"
-        // Do any additional setup after loading the view.
-    }
-    
     override func viewWillAppear(animated: Bool) {
         navigationItem.title = file?.name
         icon.image = UIImage(named: "PlainIcon")
@@ -36,10 +28,4 @@ class PlainFileViewController: UIViewController {
         nameLabel.lineBreakMode = NSLineBreakMode.ByCharWrapping
         sizeLabel.text = "Size: 1Bytes"
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }

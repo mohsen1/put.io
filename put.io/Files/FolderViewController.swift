@@ -97,11 +97,23 @@ class FolderViewController: UITableViewController {
         
         // else, it's a file. open file view controoler
         else {
-            let fileViewController = PlainFileViewController()
-            fileViewController.file = file
-            self.navigationController?.pushViewController(fileViewController, animated: true)
-            
+            pushFileViewController(file)
         }
+    }
+    
+    func pushFileViewController(file: File) {
+        let type = Types.typeFor(file.content_type!)
+        var fileViewController:FileViewController;
+        
+        if type == "Video" {
+//            fileViewController = VideoFileViewController()
+        }
+//        if type = nil {
+            fileViewController = PlainFileViewController()
+//        }
+        
+        fileViewController.file = file
+        self.navigationController?.pushViewController(fileViewController, animated: true)
     }
 
 }

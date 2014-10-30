@@ -10,6 +10,7 @@
 		82084F2F19FC7AA6005DF388 /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82084F2D19FC7AA6005DF388 /* AccountInfoCell.swift */; };
 		82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */; };
 		820D1C651A01E9F200563814 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820D1C641A01E9F200563814 /* Types.swift */; };
+		822093291A02042900855701 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822093281A02042900855701 /* FileViewController.swift */; };
 		8258E8EE19F3D4F700BB5E12 /* AccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E8ED19F3D4F700BB5E12 /* AccountStore.swift */; };
 		8258E8F319F3E00D00BB5E12 /* PlainFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E8F119F3E00D00BB5E12 /* PlainFileViewController.swift */; };
 		8258E8F419F3E00D00BB5E12 /* PlainFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8258E8F219F3E00D00BB5E12 /* PlainFileViewController.xib */; };
@@ -76,6 +77,7 @@
 		82084F2D19FC7AA6005DF388 /* AccountInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
 		82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountInfoCell.xib; sourceTree = "<group>"; };
 		820D1C641A01E9F200563814 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		822093281A02042900855701 /* FileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileViewController.swift; path = FileViewControllers/FileViewController.swift; sourceTree = "<group>"; };
 		8258E8ED19F3D4F700BB5E12 /* AccountStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountStore.swift; sourceTree = "<group>"; };
 		8258E8F119F3E00D00BB5E12 /* PlainFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlainFileViewController.swift; path = FileViewControllers/Plain/PlainFileViewController.swift; sourceTree = "<group>"; };
 		8258E8F219F3E00D00BB5E12 /* PlainFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlainFileViewController.xib; path = FileViewControllers/Plain/PlainFileViewController.xib; sourceTree = "<group>"; };
@@ -124,6 +126,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		820D1C661A01FF1900563814 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				829F52AD19F4DC3E0032B485 /* LoginViewController.swift */,
+				829F52B119F4DC8E0032B485 /* LoginViewController.xib */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		825B077A19F3312700E65789 = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +210,7 @@
 			children = (
 				826602A11A00B4E100CB31D9 /* Image */,
 				826602A01A00B4CE00CB31D9 /* Plain */,
+				822093281A02042900855701 /* FileViewController.swift */,
 			);
 			name = FileViewControllers;
 			sourceTree = "<group>";
@@ -234,10 +246,9 @@
 		8290F97B19F76C2000158036 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				829F52AD19F4DC3E0032B485 /* LoginViewController.swift */,
+				820D1C661A01FF1900563814 /* Login */,
 				82084F2D19FC7AA6005DF388 /* AccountInfoCell.swift */,
 				82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */,
-				829F52B119F4DC8E0032B485 /* LoginViewController.xib */,
 				8258E8ED19F3D4F700BB5E12 /* AccountStore.swift */,
 				826A6EF319FC3F1300D348F1 /* Account.swift */,
 				8258E92C19F4579400BB5E12 /* AccountViewController.swift */,
@@ -405,6 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				822093291A02042900855701 /* FileViewController.swift in Sources */,
 				8290F98319F770E300158036 /* TransferCell.swift in Sources */,
 				820D1C651A01E9F200563814 /* Types.swift in Sources */,
 				825CA22319FB8239007281AB /* File.swift in Sources */,
