@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FileViewController: UIViewController {
+class PlainFileViewController: UIViewController {
     var file:File?
     
     @IBOutlet weak var icon: UIImageView!
@@ -18,7 +18,7 @@ class FileViewController: UIViewController {
 
     override func loadView() {
         super.loadView()
-        let nib = UINib(nibName: "FileViewController", bundle: nil)
+        let nib = UINib(nibName: "PlainFileViewController", bundle: nil)
         nib.instantiateWithOwner(self, options: nil)
     }
 
@@ -30,7 +30,7 @@ class FileViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         navigationItem.title = file?.name
-        icon.image = UIImage(named: "ImageIcon")
+        icon.image = UIImage(named: "PlainIcon")
         nameLabel.text = file?.name
         nameLabel.numberOfLines = 0
         nameLabel.lineBreakMode = NSLineBreakMode.ByCharWrapping

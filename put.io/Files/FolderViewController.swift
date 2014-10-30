@@ -97,7 +97,7 @@ class FolderViewController: UITableViewController {
         
         // else, it's a file. open file view controoler
         else {
-            let fileViewController = FileViewController()
+            let fileViewController = PlainFileViewController()
             fileViewController.file = file
             self.navigationController?.pushViewController(fileViewController, animated: true)
             
