@@ -18,7 +18,10 @@ class FolderViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
+        var nib = UINib(nibName: "FolderTableViewCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "FolderTableViewCell")
+        tableView.rowHeight = 54
+        
         if self.id == "0" {
             self.navigationItem.title = "Files"
         } else {
@@ -74,11 +77,11 @@ class FolderViewController: UITableViewController {
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> FolderTableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("FolderTableViewCell", forIndexPath: indexPath) as FolderTableViewCell
         let file = self.files[indexPath.row] as File
         
-        cell.textLabel.text = file.name
+        cell.fileName.text = file.name
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
  
         return cell

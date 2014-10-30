@@ -11,6 +11,8 @@
 		82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */; };
 		820D1C651A01E9F200563814 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820D1C641A01E9F200563814 /* Types.swift */; };
 		822093291A02042900855701 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822093281A02042900855701 /* FileViewController.swift */; };
+		822093301A02065100855701 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8220932E1A02065100855701 /* FolderTableViewCell.swift */; };
+		822093311A02065100855701 /* FolderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8220932F1A02065100855701 /* FolderTableViewCell.xib */; };
 		8258E8EE19F3D4F700BB5E12 /* AccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E8ED19F3D4F700BB5E12 /* AccountStore.swift */; };
 		8258E8F319F3E00D00BB5E12 /* PlainFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E8F119F3E00D00BB5E12 /* PlainFileViewController.swift */; };
 		8258E8F419F3E00D00BB5E12 /* PlainFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8258E8F219F3E00D00BB5E12 /* PlainFileViewController.xib */; };
@@ -78,6 +80,8 @@
 		82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountInfoCell.xib; sourceTree = "<group>"; };
 		820D1C641A01E9F200563814 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		822093281A02042900855701 /* FileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileViewController.swift; path = FileViewControllers/FileViewController.swift; sourceTree = "<group>"; };
+		8220932E1A02065100855701 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FolderTableViewCell.swift; path = FolderCell/FolderTableViewCell.swift; sourceTree = "<group>"; };
+		8220932F1A02065100855701 /* FolderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FolderTableViewCell.xib; path = FolderCell/FolderTableViewCell.xib; sourceTree = "<group>"; };
 		8258E8ED19F3D4F700BB5E12 /* AccountStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountStore.swift; sourceTree = "<group>"; };
 		8258E8F119F3E00D00BB5E12 /* PlainFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlainFileViewController.swift; path = FileViewControllers/Plain/PlainFileViewController.swift; sourceTree = "<group>"; };
 		8258E8F219F3E00D00BB5E12 /* PlainFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlainFileViewController.xib; path = FileViewControllers/Plain/PlainFileViewController.xib; sourceTree = "<group>"; };
@@ -133,6 +137,15 @@
 				829F52B119F4DC8E0032B485 /* LoginViewController.xib */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		822093321A02065E00855701 /* FolderCell */ = {
+			isa = PBXGroup;
+			children = (
+				8220932F1A02065100855701 /* FolderTableViewCell.xib */,
+				8220932E1A02065100855701 /* FolderTableViewCell.swift */,
+			);
+			name = FolderCell;
 			sourceTree = "<group>";
 		};
 		825B077A19F3312700E65789 = {
@@ -239,6 +252,7 @@
 				825CA22019FB7E9C007281AB /* FileStore.swift */,
 				825CA22219FB8239007281AB /* File.swift */,
 				820D1C641A01E9F200563814 /* Types.swift */,
+				822093321A02065E00855701 /* FolderCell */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -395,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */,
+				822093311A02065100855701 /* FolderTableViewCell.xib in Resources */,
 				8258E8F419F3E00D00BB5E12 /* PlainFileViewController.xib in Resources */,
 				825B079019F3312700E65789 /* Images.xcassets in Resources */,
 				8290F98419F770E300158036 /* TransferCell.xib in Resources */,
@@ -419,6 +434,7 @@
 				822093291A02042900855701 /* FileViewController.swift in Sources */,
 				8290F98319F770E300158036 /* TransferCell.swift in Sources */,
 				820D1C651A01E9F200563814 /* Types.swift in Sources */,
+				822093301A02065100855701 /* FolderTableViewCell.swift in Sources */,
 				825CA22319FB8239007281AB /* File.swift in Sources */,
 				825CA22119FB7E9C007281AB /* FileStore.swift in Sources */,
 				829F52AE19F4DC3E0032B485 /* LoginViewController.swift in Sources */,
