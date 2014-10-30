@@ -81,7 +81,7 @@ class FolderViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("FolderTableViewCell", forIndexPath: indexPath) as FolderTableViewCell
         let file = self.files[indexPath.row] as File
         
-        cell.fileName.text = file.name
+        cell.fill(file)
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
  
         return cell

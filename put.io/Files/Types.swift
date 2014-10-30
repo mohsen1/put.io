@@ -19,6 +19,9 @@ class Types {
         if let range = contentType.rangeOfString("image/") {
             return "Image"
         }
+        if let range = contentType.rangeOfString("application/x-directory") {
+            return "Folder"
+        }
         return nil
     }
     class func iconFor(contentType: String) -> UIImage {
