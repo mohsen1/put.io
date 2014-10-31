@@ -32,25 +32,17 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9mC-9a-4XL" userLabel="Percentage Progress">
-                        <rect key="frame" x="20" y="44" width="290" height="2"/>
-                        <color key="tintColor" red="1" green="0.90648579268885421" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </progressView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="9mC-9a-4XL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="FqI-50-3wb"/>
                     <constraint firstItem="05c-57-Jqg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="Kol-Ag-1YX"/>
                     <constraint firstItem="lxC-d7-PS1" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="PPU-Y0-TWy"/>
                     <constraint firstItem="05c-57-Jqg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Wko-bp-jF5"/>
-                    <constraint firstItem="9mC-9a-4XL" firstAttribute="top" secondItem="05c-57-Jqg" secondAttribute="bottom" constant="13" id="fAQ-RH-eXs"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="9mC-9a-4XL" secondAttribute="trailing" constant="2" id="ngr-qW-Amf"/>
                     <constraint firstItem="lxC-d7-PS1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="r0M-tF-j9f"/>
                     <constraint firstItem="lxC-d7-PS1" firstAttribute="leading" secondItem="05c-57-Jqg" secondAttribute="trailing" constant="11" id="wzO-MP-JCN"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="percentage" destination="lxC-d7-PS1" id="UGK-KS-7ug"/>
-                <outlet property="progress" destination="9mC-9a-4XL" id="KRD-Qi-H1T"/>
                 <outlet property="title" destination="05c-57-Jqg" id="xDN-DY-hZG"/>
             </connections>
         </tableViewCell>

@@ -138,10 +138,9 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         
         if let percentage = transfer["percent_done"] as NSInteger? {
             cell.percentage?.text = "%\(percentage)"
-            cell.progress?.progress = (Float(percentage) / 100)
+            cell.drawPercentage(Float(percentage))
         }
         cell.title?.text = transfer["name"] as NSString
-        
 
         return cell
     }
