@@ -56,6 +56,14 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         navigationItem.rightBarButtonItem = refreshBarButton
     }
 
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == 0 {
+            self.timer.invalidate()
+        } else {
+            self.fetchListLaud()
+        }
+    }
+
     // MARK: - HTTP
     func clean() {
         let request = HTTPTask()
@@ -103,26 +111,27 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     alert.show()
+                    self.timer.invalidate()
                     if !silent { self.stopProgress() }
                 }
                 
         })
     }
-    
+
     func fetchListSilent() {
         fetchList(true)
     }
-    
+
     func fetchListLaud() {
         fetchList(false)
     }
+
     // MARK: - TableView
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.transfers.count
     }
-    
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TransferCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TransferCell", forIndexPath: indexPath) as TransferCell
         let transfer:NSDictionary = self.transfers[indexPath.row] as NSDictionary
