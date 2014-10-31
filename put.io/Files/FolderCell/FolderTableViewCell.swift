@@ -18,7 +18,12 @@ class FolderTableViewCell: UITableViewCell {
     func fill(file:File) {
         self.fileName.text = file.name
         self.fileSize.text = "\(file.size)"
-        self.fileAccessed.text = "accessed"
         self.icon.image = Types.iconFor(file.content_type!)
+
+        if !file.isFolder && (file.first_accessed_at != nil) {
+            self.fileAccessed.text = "accessed"
+        } else {
+            self.fileAccessed.text = ""
+        }
     }
 }

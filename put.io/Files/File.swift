@@ -44,7 +44,7 @@ class File: NSManagedObject {
             created_at = dateFormatter.dateFromString(_created_at)!
         }
         if let _first_accessed_at = json["first_accessed_at"] as? String {
-            created_at = dateFormatter.dateFromString(_first_accessed_at)!
+            first_accessed_at = dateFormatter.dateFromString(_first_accessed_at)!
         }
         if let _is_mp4_available = json["is_mp4_available"] as? Bool {
             is_mp4_available = NSNumber(bool: _is_mp4_available)
