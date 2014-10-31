@@ -38,7 +38,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         self.progressBarButtton = UIBarButtonItem(customView: activityIndicator)
         self.refreshBarButton = UIBarButtonItem(title: "Refresh", style: .Plain, target: self, action: "fetchListLaud")
         
-        stopProgress() // put Refresh button up there
+        fetchListLaud()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -69,11 +69,10 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
 
         startProgress()
         request.POST(url, parameters: params, success: {(response: HTTPResponse) in
-            self.fetchList(true)
-            self.startProgress()
+            self.fetchListLaud()
         }, failure: {(error: NSError, response: HTTPResponse?) in
             print(error)
-            self.startProgress()
+            self.stopProgress()
         })
     }
 
