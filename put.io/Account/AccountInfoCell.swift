@@ -40,13 +40,17 @@ class AccountInfoCell: UITableViewCell {
             subtitleLang?.text = "Default subtitle language: \(account!.default_subtitle_language!)"
             expires?.text = "Plan expires at \(date)"
 
-            if let avatar = getLocalImage("avatar.png") {
+            var avatarImageName = "avatar.png"
+            if account!.username != nil {
+                avatarImageName = "\(account!.username!)-\(avatarImageName)"
+            }
+            if let avatar = getLocalImage(avatarImageName) {
                 avatarImage.image = avatar
             } else if let imageUrl = NSURL(string: account!.avatar_url) {
                 if let imageData = NSData(contentsOfURL: imageUrl) {
                     if let image = UIImage(data: imageData) {
                         avatarImage.image = image
-                        saveImageLocally(image, name: "avatar.png")
+                        saveImageLocally(image, name: avatarImageName)
                     }
                 }
             }
