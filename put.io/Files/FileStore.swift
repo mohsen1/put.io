@@ -44,15 +44,13 @@ class FileStore {
         var error: NSError? = nil
         var fetchReq = NSFetchRequest(entityName: "File")
         let sorter: NSSortDescriptor = NSSortDescriptor(key: "name" , ascending: false)
-        
-        println("id in getFolder is \(id)")
+
         fetchReq.predicate = NSPredicate(format: "parent_id = \(id)")
         fetchReq.sortDescriptors = [sorter]
         
         if let result = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchReq, error:&error) as? [File]{
             
             if result.count > 0 && !forceFetch {
-                println("Found \(result.count) in local database")
                 completionHandler(result)
             } else {
                 fetchList(id, completionHandler: completionHandler)

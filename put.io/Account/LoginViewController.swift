@@ -18,9 +18,7 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
     
    
     func FinishLogin(token:String) {
-        println("Init acount with token: \(token)")
         AccountStore.initAccount(token, { _ in
-            println("account init callback")
             dispatch_async(dispatch_get_main_queue()) {
                 self.tabBarController?.tabBar.hidden = false
                 self.tabBarController?.selectedIndex = 0
@@ -57,17 +55,14 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
     }
 
     func webViewDidFinishLoad(webView: UIWebView) {
-        println("webViewDidFinishLoad")
-        
+
         let js = "document.querySelector('img').remove();" +
             "document.querySelector('h1').innerText = 'Please login';" +
             "document.querySelector('form').style.textAlign = 'center';" +
             "document.querySelector('[name=\"name\"]').style.margin = '1em auto';" +
             "document.querySelector('[name=\"password\"]').style.margin = '2em auto';"
         let currentUrl = webView.stringByEvaluatingJavaScriptFromString("window.location.href")
-        
-        println("current url is \(currentUrl!)")
-        
+
         loadingActivityIndicator.hidden = true
         loadingActivityIndicator.stopAnimating()
         loadingMessageLabel.text = ""

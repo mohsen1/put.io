@@ -32,9 +32,6 @@ class AccountStore {
     
     class func updateAccount(account:Account, json:NSDictionary) {
         account.fill(json)
-        let un = json["username"] as  String
-        println("json username is \(un)")
-        println("account username after fill is \(account.username)")
         saveAccount()
     }
     
@@ -59,8 +56,7 @@ class AccountStore {
         var fetchReq = NSFetchRequest(entityName: "Account")
         
         if let result = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchReq, error:&error) as? [Account]{
-            
-            
+
             if result.count > 0 && result[0].username != nil{
                 return result[0]
             }
@@ -83,8 +79,6 @@ class AccountStore {
         let request = HTTPTask()
         let url = "https://api.put.io/v2/account/info"
         var params = ["oauth_token": "\(acct.token!)"]
-        
-        println("account token in fetchInfo is \(acct.token!)")
 
         request.GET(url, parameters: params, success: {(response: HTTPResponse) in
             if let data = response.responseObject as? NSData {
@@ -93,8 +87,8 @@ class AccountStore {
                     
                     if let info = json["info"] as? NSDictionary {
                         self.updateAccount(acct, json: info)
+                        completionHandler(acct)
                     }
-                    completionHandler(acct)
                 }
             }
             }, failure: {(error: NSError, response: HTTPResponse?) in

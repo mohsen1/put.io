@@ -49,7 +49,6 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if let acct = AccountStore.getAccountSync() {
-            println("account token after getting accountSync in accountvc is \(acct.token)")
             if acct.token == nil {
                 self.openLogin(animated: false)
             } else {
@@ -71,19 +70,18 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return " "
     }
-    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-    
+
     override func  tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 180.0
         }
         return 40.0
     }
-    
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
@@ -96,7 +94,7 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
         cell.loadAccount(account)
         return cell
     }
-    
+
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         if indexPath.section == 0 {
             return nil

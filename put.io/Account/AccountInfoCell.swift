@@ -20,23 +20,16 @@ class AccountInfoCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-
-    }
-    
     private func toGB(size:Double) -> Int {
         let gb = size / (1024 * 1024 * 1024)
         return Int(gb)
     }
-    
+
     internal func loadAccount(account:Account?){
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd"
-        
+
         if account != nil {
             let avail = toGB(account!.disk_avail)
             let size = toGB(account!.disk_size)
@@ -46,12 +39,32 @@ class AccountInfoCell: UITableViewCell {
             storage?.text = "\(avail)GB available of \(size)GB"
             subtitleLang?.text = "Default subtitle language: \(account!.default_subtitle_language!)"
             expires?.text = "Plan expires at \(date)"
-        
-                if let imageUrl = NSURL(string: account!.avatar_url) {
-                    if let imageData = NSData(contentsOfURL: imageUrl) {
-                        avatarImage.image = UIImage(data: imageData)
+
+            if let avatar = getLocalImage("avatar.png") {
+                avatarImage.image = avatar
+            } else if let imageUrl = NSURL(string: account!.avatar_url) {
+                if let imageData = NSData(contentsOfURL: imageUrl) {
+                    if let image = UIImage(data: imageData) {
+                        avatarImage.image = image
+                        saveImageLocally(image, name: "avatar.png")
                     }
                 }
+            }
         }
+    }
+    
+    private func saveImageLocally(image: UIImage, name: String) {
+        let imageData = UIImagePNGRepresentation(image)
+        let imagesPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        let imagePath = imagesPath.stringByAppendingPathComponent(name)
+
+        imageData.writeToFile(imagePath, atomically: true)
+    }
+    
+    private func getLocalImage(name: String) -> UIImage? {
+        let imagesPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        let imagePath = imagesPath.stringByAppendingPathComponent(name)
+
+        return UIImage(named: imagePath)
     }
 }
