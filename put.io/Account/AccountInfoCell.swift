@@ -34,26 +34,24 @@ class AccountInfoCell: UITableViewCell {
     }
     
     internal func loadAccount(account:Account?){
-        username?.text = account?.username
-        email?.text = account?.mail
-        let avail = account?.disk_avail
-        let size = account?.disk_size
-        storage?.text = "\(toGB(avail!))GB available of \(toGB(size!))GB"
-        subtitleLang?.text = "Default subtitle language: \(account!.default_subtitle_language!)"
-        let date = account?.plan_expiration_date
-        var formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
-        let stringDate = formatter.stringFromDate(date!)
-        expires?.text = "Plan expires at \(stringDate)"
-
-        if let avatarUrl = account?.avatar_url {
-            if let imageUrl = NSURL(string: avatarUrl) {
-                if let imageData = NSData(contentsOfURL: imageUrl) {
-                    if let image = UIImage(data: imageData) {
-                        avatarImage.image = image
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        
+        if account != nil {
+            let avail = toGB(account!.disk_avail)
+            let size = toGB(account!.disk_size)
+            let date = dateFormatter.stringFromDate(account!.plan_expiration_date!)
+            username?.text = account?.username
+            email?.text = account?.mail
+            storage?.text = "\(avail)GB available of \(size)GB"
+            subtitleLang?.text = "Default subtitle language: \(account!.default_subtitle_language!)"
+            expires?.text = "Plan expires at \(date)"
+        
+                if let imageUrl = NSURL(string: account!.avatar_url) {
+                    if let imageData = NSData(contentsOfURL: imageUrl) {
+                        avatarImage.image = UIImage(data: imageData)
                     }
                 }
-            }
         }
     }
 }

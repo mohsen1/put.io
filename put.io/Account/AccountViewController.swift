@@ -35,6 +35,19 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
         navigationItem.title = "Account"
         navigationItem.rightBarButtonItem = logout
         
+        tableView.separatorStyle = .None
+        tableView.backgroundColor = UIColor(white: 1, alpha: 0.95)
+        
+        var accountInfoCellNib = UINib(nibName: "AccountInfoCell", bundle: nil)
+
+        tableView.registerNib(accountInfoCellNib, forCellReuseIdentifier: "AccountInfoCell")
+        tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
+        
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         if let acct = AccountStore.getAccountSync() {
             println("account token after getting accountSync in accountvc is \(acct.token)")
             if acct.token == nil {
@@ -48,16 +61,6 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
         } else {
             self.openLogin(animated: false)
         }
-    
-        tableView.separatorStyle = .None
-        tableView.backgroundColor = UIColor(white: 1, alpha: 0.95)
-        
-        var accountInfoCellNib = UINib(nibName: "AccountInfoCell", bundle: nil)
-
-        tableView.registerNib(accountInfoCellNib, forCellReuseIdentifier: "AccountInfoCell")
-        tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
-        
-        super.viewWillAppear(animated)
     }
 
     // MARK: - TableView
