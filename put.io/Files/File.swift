@@ -58,8 +58,8 @@ class File: NSManagedObject {
         if let _screenshot = json["screenshot"] as? String {
             screenshot = _screenshot
         }
-        if let _size = json["size"] as? String {
-            size = _size
+        if let _size = json["size"] as? NSNumber {
+            size = "\(_size)"
         }
 
         // Determine if it's a folder and assign children
