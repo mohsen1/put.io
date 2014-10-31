@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let byteFormatter = NSByteCountFormatter()
+
 class PlainFileViewController: FileViewController {
     
     @IBOutlet weak var icon: UIImageView!
@@ -26,6 +28,11 @@ class PlainFileViewController: FileViewController {
         nameLabel.text = file?.name
         nameLabel.numberOfLines = 0
         nameLabel.lineBreakMode = NSLineBreakMode.ByCharWrapping
-        sizeLabel.text = "Size: 1Bytes"
+
+        if file?.size != nil {
+            // All this dance because XCode is not supporting Ints in core data properly!
+            let nsSizeStr = NSString(string: file!.size!)
+            self.sizeLabel.text = byteFormatter.stringFromByteCount(Int64(nsSizeStr.intValue))
+        }
     }
 }

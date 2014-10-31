@@ -18,8 +18,8 @@ class FolderViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        var nib = UINib(nibName: "FolderTableViewCell", bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: "FolderTableViewCell")
+        var folderTableViewCellNib = UINib(nibName: "FolderTableViewCell", bundle: nil)
+        tableView.registerNib(folderTableViewCellNib, forCellReuseIdentifier: "FolderTableViewCell")
         tableView.rowHeight = 54
         
         if self.id == "0" {
@@ -31,6 +31,7 @@ class FolderViewController: UITableViewController {
         }
         refresh(false)
     }
+
 
     func refresh(forceFetch: Bool) {
         startProgress()

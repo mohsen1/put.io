@@ -247,12 +247,12 @@
 		8290F97819F76BFE00158036 /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				822093321A02065E00855701 /* FolderCell */,
 				8266029F1A00B4B600CB31D9 /* FileViewControllers */,
 				825B07B419F337C900E65789 /* FolderViewController.swift */,
 				825CA22019FB7E9C007281AB /* FileStore.swift */,
 				825CA22219FB8239007281AB /* File.swift */,
 				820D1C641A01E9F200563814 /* Types.swift */,
-				822093321A02065E00855701 /* FolderCell */,
 			);
 			path = Files;
 			sourceTree = "<group>";
