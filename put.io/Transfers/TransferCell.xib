@@ -7,44 +7,49 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransferCell" customModule="put_io" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TransferCell" customModule="put_io" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="49" id="KGk-i7-Jjw" customClass="TransferCell" customModule="put_io" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transfer Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05c-57-Jqg">
-                        <rect key="frame" x="20" y="8" width="246" height="23"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="23" id="v1Q-iL-hlW"/>
-                        </constraints>
+                        <rect key="frame" x="8" y="8" width="304" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxC-d7-PS1" userLabel="Percentage">
-                        <rect key="frame" x="277" y="8" width="35" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="35" id="OTy-tg-X8N"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="2 day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CxH-AP-f95" userLabel="Time">
+                        <rect key="frame" x="8" y="25" width="31" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxC-d7-PS1" userLabel="Percentage">
+                        <rect key="frame" x="291.5" y="30" width="20.5" height="11"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="05c-57-Jqg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="Kol-Ag-1YX"/>
-                    <constraint firstItem="lxC-d7-PS1" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="PPU-Y0-TWy"/>
-                    <constraint firstItem="05c-57-Jqg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Wko-bp-jF5"/>
-                    <constraint firstItem="lxC-d7-PS1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="r0M-tF-j9f"/>
-                    <constraint firstItem="lxC-d7-PS1" firstAttribute="leading" secondItem="05c-57-Jqg" secondAttribute="trailing" constant="11" id="wzO-MP-JCN"/>
+                    <constraint firstItem="05c-57-Jqg" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="55f-D6-BW7"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="lxC-d7-PS1" secondAttribute="bottom" constant="0.5" id="Co6-dN-lqH"/>
+                    <constraint firstItem="lxC-d7-PS1" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="LAa-sV-dvS"/>
+                    <constraint firstItem="05c-57-Jqg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="OYY-7D-NKY"/>
+                    <constraint firstItem="CxH-AP-f95" firstAttribute="leading" secondItem="05c-57-Jqg" secondAttribute="leading" id="Unn-G3-Zsy"/>
+                    <constraint firstItem="CxH-AP-f95" firstAttribute="top" secondItem="05c-57-Jqg" secondAttribute="bottom" constant="-1" id="cDa-Jo-1Lk"/>
+                    <constraint firstItem="lxC-d7-PS1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="22" id="haK-xh-dlh"/>
+                    <constraint firstItem="05c-57-Jqg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="iex-xa-Vwg"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="estimateTime" destination="CxH-AP-f95" id="yVF-JR-aBX"/>
                 <outlet property="percentage" destination="lxC-d7-PS1" id="UGK-KS-7ug"/>
                 <outlet property="title" destination="05c-57-Jqg" id="xDN-DY-hZG"/>
             </connections>
+            <point key="canvasLocation" x="314" y="385"/>
         </tableViewCell>
     </objects>
 </document>

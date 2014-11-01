@@ -31,9 +31,9 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         navigationItem.title = "Transfers"
         let clean = UIBarButtonItem(title: "Clean", style: .Plain, target: self, action: "clean")
         navigationItem.leftBarButtonItem = clean
-        tableView.rowHeight = 60
+        tableView.rowHeight = 50
         
-        // Makae Navigation Bar buttons 
+        // Make Navigation Bar buttons 
         self.activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 20, 20))
         self.progressBarButtton = UIBarButtonItem(customView: activityIndicator)
         self.refreshBarButton = UIBarButtonItem(title: "Refresh", style: .Plain, target: self, action: "fetchListLaud")
@@ -134,13 +134,9 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TransferCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TransferCell", forIndexPath: indexPath) as TransferCell
-        let transfer:NSDictionary = self.transfers[indexPath.row] as NSDictionary
-        
-        if let percentage = transfer["percent_done"] as NSInteger? {
-            cell.percentage?.text = "%\(percentage)"
-            cell.drawPercentage(Float(percentage))
+        if let transfer:NSDictionary = self.transfers[indexPath.row] as? NSDictionary {
+            cell.load(transfer);
         }
-        cell.title?.text = transfer["name"] as NSString
 
         return cell
     }
