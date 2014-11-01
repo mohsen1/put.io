@@ -55,6 +55,8 @@ class TransferViewController: UITableViewController {
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("TransferCell", forIndexPath: indexPath) as TransferCell
 
+            cell.userInteractionEnabled = false
+
             if transfer != nil {
                 cell.load(transfer!)
             }
