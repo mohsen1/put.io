@@ -11,7 +11,7 @@ import SwiftHTTP
 
 class AccountViewController: UITableViewController, UIAlertViewDelegate {
     var account:Account?
-    
+
     func openLogin(animated:Bool = true) {
         let appDomain = NSBundle.mainBundle().bundleIdentifier
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
@@ -24,28 +24,28 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
         AccountStore.deleteAccount()
         navigationController?.pushViewController(LoginViewController(), animated: animated)
     }
-    
+
     func openLoginAnimated(){
         openLogin(animated: true)
     }
-    
+
     // MARK: View
     override func viewWillAppear(animated: Bool) {
         let logout = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: "openLoginAnimated")
         navigationItem.title = "Account"
         navigationItem.rightBarButtonItem = logout
-        
+
         tableView.separatorStyle = .None
         tableView.backgroundColor = UIColor(white: 1, alpha: 0.95)
-        
+
         var accountInfoCellNib = UINib(nibName: "AccountInfoCell", bundle: nil)
 
         tableView.registerNib(accountInfoCellNib, forCellReuseIdentifier: "AccountInfoCell")
         tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
-        
+
         super.viewWillAppear(animated)
     }
-    
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if let acct = AccountStore.getAccountSync() {
@@ -66,10 +66,15 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
     override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
         return 2
     }
-
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return " "
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30.0
     }
+
+   override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+       var header = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
+       header.backgroundColor = UIColor.clearColor()
+       return header
+   }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -89,7 +94,7 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
             cell.accessoryType = .DisclosureIndicator
             return cell
         }
-        
+
         let cell = tableView.dequeueReusableCellWithIdentifier("AccountInfoCell", forIndexPath: indexPath) as AccountInfoCell
         cell.loadAccount(account)
         return cell
