@@ -35,6 +35,8 @@
 		829F52AE19F4DC3E0032B485 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829F52AD19F4DC3E0032B485 /* LoginViewController.swift */; };
 		829F52B219F4DC8E0032B485 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829F52B119F4DC8E0032B485 /* LoginViewController.xib */; };
 		82C726E319F399020045496A /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C726E019F398A00045496A /* SwiftHTTP.framework */; };
+		82C9C22A1A04B5A9001DF290 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C2291A04B5A9001DF290 /* TransferViewController.swift */; };
+		82C9C2301A04BFA0001DF290 /* KeyValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C22F1A04BFA0001DF290 /* KeyValueTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +110,8 @@
 		829F52AD19F4DC3E0032B485 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		829F52B119F4DC8E0032B485 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		82C726DA19F398A00045496A /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = Libraries/SwiftHTTP/SwiftHTTP.xcodeproj; sourceTree = "<group>"; };
+		82C9C2291A04B5A9001DF290 /* TransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
+		82C9C22F1A04BFA0001DF290 /* KeyValueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +280,8 @@
 				8290F97F19F76CBC00158036 /* TransfersViewController.swift */,
 				8290F98119F770E300158036 /* TransferCell.swift */,
 				8290F98219F770E300158036 /* TransferCell.xib */,
+				82C9C2291A04B5A9001DF290 /* TransferViewController.swift */,
+				82C9C22F1A04BFA0001DF290 /* KeyValueTableViewCell.swift */,
 			);
 			path = Transfers;
 			sourceTree = "<group>";
@@ -442,12 +448,14 @@
 				826A6EF419FC3F1300D348F1 /* Account.swift in Sources */,
 				8258E8F319F3E00D00BB5E12 /* PlainFileViewController.swift in Sources */,
 				825CA22619FB914F007281AB /* CoreDataStore.swift in Sources */,
+				82C9C22A1A04B5A9001DF290 /* TransferViewController.swift in Sources */,
 				8258E92E19F4579400BB5E12 /* AccountViewController.swift in Sources */,
 				82084F2F19FC7AA6005DF388 /* AccountInfoCell.swift in Sources */,
 				8258E92819F4402D00BB5E12 /* MainViewController.swift in Sources */,
 				8258E8EE19F3D4F700BB5E12 /* AccountStore.swift in Sources */,
 				825CA22C19FB9164007281AB /* CoreDataHelper.swift in Sources */,
 				825CA1F119FB7771007281AB /* data.xcdatamodeld in Sources */,
+				82C9C2301A04BFA0001DF290 /* KeyValueTableViewCell.swift in Sources */,
 				825B078919F3312700E65789 /* AppDelegate.swift in Sources */,
 				8290F98019F76CBC00158036 /* TransfersViewController.swift in Sources */,
 			);

@@ -143,7 +143,9 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let transfer = self.transfers[indexPath.row] as NSDictionary
+        let transferViewController = TransferViewController()
+        
+        transferViewController.transfer = transfer
+        navigationController?.pushViewController(transferViewController, animated: true)
     }
-
-
 }
