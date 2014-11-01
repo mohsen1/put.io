@@ -20,9 +20,9 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     override func viewWillAppear(animated: Bool) {
-        
+
         super.viewWillAppear(animated)
         let fileTabBarIcon = UIImage(named: "FilesTabBarIcon")
         let filesTabBarItem = UITabBarItem(title: "Files", image: fileTabBarIcon, tag: 0)
@@ -30,31 +30,31 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         let transfersTabBarItem = UITabBarItem(title: "Transfers", image: transfersTabBarIcon, tag: 1)
         let accountTabBarIcon = UIImage(named: "AccountTabBarIcon")
         let accountTabBarItem = UITabBarItem(title: "Account", image: accountTabBarIcon, tag: 2)
-        
+
         // Files
         let folderViewController = FolderViewController()
         var filesNavigationController = UINavigationController(rootViewController: folderViewController)
         filesNavigationController.tabBarItem = filesTabBarItem
-        
-        
+
+
         // Transfers
         let transfersViewController = TransfersViewController()
         var transfersNavigationController = UINavigationController(rootViewController: transfersViewController)
         transfersNavigationController.tabBarItem = transfersTabBarItem
 
-        
+
         // Account
         let accountViewController = AccountViewController()
         let accountNavigationViewController = UINavigationController(rootViewController: accountViewController)
         accountNavigationViewController.tabBarItem = accountTabBarItem
-        
-        
+
+
         viewControllers = [
             filesNavigationController,
             transfersNavigationController,
             accountNavigationViewController
         ]
-        
+
         // if user not logged in go to inxex 2 (Account) else go to index 0 (Files)
         if let account = AccountStore.getAccountSync(){
             if account.token == nil {

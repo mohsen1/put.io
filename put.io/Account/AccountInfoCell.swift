@@ -56,7 +56,7 @@ class AccountInfoCell: UITableViewCell {
             }
         }
     }
-    
+
     private func saveImageLocally(image: UIImage, name: String) {
         let imageData = UIImagePNGRepresentation(image)
         let imagesPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
@@ -64,7 +64,7 @@ class AccountInfoCell: UITableViewCell {
 
         imageData.writeToFile(imagePath, atomically: true)
     }
-    
+
     private func getLocalImage(name: String) -> UIImage? {
         let imagesPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
         let imagePath = imagesPath.stringByAppendingPathComponent(name)

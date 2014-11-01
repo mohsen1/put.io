@@ -120,7 +120,7 @@ class KeyValueTableViewCell: UITableViewCell {
                 detailTextLabel?.text = error
                 detailTextLabel?.textColor = UIColor.redColor()
             } else {
-                detailTextLabel?.text = "No"
+                detailTextLabel?.text = "No error"
             }
             break
 

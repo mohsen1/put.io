@@ -9,9 +9,9 @@
 import UIKit
 
 class Types {
-    // TODO: do not use string for types. Use a class variable when available 
+    // TODO: do not use string for types. Use a class variable when available
     // class let STRING_TYPES<Int, String> = [ -1: "Plain", 0 : "Video", ...]
-    
+
     class func typeFor(contentType: String) -> String? {
         if let range = contentType.rangeOfString("video/") {
             return "Video"

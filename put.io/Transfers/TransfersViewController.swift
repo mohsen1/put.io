@@ -9,7 +9,7 @@
 import UIKit
 import SwiftHTTP
 
-    
+
 class TransfersViewController: UITableViewController, UIAlertViewDelegate {
     var transfers = NSArray()
     var activityIndicator = UIActivityIndicatorView()
@@ -25,33 +25,33 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("fetchListSilent"), userInfo: nil, repeats: true)
 
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.title = "Transfers"
         let clean = UIBarButtonItem(title: "Clean", style: .Plain, target: self, action: "clean")
         navigationItem.leftBarButtonItem = clean
         tableView.rowHeight = 50
-        
-        // Make Navigation Bar buttons 
+
+        // Make Navigation Bar buttons
         self.activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 20, 20))
         self.progressBarButtton = UIBarButtonItem(customView: activityIndicator)
         self.refreshBarButton = UIBarButtonItem(title: "Refresh", style: .Plain, target: self, action: "fetchListLaud")
-        
+        timer.fire()
         fetchListLaud()
     }
-    
+
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.timer.invalidate()
     }
-    
+
     func startProgress() {
         activityIndicator.startAnimating()
         activityIndicator.activityIndicatorViewStyle = .Gray
         navigationItem.rightBarButtonItem = progressBarButtton
     }
-    
+
     func stopProgress() {
         navigationItem.rightBarButtonItem = refreshBarButton
     }
@@ -93,7 +93,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         } else {
             print("Not logged in, trying to access transfers")
         }
-        
+
         if !silent { self.startProgress() }
         request.GET(url, parameters: params, success: {(response: HTTPResponse) in
             if let data = response.responseObject as? NSData {
@@ -108,13 +108,13 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
             }
             }, failure: {(error: NSError, response: HTTPResponse?) in
                 var alert = UIAlertView(title: "Network Error", message: "Error fetching transfers!", delegate: self, cancelButtonTitle: "OK", otherButtonTitles: "Retry")
-                
+
                 dispatch_async(dispatch_get_main_queue()) {
                     alert.show()
                     self.timer.invalidate()
                     if !silent { self.stopProgress() }
                 }
-                
+
         })
     }
 
@@ -127,7 +127,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
     }
 
     // MARK: - TableView
-    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.transfers.count
     }
@@ -140,11 +140,11 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
 
         return cell
     }
-    
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let transfer = self.transfers[indexPath.row] as NSDictionary
         let transferViewController = TransferViewController()
-        
+
         transferViewController.transfer = transfer
         navigationController?.pushViewController(transferViewController, animated: true)
     }

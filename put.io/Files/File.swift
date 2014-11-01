@@ -23,11 +23,11 @@ class File: NSManagedObject {
     @NSManaged var opensubtitles_hash: String?
     @NSManaged var screenshot: String?
     @NSManaged var size: String?
-    
+
     func fillWithJson(json:NSDictionary){
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        
+
         if let _name = json["name"] as? String {
             name = _name
         }

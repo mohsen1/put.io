@@ -21,7 +21,7 @@ class FolderViewController: UITableViewController {
         var folderTableViewCellNib = UINib(nibName: "FolderTableViewCell", bundle: nil)
         tableView.registerNib(folderTableViewCellNib, forCellReuseIdentifier: "FolderTableViewCell")
         tableView.rowHeight = 54
-        
+
         if self.id == "0" {
             self.navigationItem.title = "Files"
         } else {
@@ -70,24 +70,24 @@ class FolderViewController: UITableViewController {
         navigationItem.rightBarButtonItem = refreshBarButton
     }
 
-    
+
     // MARK: - TableView
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.files.count
     }
 
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> FolderTableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FolderTableViewCell", forIndexPath: indexPath) as FolderTableViewCell
         let file = self.files[indexPath.row] as File
-        
+
         cell.fill(file)
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
- 
+
         return cell
     }
-    
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let file = self.files[indexPath.row] as File
 
@@ -98,24 +98,24 @@ class FolderViewController: UITableViewController {
 
             self.navigationController?.pushViewController(folderViewController, animated: true)
         }
-        
+
         // else, it's a file. open file view controoler
         else {
             pushFileViewController(file)
         }
     }
-    
+
     func pushFileViewController(file: File) {
         let type = Types.typeFor(file.content_type!)
         var fileViewController:FileViewController;
-        
+
         if type == "Video" {
 //            fileViewController = VideoFileViewController()
         }
 //        if type = nil {
             fileViewController = PlainFileViewController()
 //        }
-        
+
         fileViewController.file = file
         self.navigationController?.pushViewController(fileViewController, animated: true)
     }

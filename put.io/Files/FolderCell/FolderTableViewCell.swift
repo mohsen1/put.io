@@ -11,16 +11,16 @@ import UIKit
 private let byteFormatter = NSByteCountFormatter()
 
 class FolderTableViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var fileName: UILabel!
     @IBOutlet weak var fileSize: UILabel!
     @IBOutlet weak var fileAccessed: UILabel!
-    
+
     func fill(file:File) {
         self.fileName.text = file.name
         self.icon.image = Types.iconFor(file.content_type!)
-        
+
         if file.size != nil {
             // All this dance because XCode is not supporting Ints in core data properly!
             let nsSizeStr = NSString(string: file.size!)

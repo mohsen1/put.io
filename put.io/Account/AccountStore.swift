@@ -13,34 +13,34 @@ import SwiftHTTP
 private let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 
 class AccountStore {
-    
+
     private class func createEmptyAccount() -> Account {
         // NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:moc];
         var entityDescription = NSEntityDescription.entityForName("Account", inManagedObjectContext: appDelegate.cdh.managedObjectContext!)
-        
+
 
         var account = Account(entity: entityDescription!, insertIntoManagedObjectContext:appDelegate.cdh.managedObjectContext!)
-        
+
         return account
     }
-    
+
     class func deleteAccount() {
         if let account = getAccountSync() {
             appDelegate.cdh.managedObjectContext!.deleteObject(account)
         }
     }
-    
+
     class func updateAccount(account:Account, json:NSDictionary) {
         account.fill(json)
         saveAccount()
     }
-    
+
     class func getAccount(completionHandler: (Account)->()) -> () {
         var error: NSError? = nil
         var fetchReq = NSFetchRequest(entityName: "Account")
-        
+
         if let result = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchReq, error:&error) as? [Account]{
-            
+
 
             if result.count > 0 && result[0].username != nil{
                 completionHandler(result[0])
@@ -48,13 +48,13 @@ class AccountStore {
         }
         let account = createEmptyAccount()
         fetchInfo(account, completionHandler: completionHandler)
-        
+
     }
-    
+
     class func getAccountSync() -> Account? {
         var error: NSError? = nil
         var fetchReq = NSFetchRequest(entityName: "Account")
-        
+
         if let result = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchReq, error:&error) as? [Account]{
 
             if result.count > 0 && result[0].username != nil{
@@ -63,17 +63,17 @@ class AccountStore {
         }
         return nil
     }
-    
+
     class func initAccount(token:String, completionHandler: (Account)->()) {
         var account = self.createEmptyAccount()
         account.token = token
         self.fetchInfo(account, completionHandler: completionHandler)
     }
-    
+
     private class func saveAccount() {
         appDelegate.cdh.saveContext(appDelegate.cdh.managedObjectContext!)
     }
-    
+
     // MARK: - HTTP
     class func fetchInfo(acct: Account, completionHandler: (Account)->()) {
         let request = HTTPTask()
@@ -84,7 +84,7 @@ class AccountStore {
             if let data = response.responseObject as? NSData {
                 var jsonError:NSError?
                 if var json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
-                    
+
                     if let info = json["info"] as? NSDictionary {
                         self.updateAccount(acct, json: info)
                         completionHandler(acct)
@@ -95,5 +95,5 @@ class AccountStore {
                 print(error) // TODO
         })
     }
-    
+
 }

@@ -9,14 +9,14 @@
 import UIKit
 
 class LoginViewController: UIViewController , UIWebViewDelegate {
-    
+
     @IBOutlet weak var loginWebView: UIWebView!
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var loadingMessageLabel: UILabel!
     @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
 
-    
-   
+
+
     func FinishLogin(token:String) {
         AccountStore.initAccount(token, { _ in
             dispatch_async(dispatch_get_main_queue()) {
@@ -27,14 +27,14 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
             }
         })
     }
-    
+
     override func loadView() {
         super.loadView()
         let nib = UINib(nibName: "LoginViewController", bundle: nil)
         nib.instantiateWithOwner(self, options: nil)
     }
-    
-    
+
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -47,7 +47,7 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
         super.viewDidLoad()
         startRequest()
     }
-    
+
     func webViewDidStartLoad(webView: UIWebView) {
         loadingActivityIndicator.hidden = false
         loadingActivityIndicator.startAnimating()
@@ -66,7 +66,7 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
         loadingActivityIndicator.hidden = true
         loadingActivityIndicator.stopAnimating()
         loadingMessageLabel.text = ""
-        
+
         if currentUrl?.rangeOfString("/login") != nil {
             webView.stringByEvaluatingJavaScriptFromString(js)
         }
@@ -76,7 +76,7 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
                     FinishLogin(token)
                 }
         }
-        
+
         if currentUrl == "http://mohsenweb.com/put.io/" {
             refresh(0)
         }
@@ -87,16 +87,16 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
         loginWebView.loadRequest(NSURLRequest(URL: NSURL(string: "about:blank")!))
         self.startRequest()
     }
-    
-    
+
+
     func startRequest() {
         let startUrl = "https://api.put.io/v2/oauth2/authenticate?client_id=1655&response_type=token&redirect_uri=http://mohsenweb.com/put.io/"
         var startRequest = NSMutableURLRequest(URL: NSURL(string: startUrl)!)
-        
+
         loadingActivityIndicator.hidden = false
         loadingActivityIndicator.startAnimating()
         loadingMessageLabel.text = "Loading..."
-        
+
         loginWebView.delegate = self
         loginWebView.loadRequest(startRequest)
     }

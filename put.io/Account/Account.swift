@@ -20,7 +20,7 @@ class Account : NSManagedObject {
     @NSManaged var disk_used: Double
     @NSManaged var default_subtitle_language: String?
     @NSManaged var plan_expiration_date: NSDate?
-    
+
     func fill(json:NSDictionary) {
         if let _username = json["username"] as? String {
             username = _username
