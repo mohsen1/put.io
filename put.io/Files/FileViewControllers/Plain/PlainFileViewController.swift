@@ -11,7 +11,7 @@ import UIKit
 private let byteFormatter = NSByteCountFormatter()
 
 class PlainFileViewController: FileViewController {
-    
+
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
