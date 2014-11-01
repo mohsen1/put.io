@@ -38,8 +38,8 @@ class KeyValueTableViewCell: UITableViewCell {
 
             case 1:
             textLabel.text = "Size"
-            if let size = transfer!["size"] as? NSInteger {
-                detailTextLabel?.text = byteFormatter.stringFromByteCount(Int64(size))
+            if let size = transfer!["size"] as? NSNumber {
+                detailTextLabel?.text = byteFormatter.stringFromByteCount(size.longLongValue)
             }
             break
 
@@ -67,32 +67,32 @@ class KeyValueTableViewCell: UITableViewCell {
 
             case 5:
             textLabel.text = "Download Speed"
-            if let speed = transfer!["down_speed"] as? NSInteger {
-                let formatted = byteFormatter.stringFromByteCount(Int64(speed))
+            if let speed = transfer!["down_speed"] as? NSNumber {
+                let formatted = byteFormatter.stringFromByteCount(speed.longLongValue)
                 detailTextLabel?.text = "\(formatted)/s"
             }
             break
 
             case 6:
             textLabel.text = "Upload Speed"
-            if let speed = transfer!["down_speed"] as? NSInteger {
-                let formatted = byteFormatter.stringFromByteCount(Int64(speed))
+            if let speed = transfer!["down_speed"] as? NSNumber {
+                let formatted = byteFormatter.stringFromByteCount(speed.longLongValue)
                 detailTextLabel?.text = "\(formatted)/s"
             }
             break
 
             case 7:
             textLabel.text = "Downloaded"
-            if let value = transfer!["downloaded"] as? NSInteger {
-                let formatted = byteFormatter.stringFromByteCount(Int64(value))
+            if let value = transfer!["downloaded"] as? NSNumber {
+                let formatted = byteFormatter.stringFromByteCount(value.longLongValue)
                 detailTextLabel?.text = formatted
             }
             break
 
             case 8:
             textLabel.text = "Uploaded"
-            if let value = transfer!["uploaded"] as? NSInteger {
-                let formatted = byteFormatter.stringFromByteCount(Int64(value))
+            if let value = transfer!["uploaded"] as? NSNumber {
+                let formatted = byteFormatter.stringFromByteCount(value.longLongValue)
                 detailTextLabel?.text = formatted
             }
             break
