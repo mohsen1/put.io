@@ -124,8 +124,8 @@ class KeyValueTableViewCell: UITableViewCell {
             }
             break
 
-            case 13: setValueString("Magnet link", value: "magneturi")
-
+            case 13:
+            setValueString("Magnet link", value: "magneturi")
             break
 
             case 14:

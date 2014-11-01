@@ -23,7 +23,7 @@ class TransferCell: UITableViewCell {
         }
         if let percent = transfer["percent_done"] as? NSInteger {
             percentage.text = "\(percent)%"
-            drawPercentage(Float(percent))
+            drawPercentage(Float(percent), status: transfer["status"]! as String)
             if percent == 100 {
                 estimateTime.text = ""
             }
@@ -31,11 +31,18 @@ class TransferCell: UITableViewCell {
         title.text = transfer["name"] as NSString
     }
 
-    internal func drawPercentage(percentage: Float){
-        let width = self.contentView.bounds.width * CGFloat(percentage) / 100.0
-        var rect = CGRectMake(0, 0, width, self.contentView.bounds.height)
-        var percentage = UIView(frame: rect)
-        percentage.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.85, alpha: 1)
-        self.contentView.insertSubview(percentage, atIndex: 0)
+    internal func drawPercentage(percentage: Float, status: String){
+        var width = (contentView.bounds.width * CGFloat(percentage)) / 100.0
+        var rect = CGRectMake(0, 0, width, contentView.bounds.height)
+        var percentageView = UIView(frame: rect)
+
+        if status == "WAITING" {
+            percentageView.backgroundColor = UIColor(red: 0.8, green: 0.3, blue: 0.35, alpha: 1)
+        }
+        else {
+            percentageView.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.85, alpha: 1)
+        }
+
+        contentView.insertSubview(percentageView, atIndex: 0)
     }
 }

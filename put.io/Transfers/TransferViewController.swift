@@ -102,7 +102,7 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
 
                 if transfer != nil {
                     if let status = transfer!["status"]! as? String {
-                        if status == "DOWNLOADING" {
+                        if status != "COMPLETED" {
                             cell.userInteractionEnabled = true
                             cell.textLabel.textColor = UIColor.redColor()
                         }
