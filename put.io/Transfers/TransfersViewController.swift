@@ -28,15 +28,13 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         navigationItem.title = "Transfers"
 
         cleanBtn = UIBarButtonItem(title: "Clean up", style: .Plain, target: self, action: "clean")
-        navigationItem.leftBarButtonItem = cleanBtn
 
         let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 20, 20))
         progressBarButtton = UIBarButtonItem(customView: activityIndicator)
         activityIndicator.startAnimating()
         activityIndicator.activityIndicatorViewStyle = .Gray
-
+        navigationItem.leftBarButtonItem = progressBarButtton
         tableView.rowHeight = 50
-
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("fetch"))
 
         refreshCtrl.backgroundColor = UIColor.lightGrayColor()
@@ -58,6 +56,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
             dispatch_async(dispatch_get_main_queue()) {
                 self.tableView.reloadData()
                 self.refreshControl?.endRefreshing()
+                self.navigationItem.leftBarButtonItem = self.cleanBtn
             }
         })
     }
