@@ -12,7 +12,7 @@ var dateFormatter = NSDateFormatter()
 var mediumDateFormatter = NSDateFormatter()
 
 class KeyValueTableViewCell: UITableViewCell {
-    var transfer:Transfer?
+    var transfer:Transfer!
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?){
         super.init(style: .Value1, reuseIdentifier:reuseIdentifier)
@@ -34,52 +34,52 @@ class KeyValueTableViewCell: UITableViewCell {
         switch index {
             case 0:
             textLabel.text = "Name"
-            detailTextLabel?.text = transfer?.name
+            detailTextLabel?.text = transfer!.name
             break
 
             case 1:
             textLabel.text = "Size"
-            detailTextLabel?.text = transfer?.sizeString
+            detailTextLabel?.text = transfer!.sizeString
             break
 
             case 2:
             textLabel.text = "Estimated time"
-            detailTextLabel?.text = transfer?.estimatedTimeString
+            detailTextLabel?.text = transfer!.estimatedTimeString
             break
 
             case 3:
             textLabel.text = "Availability"
-            detailTextLabel?.text = transfer?.availabilityString
+            detailTextLabel?.text = transfer!.availabilityString
             break
 
             case 4:
             textLabel.text = "Percentage done"
-            detailTextLabel?.text = transfer?.percentDoneString
+            detailTextLabel?.text = transfer!.percentDoneString
             break
 
             case 5:
             textLabel.text = "Download Speed"
-            detailTextLabel?.text = transfer?.downloadSpeedString
+            detailTextLabel?.text = transfer!.downloadSpeedString
             break
 
             case 6:
             textLabel.text = "Upload Speed"
-            detailTextLabel?.text = transfer?.updoadSpeedString
+            detailTextLabel?.text = transfer!.updoadSpeedString
             break
 
             case 7:
             textLabel.text = "Downloaded"
-            detailTextLabel?.text = transfer?.downloadedString
+            detailTextLabel?.text = transfer!.downloadedString
             break
 
             case 8:
             textLabel.text = "Uploaded"
-            detailTextLabel?.text = transfer?.uploadedString
+            detailTextLabel?.text = transfer!.uploadedString
             break
 
             case 9:
             textLabel.text = "Current Ratio"
-            detailTextLabel?.text = transfer?.ratio
+            detailTextLabel?.text = transfer!.ratio
             break
 
             case 10:
@@ -89,52 +89,52 @@ class KeyValueTableViewCell: UITableViewCell {
 
             case 11:
             textLabel.text = "Created at"
-            detailTextLabel?.text = transfer?.createdAtString
+            detailTextLabel?.text = transfer!.createdAtString
             break
 
             case 12:
             textLabel.text = "Error"
-            detailTextLabel?.text = transfer?.error
+            detailTextLabel?.text = transfer!.error
             break
 
             case 13:
             textLabel.text = "Magnet link"
-            detailTextLabel?.text = transfer?.magnetUri
+            detailTextLabel?.text = transfer!.magnetUri
             break
 
             case 14:
             textLabel.text = "Connected peers"
-            detailTextLabel?.text = "\(transfer?.peersConnceted)"
+            detailTextLabel?.text = "\(transfer!.peersConnceted)"
             break
 
             case 15:
             textLabel.text = "Peers getting from us"
-            detailTextLabel?.text = "\(transfer?.peersGettingFromUs)"
+            detailTextLabel?.text = "\(transfer!.peersGettingFromUs)"
             break
 
             case 16:
             textLabel.text = "Peers sending to us"
-            detailTextLabel?.text = "\(transfer?.peersSendingToUs)"
+            detailTextLabel?.text = "\(transfer!.peersSendingToUs)"
             break
 
             case 17:
             textLabel.text = "Seeding for"
-            detailTextLabel?.text = transfer?.seedingForString
+            detailTextLabel?.text = transfer!.seedingForString
             break
 
             case 18:
             textLabel.text = "Downloading to folder"
-            detailTextLabel?.text = transfer?.saveParent?.name
+            detailTextLabel?.text = transfer!.saveParent?.name
             break
 
             case 19:
             textLabel.text = "Status"
-            detailTextLabel?.text = transfer?.status
+            detailTextLabel?.text = transfer!.status
             break
 
             case 20:
             textLabel.text = "Type"
-            detailTextLabel?.text = transfer?.type
+            detailTextLabel?.text = transfer!.type
             break
 
             case 21:
@@ -148,12 +148,12 @@ class KeyValueTableViewCell: UITableViewCell {
 
             case 22:
             textLabel.text = "Source"
-            detailTextLabel?.text = transfer?.source
+            detailTextLabel?.text = transfer!.source
             break
 
             case 23:
             textLabel.text = "Trackers"
-            detailTextLabel?.text = transfer?.trackersString
+            detailTextLabel?.text = transfer!.trackersString
             break
 
             default:
