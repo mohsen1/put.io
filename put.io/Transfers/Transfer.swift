@@ -9,11 +9,12 @@
 import Foundation
 
 
-class Transfer : NSObject {
+class Transfer {
     private let byteFormatter = NSByteCountFormatter()
     private var dateFormatter = NSDateFormatter()
     private var mediumDateFormatter = NSDateFormatter()
 
+    var id: Int64                   = -1
     var name: String                = "Unknown"
     var size: Int64                 = 0
     var sizeString: String          = ""
@@ -47,13 +48,20 @@ class Transfer : NSObject {
     var isPrivate: Bool             = false
     var trackers: NSArray           = NSArray()
     var trackersString: String      = ""
+    var saveParentId: Int64         = 0
+    var fileId: Int64               = 0
+    var saveParent: File?
+    var file: File?
 
     init (json:NSDictionary) {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         mediumDateFormatter.dateStyle = .MediumStyle
         mediumDateFormatter.timeStyle = .MediumStyle
 
-
+        if let _id = json["id"] as? NSNumber {
+            id = _id.longLongValue
+        }
+        
         if let _name = json["name"] as? String {
             name = _name
         }
@@ -139,9 +147,6 @@ class Transfer : NSObject {
             peersConnceted = Int64(val)
         }
 
-        // TODO Get File
-        // detailTextLabel?.text = json["save_parent_id"] as? String
-
         if let _status = json["status"] as? String {
             status = _status
         }
@@ -168,5 +173,23 @@ class Transfer : NSObject {
             }
             trackersString = str
         }
+
+        if let parentId = json["save_parent_id"] as? NSInteger {
+            saveParentId = Int64(parentId)
+            FileStore.getFile("\(saveParentId)", completionHandler: { (result: File) in
+                self.saveParent = result
+            })
+        }
+
+        if let id = json["file_id"] as? NSInteger {
+            fileId = Int64(id)
+            FileStore.getFile("\(fileId)", completionHandler: { (result: File) in
+                self.file = result
+            })
+        }
+    }
+    
+    internal func cancel() {
+        TransferStore.cancel(self)
     }
 }

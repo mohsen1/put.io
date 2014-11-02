@@ -17,21 +17,14 @@ class TransferCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    internal func load(transfer: NSDictionary){
-        if let secs = transfer.objectForKey("estimated_time") as? Int {
-            estimateTime.text = Util.formatEstimateTime(secs)
-        }
-        if let percent = transfer["percent_done"] as? NSInteger {
-            percentage.text = "\(percent)%"
-            drawPercentage(Float(percent), status: transfer["status"]! as String)
-            if percent == 100 {
-                estimateTime.text = ""
-            }
-        }
-        title.text = transfer["name"] as NSString
+    internal func load(transfer: Transfer){
+        title.text = transfer.name
+        estimateTime.text = transfer.estimatedTimeString
+        percentage.text = transfer.percentDoneString
+        drawPercentage(transfer.percentDone, status: transfer.status)
     }
 
-    internal func drawPercentage(percentage: Float, status: String){
+    internal func drawPercentage(percentage: Int64, status: String){
         var width = (contentView.bounds.width * CGFloat(percentage)) / 100.0
         var rect = CGRectMake(0, 0, width, contentView.bounds.height)
         var percentageView = UIView(frame: rect)

@@ -10,7 +10,7 @@ import UIKit
 import SwiftHTTP
 
 class TransferViewController: UITableViewController, UIAlertViewDelegate {
-    var transfer:NSDictionary?
+    var transfer:Transfer?
     var activityIndicator = UIActivityIndicatorView()
     var progressBarButtton = UIBarButtonItem()
     var refreshBarButton = UIBarButtonItem()
@@ -19,7 +19,7 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         if transfer != nil {
-            navigationItem.title = transfer!["name"] as? NSString
+            navigationItem.title = transfer?.name
         } else {
             navigationItem.title = "Not found!"
         }
@@ -101,11 +101,9 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
                 cell.textLabel.textColor = UIColor.grayColor()
 
                 if transfer != nil {
-                    if let status = transfer!["status"]! as? String {
-                        if status != "COMPLETED" {
-                            cell.userInteractionEnabled = true
-                            cell.textLabel.textColor = UIColor.redColor()
-                        }
+                    if transfer?.status != "COMPLETED" {
+                        cell.userInteractionEnabled = true
+                        cell.textLabel.textColor = UIColor.redColor()
                     }
                 }
             }
@@ -115,7 +113,7 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
             let cell = tableView.dequeueReusableCellWithIdentifier("KeyValueTableViewCell", forIndexPath: indexPath) as KeyValueTableViewCell
 
             if transfer != nil {
-                cell.setValue(indexPath.row, tr: transfer!)
+//                cell.setValue(indexPath.row, tr: transfer!)
             }
 
             return cell
@@ -128,13 +126,11 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
         if indexPath.section == 1 && indexPath.row == 1 {
-            if let status = transfer!["status"]! as? String {
-                if status == "DOWNLOADING" {
-                    let alert = UIAlertView(title: "Do you want to coancel this transfer?", message: "", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Yes")
+            if transfer?.status == "DOWNLOADING" {
+                let alert = UIAlertView(title: "Do you want to coancel this transfer?", message: "", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Yes")
                     alert.show()
-                } else {
+            } else {
                     // TODO clean
-                }
             }
 
         }
@@ -144,22 +140,7 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
     // MARK: - Alert view
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 1 { // Yes
-            if let transferId = transfer!["id"] as? NSInteger {
-                let request = HTTPTask()
-                let account = AccountStore.getAccountSync()
-                let url = "https://api.put.io/v2/transfers/cancel"
-                var params: Dictionary<String, String> = [
-                    "transfer_ids": "\(transferId)",
-                    "access_token": "\(account!.token!)"
-                ]
-
-                navigationController?.popToRootViewControllerAnimated(true)
-
-                request.POST(url, parameters: params, success: {(response: HTTPResponse) in
-                }, failure: {(error: NSError, response: HTTPResponse?) in
-                    print(error)
-                })
-            }
+//            TODO
         }
     }
 
@@ -170,7 +151,7 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
     }
 
     func stopProgress() {
-        navigationItem.rightBarButtonItem = refreshBarButton
+//        navigationItem.rightBarButtonItem = refreshBarButton
     }
 
     func refreshLoad() {
@@ -180,36 +161,6 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
     func refreshSilent(){ refresh() }
 
     func refresh (silent: Bool = true) {
-        if transfer != nil {
-            if let transferId = transfer!["id"] as? NSInteger {
-                let request = HTTPTask()
-                let account = AccountStore.getAccountSync()
-                let url = "https://api.put.io/v2/transfers/\(transferId)"
-                var params: Dictionary<String, String> = [
-                    "access_token": "\(account!.token!)"
-                ]
-
-                if !silent { startProgress() }
-                request.GET(url, parameters: params, success: {(response: HTTPResponse) in
-                    if let data = response.responseObject as? NSData {
-                        var jsonError:NSError?
-                        if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
-                            if let newTeansfer = json["transfer"] as? NSDictionary {
-                                self.transfer = newTeansfer
-                                dispatch_async(dispatch_get_main_queue()) {
-                                    self.stopProgress()
-                                    self.tableView.reloadData()
-                                }
-                            }
-                        }
-                    }
-                    self.stopProgress()
-                    }, failure: {(error: NSError, response: HTTPResponse?) in
-                        print(error)
-                        self.stopProgress()
-                })
-            }
-
-        }
+//TODO
     }
 }
