@@ -24,7 +24,7 @@ class TransferCell: UITableViewCell {
         drawPercentage(transfer.percentDone, status: transfer.status)
     }
 
-    internal func drawPercentage(percentage: Int64, status: String){
+    internal func drawPercentage(percentage: Int, status: String){
         var width = (contentView.bounds.width * CGFloat(percentage)) / 100.0
         var rect = CGRectMake(0, 0, width, contentView.bounds.height)
         var percentageView = UIView(frame: rect)

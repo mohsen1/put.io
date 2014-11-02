@@ -14,33 +14,33 @@ class Transfer {
     private var dateFormatter = NSDateFormatter()
     private var mediumDateFormatter = NSDateFormatter()
 
-    var id: Int64                   = -1
+    var id: Int                     = -1
     var name: String                = "Unknown"
-    var size: Int64                 = 0
+    var size: Int                   = 0
     var sizeString: String          = ""
     var magnetUri: String           = "N/A"
-    var estimatedTime: Int64        = 0
+    var estimatedTime: Int          = 0
     var estimatedTimeString: String = ""
-    var availability: Int64         = 0
+    var availability: Int           = 0
     var availabilityString: String  = "N/A"
-    var percentDone: Int64          = 0
+    var percentDone: Int            = 0
     var percentDoneString: String   = "N/A"
-    var downloadSpeed: Int64        = 0
+    var downloadSpeed: Int          = 0
     var downloadSpeedString: String = "N/A"
-    var uploadSpeed: Int64          = 0
+    var uploadSpeed: Int            = 0
     var updoadSpeedString: String   = "N/A"
-    var downloaded: Int64           = 0
+    var downloaded: Int             = 0
     var downloadedString: String    = "N/A"
-    var uploaded: Int64             = 0
+    var uploaded: Int               = 0
     var uploadedString: String      = "N/A"
     var ratio: String               = "N/A"
     var createdAt: NSDate?          = nil
     var createdAtString: String     = "N/A"
     var error: String               = "No error"
-    var peersConnceted: Int64       = 0
-    var peersGettingFromUs: Int64   = 0
-    var peersSendingToUs: Int64     = 0
-    var seedingFor: Int64           = 0
+    var peersConnceted: Int         = 0
+    var peersGettingFromUs: Int     = 0
+    var peersSendingToUs: Int       = 0
+    var seedingFor: Int             = 0
     var seedingForString: String    = "N/A"
     var status: String              = ""
     var type: String                = ""
@@ -48,8 +48,8 @@ class Transfer {
     var isPrivate: Bool             = false
     var trackers: NSArray           = NSArray()
     var trackersString: String      = ""
-    var saveParentId: Int64         = 0
-    var fileId: Int64               = 0
+    var saveParentId: Int           = 0
+    var fileId: Int                 = 0
     var saveParent: File?
     var file: File?
 
@@ -58,59 +58,59 @@ class Transfer {
         mediumDateFormatter.dateStyle = .MediumStyle
         mediumDateFormatter.timeStyle = .MediumStyle
 
-        if let _id = json["id"] as? NSNumber {
-            id = _id.longLongValue
+        if let _id = json["id"] as? Int {
+            id = _id
         }
-        
+
         if let _name = json["name"] as? String {
             name = _name
         }
 
-        if let _size = json["size"] as? NSNumber {
-            size = _size.longLongValue
-            sizeString = byteFormatter.stringFromByteCount(size)
+        if let _size = json["size"] as? Int {
+            size = _size
+            sizeString = byteFormatter.stringFromByteCount(Int64(size))
         }
 
         if let _magnetUri = json["magnetUri"] as? String {
             magnetUri = _magnetUri
         }
 
-        if let _estimatedTime = json["estimated_time"] as? NSInteger {
-            estimatedTimeString = Util.formatEstimateTime(Int(_estimatedTime))
-            estimatedTime = Int64(_estimatedTime)
+        if let _estimatedTime = json["estimated_time"] as? Int {
+            estimatedTimeString = Util.formatEstimateTime(_estimatedTime)
+            estimatedTime = _estimatedTime
         }
 
-        if let av = json["availability"] as? NSInteger {
+        if let av = json["availability"] as? Int {
             availabilityString = "\(av)%"
-            availability = Int64(av)
+            availability = av
         }
 
-        if let pd = json["percent_done"] as? NSInteger {
+        if let pd = json["percent_done"] as? Int {
             percentDoneString = "\(pd)%"
-            percentDone = Int64(pd)
+            percentDone = pd
         }
 
-        if let speed = json["down_speed"] as? NSNumber {
-            downloadSpeed = speed.longLongValue
-            let formatted = byteFormatter.stringFromByteCount(downloadSpeed)
+        if let speed = json["down_speed"] as? Int {
+            downloadSpeed = speed
+            let formatted = byteFormatter.stringFromByteCount(Int64(downloadSpeed))
             downloadSpeedString = "\(formatted)/s"
         }
 
-        if let speed = json["up_speed"] as? NSNumber {
-            uploadSpeed = speed.longLongValue
-            let formatted = byteFormatter.stringFromByteCount(uploadSpeed)
+        if let speed = json["up_speed"] as? Int {
+            uploadSpeed = speed
+            let formatted = byteFormatter.stringFromByteCount(Int64(uploadSpeed))
             updoadSpeedString = "\(formatted)/s"
         }
 
-        if let value = json["downloaded"] as? NSNumber {
-            downloaded = value.longLongValue
-            let formatted = byteFormatter.stringFromByteCount(downloaded)
+        if let value = json["downloaded"] as? Int {
+            downloaded = value
+            let formatted = byteFormatter.stringFromByteCount(Int64(downloaded))
             downloadedString = formatted
         }
 
-        if let value = json["uploaded"] as? NSNumber {
-            uploaded = value.longLongValue
-            let formatted = byteFormatter.stringFromByteCount(uploaded)
+        if let value = json["uploaded"] as? Int {
+            uploaded = value
+            let formatted = byteFormatter.stringFromByteCount(Int64(uploaded))
             uploadedString = formatted
         }
 
@@ -130,21 +130,21 @@ class Transfer {
         }
 
 
-        if let val = json["peers_connected"] as? NSInteger {
-            peersConnceted = Int64(val)
+        if let val = json["peers_connected"] as? Int {
+            peersConnceted = Int  (val)
         }
 
-        if let val = json["peers_sending_to_us"] as? NSInteger {
-            peersSendingToUs = Int64(val)
+        if let val = json["peers_sending_to_us"] as? Int {
+            peersSendingToUs = Int  (val)
         }
 
-        if let val = json["seconds_seeding"] as? NSInteger {
-            seedingFor = Int64(val)
-            seedingForString = Util.formatEstimateTime(Int(seedingFor))
+        if let val = json["seconds_seeding"] as? Int {
+            seedingFor = Int  (val)
+            seedingForString = Util.formatEstimateTime(seedingFor)
         }
 
-        if let val = json["peers_connected"] as? NSInteger {
-            peersConnceted = Int64(val)
+        if let val = json["peers_connected"] as? Int {
+            peersConnceted = Int  (val)
         }
 
         if let _status = json["status"] as? String {
@@ -174,21 +174,21 @@ class Transfer {
             trackersString = str
         }
 
-        if let parentId = json["save_parent_id"] as? NSInteger {
-            saveParentId = Int64(parentId)
+        if let parentId = json["save_parent_id"] as? Int {
+            saveParentId = parentId
             FileStore.getFile("\(saveParentId)", completionHandler: { (result: File) in
                 self.saveParent = result
             })
         }
 
-        if let id = json["file_id"] as? NSInteger {
-            fileId = Int64(id)
+        if let id = json["file_id"] as? Int {
+            fileId = id
             FileStore.getFile("\(fileId)", completionHandler: { (result: File) in
                 self.file = result
             })
         }
     }
-    
+
     internal func cancel() {
         TransferStore.cancel(self, {_ in })
     }

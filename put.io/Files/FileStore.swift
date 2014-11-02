@@ -104,7 +104,7 @@ class FileStore {
             }
             }, failure: {(error: NSError, response: HTTPResponse?) in
                 // TODO
-                print(error)
+                println(error)
         })
     }
 

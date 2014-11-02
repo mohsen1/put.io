@@ -13,6 +13,8 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
     var transfers = [Transfer]()
     var refreshCtrl = UIRefreshControl()
     var timer = NSTimer()
+    var progressBarButtton = UIBarButtonItem()
+    var cleanBtn = UIBarButtonItem()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +27,13 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         super.viewWillAppear(animated)
         navigationItem.title = "Transfers"
 
-        let cleanBtn = UIBarButtonItem(title: "Clean up", style: .Plain, target: self, action: "clean")
+        cleanBtn = UIBarButtonItem(title: "Clean up", style: .Plain, target: self, action: "clean")
         navigationItem.leftBarButtonItem = cleanBtn
+
+        let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 20, 20))
+        progressBarButtton = UIBarButtonItem(customView: activityIndicator)
+        activityIndicator.startAnimating()
+        activityIndicator.activityIndicatorViewStyle = .Gray
 
         tableView.rowHeight = 50
 
@@ -57,11 +64,11 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
     }
 
     func clean() {
-        refreshControl?.beginRefreshing()
+        navigationItem.leftBarButtonItem = progressBarButtton
         TransferStore.clean({ (error:NSError?) in
             dispatch_async(dispatch_get_main_queue()) {
-                self.tableView.reloadData()
-                self.refreshControl?.endRefreshing()
+                self.fetch()
+                self.navigationItem.leftBarButtonItem = self.cleanBtn
             }
         })
     }
