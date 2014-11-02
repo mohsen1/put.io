@@ -12,9 +12,7 @@ import SwiftHTTP
 
 class TransfersViewController: UITableViewController, UIAlertViewDelegate {
     var transfers = NSArray()
-    var activityIndicator = UIActivityIndicatorView()
-    var progressBarButtton = UIBarButtonItem()
-    var refreshBarButton = UIBarButtonItem()
+    var refreshCtrl = UIRefreshControl()
     var timer = NSTimer()
 
     override func viewDidLoad() {
@@ -34,9 +32,12 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         tableView.rowHeight = 50
 
         // Make Navigation Bar buttons
-        self.activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 20, 20))
-        self.progressBarButtton = UIBarButtonItem(customView: activityIndicator)
-        self.refreshBarButton = UIBarButtonItem(title: "Refresh", style: .Plain, target: self, action: "fetchListLaud")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("fetchListSilent"))
+        
+        refreshCtrl.backgroundColor = UIColor.blueColor()
+        refreshCtrl.addTarget(self, action: Selector("fetchListLaud"), forControlEvents: .ValueChanged)
+        refreshCtrl.attributedTitle = NSAttributedString(string: "TESTSSTSTSTT")
+        refreshControl = refreshCtrl
         timer.fire()
         fetchListLaud()
     }
@@ -46,15 +47,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         self.timer.invalidate()
     }
 
-    func startProgress() {
-        activityIndicator.startAnimating()
-        activityIndicator.activityIndicatorViewStyle = .Gray
-        navigationItem.rightBarButtonItem = progressBarButtton
-    }
 
-    func stopProgress() {
-        navigationItem.rightBarButtonItem = refreshBarButton
-    }
 
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 0 {
@@ -75,12 +68,11 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
             print("Not logged in, trying to access transfers")
         }
 
-        startProgress()
         request.POST(url, parameters: params, success: {(response: HTTPResponse) in
             self.fetchListLaud()
         }, failure: {(error: NSError, response: HTTPResponse?) in
             print(error)
-            self.stopProgress()
+            self.refreshCtrl.endRefreshing()
         })
     }
 
@@ -94,15 +86,15 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
             print("Not logged in, trying to access transfers")
         }
 
-        if !silent { self.startProgress() }
+
         request.GET(url, parameters: params, success: {(response: HTTPResponse) in
             if let data = response.responseObject as? NSData {
                 var jsonError:NSError?
                 if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
                     self.transfers = json["transfers"] as NSArray
                     dispatch_async(dispatch_get_main_queue()) {
-                        if !silent { self.stopProgress() }
                         self.tableView.reloadData()
+                        self.refreshCtrl.endRefreshing()
                     }
                 }
             }
@@ -112,7 +104,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
                 dispatch_async(dispatch_get_main_queue()) {
                     alert.show()
                     self.timer.invalidate()
-                    if !silent { self.stopProgress() }
+                    self.refreshCtrl.endRefreshing()
                 }
 
         })

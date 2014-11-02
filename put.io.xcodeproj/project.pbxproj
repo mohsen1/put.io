@@ -38,6 +38,7 @@
 		82C9C22A1A04B5A9001DF290 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C2291A04B5A9001DF290 /* TransferViewController.swift */; };
 		82C9C2301A04BFA0001DF290 /* KeyValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C22F1A04BFA0001DF290 /* KeyValueTableViewCell.swift */; };
 		82C9C2331A04D070001DF290 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C2321A04D070001DF290 /* Util.swift */; };
+		82EFF62B1A05B25700C95D55 /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EFF62A1A05B25700C95D55 /* Transfer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		82C9C2291A04B5A9001DF290 /* TransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
 		82C9C22F1A04BFA0001DF290 /* KeyValueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueTableViewCell.swift; sourceTree = "<group>"; };
 		82C9C2321A04D070001DF290 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Utility/Util.swift; sourceTree = "<group>"; };
+		82EFF62A1A05B25700C95D55 /* Transfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +287,7 @@
 				8290F98219F770E300158036 /* TransferCell.xib */,
 				82C9C2291A04B5A9001DF290 /* TransferViewController.swift */,
 				82C9C22F1A04BFA0001DF290 /* KeyValueTableViewCell.swift */,
+				82EFF62A1A05B25700C95D55 /* Transfer.swift */,
 			);
 			path = Transfers;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				825CA22119FB7E9C007281AB /* FileStore.swift in Sources */,
 				829F52AE19F4DC3E0032B485 /* LoginViewController.swift in Sources */,
 				825B07B519F337C900E65789 /* FolderViewController.swift in Sources */,
+				82EFF62B1A05B25700C95D55 /* Transfer.swift in Sources */,
 				826A6EF419FC3F1300D348F1 /* Account.swift in Sources */,
 				82C9C2331A04D070001DF290 /* Util.swift in Sources */,
 				8258E8F319F3E00D00BB5E12 /* PlainFileViewController.swift in Sources */,
