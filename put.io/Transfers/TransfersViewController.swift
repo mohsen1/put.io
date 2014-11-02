@@ -18,7 +18,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         super.viewDidLoad()
         var nib = UINib(nibName: "TransferCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "TransferCell")
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("fetch"), userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("fetch"), userInfo: nil, repeats: true)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -32,9 +32,9 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("fetch"))
 
-        refreshCtrl.backgroundColor = UIColor.blueColor()
+        refreshCtrl.backgroundColor = UIColor.lightGrayColor()
         refreshCtrl.addTarget(self, action: Selector("fetch"), forControlEvents: .ValueChanged)
-        refreshCtrl.attributedTitle = NSAttributedString(string: "TESTSSTSTSTT")
+        refreshCtrl.attributedTitle = NSAttributedString(string: "Refreshing")
         refreshControl = refreshCtrl
         timer.fire()
     }

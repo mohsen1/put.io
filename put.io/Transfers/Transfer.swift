@@ -86,8 +86,8 @@ class Transfer {
         }
 
         if let pd = json["percent_done"] as? NSInteger {
-            availabilityString = "\(pd)%"
-            availability = Int64(pd)
+            percentDoneString = "\(pd)%"
+            percentDone = Int64(pd)
         }
 
         if let speed = json["down_speed"] as? NSNumber {
@@ -138,7 +138,7 @@ class Transfer {
             peersSendingToUs = Int64(val)
         }
 
-        if let val = json["peers_connected"] as? NSInteger {
+        if let val = json["seconds_seeding"] as? NSInteger {
             seedingFor = Int64(val)
             seedingForString = Util.formatEstimateTime(Int(seedingFor))
         }
