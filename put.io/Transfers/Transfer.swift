@@ -190,6 +190,6 @@ class Transfer {
     }
     
     internal func cancel() {
-        TransferStore.cancel(self)
+        TransferStore.cancel(self, {_ in })
     }
 }

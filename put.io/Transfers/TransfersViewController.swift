@@ -18,46 +18,50 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         super.viewDidLoad()
         var nib = UINib(nibName: "TransferCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "TransferCell")
-//        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("fetchListSilent"), userInfo: nil, repeats: true)
-        fetch()
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("fetch"), userInfo: nil, repeats: true)
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.title = "Transfers"
-//        let clean = UIBarButtonItem(title: "Clean", style: .Plain, target: self, action: "clean")
-//        navigationItem.leftBarButtonItem = clean
+
+        let cleanBtn = UIBarButtonItem(title: "Clean up", style: .Plain, target: self, action: "clean")
+        navigationItem.leftBarButtonItem = cleanBtn
+
         tableView.rowHeight = 50
 
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("fetch"))
 
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("fetchListSilent"))
-        
         refreshCtrl.backgroundColor = UIColor.blueColor()
-        refreshCtrl.addTarget(self, action: Selector("fetchListLaud"), forControlEvents: .ValueChanged)
+        refreshCtrl.addTarget(self, action: Selector("fetch"), forControlEvents: .ValueChanged)
         refreshCtrl.attributedTitle = NSAttributedString(string: "TESTSSTSTSTT")
         refreshControl = refreshCtrl
-//        timer.fire()
+        timer.fire()
     }
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.timer.invalidate()
-    }
-
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        if buttonIndex == 0 {
-            self.timer.invalidate()
-        } else {
-//            self.fetchListLaud()
-        }
+        timer.invalidate()
     }
 
     // MARK: - Store Manager
     func fetch() {
+        refreshControl?.beginRefreshing()
         TransferStore.getAll({ (results:[Transfer]) in
             self.transfers = results
             dispatch_async(dispatch_get_main_queue()) {
                 self.tableView.reloadData()
+                self.refreshControl?.endRefreshing()
+            }
+        })
+    }
+
+    func clean() {
+        refreshControl?.beginRefreshing()
+        TransferStore.clean({ (error:NSError?) in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.tableView.reloadData()
+                self.refreshControl?.endRefreshing()
             }
         })
     }

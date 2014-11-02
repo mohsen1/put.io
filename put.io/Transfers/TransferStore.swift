@@ -29,6 +29,7 @@ class TransferStore {
                 var jsonError:NSError?
                 if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
                     if let arr = json["transfers"] as? NSArray {
+                        transfers = []
                         for dic in arr {
                             if let dictionary = dic as? NSDictionary {
                                 transfers.append(Transfer(json: dictionary))
@@ -43,7 +44,7 @@ class TransferStore {
         })
     }
 
-    func clean(completionHnadler: (NSError?)->()) {
+    class func clean(completionHnadler: (NSError?)->()) {
         let url = "https://api.put.io/v2/transfers/clean"
         var params = [String:String]()
         if let account = AccountStore.getAccountSync() {
@@ -58,7 +59,7 @@ class TransferStore {
         })
     }
     
-    func cancel(transfer: Transfer, completionHander: (NSError?)->()) {
+    class func cancel(transfer: Transfer, completionHander: (NSError?)->()) {
         let account = AccountStore.getAccountSync()
         let url = "https://api.put.io/v2/transfers/cancel"
         var params: Dictionary<String, String> = [
@@ -73,7 +74,7 @@ class TransferStore {
         })
     }
     
-    func getOne(transferId: Int64, completionHander: (Transfer?)->()) {
+    class func getOne(transferId: Int64, completionHander: (Transfer?)->()) {
         let url = "https://api.put.io/v2/transfers/\(transferId)"
         var params = [String:String]()
         
