@@ -53,7 +53,6 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
 
     // MARK: - Store Manager
     func fetch() {
-        refreshControl?.beginRefreshing()
         TransferStore.getAll({ (results:[Transfer]) in
             self.transfers = results
             dispatch_async(dispatch_get_main_queue()) {
@@ -80,16 +79,15 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TransferCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TransferCell", forIndexPath: indexPath) as TransferCell
-        cell.load(self.transfers[indexPath.row]);
+        cell.load(transfers[indexPath.row]);
 
         return cell
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let transfer = self.transfers[indexPath.row] as NSDictionary
-//        let transferViewController = TransferViewController()
-//
-//        transferViewController.transfer = transfer
-//        navigationController?.pushViewController(transferViewController, animated: true)
+        let transferViewController = TransferViewController()
+
+        transferViewController.transfer = transfers[indexPath.row]
+        navigationController?.pushViewController(transferViewController, animated: true)
     }
 }

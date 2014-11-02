@@ -12,7 +12,7 @@ var dateFormatter = NSDateFormatter()
 var mediumDateFormatter = NSDateFormatter()
 
 class KeyValueTableViewCell: UITableViewCell {
-    var transfer:NSDictionary?
+    var transfer:Transfer?
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?){
         super.init(style: .Value1, reuseIdentifier:reuseIdentifier)
@@ -28,191 +28,137 @@ class KeyValueTableViewCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
 
-    func setValue(index:Int, tr: NSDictionary) {
+    func setValue(index:Int, tr: Transfer) {
         self.transfer = tr
 
         switch index {
             case 0:
-            setValueString("Name", value: "name")
+            textLabel.text = "Name"
+            detailTextLabel?.text = transfer?.name
             break
 
             case 1:
             textLabel.text = "Size"
-            if let size = transfer!["size"] as? NSNumber {
-                detailTextLabel?.text = byteFormatter.stringFromByteCount(size.longLongValue)
-            }
+            detailTextLabel?.text = transfer?.sizeString
             break
 
             case 2:
-            // finished_at
             textLabel.text = "Estimated time"
-            if let es = transfer!["estimated_time"] as? NSInteger {
-                detailTextLabel?.text = Util.formatEstimateTime(Int(es))
-            }
+            detailTextLabel?.text = transfer?.estimatedTimeString
             break
 
             case 3:
             textLabel.text = "Availability"
-            if let av = transfer!["availability"] as? NSInteger {
-                detailTextLabel?.text = "\(av)%"
-            }
+            detailTextLabel?.text = transfer?.availabilityString
             break
 
             case 4:
             textLabel.text = "Percentage done"
-            if let pd = transfer!["percent_done"] as? NSInteger {
-                detailTextLabel?.text = "\(pd)%"
-            }
+            detailTextLabel?.text = transfer?.percentDoneString
             break
 
             case 5:
             textLabel.text = "Download Speed"
-            if let speed = transfer!["down_speed"] as? NSNumber {
-                let formatted = byteFormatter.stringFromByteCount(speed.longLongValue)
-                detailTextLabel?.text = "\(formatted)/s"
-            }
+            detailTextLabel?.text = transfer?.downloadSpeedString
             break
 
             case 6:
             textLabel.text = "Upload Speed"
-            if let speed = transfer!["down_speed"] as? NSNumber {
-                let formatted = byteFormatter.stringFromByteCount(speed.longLongValue)
-                detailTextLabel?.text = "\(formatted)/s"
-            }
+            detailTextLabel?.text = transfer?.updoadSpeedString
             break
 
             case 7:
             textLabel.text = "Downloaded"
-            if let value = transfer!["downloaded"] as? NSNumber {
-                let formatted = byteFormatter.stringFromByteCount(value.longLongValue)
-                detailTextLabel?.text = formatted
-            }
+            detailTextLabel?.text = transfer?.downloadedString
             break
 
             case 8:
             textLabel.text = "Uploaded"
-            if let value = transfer!["uploaded"] as? NSNumber {
-                let formatted = byteFormatter.stringFromByteCount(value.longLongValue)
-                detailTextLabel?.text = formatted
-            }
+            detailTextLabel?.text = transfer?.uploadedString
             break
 
             case 9:
             textLabel.text = "Current Ratio"
-            detailTextLabel?.text = transfer!["current_ratio"] as? String
+            detailTextLabel?.text = transfer?.ratio
             break
 
-            case 10: setValueString("Subscription", value: "subscription_id") //TODO
+            case 10:
+            textLabel.text = "Subscription"
+            detailTextLabel?.text = "N/A" // TODO
             break
 
             case 11:
             textLabel.text = "Created at"
-            if let str = transfer!["created_at"] as? String {
-                if let date = dateFormatter.dateFromString(str) {
-                    detailTextLabel?.text = mediumDateFormatter.stringFromDate(date)
-                }
-            }
+            detailTextLabel?.text = transfer?.createdAtString
             break
 
             case 12:
             textLabel.text = "Error"
-            if let error =  transfer!["error_message"] as? String {
-                detailTextLabel?.text = error
-                detailTextLabel?.textColor = UIColor.redColor()
-            } else {
-                detailTextLabel?.text = "No error"
-            }
+            detailTextLabel?.text = transfer?.error
             break
 
             case 13:
-            setValueString("Magnet link", value: "magneturi")
+            textLabel.text = "Magnet link"
+            detailTextLabel?.text = transfer?.magnetUri
             break
 
             case 14:
             textLabel.text = "Connected peers"
-            if let val = transfer!["peers_connected"] as? NSInteger {
-                detailTextLabel?.text = "\(val)"
-            }
+            detailTextLabel?.text = "\(transfer?.peersConnceted)"
             break
 
             case 15:
             textLabel.text = "Peers getting from us"
-            if let val = transfer!["peers_getting_from_us"] as? NSInteger {
-                detailTextLabel?.text = "\(val)"
-            }
+            detailTextLabel?.text = "\(transfer?.peersGettingFromUs)"
             break
 
             case 16:
             textLabel.text = "Peers sending to us"
-            if let val = transfer!["peers_getting_from_us"] as? NSInteger {
-                detailTextLabel?.text = "\(val)"
-            }
+            detailTextLabel?.text = "\(transfer?.peersSendingToUs)"
             break
 
             case 17:
             textLabel.text = "Seeding for"
-            if let seeding = transfer!["seconds_seeding"] as? NSInteger {
-                detailTextLabel?.text = Util.formatEstimateTime(Int(seeding))
-            }
+            detailTextLabel?.text = transfer?.seedingForString
             break
 
             case 18:
             textLabel.text = "Downloading to folder"
-            detailTextLabel?.text = "Downloads (TODO"
-            // detailTextLabel?.text = transfer!["save_parent_id"] as? String
+            detailTextLabel?.text = transfer?.saveParent?.name
             break
 
             case 19:
             textLabel.text = "Status"
-            detailTextLabel?.text = transfer!["status"] as? String
+            detailTextLabel?.text = transfer?.status
             break
 
             case 20:
             textLabel.text = "Type"
-            detailTextLabel?.text = transfer!["type"] as? String
+            detailTextLabel?.text = transfer?.type
             break
 
             case 21:
             textLabel.text = "Private"
-            if let isPrivate = transfer!["is_private"] as? Bool {
-                if isPrivate {
-                    detailTextLabel?.text = "Yes"
-                } else {
-                    detailTextLabel?.text = "No"
-                }
+            if transfer!.isPrivate {
+                detailTextLabel?.text = "Yes"
+            } else {
+                detailTextLabel?.text = "No"
             }
             break
 
             case 22:
             textLabel.text = "Source"
-            detailTextLabel?.text = transfer!["source"] as? String  //Copy
+            detailTextLabel?.text = transfer?.source
             break
 
             case 23:
             textLabel.text = "Trackers"
-            if let trackets = transfer!["trackers"] as? NSArray {
-                var str = ""
-                for tracker in trackets {
-                    if let ts = tracker as? String  {
-                        str += ts
-                    }
-                }
-                detailTextLabel?.text = str
-            }
+            detailTextLabel?.text = transfer?.trackersString
             break
 
             default:
             textLabel.text = "Unknown"
             detailTextLabel?.text = ""
-        }
-    }
-
-    func setValueString(key:String, value:String) {
-        textLabel.text = key
-        if let value = transfer![value] as? String {
-            detailTextLabel?.text = value
-        } else {
-            detailTextLabel?.text = "N/A"
         }
     }
 }

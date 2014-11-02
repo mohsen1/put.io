@@ -113,7 +113,7 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
             let cell = tableView.dequeueReusableCellWithIdentifier("KeyValueTableViewCell", forIndexPath: indexPath) as KeyValueTableViewCell
 
             if transfer != nil {
-//                cell.setValue(indexPath.row, tr: transfer!)
+                cell.setValue(indexPath.row, tr: transfer!)
             }
 
             return cell
