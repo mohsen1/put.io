@@ -35,7 +35,7 @@ class FileStore {
         return file
     }
 
-    class func getAll ()-> [File]? {
+    class func getAll()-> [File]? {
         let fetchRequest = NSFetchRequest(entityName: "File")
         if let files = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [File] {
             return files
