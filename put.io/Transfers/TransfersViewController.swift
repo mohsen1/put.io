@@ -61,8 +61,10 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
     func clean() {
         navigationItem.leftBarButtonItem = progressBarButtton
         TransferStore.clean({ (error:NSError?) in
-            dispatch_async(dispatch_get_main_queue()) {
+            if error == nil {
                 self.fetch()
+            } else {
+                self.navigationItem.leftBarButtonItem = self.cleanBtn
             }
         })
     }
