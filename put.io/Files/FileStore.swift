@@ -11,7 +11,8 @@ import CoreData
 import SwiftHTTP
 
 private let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-
+private let request = HTTPTask()
+    
 class FileStore {
 
     class func newFile(json: NSDictionary)-> File {
@@ -22,9 +23,12 @@ class FileStore {
             fetchRequest.predicate = NSPredicate(format: "id == \(id)")
             if let result = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchRequest, error:&error) as? [File]{
                 if result.count == 0 {
-                   file.fillWithJson(json)
+                    file.fillWithJson(json)
                 } else {
-                    result[0].fillWithJson(json)
+                    let resultFile = result[0] 
+                    if resultFile.id != "-1" {
+                        result[0].fillWithJson(json)
+                    }
                 }
             }
         }
@@ -46,7 +50,7 @@ class FileStore {
                 result.addObject(newFile(json))
             }
         }
-        appDelegate.cdh.saveContext()
+        saveContext()
         return result as NSArray
     }
 
@@ -80,16 +84,19 @@ class FileStore {
             if result.count > 0 {
                 completionHandler(result[0])
             } else {
-                fetchList(id, completionHandler: { fetchResult in
-                    completionHandler(fetchResult[0])
+                fetchFile(id, completionHandler: { fetchResult in
+                    completionHandler(fetchResult)
                 })
             }
         }
     }
+    
+    private class func saveContext() {
+        appDelegate.cdh.saveContext(appDelegate.cdh.managedObjectContext!)
+    }
 
     // MARK: - HTTP
     private class func fetchList(id:String, completionHandler: ([File])->()) {
-        let request = HTTPTask()
         let url = "https://api.put.io/v2/files/list"
         var params = [String:String]()
         if let account = AccountStore.getAccountSync() {
@@ -105,18 +112,41 @@ class FileStore {
                 if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
                     if let jsonFiles = json["files"] as? NSArray {
                         let resultFiles = FileStore.filesFromJsonArray(jsonFiles) as [File]
-                        appDelegate.cdh.saveContext(appDelegate.cdh.managedObjectContext!)
-
                         completionHandler(resultFiles)
                     }
 
                 }
             }
-            }, failure: {(error: NSError, response: HTTPResponse?) in
+        }, failure: {(error: NSError, response: HTTPResponse?) in
                 // TODO
                 println(error)
         })
     }
 
-
+    private class func fetchFile(id:String, completionHandler: (File)->()) {
+        let url = "https://api.put.io/v2/files/\(id)"
+        var params = [String:String]()
+        if let account = AccountStore.getAccountSync() {
+            params["oauth_token"] = "\(account.token!)"
+        } else {
+            print("Not logged in and trying to access files")
+        }
+        
+        request.GET(url, parameters: params, {(response: HTTPResponse) in
+            if let data = response.responseObject as? NSData {
+                var jsonError:NSError?
+                if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
+                    if let jsonFile = json["file"] as? NSDictionary {
+                        let resultFile = FileStore.newFile(jsonFile) as File
+                        self.saveContext()
+                        completionHandler(resultFile)
+                    }
+                    
+                }
+            }
+        }, failure: {(error: NSError, response: HTTPResponse?) in
+            // TODO
+            println(error)
+        })
+    }
 }
