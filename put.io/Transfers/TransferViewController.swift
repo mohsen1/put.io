@@ -87,9 +87,10 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
                 cell.textLabel.text = "Go to file"
                 cell.accessoryType = .DisclosureIndicator
 
-                // Disable Go to file link for now
-                cell.userInteractionEnabled = false
-                cell.textLabel.textColor = UIColor.grayColor()
+                if transfer?.file == nil {
+                    cell.userInteractionEnabled = false
+                    cell.textLabel.textColor = UIColor.lightGrayColor()
+                }
             } else {
                 // Disabled cancel button by default
                 cell.accessoryType = .DisclosureIndicator
@@ -122,14 +123,26 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
+        // Cancel transfer
         if indexPath.section == 1 && indexPath.row == 1 {
             if transfer?.status == "DOWNLOADING" {
                 let alert = UIAlertView(title: "Do you want to coancel this transfer?", message: "", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Yes")
                     alert.show()
-            } else {
-                    // TODO clean
             }
+        }
 
+        // Go to file
+        if indexPath.section == 1 && indexPath.row == 0 {
+            var vc:UIViewController
+            if transfer!.file!.isFolder {
+                let vc = FolderViewController()
+                vc.id = "\(transfer?.file?.id)"
+                navigationController?.pushViewController(vc, animated: true)
+            } else {
+                let vc = FileViewController()
+                vc.file = transfer?.file
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
 
     }
@@ -158,6 +171,7 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
     func refreshSilent(){ refresh() }
 
     func refresh (silent: Bool = true) {
-//TODO
+        //TODO
     }
 }
+
