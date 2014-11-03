@@ -161,7 +161,7 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
     }
 
     func stopProgress() {
-//        navigationItem.rightBarButtonItem = refreshBarButton
+        //navigationItem.rightBarButtonItem = refreshBarButton
     }
 
     func refreshLoad() {
