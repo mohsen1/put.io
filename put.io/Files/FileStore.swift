@@ -15,9 +15,19 @@ private let appDelegate = UIApplication.sharedApplication().delegate as AppDeleg
 class FileStore {
 
     class func newFile(json: NSDictionary)-> File {
+        var error:NSError?
         var file = NSEntityDescription.insertNewObjectForEntityForName("File", inManagedObjectContext: appDelegate.cdh.managedObjectContext!) as File
-        file.fillWithJson(json)
-
+        if let id = json["id"] as? Int {
+            var fetchRequest = NSFetchRequest(entityName: "File")
+            fetchRequest.predicate = NSPredicate(format: "id == \(id)")
+            if let result = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchRequest, error:&error) as? [File]{
+                if result.count == 0 {
+                   file.fillWithJson(json)
+                } else {
+                    result[0].fillWithJson(json)
+                }
+            }
+        }
         return file
     }
 
@@ -32,8 +42,8 @@ class FileStore {
     class func filesFromJsonArray(array: NSArray)-> NSArray{
         var result = NSMutableArray()
         for item in array {
-            if let f = item as? NSDictionary {
-                result.addObject(newFile(f))
+            if let json = item as? NSDictionary {
+                result.addObject(newFile(json))
             }
         }
         appDelegate.cdh.saveContext()

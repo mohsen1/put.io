@@ -14,7 +14,6 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
     var activityIndicator = UIActivityIndicatorView()
     var progressBarButtton = UIBarButtonItem()
     var refreshBarButton = UIBarButtonItem()
-    var timer = NSTimer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +22,6 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
         } else {
             navigationItem.title = "Not found!"
         }
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("refreshSilent"), userInfo: nil, repeats: true)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -45,7 +43,6 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        timer.invalidate()
     }
 
     // MARK: - Table view data source

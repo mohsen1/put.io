@@ -12,7 +12,6 @@ import UIKit
 class TransfersViewController: UITableViewController, UIAlertViewDelegate {
     var transfers = [Transfer]()
     var refreshCtrl = UIRefreshControl()
-    var timer = NSTimer()
     var progressBarButtton = UIBarButtonItem()
     var cleanBtn = UIBarButtonItem()
 
@@ -20,7 +19,6 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         super.viewDidLoad()
         var nib = UINib(nibName: "TransferCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "TransferCell")
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("fetch"), userInfo: nil, repeats: true)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -41,12 +39,11 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         refreshCtrl.addTarget(self, action: Selector("fetch"), forControlEvents: .ValueChanged)
         refreshCtrl.attributedTitle = NSAttributedString(string: "Refreshing")
         refreshControl = refreshCtrl
-        timer.fire()
+        fetch()
     }
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        timer.invalidate()
     }
 
     // MARK: - Store Manager
@@ -66,7 +63,6 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         TransferStore.clean({ (error:NSError?) in
             dispatch_async(dispatch_get_main_queue()) {
                 self.fetch()
-                self.navigationItem.leftBarButtonItem = self.cleanBtn
             }
         })
     }
