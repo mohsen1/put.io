@@ -19,23 +19,23 @@ public class Util {
             return "∞"
         }
         if secs > MONTH {
-            return "\(secs/MONTH) and months"
+            return "\(secs/MONTH) months"
         }
         if secs > WEEK {
             let days = (secs % WEEK) / DAY
-            return "\(secs / WEEK) weeks \(days) and days"
+            return "\(secs / WEEK) weeks and \(days) days"
         }
         if secs > DAY {
             let hours = (secs % DAY) / HOUR
-            return "\(secs/DAY) days \(hours) and hours"
+            return "\(secs/DAY) days and \(hours) hours"
         }
         if secs > HOUR {
             let minutes = (secs % HOUR) / MINUTE
-            return "\(secs/HOUR) hours \(minutes) and minutes"
+            return "\(secs/HOUR) hours and \(minutes) minutes"
         }
         if secs > MINUTE {
             let seconds = secs % MINUTE
-            return "\(secs / MINUTE) minutes \(seconds) and seconds"
+            return "\(secs / MINUTE) minutes and \(seconds) seconds"
         }
         return "\(secs) seconds"
     }
