@@ -12,7 +12,7 @@ import SwiftHTTP
 
 private let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 private let request = HTTPTask()
-    
+
 class FileStore {
 
     class func newFile(json: NSDictionary)-> File {
@@ -25,13 +25,14 @@ class FileStore {
                 if result.count == 0 {
                     file.fillWithJson(json)
                 } else {
-                    let resultFile = result[0] 
+                    let resultFile = result[0]
                     if resultFile.id != "-1" {
                         result[0].fillWithJson(json)
                     }
                 }
             }
         }
+        saveContext()
         return file
     }
 
@@ -50,7 +51,6 @@ class FileStore {
                 result.addObject(newFile(json))
             }
         }
-        saveContext()
         return result as NSArray
     }
 
@@ -90,7 +90,7 @@ class FileStore {
             }
         }
     }
-    
+
     private class func saveContext() {
         appDelegate.cdh.saveContext(appDelegate.cdh.managedObjectContext!)
     }
@@ -131,7 +131,7 @@ class FileStore {
         } else {
             print("Not logged in and trying to access files")
         }
-        
+
         request.GET(url, parameters: params, {(response: HTTPResponse) in
             if let data = response.responseObject as? NSData {
                 var jsonError:NSError?
@@ -141,7 +141,7 @@ class FileStore {
                         self.saveContext()
                         completionHandler(resultFile)
                     }
-                    
+
                 }
             }
         }, failure: {(error: NSError, response: HTTPResponse?) in

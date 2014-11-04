@@ -37,6 +37,7 @@ class File: NSManagedObject {
         } else {
             id = "-1"
         }
+
         if let _parent_id = json["parent_id"] as? Int {
             parent_id = String(_parent_id)
         } else {

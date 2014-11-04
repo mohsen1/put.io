@@ -189,7 +189,7 @@ class Transfer {
         }
     }
 
-    internal func cancel() {
-        TransferStore.cancel(self, {_ in })
+    internal func cancel(completionHandler: (NSError?)->()) {
+        TransferStore.cancel(self, completionHandler)
     }
 }
