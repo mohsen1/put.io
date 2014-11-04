@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let byteFormatter = NSByteCountFormatter()
+
 class AccountInfoCell: UITableViewCell {
     @IBOutlet weak var avatarImage: UIImageView!
 
@@ -21,14 +23,15 @@ class AccountInfoCell: UITableViewCell {
         // Initialization code
     }
 
-    private func toGB(size:Double) -> Int {
-        let gb = size / (1024 * 1024 * 1024)
-        return Int(gb)
+    private func toGB(size:Double) -> String {
+        byteFormatter.countStyle = .Binary
+        return byteFormatter.stringFromByteCount(Int64(size))
     }
 
     internal func loadAccount(account:Account?){
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd"
+        dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.timeStyle = .NoStyle
 
         if account != nil {
             let avail = toGB(account!.disk_avail)
@@ -36,7 +39,7 @@ class AccountInfoCell: UITableViewCell {
             let date = dateFormatter.stringFromDate(account!.plan_expiration_date!)
             username?.text = account?.username
             email?.text = account?.mail
-            storage?.text = "\(avail)GB available of \(size)GB"
+            storage?.text = "\(avail) available of \(size)"
             subtitleLang?.text = "Default subtitle language: \(account!.default_subtitle_language!)"
             expires?.text = "Plan expires at \(date)"
 
