@@ -176,14 +176,14 @@ class Transfer {
 
         if let parentId = json["save_parent_id"] as? Int {
             saveParentId = parentId
-            FileStore.getFile("\(saveParentId)", completionHandler: { (result: File) in
+            FileStore.getFile(NSNumber(integer: saveParentId), completionHandler: { (result: File) in
                 self.saveParent = result
             })
         }
 
         if let id = json["file_id"] as? Int {
             fileId = id
-            FileStore.getFile("\(fileId)", completionHandler: { (result: File) in
+            FileStore.getFile(NSNumber(integer: fileId), completionHandler: { (result: File) in
                 self.file = result
             })
         }

@@ -136,7 +136,9 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
             var vc:UIViewController
             if transfer!.file!.isFolder {
                 let vc = FolderViewController()
-                vc.id = "\(transfer?.file?.id)"
+                if let _id = transfer?.file?.id {
+                    vc.id = _id
+                }
                 navigationController?.pushViewController(vc, animated: true)
             } else {
                 let vc = FileViewController()

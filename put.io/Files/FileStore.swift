@@ -26,13 +26,15 @@ class FileStore {
                     file.fillWithJson(json)
                 } else {
                     let resultFile = result[0]
-                    if resultFile.id != "-1" {
+                    if resultFile.id != -1 {
                         result[0].fillWithJson(json)
                     }
                 }
             }
         }
-        saveContext()
+        if file.id != -1 {
+            saveContext()
+        }
         return file
     }
 
@@ -54,7 +56,7 @@ class FileStore {
         return result as NSArray
     }
 
-    class func getFolder (id:String, forceFetch:Bool, completionHandler: ([File])->()) {
+    class func getFolder (id:NSNumber, forceFetch:Bool, completionHandler: ([File])->()) {
         var error: NSError? = nil
         var fetchReq = NSFetchRequest(entityName: "File")
         let sorter: NSSortDescriptor = NSSortDescriptor(key: "name" , ascending: false)
@@ -73,8 +75,8 @@ class FileStore {
 
     }
 
-    class func getFile (id:String, completionHandler: (File)->()) {
-        var error: NSError? = nil
+    class func getFile (id:NSNumber, completionHandler: (File)->()) {
+        var error: NSError?
         var fetchReq = NSFetchRequest(entityName: "File")
 
         fetchReq.predicate = NSPredicate(format: "id == \(id)")
@@ -96,7 +98,7 @@ class FileStore {
     }
 
     // MARK: - HTTP
-    private class func fetchList(id:String, completionHandler: ([File])->()) {
+    private class func fetchList(id:NSNumber, completionHandler: ([File])->()) {
         let url = "https://api.put.io/v2/files/list"
         var params = [String:String]()
         if let account = AccountStore.getAccountSync() {
@@ -104,7 +106,7 @@ class FileStore {
         } else {
             print("Not logged in and trying to access files")
         }
-        params["parent_id"] = id
+        params["parent_id"] = "\(id)"
 
         request.GET(url, parameters: params, success: {(response: HTTPResponse) in
             if let data = response.responseObject as? NSData {
@@ -123,7 +125,7 @@ class FileStore {
         })
     }
 
-    private class func fetchFile(id:String, completionHandler: (File)->()) {
+    private class func fetchFile(id:NSNumber, completionHandler: (File)->()) {
         let url = "https://api.put.io/v2/files/\(id)"
         var params = [String:String]()
         if let account = AccountStore.getAccountSync() {

@@ -11,7 +11,7 @@ import SwiftHTTP
 
 class FolderViewController: UITableViewController {
     var files = [File]()
-    var id = "0"
+    var id:NSNumber = NSNumber(integer: 0)
     var activityIndicator = UIActivityIndicatorView()
     var progressBarButtton = UIBarButtonItem()
     var refreshBarButton = UIBarButtonItem()
@@ -22,8 +22,8 @@ class FolderViewController: UITableViewController {
         tableView.registerNib(folderTableViewCellNib, forCellReuseIdentifier: "FolderTableViewCell")
         tableView.rowHeight = 54
 
-        if self.id == "0" {
-            self.navigationItem.title = "Files"
+        if id == "0" {
+            navigationItem.title = "Files"
         } else {
             FileStore.getFile(id, { (result:File) in
                 self.navigationItem.title = result.name

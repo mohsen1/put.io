@@ -11,7 +11,7 @@ import CoreData
 
 @objc(File)
 class File: NSManagedObject {
-    @NSManaged var id: String
+    @NSManaged var id: NSNumber
     @NSManaged var parent_id: String
     @NSManaged var name: String?
     @NSManaged var content_type: String?
@@ -33,9 +33,9 @@ class File: NSManagedObject {
         }
 
         if let _id = json["id"] as? Int {
-            id = String(_id)
+            id =  NSNumber(integer: _id)
         } else {
-            id = "-1"
+            id = NSNumber(integer: -1)
         }
 
         if let _parent_id = json["parent_id"] as? Int {
