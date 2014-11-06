@@ -12,7 +12,7 @@ import CoreData
 @objc(File)
 class File: NSManagedObject {
     @NSManaged var id: NSNumber
-    @NSManaged var parent_id: String
+    @NSManaged var parent_id: NSNumber
     @NSManaged var name: String?
     @NSManaged var content_type: String?
     @NSManaged var isFolder: Bool
@@ -34,14 +34,10 @@ class File: NSManagedObject {
 
         if let _id = json["id"] as? Int {
             id =  NSNumber(integer: _id)
-        } else {
-            id = NSNumber(integer: -1)
         }
 
         if let _parent_id = json["parent_id"] as? Int {
-            parent_id = String(_parent_id)
-        } else {
-            parent_id = "0"
+            parent_id = NSNumber(integer: _parent_id)
         }
 
         if let _content_type = json["content_type"] as? String {
