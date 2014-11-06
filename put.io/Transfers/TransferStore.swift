@@ -8,9 +8,11 @@
 
 import Foundation
 import SwiftHTTP
+import UIKit
 
 private var transfers = [Transfer]()
 private let request = HTTPTask()
+private let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 
 class TransferStore {
     
@@ -74,7 +76,7 @@ class TransferStore {
         })
     }
     
-    class func getOne(transferId: Int64, completionHander: (Transfer?)->()) {
+    class func getOne(transferId: NSInteger, completionHander: (Transfer?)->()) {
         let url = "https://api.put.io/v2/transfers/\(transferId)"
         var params = [String:String]()
         
@@ -95,6 +97,18 @@ class TransferStore {
             }
         }, failure: {(error: NSError, response: HTTPResponse?) in
                 completionHander(nil)
+        })
+    }
+    
+    private class func saveContext() {
+        appDelegate.cdh.saveContext(appDelegate.cdh.managedObjectContext!)
+    }
+    
+    class func fetchFile(transfer: Transfer, completionHandler: (File)->()) {
+        FileStore.getFile(transfer.fileId, { (result:File) in
+            transfer.file = result
+            self.saveContext()
+            completionHandler(result)
         })
     }
 }

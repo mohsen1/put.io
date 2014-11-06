@@ -17,10 +17,18 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = transfer?.name
+        
+        // Fetch file if available
         if transfer != nil {
-            navigationItem.title = transfer?.name
-        } else {
-            navigationItem.title = "Not found!"
+            transfer!.fetchFile({ (result:File?) in
+                if result != nil {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.transfer!.file = result
+                        self.tableView.reloadData()
+                    }
+                }
+            })
         }
     }
 
@@ -28,7 +36,6 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
         super.viewWillAppear(animated)
 
         var transferInfoCellNib = UINib(nibName: "TransferCell", bundle: nil)
-
         tableView.registerNib(transferInfoCellNib, forCellReuseIdentifier: "TransferCell")
         tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
         tableView.registerClass(KeyValueTableViewCell.classForCoder(), forCellReuseIdentifier: "KeyValueTableViewCell")
@@ -41,9 +48,6 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
         navigationItem.rightBarButtonItem = refreshBarButton
     }
 
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
 
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
