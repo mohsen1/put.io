@@ -33,7 +33,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         activityIndicator.activityIndicatorViewStyle = .Gray
         navigationItem.leftBarButtonItem = progressBarButtton
         tableView.rowHeight = 50
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("fetch"))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("openAdd"))
 
         refreshCtrl.backgroundColor = UIColor.lightGrayColor()
         refreshCtrl.addTarget(self, action: Selector("fetch"), forControlEvents: .ValueChanged)
@@ -67,6 +67,11 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
                 self.navigationItem.leftBarButtonItem = self.cleanBtn
             }
         })
+    }
+    
+    func openAdd() {
+        let add = AddTransferViewController(nibName: "AddTransferViewController", bundle: nil)
+        navigationController?.presentViewController(add, animated: true, completion: nil)
     }
 
     // MARK: - TableView
