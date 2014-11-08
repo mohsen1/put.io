@@ -9,6 +9,7 @@
                 <outlet property="addButton" destination="OPt-Nq-L9L" id="qtd-Kk-adZ"/>
                 <outlet property="bottomHeight" destination="MPk-Uw-VBb" id="ia7-KI-NmT"/>
                 <outlet property="cancelButton" destination="bvw-zI-Flh" id="kJG-Lb-dKi"/>
+                <outlet property="pasteButton" destination="7dS-e2-Ydg" id="Nkq-0v-xKY"/>
                 <outlet property="textView" destination="YJo-hU-F4O" id="nP7-Hb-lOo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -65,11 +66,23 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dS-e2-Ydg">
+                    <rect key="frame" x="557" y="531" width="35" height="28"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="Paste">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="doPaste:" destination="-1" eventType="touchDown" id="4Ed-bM-QZj"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.94276588397790051" green="0.94276588397790051" blue="0.94276588397790051" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="x5W-Fh-sGG" secondAttribute="trailing" constant="8" id="30k-vM-tyq"/>
                 <constraint firstAttribute="centerX" secondItem="OPt-Nq-L9L" secondAttribute="centerX" id="ETO-gz-SlG"/>
+                <constraint firstItem="7dS-e2-Ydg" firstAttribute="top" secondItem="YJo-hU-F4O" secondAttribute="bottom" constant="5" id="F6m-0D-hbZ"/>
+                <constraint firstAttribute="trailing" secondItem="7dS-e2-Ydg" secondAttribute="trailing" constant="8" id="FI7-DZ-7d1"/>
                 <constraint firstItem="YJo-hU-F4O" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="55" id="GM1-QK-I0r">
                     <variation key="heightClass=compact" constant="35"/>
                 </constraint>

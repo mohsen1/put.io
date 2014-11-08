@@ -13,6 +13,7 @@ class AddTransferViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var bottomHeight: NSLayoutConstraint!
+    @IBOutlet weak var pasteButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,11 @@ class AddTransferViewController: UIViewController {
         UIView.animateWithDuration(duration, animations: {
             self.view.layoutIfNeeded()
         })
+    }
+
+    @IBAction func doPaste(sender: AnyObject) {
+        let pasteboard = UIPasteboard.generalPasteboard()
+        textView.text = pasteboard.string
     }
 
     @IBAction func cancel(sender: AnyObject) {
