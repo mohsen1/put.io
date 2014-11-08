@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTransferViewController" customModule="put_io" customModuleProvider="target">
             <connections>
                 <outlet property="addButton" destination="OPt-Nq-L9L" id="qtd-Kk-adZ"/>
+                <outlet property="bottomHeight" destination="MPk-Uw-VBb" id="ia7-KI-NmT"/>
                 <outlet property="cancelButton" destination="bvw-zI-Flh" id="kJG-Lb-dKi"/>
                 <outlet property="textView" destination="YJo-hU-F4O" id="nP7-Hb-lOo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -54,19 +55,32 @@
                         <action selector="cancel:" destination="-1" eventType="touchDown" id="0oC-k8-YQJ"/>
                     </connections>
                 </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="PPe-aj-B3M">
+                    <rect key="frame" x="8" y="203" width="20" height="20"/>
+                </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5W-Fh-sGG" userLabel="Progress">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.94276588397790051" green="0.94276588397790051" blue="0.94276588397790051" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="x5W-Fh-sGG" firstAttribute="leading" secondItem="PPe-aj-B3M" secondAttribute="trailing" constant="8" id="3Ek-Gh-ibr"/>
                 <constraint firstAttribute="trailing" secondItem="bvw-zI-Flh" secondAttribute="trailing" constant="8" id="5tM-kN-sRr"/>
                 <constraint firstItem="YJR-WB-tjG" firstAttribute="top" secondItem="bvw-zI-Flh" secondAttribute="top" id="Bmh-dB-xtR"/>
+                <constraint firstItem="x5W-Fh-sGG" firstAttribute="top" secondItem="PPe-aj-B3M" secondAttribute="top" constant="-1" id="DIR-Pf-JZ3"/>
                 <constraint firstAttribute="centerX" secondItem="OPt-Nq-L9L" secondAttribute="centerX" id="ETO-gz-SlG"/>
                 <constraint firstItem="YJR-WB-tjG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="26" id="ME6-6L-aXu"/>
                 <constraint firstAttribute="bottom" secondItem="OPt-Nq-L9L" secondAttribute="bottom" constant="8" id="MPk-Uw-VBb"/>
                 <constraint firstItem="YJR-WB-tjG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="NH5-Zh-839"/>
+                <constraint firstItem="PPe-aj-B3M" firstAttribute="top" secondItem="YJo-hU-F4O" secondAttribute="bottom" constant="8" id="NpN-Hh-zHg"/>
                 <constraint firstItem="YJo-hU-F4O" firstAttribute="top" secondItem="bvw-zI-Flh" secondAttribute="bottom" constant="8" symbolic="YES" id="PYM-sK-Gdc"/>
                 <constraint firstAttribute="trailing" secondItem="YJo-hU-F4O" secondAttribute="trailing" constant="8" id="Re8-q9-u2V"/>
                 <constraint firstItem="YJo-hU-F4O" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="pUD-FI-M9j"/>
                 <constraint firstItem="YJo-hU-F4O" firstAttribute="top" secondItem="YJR-WB-tjG" secondAttribute="bottom" constant="7.5" id="pWv-3j-DPv"/>
+                <constraint firstAttribute="trailing" secondItem="x5W-Fh-sGG" secondAttribute="trailing" constant="8" id="ph8-SY-IwN"/>
+                <constraint firstItem="PPe-aj-B3M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="vCj-nb-bu7"/>
             </constraints>
             <point key="canvasLocation" x="288" y="294"/>
         </view>
