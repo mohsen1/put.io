@@ -106,4 +106,11 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
         }
         return indexPath
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 1 { // Settings
+            let settingsViewController = AccountSettingsViewController()
+            navigationController?.pushViewController(settingsViewController, animated: true)
+        }
+    }
 }
