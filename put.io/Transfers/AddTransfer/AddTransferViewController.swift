@@ -50,6 +50,7 @@ class AddTransferViewController: UIViewController {
     }
 
     @IBAction func cancel(sender: AnyObject) {
+        view.endEditing(true)
         dismissViewControllerAnimated(true, completion: {})
     }
     
