@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BinarySettingCell" customModule="put_io" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BinarySettingCell" customModule="put_io" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="323" height="57"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWX-mP-vny">
+                    <rect key="frame" x="8" y="18" width="250" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sSb-XO-4OV">
+                    <rect key="frame" x="266" y="13" width="51" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="49" id="O4P-zq-jWN"/>
+                        <constraint firstAttribute="height" constant="31" id="T6q-rS-GKI"/>
+                    </constraints>
+                </switch>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="sSb-XO-4OV" firstAttribute="leading" secondItem="GWX-mP-vny" secondAttribute="trailing" constant="8" id="3fk-Mq-jEU"/>
+                <constraint firstAttribute="trailing" secondItem="sSb-XO-4OV" secondAttribute="trailing" constant="8" id="8rA-1H-8kM"/>
+                <constraint firstAttribute="centerY" secondItem="GWX-mP-vny" secondAttribute="centerY" id="EGn-kg-fzr"/>
+                <constraint firstItem="GWX-mP-vny" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="awF-BF-ACh"/>
+                <constraint firstAttribute="centerY" secondItem="sSb-XO-4OV" secondAttribute="centerY" id="toc-DD-XVD"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="396.5" y="112.5"/>
+        </view>
+    </objects>
+</document>

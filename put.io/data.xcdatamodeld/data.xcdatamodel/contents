@@ -6,10 +6,12 @@
         <attribute name="disk_avail" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="disk_size" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="disk_used" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="is_invisible" optional="YES" attributeType="Integer 64" syncable="YES"/>
         <attribute name="mail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="plan_expiration_date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="default_download_folder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="File" syncable="YES"/>
     </entity>
     <entity name="File" representedClassName="File" syncable="YES">
         <attribute name="content_type" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,7 +33,7 @@
         <attribute name="size" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Account" positionX="-63" positionY="90" width="128" height="180"/>
+        <element name="Account" positionX="-63" positionY="90" width="128" height="208"/>
         <element name="File" positionX="108" positionY="45" width="128" height="225"/>
         <element name="Transfer" positionX="-54" positionY="-9" width="128" height="90"/>
     </elements>

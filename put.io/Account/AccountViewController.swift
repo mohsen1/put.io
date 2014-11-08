@@ -39,7 +39,6 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
         tableView.backgroundColor = UIColor(white: 1, alpha: 0.95)
 
         var accountInfoCellNib = UINib(nibName: "AccountInfoCell", bundle: nil)
-
         tableView.registerNib(accountInfoCellNib, forCellReuseIdentifier: "AccountInfoCell")
         tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
 

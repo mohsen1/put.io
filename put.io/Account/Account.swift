@@ -20,6 +20,18 @@ class Account : NSManagedObject {
     @NSManaged var disk_used: Double
     @NSManaged var default_subtitle_language: String?
     @NSManaged var plan_expiration_date: NSDate?
+    @NSManaged var is_invisible: NSNumber?
+    var invisible: Bool {
+        get {
+            if is_invisible != nil {
+                return Bool(is_invisible!)
+            }
+            return false
+        }
+        set {
+            is_invisible = NSNumber(bool: newValue)
+        }
+    }
 
     func fill(json:NSDictionary) {
         if let _username = json["username"] as? String {
@@ -43,6 +55,9 @@ class Account : NSManagedObject {
             var formatter = NSDateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
             plan_expiration_date = formatter.dateFromString(_plan_expiration_date)!
+        }
+        if let _settings = json["settings"] as? NSDictionary {
+            is_invisible = _settings["is_invisible"] as Bool
         }
     }
 }

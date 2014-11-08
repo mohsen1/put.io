@@ -41,6 +41,8 @@
 		82C9C2301A04BFA0001DF290 /* KeyValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C22F1A04BFA0001DF290 /* KeyValueTableViewCell.swift */; };
 		82C9C2331A04D070001DF290 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C2321A04D070001DF290 /* Util.swift */; };
 		82D9CEC41A0EA81400A26FC4 /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D9CEC31A0EA81400A26FC4 /* AccountSettingsViewController.swift */; };
+		82D9CECB1A0EACE700A26FC4 /* BinarySettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D9CECA1A0EACE700A26FC4 /* BinarySettingCell.swift */; };
+		82D9CECD1A0ECE9F00A26FC4 /* BinarySettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82D9CECC1A0ECE9F00A26FC4 /* BinarySettingCell.xib */; };
 		82EFF62B1A05B25700C95D55 /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EFF62A1A05B25700C95D55 /* Transfer.swift */; };
 		82EFF6311A05EC9900C95D55 /* TransferStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EFF6301A05EC9900C95D55 /* TransferStore.swift */; };
 /* End PBXBuildFile section */
@@ -121,7 +123,9 @@
 		82C9C2291A04B5A9001DF290 /* TransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
 		82C9C22F1A04BFA0001DF290 /* KeyValueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueTableViewCell.swift; sourceTree = "<group>"; };
 		82C9C2321A04D070001DF290 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Utility/Util.swift; sourceTree = "<group>"; };
-		82D9CEC31A0EA81400A26FC4 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountSettingsViewController.swift; path = AccountSettings/AccountSettingsViewController.swift; sourceTree = "<group>"; };
+		82D9CEC31A0EA81400A26FC4 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountSettingsViewController.swift; path = ../Transfers/AccountSettings/AccountSettingsViewController.swift; sourceTree = "<group>"; };
+		82D9CECA1A0EACE700A26FC4 /* BinarySettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySettingCell.swift; path = AccountSettings/BinarySettingCell.swift; sourceTree = "<group>"; };
+		82D9CECC1A0ECE9F00A26FC4 /* BinarySettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BinarySettingCell.xib; path = AccountSettings/BinarySettingCell.xib; sourceTree = "<group>"; };
 		82EFF62A1A05B25700C95D55 /* Transfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
 		82EFF6301A05EC9900C95D55 /* TransferStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -277,6 +281,7 @@
 		8290F97B19F76C2000158036 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				82D9CEC91A0EAC6F00A26FC4 /* AccountSettings */,
 				820D1C661A01FF1900563814 /* Login */,
 				82084F2D19FC7AA6005DF388 /* AccountInfoCell.swift */,
 				82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */,
@@ -307,7 +312,6 @@
 			children = (
 				82B73E2C1A0CA04600F64F6B /* AddTransferViewController.swift */,
 				82B73E2D1A0CA04600F64F6B /* AddTransferViewController.xib */,
-				82D9CEC31A0EA81400A26FC4 /* AccountSettingsViewController.swift */,
 			);
 			name = AddTransfer;
 			sourceTree = "<group>";
@@ -329,6 +333,16 @@
 				82C9C2321A04D070001DF290 /* Util.swift */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		82D9CEC91A0EAC6F00A26FC4 /* AccountSettings */ = {
+			isa = PBXGroup;
+			children = (
+				82D9CEC31A0EA81400A26FC4 /* AccountSettingsViewController.swift */,
+				82D9CECC1A0ECE9F00A26FC4 /* BinarySettingCell.xib */,
+				82D9CECA1A0EACE700A26FC4 /* BinarySettingCell.swift */,
+			);
+			name = AccountSettings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,6 +463,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82B73E2F1A0CA04600F64F6B /* AddTransferViewController.xib in Resources */,
+				82D9CECD1A0ECE9F00A26FC4 /* BinarySettingCell.xib in Resources */,
 				82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */,
 				822093311A02065100855701 /* FolderTableViewCell.xib in Resources */,
 				8258E8F419F3E00D00BB5E12 /* PlainFileViewController.xib in Resources */,
@@ -487,6 +502,7 @@
 				8258E8F319F3E00D00BB5E12 /* PlainFileViewController.swift in Sources */,
 				82D9CEC41A0EA81400A26FC4 /* AccountSettingsViewController.swift in Sources */,
 				825CA22619FB914F007281AB /* CoreDataStore.swift in Sources */,
+				82D9CECB1A0EACE700A26FC4 /* BinarySettingCell.swift in Sources */,
 				82C9C22A1A04B5A9001DF290 /* TransferViewController.swift in Sources */,
 				8258E92E19F4579400BB5E12 /* AccountViewController.swift in Sources */,
 				82084F2F19FC7AA6005DF388 /* AccountInfoCell.swift in Sources */,

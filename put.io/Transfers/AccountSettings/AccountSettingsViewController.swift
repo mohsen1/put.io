@@ -13,6 +13,8 @@ class AccountSettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Settings"
+        var binarySettingCell = UINib(nibName: "BinarySettingCell", bundle: nil)
+        tableView.registerNib(binarySettingCell, forCellReuseIdentifier: "BinarySettingCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,24 +27,24 @@ class AccountSettingsViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return 1
     }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
-
-        // Configure the cell...
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> BinarySettingCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("BinarySettingCell", forIndexPath: indexPath) as BinarySettingCell
+        
+        cell.textLabel.text = "Binrary setting"
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
