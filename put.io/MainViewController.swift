@@ -12,13 +12,7 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        view.tintColor = UIColor(red:0.45, green:0.41, blue:0.03, alpha:1.0)
     }
 
     override func viewWillAppear(animated: Bool) {

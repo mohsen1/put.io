@@ -35,7 +35,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
         tableView.rowHeight = 50
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("openAdd"))
 
-        refreshCtrl.backgroundColor = UIColor.lightGrayColor()
+        refreshCtrl.backgroundColor = UIColor(red:0.97, green:0.97, blue:0.41, alpha:1.0)
         refreshCtrl.addTarget(self, action: Selector("fetch"), forControlEvents: .ValueChanged)
         refreshCtrl.attributedTitle = NSAttributedString(string: "Refreshing")
         refreshControl = refreshCtrl
