@@ -80,8 +80,6 @@ class AddTransferViewController: UIViewController {
         activityIndicator.startAnimating()
         progressLabel.text = "Submitting..."
         request.POST("https://api.put.io/v2/transfers/add", parameters: params, success: { (response:HTTPResponse) in
-            println("Success!")
-            println(response)
             dispatch_async(dispatch_get_main_queue()) {
                 self.activityIndicator.hidden = true
                 self.activityIndicator.stopAnimating()
@@ -89,10 +87,9 @@ class AddTransferViewController: UIViewController {
                 self.resultIcon.textColor = UIColor.greenColor()
                 self.resultIcon.text = "✓"
                 self.resultIcon.hidden = false
+                self.dismissViewControllerAnimated(true, completion: {})
             }
         }, failure: { (error:NSError?, response:HTTPResponse?) in
-            println(error)
-            println(response)
             dispatch_async(dispatch_get_main_queue()) {
                 self.activityIndicator.hidden = true
                 self.activityIndicator.stopAnimating()
