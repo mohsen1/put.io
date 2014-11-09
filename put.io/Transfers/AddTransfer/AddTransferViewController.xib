@@ -23,14 +23,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="YJo-hU-F4O">
-                    <rect key="frame" x="8" y="55" width="584" height="471"/>
+                    <rect key="frame" x="8" y="55" width="584" height="150"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="500" constant="150" id="fZO-7k-dCi"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPt-Nq-L9L">
                     <rect key="frame" x="227" y="562" width="147" height="30"/>
                     <constraints>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="DUd-tk-3n1"/>
                         <constraint firstAttribute="width" constant="147" id="Zay-Fd-o4Q"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -55,10 +59,13 @@
                     </connections>
                 </button>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="PPe-aj-B3M">
-                    <rect key="frame" x="8" y="534" width="20" height="20"/>
+                    <rect key="frame" x="8" y="213" width="20" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="9Yc-0Y-RPQ"/>
+                    </constraints>
                 </activityIndicatorView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5W-Fh-sGG" userLabel="Progress">
-                    <rect key="frame" x="30" y="535" width="519" height="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5W-Fh-sGG" userLabel="Progress">
+                    <rect key="frame" x="30" y="213" width="519" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -70,7 +77,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dS-e2-Ydg">
-                    <rect key="frame" x="557" y="531" width="35" height="28"/>
+                    <rect key="frame" x="557" y="210" width="35" height="28"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="Paste">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -80,7 +87,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✗" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngi-Ez-eCB" userLabel="resultIcon">
-                    <rect key="frame" x="10" y="536" width="14.5" height="20.5"/>
+                    <rect key="frame" x="10" y="213" width="14.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -88,7 +95,8 @@
             </subviews>
             <color key="backgroundColor" red="0.94276588397790051" green="0.94276588397790051" blue="0.94276588397790051" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="Ngi-Ez-eCB" firstAttribute="top" secondItem="YJo-hU-F4O" secondAttribute="bottom" constant="10" id="4F3-HB-g4T"/>
+                <constraint firstItem="x5W-Fh-sGG" firstAttribute="top" secondItem="YJo-hU-F4O" secondAttribute="bottom" constant="8" id="1fe-u7-WNn"/>
+                <constraint firstItem="Ngi-Ez-eCB" firstAttribute="top" secondItem="YJo-hU-F4O" secondAttribute="bottom" constant="8" id="4F3-HB-g4T"/>
                 <constraint firstItem="Ngi-Ez-eCB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="B0f-UV-jZJ"/>
                 <constraint firstAttribute="centerX" secondItem="OPt-Nq-L9L" secondAttribute="centerX" id="ETO-gz-SlG"/>
                 <constraint firstItem="7dS-e2-Ydg" firstAttribute="top" secondItem="YJo-hU-F4O" secondAttribute="bottom" constant="5" id="F6m-0D-hbZ"/>
@@ -96,13 +104,13 @@
                 <constraint firstItem="YJo-hU-F4O" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="55" id="GM1-QK-I0r">
                     <variation key="heightClass=compact" constant="35"/>
                 </constraint>
-                <constraint firstItem="OPt-Nq-L9L" firstAttribute="top" secondItem="x5W-Fh-sGG" secondAttribute="bottom" constant="10" id="KHB-a4-JG9"/>
                 <constraint firstItem="PPe-aj-B3M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="KjF-he-Lo4"/>
                 <constraint firstItem="YJo-hU-F4O" firstAttribute="top" secondItem="YJR-WB-tjG" secondAttribute="bottom" constant="8" id="Lk2-ge-L8f"/>
                 <constraint firstAttribute="bottom" secondItem="OPt-Nq-L9L" secondAttribute="bottom" constant="8" id="MPk-Uw-VBb"/>
                 <constraint firstItem="YJo-hU-F4O" firstAttribute="top" secondItem="bvw-zI-Flh" secondAttribute="bottom" constant="8" id="MsM-cG-6ur"/>
+                <constraint firstItem="x5W-Fh-sGG" firstAttribute="leading" secondItem="Ngi-Ez-eCB" secondAttribute="trailing" constant="5.5" id="Q48-eu-hTB"/>
                 <constraint firstAttribute="trailing" secondItem="YJo-hU-F4O" secondAttribute="trailing" constant="8" id="Re8-q9-u2V"/>
-                <constraint firstItem="OPt-Nq-L9L" firstAttribute="top" secondItem="PPe-aj-B3M" secondAttribute="bottom" constant="8" id="XZh-vf-IUE"/>
+                <constraint firstItem="OPt-Nq-L9L" firstAttribute="top" relation="greaterThanOrEqual" secondItem="YJo-hU-F4O" secondAttribute="bottom" id="VGU-3p-PVJ"/>
                 <constraint firstItem="YJR-WB-tjG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="e00-IN-YYV"/>
                 <constraint firstItem="PPe-aj-B3M" firstAttribute="top" secondItem="YJo-hU-F4O" secondAttribute="bottom" constant="8" id="ii7-3s-9lc"/>
                 <constraint firstItem="YJo-hU-F4O" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="pUD-FI-M9j"/>
