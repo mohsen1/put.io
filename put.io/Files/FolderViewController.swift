@@ -21,14 +21,9 @@ class FolderViewController: UITableViewController {
         var folderTableViewCellNib = UINib(nibName: "FolderTableViewCell", bundle: nil)
         tableView.registerNib(folderTableViewCellNib, forCellReuseIdentifier: "FolderTableViewCell")
         tableView.rowHeight = 54
-
-        if id == "0" {
-            navigationItem.title = "Files"
-        } else {
-            FileStore.getFile(id, { (result:File) in
-                self.navigationItem.title = result.name
-            })
-        }
+        FileStore.getFile(id, { (result:File) in
+            self.navigationItem.title = result.name
+        })
         refresh(false)
     }
 

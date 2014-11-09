@@ -19,7 +19,12 @@ class FolderTableViewCell: UITableViewCell {
 
     func fill(file:File) {
         self.fileName.text = file.name
-        self.icon.image = Types.iconFor(file.content_type!)
+
+        if let type = file.content_type {
+            self.icon.image = Types.iconFor(file.content_type!)
+        } else {
+            self.icon.image = Types.iconFor("")
+        }
 
         if file.size != nil {
             // All this dance because XCode is not supporting Ints in core data properly!
