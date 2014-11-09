@@ -9,7 +9,7 @@
 import UIKit
 import SwiftHTTP
 
-class FolderViewController: UITableViewController {
+class FolderViewController: UITableViewController, UIAlertViewDelegate {
     var files = [File]()
     var id:NSNumber = NSNumber(integer: 0)
     var refreshCtrl = UIRefreshControl()
@@ -22,6 +22,8 @@ class FolderViewController: UITableViewController {
         FileStore.getFile(id, { (result:File) in
             self.navigationItem.title = result.name
         })
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("openNewFolder"))
 
         refreshCtrl.backgroundColor = UIColor(red:0.97, green:0.97, blue:0.41, alpha:1.0)
         refreshCtrl.addTarget(self, action: Selector("refresh"), forControlEvents: .ValueChanged)
@@ -40,6 +42,12 @@ class FolderViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         })
+    }
+
+    func openNewFolder() {
+        let alertView = UIAlertView(title: "New Folder", message: "Enter folder name", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Ok")
+        alertView.alertViewStyle = .PlainTextInput
+        alertView.show()
     }
 
     // MARK: - TableView
