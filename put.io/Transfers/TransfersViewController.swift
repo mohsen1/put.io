@@ -71,7 +71,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
     
     func openAdd() {
         let add = AddTransferViewController(nibName: "AddTransferViewController", bundle: nil)
-        navigationController?.presentViewController(add, animated: true, completion: nil)
+        self.presentViewController(add, animated: true, completion: {})
     }
 
     // MARK: - TableView

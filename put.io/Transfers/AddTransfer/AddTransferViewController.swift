@@ -56,6 +56,14 @@ class AddTransferViewController: UIViewController {
         })
     }
 
+    func dismiss() {
+        // TODO: tab is being switched back to 0, fix it
+        dismissViewControllerAnimated(true, completion: {
+            self.presentingViewController?.tabBarController?.selectedIndex = 1
+            return
+        })
+    }
+
     @IBAction func doPaste(sender: AnyObject) {
         let pasteboard = UIPasteboard.generalPasteboard()
         textView.text = pasteboard.string
@@ -63,7 +71,7 @@ class AddTransferViewController: UIViewController {
 
     @IBAction func cancel(sender: AnyObject) {
         view.endEditing(true)
-        dismissViewControllerAnimated(true, completion: {})
+        dismiss()
     }
 
     @IBAction func add(sender: AnyObject) {
@@ -87,7 +95,7 @@ class AddTransferViewController: UIViewController {
                 self.resultIcon.textColor = UIColor.greenColor()
                 self.resultIcon.text = "✓"
                 self.resultIcon.hidden = false
-                self.dismissViewControllerAnimated(true, completion: {})
+                self.dismiss()
             }
         }, failure: { (error:NSError?, response:HTTPResponse?) in
             dispatch_async(dispatch_get_main_queue()) {
