@@ -50,6 +50,16 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
         alertView.show()
     }
 
+    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
+        if buttonIndex == 1 {
+            let textFiled = alertView.textFieldAtIndex(0)!
+            FileStore.newFolder(textFiled.text, parentId: id.intValue, completionHandler: { (folder:File?) -> () in
+                self.refresh()
+            })
+        }
+        
+    }
+
     // MARK: - TableView
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -92,6 +92,29 @@ class FileStore {
             }
         }
     }
+    
+    class func newFolder(name:String, parentId: Int32, completionHandler: (File?)->()) {
+        var params:[String:AnyObject] = [
+            "oauth_token": "\(AccountStore.getAccountSync()!.token!)",
+            "name": name,
+            "parent_id": "\(parentId)"
+        ]
+        let url = "https://api.put.io/v2/files/create-folder"
+        request.POST(url, parameters: params, success: {(response: HTTPResponse) in
+            var jsonError:NSError?
+            if let data = response.responseObject as? NSData {
+                if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
+                    if let jsonFile = json["file"] as? NSDictionary {
+                        let resultFile = FileStore.newFile(jsonFile) as File
+                        completionHandler(resultFile)
+                    }
+                }
+            }
+        }, failure: {(error: NSError, response: HTTPResponse?) in
+                // TODO
+                println(error)
+        })
+    }
 
     private class func saveContext() {
         appDelegate.cdh.saveContext(appDelegate.cdh.managedObjectContext!)
