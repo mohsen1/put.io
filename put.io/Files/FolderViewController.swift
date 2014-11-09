@@ -12,9 +12,7 @@ import SwiftHTTP
 class FolderViewController: UITableViewController {
     var files = [File]()
     var id:NSNumber = NSNumber(integer: 0)
-    var activityIndicator = UIActivityIndicatorView()
-    var progressBarButtton = UIBarButtonItem()
-    var refreshBarButton = UIBarButtonItem()
+    var refreshCtrl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,47 +22,25 @@ class FolderViewController: UITableViewController {
         FileStore.getFile(id, { (result:File) in
             self.navigationItem.title = result.name
         })
-        refresh(false)
+
+        refreshCtrl.backgroundColor = UIColor(red:0.97, green:0.97, blue:0.41, alpha:1.0)
+        refreshCtrl.addTarget(self, action: Selector("refresh"), forControlEvents: .ValueChanged)
+        refreshCtrl.attributedTitle = NSAttributedString(string: "Refreshing")
+        refreshControl = refreshCtrl
+
+        refresh()
     }
 
 
-    func refresh(forceFetch: Bool) {
-        startProgress()
-        FileStore.getFolder(id, forceFetch: forceFetch, { result in
+    func refresh() {
+        FileStore.getFolder(id, forceFetch: true, { result in
             self.files = result
             dispatch_async(dispatch_get_main_queue()) {
+                self.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
-                self.stopProgress()
             }
         })
     }
-
-    func forceRefressh() {
-        refresh(true)
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 20, 20))
-        self.progressBarButtton = UIBarButtonItem(customView: activityIndicator)
-        self.refreshBarButton = UIBarButtonItem(title: "Refresh", style: .Plain, target: self, action: "forceRefressh")
-    }
-
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        startProgress()
-    }
-
-    func startProgress() {
-        activityIndicator.startAnimating()
-        activityIndicator.activityIndicatorViewStyle = .Gray
-        navigationItem.rightBarButtonItem = progressBarButtton
-    }
-
-    func stopProgress() {
-        navigationItem.rightBarButtonItem = refreshBarButton
-    }
-
 
     // MARK: - TableView
 
