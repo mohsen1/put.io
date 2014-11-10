@@ -12,7 +12,7 @@ import SwiftHTTP
 class AccountViewController: UITableViewController, UIAlertViewDelegate {
     var account:Account?
 
-    func openLogin(animated:Bool = true) {
+    internal func openLogin(animated:Bool = true) {
         let appDomain = NSBundle.mainBundle().bundleIdentifier
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
         let cookies = NSHTTPCookieStorage.sharedHTTPCookieStorage()
@@ -22,7 +22,8 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
         }
 
         AccountStore.deleteAccount()
-        navigationController?.pushViewController(LoginViewController(), animated: animated)
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        appDelegate.openLogin()
     }
 
     func openLoginAnimated(){
@@ -105,7 +106,7 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
         }
         return indexPath
     }
-    
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 1 { // Settings
             let settingsViewController = AccountSettingsViewController()

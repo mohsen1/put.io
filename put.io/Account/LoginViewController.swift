@@ -15,15 +15,11 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
     @IBOutlet weak var loadingMessageLabel: UILabel!
     @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
 
-
-
     func FinishLogin(token:String) {
         AccountStore.initAccount(token, { _ in
             dispatch_async(dispatch_get_main_queue()) {
-                self.tabBarController?.tabBar.hidden = false
-                self.tabBarController?.selectedIndex = 0
-                self.navigationController?.setNavigationBarHidden(false, animated: false)
-                self.navigationController?.popToRootViewControllerAnimated(true)
+                let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+                appDelegate.openMain()
             }
         })
     }

@@ -48,17 +48,6 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
             transfersNavigationController,
             accountNavigationViewController
         ]
-
-        // if user not logged in go to inxex 2 (Account) else go to index 0 (Files)
-        if let account = AccountStore.getAccountSync(){
-            if account.token == nil {
-                selectedIndex = 2
-            } else {
-                selectedIndex = 0
-            }
-        } else {
-            selectedIndex = 2
-        }
     }
 
 }

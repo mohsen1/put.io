@@ -17,14 +17,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var managedObjectContext: NSManagedObjectContext?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
-        let main = MainViewController()
-
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window?.rootViewController = main
+
+        if AccountStore.getAccountSync()?.token != nil {
+            openMain()
+        } else {
+            openLogin()
+        }
+
         window?.makeKeyAndVisible()
 
         return true
+    }
+
+    internal func openLogin() {
+        let login = LoginViewController()
+        window!.rootViewController = login
+    }
+
+    internal func openMain(){
+        let main = MainViewController()
+        window!.rootViewController = main
     }
 
     func applicationWillResignActive(application: UIApplication) {
