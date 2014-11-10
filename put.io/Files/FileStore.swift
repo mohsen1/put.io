@@ -15,27 +15,24 @@ private let request = HTTPTask()
 
 class FileStore {
 
-    class func newFile(json: NSDictionary)-> File {
+    class func newFile(json: NSDictionary)-> File? {
         var error:NSError?
-        var file = NSEntityDescription.insertNewObjectForEntityForName("File", inManagedObjectContext: appDelegate.cdh.managedObjectContext!) as File
         if let id = json["id"] as? Int {
             var fetchRequest = NSFetchRequest(entityName: "File")
             fetchRequest.predicate = NSPredicate(format: "id == \(id)")
             if let result = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchRequest, error:&error) as? [File]{
                 if result.count == 0 {
+                    var file = NSEntityDescription.insertNewObjectForEntityForName("File", inManagedObjectContext: appDelegate.cdh.managedObjectContext!) as File
                     file.fillWithJson(json)
+                    saveContext()
+                    return file
                 } else {
-                    let resultFile = result[0]
-                    if resultFile.id != -1 {
-                        result[0].fillWithJson(json)
-                    }
+                    result[0].fillWithJson(json)
+                    return result[0]
                 }
             }
         }
-        if file.id != -1 {
-            saveContext()
-        }
-        return file
+        return nil
     }
 
     class func getAll()-> [File]? {
@@ -50,7 +47,9 @@ class FileStore {
         var result = NSMutableArray()
         for item in array {
             if let json = item as? NSDictionary {
-                result.addObject(newFile(json))
+                if let f = newFile(json) {
+                    result.addObject(f)
+                }
             }
         }
         return result as NSArray
@@ -92,7 +91,7 @@ class FileStore {
             }
         }
     }
-    
+
     class func newFolder(name:String, parentId: Int32, completionHandler: (File?)->()) {
         var params:[String:AnyObject] = [
             "oauth_token": "\(AccountStore.getAccountSync()!.token!)",
@@ -105,8 +104,9 @@ class FileStore {
             if let data = response.responseObject as? NSData {
                 if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
                     if let jsonFile = json["file"] as? NSDictionary {
-                        let resultFile = FileStore.newFile(jsonFile) as File
-                        completionHandler(resultFile)
+                        if let resultFile = FileStore.newFile(jsonFile){
+                            completionHandler(resultFile)
+                        }
                     }
                 }
             }
@@ -162,9 +162,9 @@ class FileStore {
                 var jsonError:NSError?
                 if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
                     if let jsonFile = json["file"] as? NSDictionary {
-                        let resultFile = FileStore.newFile(jsonFile) as File
-                        self.saveContext()
-                        completionHandler(resultFile)
+                        if let resultFile = FileStore.newFile(jsonFile) {
+                            completionHandler(resultFile)
+                        }
                     }
 
                 }
