@@ -45,7 +45,7 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
     }
 
     func openNewFolder() {
-        let alertView = UIAlertView(title: "New Folder", message: "Enter folder name", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Ok")
+        let alertView = UIAlertView(title: "New Folder", message: "Enter folder name", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
         alertView.alertViewStyle = .PlainTextInput
         alertView.show()
     }
@@ -57,7 +57,7 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
                 self.refresh()
             })
         }
-        
+
     }
 
     // MARK: - TableView
