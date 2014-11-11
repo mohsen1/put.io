@@ -116,6 +116,22 @@ class FileStore {
         })
     }
 
+    class func deleteFiles(ids:[NSNumber], completionHandler: (NSError?)->()) {
+        let joiner = ","
+        let idsStr = joiner.join(ids.map {(i:NSNumber) -> String in return "\(i.integerValue)"})
+        println(idsStr)
+        var params:[String:AnyObject] = [
+            "oauth_token": "\(AccountStore.getAccountSync()!.token!)",
+            "file_ids": "\(idsStr)"
+        ]
+        let url = "https://api.put.io/v2/files/delete"
+        request.POST(url, parameters: params, success: {(response: HTTPResponse) in
+            completionHandler(nil)
+        }, failure: {(error: NSError, response: HTTPResponse?) in
+            completionHandler(error)
+        })
+    }
+
     private class func saveContext() {
         appDelegate.cdh.saveContext(appDelegate.cdh.managedObjectContext!)
     }

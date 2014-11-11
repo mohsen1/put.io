@@ -68,7 +68,6 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
         return self.files.count
     }
 
-
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> FolderTableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FolderTableViewCell", forIndexPath: indexPath) as FolderTableViewCell
         let file = self.files[indexPath.row] as File
@@ -94,6 +93,17 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
         else {
             pushFileViewController(file)
         }
+    }
+
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath: NSIndexPath) -> Bool {
+        return true
+    }
+
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
+        let file = files[indexPath.row] as File
+        FileStore.deleteFiles([file.id], {_ in })
+        files.removeAtIndex(indexPath.row)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
 
     func pushFileViewController(file: File) {
