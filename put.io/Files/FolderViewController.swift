@@ -20,7 +20,9 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
         tableView.registerNib(folderTableViewCellNib, forCellReuseIdentifier: "FolderTableViewCell")
         tableView.rowHeight = 54
         FileStore.getFile(id, { (result:File) in
-            self.navigationItem.title = result.name
+            dispatch_async(dispatch_get_main_queue()) {
+                self.navigationItem.title = result.name
+            }
         })
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("openNewFolder"))
