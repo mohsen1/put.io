@@ -49,7 +49,7 @@ class Transfer {
     var trackers: NSArray           = NSArray()
     var trackersString: String      = ""
     var saveParentId: Int           = 0
-    var fileId: Int                 = 0
+    var fileId: Int                 = -1
     var saveParent: File?
     var file: File?
 
@@ -188,6 +188,10 @@ class Transfer {
     }
     
     internal func fetchFile(completionHandler: (File?)->()) {
-        TransferStore.fetchFile(self, completionHandler)
+        if fileId == -1 {
+            completionHandler(nil)
+        } else {
+            TransferStore.fetchFile(self, completionHandler)
+        }
     }
 }

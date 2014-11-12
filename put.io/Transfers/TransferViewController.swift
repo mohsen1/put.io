@@ -20,16 +20,14 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
         navigationItem.title = transfer?.name
         
         // Fetch file if available
-        if transfer != nil {
-            transfer!.fetchFile({ (result:File?) in
-                if result != nil {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        self.transfer!.file = result
-                        self.tableView.reloadData()
-                    }
+        transfer?.fetchFile({ (result:File?) in
+            if result != nil {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.transfer!.file = result
+                    self.tableView.reloadData()
                 }
-            })
-        }
+            }
+        })
     }
 
     override func viewWillAppear(animated: Bool) {
