@@ -66,7 +66,7 @@ class TransferStore {
         let url = "https://api.put.io/v2/transfers/cancel"
         var params: Dictionary<String, String> = [
             "transfer_ids": "\(transfer.id)",
-            "access_token": "\(account!.token!)"
+            "oauth_token": "\(account!.token!)"
         ]
 
         request.POST(url, parameters: params, success: {(response: HTTPResponse) in

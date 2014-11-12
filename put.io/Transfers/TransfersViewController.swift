@@ -104,7 +104,12 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
         let transfer = transfers[indexPath.row] as Transfer
-        TransferStore.cancel(transfer, {_ in })
+        transfer.cancel({ (error:NSError?) in
+            if error != nil {
+                // TODO
+                println(error)
+            }
+        })
         transfers.removeAtIndex(indexPath.row)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }

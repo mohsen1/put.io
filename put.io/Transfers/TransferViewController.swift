@@ -9,7 +9,7 @@
 import UIKit
 import SwiftHTTP
 
-class TransferViewController: UITableViewController, UIAlertViewDelegate {
+class TransferViewController: UITableViewController {
     var transfer:Transfer?
     var activityIndicator = UIActivityIndicatorView()
     var progressBarButtton = UIBarButtonItem()
@@ -126,11 +126,15 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
         // Cancel transfer
-        if indexPath.section == 1 && indexPath.row == 1 {
-            if transfer?.status == "DOWNLOADING" {
-                let alert = UIAlertView(title: "Do you want to coancel this transfer?", message: "", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Yes")
-                    alert.show()
-            }
+        if indexPath.section == 1 && indexPath.row == 1 && transfer?.status == "DOWNLOADING"{
+            transfer!.cancel({ (error:NSError?) in
+                if error == nil {
+                    self.navigationController?.popViewControllerAnimated(true)
+                } else {
+                    // TODO
+                    println(error)
+                }
+            })
         }
 
         // Go to file
@@ -149,13 +153,6 @@ class TransferViewController: UITableViewController, UIAlertViewDelegate {
             }
         }
 
-    }
-
-    // MARK: - Alert view
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        if buttonIndex == 1 { // Yes
-//            TODO
-        }
     }
 
     func startProgress() {
