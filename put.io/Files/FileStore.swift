@@ -119,7 +119,6 @@ class FileStore {
     class func deleteFiles(ids:[NSNumber], completionHandler: (NSError?)->()) {
         let joiner = ","
         let idsStr = joiner.join(ids.map {(i:NSNumber) -> String in return "\(i.integerValue)"})
-        println(idsStr)
         var params:[String:AnyObject] = [
             "oauth_token": "\(AccountStore.getAccountSync()!.token!)",
             "file_ids": "\(idsStr)"

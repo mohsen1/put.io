@@ -68,7 +68,7 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
             }
         })
     }
-    
+
     func openAdd() {
         let add = AddTransferViewController(nibName: "AddTransferViewController", bundle: nil)
         self.presentViewController(add, animated: true, completion: {})
@@ -91,5 +91,21 @@ class TransfersViewController: UITableViewController, UIAlertViewDelegate {
 
         transferViewController.transfer = transfers[indexPath.row]
         navigationController?.pushViewController(transferViewController, animated: true)
+    }
+
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath: NSIndexPath) -> Bool {
+        let transfer = transfers[canEditRowAtIndexPath.row] as Transfer
+        return transfer.status != "COMPLETED"
+    }
+
+    override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath:NSIndexPath) -> String! {
+        return "Cancel"
+    }
+
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
+        let transfer = transfers[indexPath.row] as Transfer
+        TransferStore.cancel(transfer, {_ in })
+        transfers.removeAtIndex(indexPath.row)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
 }
