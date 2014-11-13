@@ -13,6 +13,7 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
     var files = [File]()
     var id:NSNumber = NSNumber(integer: 0)
     var refreshCtrl = UIRefreshControl()
+    var activityIndicator: UIActivityIndicatorView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,9 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
                 self.navigationItem.title = result.name
             }
         })
-
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        activityIndicator?.hidden = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: activityIndicator!)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("openNewFolder"))
 
         refreshCtrl.backgroundColor = UIColor(red:0.97, green:0.97, blue:0.41, alpha:1.0)
@@ -52,14 +55,31 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
         alertView.show()
     }
 
+    func startProgress() {
+        activityIndicator?.hidden = false
+        activityIndicator?.startAnimating()
+    }
+
+    func stopProgress() {
+        activityIndicator?.stopAnimating()
+        activityIndicator?.hidden = true
+    }
+
+    func newFolder(name: String) {
+        startProgress()
+        FileStore.newFolder(name, parentId: id.intValue, completionHandler: { (folder:File?) -> () in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.refresh()
+                self.stopProgress()
+            }
+        })
+    }
+
     func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
         if buttonIndex == 1 {
             let textFiled = alertView.textFieldAtIndex(0)!
-            FileStore.newFolder(textFiled.text, parentId: id.intValue, completionHandler: { (folder:File?) -> () in
-                self.refresh()
-            })
+            newFolder(textFiled.text)
         }
-
     }
 
     // MARK: - TableView
