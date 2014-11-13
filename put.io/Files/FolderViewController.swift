@@ -14,6 +14,8 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
     var id:NSNumber = NSNumber(integer: 0)
     var refreshCtrl = UIRefreshControl()
     var activityIndicator: UIActivityIndicatorView?
+    var activityIndicatorBarButton: UIBarButtonItem?
+    var addButton: UIBarButtonItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +29,9 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
         })
         activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
         activityIndicator?.hidden = true
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: activityIndicator!)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("openNewFolder"))
+        activityIndicatorBarButton = UIBarButtonItem(customView: activityIndicator!)
+        addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("openNewFolder"))
+        navigationItem.rightBarButtonItem = addButton
 
         refreshCtrl.backgroundColor = UIColor(red:0.97, green:0.97, blue:0.41, alpha:1.0)
         refreshCtrl.addTarget(self, action: Selector("refresh"), forControlEvents: .ValueChanged)
@@ -56,13 +59,13 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
     }
 
     func startProgress() {
-        activityIndicator?.hidden = false
+        navigationItem.rightBarButtonItem = activityIndicatorBarButton
         activityIndicator?.startAnimating()
     }
 
     func stopProgress() {
         activityIndicator?.stopAnimating()
-        activityIndicator?.hidden = true
+        navigationItem.rightBarButtonItem = addButton
     }
 
     func newFolder(name: String) {
@@ -121,7 +124,12 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
         let file = files[indexPath.row] as File
-        FileStore.deleteFiles([file.id], {_ in })
+        startProgress()
+        FileStore.deleteFiles([file.id], {_ in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.stopProgress()
+            }
+        })
         files.removeAtIndex(indexPath.row)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
