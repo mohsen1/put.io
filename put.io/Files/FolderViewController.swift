@@ -43,11 +43,13 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
 
 
     func refresh() {
+        startProgress()
         FileStore.getFolder(id, forceFetch: true, { result in
             self.files = result
             dispatch_async(dispatch_get_main_queue()) {
                 self.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
+                self.stopProgress()
             }
         })
     }
