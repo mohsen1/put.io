@@ -21,6 +21,7 @@ class Account : NSManagedObject {
     @NSManaged var default_subtitle_language: String?
     @NSManaged var plan_expiration_date: NSDate?
     @NSManaged var is_invisible: NSNumber?
+    @NSManaged var extraction_default: NSNumber?
     var invisible: Bool {
         get {
             if is_invisible != nil {
@@ -30,6 +31,17 @@ class Account : NSManagedObject {
         }
         set {
             is_invisible = NSNumber(bool: newValue)
+        }
+    }
+    var extract: Bool {
+        get {
+            if extraction_default != nil {
+                return Bool(extraction_default!)
+            }
+            return false
+        }
+        set {
+            extraction_default = NSNumber(bool: newValue)
         }
     }
 
@@ -57,7 +69,8 @@ class Account : NSManagedObject {
             plan_expiration_date = formatter.dateFromString(_plan_expiration_date)!
         }
         if let _settings = json["settings"] as? NSDictionary {
-            is_invisible = _settings["is_invisible"] as Bool
+            invisible = _settings["is_invisible"] as Bool
+            extract = _settings["extraction_default"] as Bool
         }
     }
 }

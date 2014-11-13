@@ -110,6 +110,7 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 1 { // Settings
             let settingsViewController = AccountSettingsViewController()
+            settingsViewController.account = account
             navigationController?.pushViewController(settingsViewController, animated: true)
         }
     }
