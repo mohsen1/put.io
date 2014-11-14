@@ -53,6 +53,7 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
                 self.openLogin(animated: false)
             } else {
                 self.account = acct
+                self.refresh()
                 dispatch_async(dispatch_get_main_queue()) {
                     self.tableView.reloadData()
                 }
@@ -60,6 +61,15 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
         } else {
             self.openLogin(animated: false)
         }
+    }
+
+    func refresh() {
+        AccountStore.fetchInfo(account!, completionHandler:{(acct:Account) in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.account = acct
+                self.tableView.reloadData()
+            }
+        })
     }
 
     // MARK: - TableView
