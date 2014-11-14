@@ -64,7 +64,7 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
 
     // MARK: - TableView
     override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
-        return 3
+        return 4
     }
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30.0
@@ -102,6 +102,13 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
             return cell
         }
 
+        if indexPath.section == 3 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
+            cell.textLabel.text = "Report an issue"
+            cell.accessoryType = .DisclosureIndicator
+            return cell
+        }
+
         let cell = tableView.dequeueReusableCellWithIdentifier("AccountInfoCell", forIndexPath: indexPath) as AccountInfoCell
         cell.loadAccount(account)
         return cell
@@ -120,13 +127,23 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
             settingsViewController.account = account
             navigationController?.pushViewController(settingsViewController, animated: true)
         }
-        if indexPath.section == 2 { // Settings
+
+        if indexPath.section == 2 { // About
             let about = UIWebView()
-            let vc = UIViewController()
-            vc.view = about
-            vc.navigationItem.title = "About"
+            let aboutVc = UIViewController()
+            aboutVc.view = about
+            aboutVc.navigationItem.title = "About"
             about.loadRequest(NSURLRequest(URL: NSURL(string: "http://mohsenweb.com/put.io/about")!))
-            navigationController?.pushViewController(vc, animated: true)
+            navigationController?.pushViewController(aboutVc, animated: true)
+        }
+
+        if indexPath.section == 3 { // Report
+            let report = UIWebView()
+            let reportVc = UIViewController()
+            reportVc.view = report
+            reportVc.navigationItem.title = "Report an issue"
+            report.loadRequest(NSURLRequest(URL: NSURL(string: "http://mohsenweb.com/put.io/report")!))
+            navigationController?.pushViewController(reportVc, animated: true)
         }
     }
 }
