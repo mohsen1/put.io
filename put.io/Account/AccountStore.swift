@@ -11,6 +11,7 @@ import CoreData
 import SwiftHTTP
 
 private let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+private let request = HTTPTask()
 
 class AccountStore {
 
@@ -76,7 +77,6 @@ class AccountStore {
 
     // MARK: - HTTP
     class func fetchInfo(acct: Account, completionHandler: (Account)->()) {
-        let request = HTTPTask()
         let url = "https://api.put.io/v2/account/info"
         var params = ["oauth_token": "\(acct.token!)"]
 
@@ -96,4 +96,22 @@ class AccountStore {
         })
     }
 
+    class func updateSettings(var settings: [String:AnyObject], completionHandler: (NSError?)->()) {
+        let url = "https://api.put.io/v2/account/settings?oauth_token=\(getAccountSync()!.token!)"
+
+        request.POST(url, parameters: settings,
+        success: {(response: HTTPResponse) in
+            if let data = response.responseObject as? NSData {
+                var jsonError:NSError?
+                if var json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
+
+                    if let result = json["settings"] as? NSDictionary {
+                        completionHandler(nil)
+                    }
+                }
+            }
+        },failure: {(error: NSError, response: HTTPResponse?) in
+            completionHandler(error)
+        })
+    }
 }

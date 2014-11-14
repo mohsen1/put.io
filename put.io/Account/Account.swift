@@ -31,6 +31,8 @@ class Account : NSManagedObject {
         }
         set {
             is_invisible = NSNumber(bool: newValue)
+            let settingsDictionary = ["is_invisible": "\(newValue)"]
+            AccountStore.updateSettings(settingsDictionary, {_ in})
         }
     }
     var extract: Bool {
@@ -42,6 +44,8 @@ class Account : NSManagedObject {
         }
         set {
             extraction_default = NSNumber(bool: newValue)
+            let settingsDictionary = ["extraction_default": "\(newValue)"]
+            AccountStore.updateSettings(settingsDictionary, {_ in})
         }
     }
 

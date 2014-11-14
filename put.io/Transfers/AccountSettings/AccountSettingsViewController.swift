@@ -13,12 +13,14 @@ class AccountSettingsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        var binarySettingsCell = UINib(nibName: "BinarySettingsCell", bundle: nil)
+
+        navigationItem.title = "Settings"
+        tableView.registerNib(binarySettingsCell, forCellReuseIdentifier: "BinarySettingsCell")
         tableView.backgroundColor = UIColor(white: 1, alpha: 0.95)
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.rowHeight = 100.0
-        navigationItem.title = "Settings"
-        var binarySettingsCell = UINib(nibName: "BinarySettingsCell", bundle: nil)
-        tableView.registerNib(binarySettingsCell, forCellReuseIdentifier: "BinarySettingsCell")
     }
 
     // MARK: - Table view data source
@@ -45,18 +47,24 @@ class AccountSettingsViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> BinarySettingsCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("BinarySettingsCell", forIndexPath: indexPath) as BinarySettingsCell
-        
+
         if indexPath.row == 0 {
             cell.label.text = "Auto-extract"
             cell.details.text = "If you prefer the extraction checkboxes to be checked by default when you are downloading (or uploading) a compressed file."
             if account != nil {
                 cell.togglerSwitch.on = account!.extract
+                cell.togglerSwitch.addTarget(self, action: Selector("toggleAutoExtract:"), forControlEvents: .ValueChanged)
+            } else {
+                cell.togglerSwitch.enabled = false
             }
         } else if indexPath.row == 1 {
             cell.label.text = "Make me invisible"
             cell.details.text = "If you do not want other people to send you friend requests or see you in the sharing tab - unless you are friends."
             if account != nil {
                 cell.togglerSwitch.on = account!.invisible
+                cell.togglerSwitch.addTarget(self, action: Selector("toggleInvisible:"), forControlEvents: .ValueChanged)
+            } else {
+                cell.togglerSwitch.enabled = false
             }
 //        } else {
 //            cell.label.text = "Default Download Folder"
@@ -64,5 +72,16 @@ class AccountSettingsViewController: UITableViewController {
         }
 
         return cell
+    }
+
+    func toggleAutoExtract(sender: UISwitch) {
+        if account != nil {
+            account!.extract = !account!.extract
+        }
+    }
+    func toggleInvisible(sender: UISwitch) {
+        if account != nil {
+            account!.invisible = !account!.invisible
+        }
     }
 }
