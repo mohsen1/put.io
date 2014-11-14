@@ -64,7 +64,7 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
 
     // MARK: - TableView
     override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
-        return 2
+        return 3
     }
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30.0
@@ -95,6 +95,13 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
             return cell
         }
 
+        if indexPath.section == 2 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
+            cell.textLabel.text = "About"
+            cell.accessoryType = .DisclosureIndicator
+            return cell
+        }
+
         let cell = tableView.dequeueReusableCellWithIdentifier("AccountInfoCell", forIndexPath: indexPath) as AccountInfoCell
         cell.loadAccount(account)
         return cell
@@ -112,6 +119,14 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
             let settingsViewController = AccountSettingsViewController()
             settingsViewController.account = account
             navigationController?.pushViewController(settingsViewController, animated: true)
+        }
+        if indexPath.section == 2 { // Settings
+            let about = UIWebView()
+            let vc = UIViewController()
+            vc.view = about
+            vc.navigationItem.title = "About"
+            about.loadRequest(NSURLRequest(URL: NSURL(string: "http://mohsenweb.com/put.io/about")!))
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
