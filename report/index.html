@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name = "viewport" content = "width = device-width">
+  <meta name = "viewport" content = "initial-scale = 1.0, user-scalable = no">
+  <title>Logged in</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0 auto;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    form {
+      text-align: center;
+      padding: .5em;
+    }
+    input {
+      width: 100%;
+      -webkit-appearance: none;
+      border: 1px solid gray;
+      padding: .2em;
+      margin: .2em 0;
+      display: block;
+      font-size: 1.3em;
+    }
+    textarea {
+      width: 100%;
+      -webkit-appearance: none;
+      border: 1px solid gray;
+      font-size: 1.3em;
+    }
+    button {
+      -webkit-appearance: none;
+      padding: .5em 4em;
+      border: 1px solid gray;
+      border-radius: 5px;
+      background: lightgreen;
+      font-size: 1.3em;
+    }
+    button[disabled] {
+      background: #efefef;
+      color: #fefefe;
+    }
+  </style>
+</head>
+<body>
+  <form action="">
+    <input type="text" id="title" name="title" placeholder="Title">
+    <textarea name="body" id="body" cols="30" rows="10" placeholder="Describe your issue"></textarea>
+    <button id="submit" disabled="disabled">Submit</button>
+  </form>
+     <script>
+        var token = '2a01b1687c837fec5003943c74ba3a4b792555c6';
+        var url = 'https://api.github.com/repos/mohsen1/put.io/issues';
+        var fullUrl = url + '?oauth_token=' + token;
+        var button = document.getElementById('submit');
+        var title = document.getElementById('title');
+        var body = document.getElementById('body');
+
+        button.addEventListener('click', submit);
+        body.addEventListener('keyup', enable);
+        title.addEventListener('keyup', enable);
+
+        function enable(){
+          if (title.value && body.value) {
+            document.getElementById('submit').removeAttribute('disabled');
+          } else {
+            document.getElementById('submit').setAttribute('disabled', 'disabled');
+          }
+        }
+
+        function submit(event) {
+          event.preventDefault();
+          var xhr = new XMLHttpRequest()
+          xhr.onreadystatechange = function (state) {
+            if (xhr.readyState === 4) {
+              body.value = '';
+              title.value = '';
+              alert('Thank you! I will look into this.')
+            }
+          };
+          xhr.open('POST', fullUrl, true);
+
+          xhr.send(JSON.stringify({
+            title: title.value,
+            body: body.value,
+            assigneer: 'mohsen1',
+            labels: ['from-app']
+          }));
+        }
+     </script>
+</body>
+</html>
