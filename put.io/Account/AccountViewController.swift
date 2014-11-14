@@ -36,8 +36,8 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
         navigationItem.title = "Account"
         navigationItem.rightBarButtonItem = logout
 
-        tableView.separatorStyle = .None
         tableView.backgroundColor = UIColor(white: 1, alpha: 0.95)
+        tableView.tableFooterView = UIView(frame: CGRectZero)
 
         var accountInfoCellNib = UINib(nibName: "AccountInfoCell", bundle: nil)
         tableView.registerNib(accountInfoCellNib, forCellReuseIdentifier: "AccountInfoCell")
@@ -74,7 +74,7 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
 
     // MARK: - TableView
     override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
-        return 4
+        return 2
     }
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30.0
@@ -87,6 +87,9 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 1 {
+            return 3
+        }
         return 1
     }
 
@@ -99,24 +102,26 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
-            cell.textLabel.text = "Settings"
-            cell.accessoryType = .DisclosureIndicator
-            return cell
-        }
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
+                cell.textLabel.text = "Settings"
+                cell.accessoryType = .DisclosureIndicator
+                return cell
+            }
 
-        if indexPath.section == 2 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
-            cell.textLabel.text = "About"
-            cell.accessoryType = .DisclosureIndicator
-            return cell
-        }
+            if indexPath.row == 1 {
+                let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
+                cell.textLabel.text = "About"
+                cell.accessoryType = .DisclosureIndicator
+                return cell
+            }
 
-        if indexPath.section == 3 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
-            cell.textLabel.text = "Report an issue"
-            cell.accessoryType = .DisclosureIndicator
-            return cell
+            if indexPath.row == 2 {
+                let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
+                cell.textLabel.text = "Report an issue"
+                cell.accessoryType = .DisclosureIndicator
+                return cell
+            }
         }
 
         let cell = tableView.dequeueReusableCellWithIdentifier("AccountInfoCell", forIndexPath: indexPath) as AccountInfoCell
@@ -132,28 +137,30 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.section == 1 { // Settings
-            let settingsViewController = AccountSettingsViewController()
-            settingsViewController.account = account
-            navigationController?.pushViewController(settingsViewController, animated: true)
-        }
+        if indexPath.section == 1 {
+            if indexPath.row == 0 { // Settings
+                let settingsViewController = AccountSettingsViewController()
+                settingsViewController.account = account
+                navigationController?.pushViewController(settingsViewController, animated: true)
+            }
 
-        if indexPath.section == 2 { // About
-            let about = UIWebView()
-            let aboutVc = UIViewController()
-            aboutVc.view = about
-            aboutVc.navigationItem.title = "About"
-            about.loadRequest(NSURLRequest(URL: NSURL(string: "http://mohsenweb.com/put.io/about")!))
-            navigationController?.pushViewController(aboutVc, animated: true)
-        }
+            if indexPath.row == 1 { // About
+                let about = UIWebView()
+                let aboutVc = UIViewController()
+                aboutVc.view = about
+                aboutVc.navigationItem.title = "About"
+                about.loadRequest(NSURLRequest(URL: NSURL(string: "http://mohsenweb.com/put.io/about")!))
+                navigationController?.pushViewController(aboutVc, animated: true)
+            }
 
-        if indexPath.section == 3 { // Report
-            let report = UIWebView()
-            let reportVc = UIViewController()
-            reportVc.view = report
-            reportVc.navigationItem.title = "Report an issue"
-            report.loadRequest(NSURLRequest(URL: NSURL(string: "http://mohsenweb.com/put.io/report")!))
-            navigationController?.pushViewController(reportVc, animated: true)
+            if indexPath.row == 2 { // Report
+                let report = UIWebView()
+                let reportVc = UIViewController()
+                reportVc.view = report
+                reportVc.navigationItem.title = "Report an issue"
+                report.loadRequest(NSURLRequest(URL: NSURL(string: "http://mohsenweb.com/put.io/report")!))
+                navigationController?.pushViewController(reportVc, animated: true)
+            }
         }
     }
 }
