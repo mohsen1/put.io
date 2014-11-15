@@ -13,11 +13,16 @@ class ImageFile: FileTableViewCell {
     @IBOutlet weak var img: UIImageView!
 
     override func fill(file:File) {
+        self.img.contentMode = .ScaleAspectFit
+
         dispatch_async(dispatch_get_main_queue()) {
-            let url = NSURL(string: file.screenshot!)!
-            let data = NSData(contentsOfURL: url)!
-            self.img.contentMode = .ScaleAspectFit
-            self.img.image = UIImage(data: data)
+            if let screenshot = file.screenshot {
+                if let url = NSURL(string: screenshot) {
+                    if let data = NSData(contentsOfURL: url) {
+                        self.img.image = UIImage(data: data)
+                    }
+                }
+            }
         }
     }
     override func awakeFromNib() {
