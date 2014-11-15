@@ -30,6 +30,10 @@ class FileViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        tableView.reloadData()
+    }
+
     // MARK: - TableView
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
