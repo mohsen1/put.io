@@ -10,6 +10,7 @@ import UIKit
 
 class PlainFile: UITableViewCell {
 
+    @IBOutlet weak var label: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +20,11 @@ class PlainFile: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    internal func fill(file:File) {
+        let ns = NSString(string: file.name!)
+        label.text = ns.pathExtension.uppercaseString
     }
 
 }

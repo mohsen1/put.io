@@ -14,24 +14,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkW-C5-rCA">
-                        <rect key="frame" x="18" y="0.0" width="42" height="200"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlainIcon" translatesAutoresizingMaskIntoConstraints="NO" id="K9E-Nc-PJc">
+                        <rect key="frame" x="123" y="32" width="75" height="75"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="200" id="Eb7-HU-aPQ"/>
+                            <constraint firstAttribute="width" constant="75" id="DWq-PY-HhX"/>
+                            <constraint firstAttribute="height" constant="75" id="J6c-hn-sTH"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHv-3f-vP1" userLabel="extensition">
+                        <rect key="frame" x="8" y="115" width="304" height="38"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="QkW-C5-rCA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="5kE-wV-TvR"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="QkW-C5-rCA" secondAttribute="bottom" constant="-9" id="FTe-fW-RYj"/>
-                    <constraint firstItem="QkW-C5-rCA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="UG0-e6-ey0"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="QkW-C5-rCA" secondAttribute="trailing" constant="252" id="pWj-aO-7HS"/>
+                    <constraint firstItem="gHv-3f-vP1" firstAttribute="top" secondItem="K9E-Nc-PJc" secondAttribute="bottom" constant="8" id="LnF-yR-ir4"/>
+                    <constraint firstItem="gHv-3f-vP1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="RzZ-rG-nXF"/>
+                    <constraint firstItem="gHv-3f-vP1" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="bD9-f4-3L5"/>
+                    <constraint firstAttribute="centerX" secondItem="K9E-Nc-PJc" secondAttribute="centerX" id="dNy-Oh-9QE"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="gHv-3f-vP1" secondAttribute="bottom" constant="38" id="gDG-33-m74"/>
+                    <constraint firstItem="K9E-Nc-PJc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="24" id="uER-Xa-Xr0"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="286" y="350"/>
+            <connections>
+                <outlet property="label" destination="gHv-3f-vP1" id="lZ2-7O-esK"/>
+            </connections>
+            <point key="canvasLocation" x="286" y="345"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="PlainIcon" width="75" height="75"/>
+    </resources>
 </document>

@@ -40,7 +40,7 @@ class FileViewController: UITableViewController {
 
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("PlainFile") as PlainFile
-
+            cell.fill(file!)
             return cell
         }
 
