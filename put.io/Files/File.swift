@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 Mohsen Azimi. All rights reserved.
 //
 
-import Foundation
 import CoreData
+
+private let byteFormatter = NSByteCountFormatter()
 
 @objc(File)
 class File: NSManagedObject {
@@ -23,6 +24,7 @@ class File: NSManagedObject {
     @NSManaged var opensubtitles_hash: String?
     @NSManaged var screenshot: String?
     @NSManaged var size: String?
+    @NSManaged var sizeString: String?
 
     func fillWithJson(json:NSDictionary){
         var dateFormatter = NSDateFormatter()
@@ -70,6 +72,8 @@ class File: NSManagedObject {
 
         if let _size = json["size"] as? NSNumber {
             size = "\(_size)"
+            sizeString = byteFormatter.stringFromByteCount(Int64(_size.intValue))
+
         }
 
         // Determine if it's a folder and assign children

@@ -138,14 +138,7 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
 
     func pushFileViewController(file: File) {
         let type = Types.typeFor(file.content_type!)
-        var fileViewController:FileViewController;
-
-        if type == "Video" {
-//            fileViewController = VideoFileViewController()
-        }
-//        if type = nil {
-            fileViewController = PlainFileViewController()
-//        }
+        var fileViewController = FileViewController()
 
         fileViewController.file = file
         self.navigationController?.pushViewController(fileViewController, animated: true)
