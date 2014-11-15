@@ -15,11 +15,18 @@ class FileViewController: UITableViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
-        navigationItem.title = file?.name
         tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
+
+        var plainFile = UINib(nibName: "PlainFile", bundle: nil)
+        tableView.registerNib(plainFile, forCellReuseIdentifier: "PlainFile")
+
+
+        navigationItem.title = file?.name
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.separatorStyle = .None
         tableView.allowsSelection = false
+
+
         super.viewWillAppear(animated)
     }
 
@@ -30,15 +37,19 @@ class FileViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
 
         if indexPath.row == 0 {
-            cell.textLabel.text = "Preview!"
-        } else if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("PlainFile") as PlainFile
+
+            return cell
+        }
+
+        let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
+        if indexPath.row == 1 { // Name
             cell.textLabel.text = file?.name
             cell.textLabel.lineBreakMode = .ByWordWrapping
             cell.textLabel.numberOfLines = 0
-        } else if indexPath.row == 2 {
+        } else if indexPath.row == 2 { // Size
             cell.textLabel.text = file?.sizeString
         }
 
