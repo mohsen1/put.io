@@ -20,6 +20,8 @@ class FileViewController: UITableViewController {
         var plainFile = UINib(nibName: "PlainFile", bundle: nil)
         tableView.registerNib(plainFile, forCellReuseIdentifier: "PlainFile")
 
+        var imageFile = UINib(nibName: "ImageFile", bundle: nil)
+        tableView.registerNib(imageFile, forCellReuseIdentifier: "ImageFile")
 
         navigationItem.title = file?.name
         tableView.tableFooterView = UIView(frame: CGRectZero)
@@ -41,23 +43,29 @@ class FileViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
+        var cell:FileTableViewCell
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("PlainFile") as PlainFile
+            if Types.typeFor(file!.content_type!) == "Image" {
+                cell = tableView.dequeueReusableCellWithIdentifier("ImageFile") as ImageFile
+            } else {
+                cell = tableView.dequeueReusableCellWithIdentifier("PlainFile") as PlainFile
+            }
             cell.fill(file!)
             return cell
         }
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
+
+        // Details
+        let detailsCell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
         if indexPath.row == 1 { // Name
-            cell.textLabel.text = file?.name
-            cell.textLabel.lineBreakMode = .ByWordWrapping
-            cell.textLabel.numberOfLines = 0
+            detailsCell.textLabel.text = file?.name
+            detailsCell.textLabel.lineBreakMode = .ByWordWrapping
+            detailsCell.textLabel.numberOfLines = 0
         } else if indexPath.row == 2 { // Size
-            cell.textLabel.text = file?.sizeString
+            detailsCell.textLabel.text = file?.sizeString
         }
 
-        return cell
+        return detailsCell
     }
 
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {

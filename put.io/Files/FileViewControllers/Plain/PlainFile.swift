@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlainFile: UITableViewCell {
+class PlainFile: FileTableViewCell {
 
     @IBOutlet weak var label: UILabel!
     override func awakeFromNib() {
@@ -22,7 +22,7 @@ class PlainFile: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    internal func fill(file:File) {
+    override func fill(file:File) {
         let ns = NSString(string: file.name!)
         label.text = ns.pathExtension.uppercaseString
     }
