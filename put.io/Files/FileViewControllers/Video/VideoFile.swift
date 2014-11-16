@@ -22,10 +22,10 @@ class VideoFile: FileTableViewCell {
     @IBAction func play(sender: AnyObject) {
         let download = "http://api.put.io/v2/files/\(file!.id)/download"
         let url = NSURL(string: download)
-        let player = MPMoviePlayerViewController(contentURL: url)
-        player.view.frame = bounds
+        let player = MPMoviePlayerController(contentURL: url)
+        player.shouldAutoplay = true
         addSubview(player.view)
-        player.moviePlayer.play()
+        player.setFullscreen(true, animated: true)
     }
 
     override func fill(file:File) {
