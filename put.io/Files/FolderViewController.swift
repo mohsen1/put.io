@@ -34,7 +34,7 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
         navigationItem.rightBarButtonItem = addButton
 
         refreshCtrl.backgroundColor = UIColor(red:0.97, green:0.97, blue:0.41, alpha:1.0)
-        refreshCtrl.addTarget(self, action: Selector("refresh"), forControlEvents: .ValueChanged)
+        refreshCtrl.addTarget(self, action: Selector("forceRefresh"), forControlEvents: .ValueChanged)
         refreshCtrl.attributedTitle = NSAttributedString(string: "Refreshing")
         refreshControl = refreshCtrl
 
@@ -42,9 +42,9 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
     }
 
 
-    func refresh() {
+    func doRefresh(force: Bool) {
         startProgress()
-        FileStore.getFolder(id, forceFetch: true, { result in
+        FileStore.getFolder(id, forceFetch: force, { result in
             self.files = result
             dispatch_async(dispatch_get_main_queue()) {
                 self.refreshControl?.endRefreshing()
@@ -53,6 +53,15 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
             }
         })
     }
+
+    func refresh(){
+        doRefresh(false)
+    }
+
+    func forceRefresh() {
+        doRefresh(true)
+    }
+
 
     func openNewFolder() {
         let alertView = UIAlertView(title: "New Folder", message: "Enter folder name", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")

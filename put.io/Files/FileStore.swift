@@ -55,7 +55,7 @@ class FileStore {
         return result as NSArray
     }
 
-    class func getFolder (id:NSNumber, forceFetch:Bool, completionHandler: ([File])->()) {
+    class func getFolder(id:NSNumber, forceFetch:Bool, completionHandler: ([File])->()) {
         var error: NSError? = nil
         var fetchReq = NSFetchRequest(entityName: "File")
         let sorter: NSSortDescriptor = NSSortDescriptor(key: "name" , ascending: false)
