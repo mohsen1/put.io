@@ -25,6 +25,7 @@ class VideoFile: FileTableViewCell {
                 let player = MPMoviePlayerController(contentURL: url!)
 
                 NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("MPMoviePlayerDidExitFullscreenNotification:"), name: MPMoviePlayerDidExitFullscreenNotification, object: player)
+                NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("loadStateChanged:"), name: MPMoviePlayerLoadStateDidChangeNotification, object: player)
 
                 player.shouldAutoplay = true
                 player.movieSourceType = .Streaming
@@ -34,6 +35,12 @@ class VideoFile: FileTableViewCell {
             }
 
         })
+    }
+
+    func loadStateChanged(notification:NSNotification) {
+        let player = notification.object as MPMoviePlayerController
+        println("loadStateChanged")
+        println(player.loadState)
     }
 
     func moviePlayBackDidFinish(notification:NSNotification) {
