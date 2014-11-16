@@ -55,6 +55,18 @@ class FileStore {
         return result as NSArray
     }
 
+    class func getDownloadUrl(id:NSNumber, completionHandler: (NSURL?)->()) {
+        let token = AccountStore.getAccountSync()!.token!
+        let urlStr = "https://api.put.io/v2/files/\(id)/download?oauth_token=\(token)"
+        let url = NSURL(string: urlStr)!
+        let httpRequest: NSMutableURLRequest = NSMutableURLRequest(URL:url, cachePolicy: .UseProtocolCachePolicy, timeoutInterval:10)
+        httpRequest.HTTPMethod = "HEAD"
+        let queue = NSOperationQueue()
+        NSURLConnection.sendAsynchronousRequest(httpRequest, queue: queue, completionHandler: { response, data, error in
+            completionHandler(response.URL)
+        })
+    }
+
     class func getFolder(id:NSNumber, forceFetch:Bool, completionHandler: ([File])->()) {
         var error: NSError? = nil
         var fetchReq = NSFetchRequest(entityName: "File")

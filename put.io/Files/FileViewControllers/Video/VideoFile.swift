@@ -20,12 +20,26 @@ class VideoFile: FileTableViewCell {
     }
 
     @IBAction func play(sender: AnyObject) {
-        let download = "http://api.put.io/v2/files/\(file!.id)/download"
-        let url = NSURL(string: download)
-        let player = MPMoviePlayerController(contentURL: url)
-        player.shouldAutoplay = true
-        addSubview(player.view)
-        player.setFullscreen(true, animated: true)
+        FileStore.getDownloadUrl(file!.id, completionHandler: {(url:NSURL?) in
+            if url != nil {
+                let player = MPMoviePlayerController(contentURL: url!)
+
+                NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("MPMoviePlayerDidExitFullscreenNotification:"), name: MPMoviePlayerDidExitFullscreenNotification, object: player)
+
+                player.shouldAutoplay = true
+                self.addSubview(player.view)
+                player.setFullscreen(true, animated: true)
+                player.play()
+            }
+
+        })
+    }
+
+    func moviePlayBackDidFinish(notification:NSNotification) {
+        let player = notification.object as MPMoviePlayerController
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: MPMoviePlayerDidExitFullscreenNotification, object: player)
+        player.stop()
+        player.view?.removeFromSuperview()
     }
 
     override func fill(file:File) {
