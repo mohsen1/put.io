@@ -7,24 +7,30 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class VideoFile: FileTableViewCell {
+    var file:File?
 
+    @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var img: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBAction func play(sender: AnyObject) {
+        let download = "http://api.put.io/v2/files/\(file!.id)/download"
+        let url = NSURL(string: download)
+        let player = MPMoviePlayerViewController(contentURL: url)
+        player.view.frame = bounds
+        addSubview(player.view)
+        player.moviePlayer.play()
     }
 
     override func fill(file:File) {
-        self.img.contentMode = .ScaleAspectFit
-
+        self.file = file
+        img.contentMode = .ScaleAspectFit
         dispatch_async(dispatch_get_main_queue()) {
             if let screenshot = file.screenshot {
                 if let url = NSURL(string: screenshot) {
