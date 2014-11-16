@@ -36,6 +36,15 @@ public class HTTPResponse {
     public var responseObject: AnyObject?
     /// The status code of the HTTP Response.
     public var statusCode: Int?
+    ///Returns the response as a string
+    public func text() -> String? {
+        if let d = self.responseObject as? NSData {
+            return  NSString(data: d, encoding: NSUTF8StringEncoding)
+        }
+        return nil
+    }
+    /// The URL of the HTTP Response.
+    public var URL: NSURL?
 }
 
 /// Object representation of HTTP Basic Auth.
@@ -212,6 +221,7 @@ public class HTTPTask : NSObject, NSURLSessionDelegate, NSURLSessionTaskDelegate
                         extraResponse.mimeType = hresponse.MIMEType
                         extraResponse.suggestedFilename = hresponse.suggestedFilename
                         extraResponse.statusCode = hresponse.statusCode
+                        extraResponse.URL = hresponse.URL
                     }
                     extraResponse.responseObject = responseObject
                     if extraResponse.statusCode > 299 {
@@ -313,11 +323,11 @@ public class HTTPTask : NSObject, NSURLSessionDelegate, NSURLSessionTaskDelegate
         :param: success The block that is run on a sucessful HTTP Request. The HTTPResponse responseObject object will be a fileURL. You MUST copy the fileURL return in HTTPResponse.responseObject to a new location before using it (e.g. your documents directory).
         :param: failure The block that is run on a failed HTTP Request.
     */
-    public func download(url: String, parameters: Dictionary<String,AnyObject>?,progress:((Double) -> Void)!, success:((HTTPResponse) -> Void)!, failure:((NSError, HTTPResponse?) -> Void)!) {
+    public func download(url: String, parameters: Dictionary<String,AnyObject>?,progress:((Double) -> Void)!, success:((HTTPResponse) -> Void)!, failure:((NSError, HTTPResponse?) -> Void)!) -> NSURLSessionDownloadTask? {
         let serialReq = createRequest(url,method: .GET, parameters: parameters)
         if serialReq.error != nil {
             failure(serialReq.error!, nil)
-            return
+            return nil
         }
         let ident = createBackgroundIdent()
         let config = NSURLSessionConfiguration.backgroundSessionConfigurationWithIdentifier(ident)
@@ -326,6 +336,7 @@ public class HTTPTask : NSObject, NSURLSessionDelegate, NSURLSessionTaskDelegate
         self.backgroundTaskMap[ident] = BackgroundBlocks(success,failure,progress)
         //this does not have to be queueable as Apple's background dameon *should* handle that.
         task.resume()
+        return task
     }
     
     //TODO: not implemented yet.
@@ -440,6 +451,7 @@ public class HTTPTask : NSObject, NSURLSessionDelegate, NSURLSessionTaskDelegate
                 resp.mimeType = hresponse.MIMEType
                 resp.suggestedFilename = hresponse.suggestedFilename
                 resp.statusCode = hresponse.statusCode
+                resp.URL = hresponse.URL
             }
             resp.responseObject = location
             if resp.statusCode > 299 {
