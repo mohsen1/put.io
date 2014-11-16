@@ -152,5 +152,4 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
         fileViewController.file = file
         self.navigationController?.pushViewController(fileViewController, animated: true)
     }
-
 }

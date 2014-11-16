@@ -37,6 +37,8 @@
 		829B7BBF1A1806F8000569A8 /* ImageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829B7BBD1A1806F8000569A8 /* ImageFile.swift */; };
 		829B7BC01A1806F8000569A8 /* ImageFile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829B7BBE1A1806F8000569A8 /* ImageFile.xib */; };
 		829B7BC21A180893000569A8 /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829B7BC11A180893000569A8 /* FileTableViewCell.swift */; };
+		829B7BC61A182676000569A8 /* VideoFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829B7BC41A182676000569A8 /* VideoFile.swift */; };
+		829B7BC71A182676000569A8 /* VideoFile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829B7BC51A182676000569A8 /* VideoFile.xib */; };
 		829F52AE19F4DC3E0032B485 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829F52AD19F4DC3E0032B485 /* LoginViewController.swift */; };
 		829F52B219F4DC8E0032B485 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829F52B119F4DC8E0032B485 /* LoginViewController.xib */; };
 		82B73E2E1A0CA04600F64F6B /* AddTransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B73E2C1A0CA04600F64F6B /* AddTransferViewController.swift */; };
@@ -123,6 +125,8 @@
 		829B7BBD1A1806F8000569A8 /* ImageFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageFile.swift; path = FileViewControllers/Image/ImageFile.swift; sourceTree = "<group>"; };
 		829B7BBE1A1806F8000569A8 /* ImageFile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageFile.xib; path = FileViewControllers/Image/ImageFile.xib; sourceTree = "<group>"; };
 		829B7BC11A180893000569A8 /* FileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileTableViewCell.swift; path = FileViewControllers/FileTableViewCell.swift; sourceTree = "<group>"; };
+		829B7BC41A182676000569A8 /* VideoFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoFile.swift; path = FileViewControllers/Video/VideoFile.swift; sourceTree = "<group>"; };
+		829B7BC51A182676000569A8 /* VideoFile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VideoFile.xib; path = FileViewControllers/Video/VideoFile.xib; sourceTree = "<group>"; };
 		829F52AD19F4DC3E0032B485 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		829F52B119F4DC8E0032B485 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		82B73E2C1A0CA04600F64F6B /* AddTransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTransferViewController.swift; path = AddTransfer/AddTransferViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +252,7 @@
 		8266029F1A00B4B600CB31D9 /* FileViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				829B7BC31A18265C000569A8 /* Video */,
 				826602A11A00B4E100CB31D9 /* Image */,
 				826602A01A00B4CE00CB31D9 /* Plain */,
 				829B7BB91A17E0E0000569A8 /* FileViewController.swift */,
@@ -314,6 +319,15 @@
 				82B73E341A0CA04F00F64F6B /* AddTransfer */,
 			);
 			path = Transfers;
+			sourceTree = "<group>";
+		};
+		829B7BC31A18265C000569A8 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				829B7BC41A182676000569A8 /* VideoFile.swift */,
+				829B7BC51A182676000569A8 /* VideoFile.xib */,
+			);
+			name = Video;
 			sourceTree = "<group>";
 		};
 		82B73E341A0CA04F00F64F6B /* AddTransfer */ = {
@@ -474,6 +488,7 @@
 				82B73E2F1A0CA04600F64F6B /* AddTransferViewController.xib in Resources */,
 				82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */,
 				8233C0341A173DCA007C7305 /* PlainFile.xib in Resources */,
+				829B7BC71A182676000569A8 /* VideoFile.xib in Resources */,
 				822093311A02065100855701 /* FolderTableViewCell.xib in Resources */,
 				825B079019F3312700E65789 /* Images.xcassets in Resources */,
 				827FE4441A1477E0008284BD /* BinarySettingsCell.xib in Resources */,
@@ -512,6 +527,7 @@
 				826A6EF419FC3F1300D348F1 /* Account.swift in Sources */,
 				82C9C2331A04D070001DF290 /* Util.swift in Sources */,
 				82D9CEC41A0EA81400A26FC4 /* AccountSettingsViewController.swift in Sources */,
+				829B7BC61A182676000569A8 /* VideoFile.swift in Sources */,
 				825CA22619FB914F007281AB /* CoreDataStore.swift in Sources */,
 				82C9C22A1A04B5A9001DF290 /* TransferViewController.swift in Sources */,
 				8258E92E19F4579400BB5E12 /* AccountViewController.swift in Sources */,

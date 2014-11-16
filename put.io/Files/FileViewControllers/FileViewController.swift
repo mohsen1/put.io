@@ -23,6 +23,9 @@ class FileViewController: UITableViewController {
         var imageFile = UINib(nibName: "ImageFile", bundle: nil)
         tableView.registerNib(imageFile, forCellReuseIdentifier: "ImageFile")
 
+        var videoFile = UINib(nibName: "VideoFile", bundle: nil)
+        tableView.registerNib(videoFile, forCellReuseIdentifier: "VideoFile")
+
         navigationItem.title = file?.name
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.separatorStyle = .None
@@ -45,8 +48,11 @@ class FileViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:FileTableViewCell
         if indexPath.row == 0 {
-            if Types.typeFor(file!.content_type!) == "Image" {
+            let type = Types.typeFor(file!.content_type!)
+            if type == "Image" {
                 cell = tableView.dequeueReusableCellWithIdentifier("ImageFile") as ImageFile
+            } else if type == "Video" {
+                cell = tableView.dequeueReusableCellWithIdentifier("VideoFile") as VideoFile
             } else {
                 cell = tableView.dequeueReusableCellWithIdentifier("PlainFile") as PlainFile
             }
