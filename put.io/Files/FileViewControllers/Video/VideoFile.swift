@@ -27,9 +27,10 @@ class VideoFile: FileTableViewCell {
                 NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("MPMoviePlayerDidExitFullscreenNotification:"), name: MPMoviePlayerDidExitFullscreenNotification, object: player)
 
                 player.shouldAutoplay = true
+                player.movieSourceType = .Streaming
+                player.prepareToPlay()
                 self.addSubview(player.view)
                 player.setFullscreen(true, animated: true)
-                player.play()
             }
 
         })
