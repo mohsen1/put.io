@@ -21,8 +21,9 @@ class PlainFile: FileTableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
     override func fill(file:File) {
+        super.fill(file)
         let ns = NSString(string: file.name!)
         label.text = ns.pathExtension.uppercaseString
     }

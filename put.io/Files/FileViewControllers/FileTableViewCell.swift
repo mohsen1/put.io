@@ -11,5 +11,9 @@ import UIKit
 
 // Just the protocol
 class FileTableViewCell: UITableViewCell {
-    internal func fill(file:File) {}
+    var file:File?
+
+    internal func fill(file:File) {
+      self.file = file
+    }
 }

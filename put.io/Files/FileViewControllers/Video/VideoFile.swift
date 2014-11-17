@@ -10,7 +10,6 @@ import UIKit
 import MediaPlayer
 
 class VideoFile: FileTableViewCell {
-    var file:File?
 
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var img: UIImageView!
@@ -51,7 +50,7 @@ class VideoFile: FileTableViewCell {
     }
 
     override func fill(file:File) {
-        self.file = file
+        super.fill(file)
         img.contentMode = .ScaleAspectFit
         dispatch_async(dispatch_get_main_queue()) {
             if let screenshot = file.screenshot {

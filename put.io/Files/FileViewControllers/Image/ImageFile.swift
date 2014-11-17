@@ -13,6 +13,7 @@ class ImageFile: FileTableViewCell {
     @IBOutlet weak var img: UIImageView!
 
     override func fill(file:File) {
+        super.fill(file)
         self.img.contentMode = .ScaleAspectFit
 
         dispatch_async(dispatch_get_main_queue()) {
