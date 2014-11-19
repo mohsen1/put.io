@@ -16,6 +16,8 @@
 		<string>github.com:daltoniam/SwiftHTTP.git</string>
 		<key>4E2F5E824C021282D3F5789E108FCDC580F66A19</key>
 		<string>https://github.com/ankurp/Dollar.swift.git</string>
+		<key>9F9B14DA276794D9192F387F0CC62561009373D0</key>
+		<string>git://github.com/mwaterfall/MWPhotoBrowser.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>put.io.xcodeproj</string>
@@ -27,6 +29,8 @@
 		<string>../../../Desktop/SwiftHTTP</string>
 		<key>4E2F5E824C021282D3F5789E108FCDC580F66A19</key>
 		<string>../../Libraries/Dollar.swift</string>
+		<key>9F9B14DA276794D9192F387F0CC62561009373D0</key>
+		<string>../../Libraries/MWPhotoBrowser</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:mohsen1/put.io.git</string>
@@ -43,6 +47,14 @@
 			<string>4E2F5E824C021282D3F5789E108FCDC580F66A19</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Dollar.swift</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9F9B14DA276794D9192F387F0CC62561009373D0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MWPhotoBrowser</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
