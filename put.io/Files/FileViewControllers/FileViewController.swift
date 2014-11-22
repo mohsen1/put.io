@@ -29,7 +29,7 @@ class FileViewController: UITableViewController {
         navigationItem.title = file?.name
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.separatorStyle = .None
-        tableView.allowsSelection = false
+//        tableView.allowsSelection = false
 
 
         super.viewWillAppear(animated)
@@ -75,7 +75,21 @@ class FileViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        if indexPath.section == 0 {
+            return indexPath
+        }
         return nil
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 0 {
+            let type = Types.typeFor(file!.content_type!)
+            if type == "Image" {
+                let fullImage = FullImageViewController()
+                fullImage.file = file
+                navigationController?.pushViewController(fullImage, animated: true)
+            }
+        }
     }
 
 }
