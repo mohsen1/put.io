@@ -80,7 +80,14 @@ class FileStore {
             if result.count > 0 && !forceFetch {
                 completionHandler(result)
             } else {
-                fetchList(id, completionHandler: completionHandler)
+                // Delete files with this parent_id from local DB and replace them with resultFiles
+                for oldFile in result {
+                    appDelegate.cdh.managedObjectContext!.deleteObject(oldFile)
+                }
+                self.saveContext()
+                fetchList(id, completionHandler: { (resultFiles:[File]) in
+                    completionHandler(resultFiles)
+                })
             }
         }
 
