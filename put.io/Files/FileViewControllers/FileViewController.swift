@@ -85,7 +85,7 @@ class FileViewController: UITableViewController {
         if indexPath.section == 0 {
             let type = Types.typeFor(file!.content_type!)
             if type == "Image" {
-                let fullImage = FullImageViewController()
+                let fullImage = FullScreenImageViewController()
                 fullImage.file = file
                 navigationController?.pushViewController(fullImage, animated: true)
             }

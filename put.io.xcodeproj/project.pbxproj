@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8200C59C1A22B3B400DA518B /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8200C59B1A22B3B400DA518B /* FullScreenImageViewController.swift */; };
+		8200C59E1A22B97200DA518B /* FullScreenImage.html in Resources */ = {isa = PBXBuildFile; fileRef = 8200C59D1A22B97200DA518B /* FullScreenImage.html */; };
 		82084F2F19FC7AA6005DF388 /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82084F2D19FC7AA6005DF388 /* AccountInfoCell.swift */; };
 		82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */; };
 		820D1C651A01E9F200563814 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820D1C641A01E9F200563814 /* Types.swift */; };
@@ -48,8 +50,6 @@
 		82C9C22A1A04B5A9001DF290 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C2291A04B5A9001DF290 /* TransferViewController.swift */; };
 		82C9C2301A04BFA0001DF290 /* KeyValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C22F1A04BFA0001DF290 /* KeyValueTableViewCell.swift */; };
 		82C9C2331A04D070001DF290 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C2321A04D070001DF290 /* Util.swift */; };
-		82D184961A21419E00E25C3C /* FullImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D184941A21419E00E25C3C /* FullImageViewController.swift */; };
-		82D184971A21419E00E25C3C /* FullImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82D184951A21419E00E25C3C /* FullImageViewController.xib */; };
 		82D9CEC41A0EA81400A26FC4 /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D9CEC31A0EA81400A26FC4 /* AccountSettingsViewController.swift */; };
 		82EFF62B1A05B25700C95D55 /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EFF62A1A05B25700C95D55 /* Transfer.swift */; };
 		82EFF6311A05EC9900C95D55 /* TransferStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EFF6301A05EC9900C95D55 /* TransferStore.swift */; };
@@ -101,6 +101,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8200C59B1A22B3B400DA518B /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullScreenImageViewController.swift; path = FileViewControllers/Image/FullScreenImageViewController.swift; sourceTree = "<group>"; };
+		8200C59D1A22B97200DA518B /* FullScreenImage.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = FullScreenImage.html; path = FileViewControllers/Image/FullScreenImage.html; sourceTree = "<group>"; };
 		82084F2D19FC7AA6005DF388 /* AccountInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
 		82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountInfoCell.xib; sourceTree = "<group>"; };
 		820D1C641A01E9F200563814 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
@@ -147,8 +149,6 @@
 		82C9C2291A04B5A9001DF290 /* TransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
 		82C9C22F1A04BFA0001DF290 /* KeyValueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueTableViewCell.swift; sourceTree = "<group>"; };
 		82C9C2321A04D070001DF290 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Utility/Util.swift; sourceTree = "<group>"; };
-		82D184941A21419E00E25C3C /* FullImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullImageViewController.swift; path = FileViewControllers/Image/FullImageViewController.swift; sourceTree = "<group>"; };
-		82D184951A21419E00E25C3C /* FullImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FullImageViewController.xib; path = FileViewControllers/Image/FullImageViewController.xib; sourceTree = "<group>"; };
 		82D9CEC31A0EA81400A26FC4 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountSettingsViewController.swift; path = ../Transfers/AccountSettings/AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		82EFF62A1A05B25700C95D55 /* Transfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
 		82EFF6301A05EC9900C95D55 /* TransferStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferStore.swift; sourceTree = "<group>"; };
@@ -292,8 +292,8 @@
 			children = (
 				829B7BBD1A1806F8000569A8 /* ImageFile.swift */,
 				829B7BBE1A1806F8000569A8 /* ImageFile.xib */,
-				82D184941A21419E00E25C3C /* FullImageViewController.swift */,
-				82D184951A21419E00E25C3C /* FullImageViewController.xib */,
+				8200C59B1A22B3B400DA518B /* FullScreenImageViewController.swift */,
+				8200C59D1A22B97200DA518B /* FullScreenImage.html */,
 			);
 			name = Image;
 			sourceTree = "<group>";
@@ -523,9 +523,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8200C59E1A22B97200DA518B /* FullScreenImage.html in Resources */,
 				82B73E2F1A0CA04600F64F6B /* AddTransferViewController.xib in Resources */,
 				82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */,
-				82D184971A21419E00E25C3C /* FullImageViewController.xib in Resources */,
 				8233C0341A173DCA007C7305 /* PlainFile.xib in Resources */,
 				829B7BC71A182676000569A8 /* VideoFile.xib in Resources */,
 				822093311A02065100855701 /* FolderTableViewCell.xib in Resources */,
@@ -558,7 +558,6 @@
 				820D1C651A01E9F200563814 /* Types.swift in Sources */,
 				829B7BBF1A1806F8000569A8 /* ImageFile.swift in Sources */,
 				822093301A02065100855701 /* FolderTableViewCell.swift in Sources */,
-				82D184961A21419E00E25C3C /* FullImageViewController.swift in Sources */,
 				825CA22319FB8239007281AB /* File.swift in Sources */,
 				825CA22119FB7E9C007281AB /* FileStore.swift in Sources */,
 				829F52AE19F4DC3E0032B485 /* LoginViewController.swift in Sources */,
@@ -568,6 +567,7 @@
 				82C9C2331A04D070001DF290 /* Util.swift in Sources */,
 				82D9CEC41A0EA81400A26FC4 /* AccountSettingsViewController.swift in Sources */,
 				829B7BC61A182676000569A8 /* VideoFile.swift in Sources */,
+				8200C59C1A22B3B400DA518B /* FullScreenImageViewController.swift in Sources */,
 				825CA22619FB914F007281AB /* CoreDataStore.swift in Sources */,
 				82C9C22A1A04B5A9001DF290 /* TransferViewController.swift in Sources */,
 				8258E92E19F4579400BB5E12 /* AccountViewController.swift in Sources */,
