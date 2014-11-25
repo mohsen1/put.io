@@ -104,21 +104,21 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
         if indexPath.section == 1 {
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
-                cell.textLabel.text = "Settings"
+                cell.textLabel?.text = "Settings"
                 cell.accessoryType = .DisclosureIndicator
                 return cell
             }
 
             if indexPath.row == 1 {
                 let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
-                cell.textLabel.text = "About"
+                cell.textLabel?.text = "About"
                 cell.accessoryType = .DisclosureIndicator
                 return cell
             }
 
             if indexPath.row == 2 {
                 let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
-                cell.textLabel.text = "Report an issue"
+                cell.textLabel?.text = "Report an issue"
                 cell.accessoryType = .DisclosureIndicator
                 return cell
             }

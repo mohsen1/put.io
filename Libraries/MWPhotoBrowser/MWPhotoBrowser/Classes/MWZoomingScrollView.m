@@ -9,7 +9,7 @@
 #import "MWCommon.h"
 #import "MWZoomingScrollView.h"
 #import "MWPhotoBrowser.h"
-#import "MWPhoto.h"
+#import "MWPhotoObj.h"
 #import "DACircularProgressView.h"
 #import "MWPhotoBrowserPrivate.h"
 

@@ -64,11 +64,11 @@ class FileViewController: UITableViewController {
         // Details
         let detailsCell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
         if indexPath.row == 1 { // Name
-            detailsCell.textLabel.text = file?.name
-            detailsCell.textLabel.lineBreakMode = .ByWordWrapping
-            detailsCell.textLabel.numberOfLines = 0
+            detailsCell.textLabel?.text = file?.name
+            detailsCell.textLabel?.lineBreakMode = .ByWordWrapping
+            detailsCell.textLabel?.numberOfLines = 0
         } else if indexPath.row == 2 { // Size
-            detailsCell.textLabel.text = file?.sizeString
+            detailsCell.textLabel?.text = file?.sizeString
         }
 
         return detailsCell

@@ -86,24 +86,24 @@ class TransferViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
 
             if indexPath.row == 0 {
-                cell.textLabel.text = "Go to file"
+                cell.textLabel?.text = "Go to file"
                 cell.accessoryType = .DisclosureIndicator
 
                 if transfer?.file == nil {
                     cell.userInteractionEnabled = false
-                    cell.textLabel.textColor = UIColor.lightGrayColor()
+                    cell.textLabel?.textColor = UIColor.lightGrayColor()
                 }
             } else {
                 // Disabled cancel button by default
                 cell.accessoryType = .DisclosureIndicator
-                cell.textLabel.text = "Cancel this transfer"
+                cell.textLabel?.text = "Cancel this transfer"
                 cell.userInteractionEnabled = false
-                cell.textLabel.textColor = UIColor.grayColor()
+                cell.textLabel?.textColor = UIColor.grayColor()
 
                 if transfer != nil {
                     if transfer?.status != "COMPLETED" {
                         cell.userInteractionEnabled = true
-                        cell.textLabel.textColor = UIColor.redColor()
+                        cell.textLabel?.textColor = UIColor.redColor()
                     }
                 }
             }
