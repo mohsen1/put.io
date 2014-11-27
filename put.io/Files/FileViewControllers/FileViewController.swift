@@ -29,7 +29,6 @@ class FileViewController: UITableViewController {
         navigationItem.title = file?.name
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.separatorStyle = .None
-//        tableView.allowsSelection = false
 
 
         super.viewWillAppear(animated)
@@ -91,5 +90,11 @@ class FileViewController: UITableViewController {
             }
         }
     }
-
+    
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            return 320.0
+        }
+        return 80.0
+    }
 }
