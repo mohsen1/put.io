@@ -50,6 +50,8 @@
 		82C9C2301A04BFA0001DF290 /* KeyValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C22F1A04BFA0001DF290 /* KeyValueTableViewCell.swift */; };
 		82C9C2331A04D070001DF290 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C2321A04D070001DF290 /* Util.swift */; };
 		82D9CEC41A0EA81400A26FC4 /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D9CEC31A0EA81400A26FC4 /* AccountSettingsViewController.swift */; };
+		82EB66881A29182B0044573A /* AudioFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EB66861A29182B0044573A /* AudioFile.swift */; };
+		82EB66891A29182B0044573A /* AudioFile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82EB66871A29182B0044573A /* AudioFile.xib */; };
 		82EFF62B1A05B25700C95D55 /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EFF62A1A05B25700C95D55 /* Transfer.swift */; };
 		82EFF6311A05EC9900C95D55 /* TransferStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EFF6301A05EC9900C95D55 /* TransferStore.swift */; };
 /* End PBXBuildFile section */
@@ -148,6 +150,8 @@
 		82C9C2321A04D070001DF290 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Utility/Util.swift; sourceTree = "<group>"; };
 		82D9CEC31A0EA81400A26FC4 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountSettingsViewController.swift; path = ../Transfers/AccountSettings/AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		82EB66841A2908BF0044573A /* put_io-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "put_io-Bridging-Header.h"; sourceTree = "<group>"; };
+		82EB66861A29182B0044573A /* AudioFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioFile.swift; path = FileViewControllers/Audio/AudioFile.swift; sourceTree = "<group>"; };
+		82EB66871A29182B0044573A /* AudioFile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AudioFile.xib; path = FileViewControllers/Audio/AudioFile.xib; sourceTree = "<group>"; };
 		82EFF62A1A05B25700C95D55 /* Transfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
 		82EFF6301A05EC9900C95D55 /* TransferStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,6 +271,7 @@
 		8266029F1A00B4B600CB31D9 /* FileViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				82EB66851A2917D40044573A /* Aduio  */,
 				829B7BC31A18265C000569A8 /* Video */,
 				826602A11A00B4E100CB31D9 /* Image */,
 				826602A01A00B4CE00CB31D9 /* Plain */,
@@ -390,6 +395,15 @@
 				827FE4421A1477E0008284BD /* BinarySettingsCell.xib */,
 			);
 			name = AccountSettings;
+			sourceTree = "<group>";
+		};
+		82EB66851A2917D40044573A /* Aduio  */ = {
+			isa = PBXGroup;
+			children = (
+				82EB66861A29182B0044573A /* AudioFile.swift */,
+				82EB66871A29182B0044573A /* AudioFile.xib */,
+			);
+			name = "Aduio ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -522,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82B73E2F1A0CA04600F64F6B /* AddTransferViewController.xib in Resources */,
+				82EB66891A29182B0044573A /* AudioFile.xib in Resources */,
 				82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */,
 				8233C0341A173DCA007C7305 /* PlainFile.xib in Resources */,
 				829B7BC71A182676000569A8 /* VideoFile.xib in Resources */,
@@ -576,6 +591,7 @@
 				825CA22C19FB9164007281AB /* CoreDataHelper.swift in Sources */,
 				825CA1F119FB7771007281AB /* data.xcdatamodeld in Sources */,
 				82C9C2301A04BFA0001DF290 /* KeyValueTableViewCell.swift in Sources */,
+				82EB66881A29182B0044573A /* AudioFile.swift in Sources */,
 				829B7BC21A180893000569A8 /* FileTableViewCell.swift in Sources */,
 				825B078919F3312700E65789 /* AppDelegate.swift in Sources */,
 				8290F98019F76CBC00158036 /* TransfersViewController.swift in Sources */,

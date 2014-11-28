@@ -25,6 +25,9 @@ class FileViewController: UITableViewController {
 
         var videoFile = UINib(nibName: "VideoFile", bundle: nil)
         tableView.registerNib(videoFile, forCellReuseIdentifier: "VideoFile")
+        
+        var audioFile = UINib(nibName: "AudioFile", bundle: nil)
+        tableView.registerNib(audioFile, forCellReuseIdentifier: "AudioFile")
 
         navigationItem.title = file?.name
         tableView.tableFooterView = UIView(frame: CGRectZero)
@@ -48,10 +51,12 @@ class FileViewController: UITableViewController {
         var cell:FileTableViewCell
         if indexPath.row == 0 {
             let type = Types.typeFor(file!.content_type!)
-            if type == "Image" {
+            if type == .IMAGE {
                 cell = tableView.dequeueReusableCellWithIdentifier("ImageFile") as ImageFile
-            } else if type == "Video" {
+            } else if type == .VIDEO {
                 cell = tableView.dequeueReusableCellWithIdentifier("VideoFile") as VideoFile
+            } else if type == .AUDIO {
+                cell = tableView.dequeueReusableCellWithIdentifier("AudioFile") as AudioFile
             } else {
                 cell = tableView.dequeueReusableCellWithIdentifier("PlainFile") as PlainFile
             }
@@ -83,10 +88,12 @@ class FileViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
             let type = Types.typeFor(file!.content_type!)
-            if type == "Image" {
+            if type == .IMAGE {
                 let fullImage = FullScreenImageViewController()
                 fullImage.file = file
                 navigationController?.pushViewController(fullImage, animated: true)
+            } else if type == .AUDIO {
+                
             }
         }
     }
