@@ -8,14 +8,14 @@
 
 #import "MWCommon.h"
 #import "MWCaptionView.h"
-#import "MWPhotoObj.h"
+#import "MWPhoto.h"
 
 static const CGFloat labelPadding = 10;
 
 // Private
 @interface MWCaptionView () {
     id <MWPhoto> _photo;
-    UILabel *_label;    
+    UILabel *_label;
 }
 @end
 

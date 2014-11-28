@@ -9,19 +9,19 @@
 #import "MWCommon.h"
 #import "MWZoomingScrollView.h"
 #import "MWPhotoBrowser.h"
-#import "MWPhotoObj.h"
+#import "MWPhoto.h"
 #import "DACircularProgressView.h"
 #import "MWPhotoBrowserPrivate.h"
 
 // Private methods and properties
 @interface MWZoomingScrollView () {
-    
+
     MWPhotoBrowser __weak *_photoBrowser;
 	MWTapDetectingView *_tapView; // for background taps
 	MWTapDetectingImageView *_photoImageView;
 	DACircularProgressView *_loadingIndicator;
     UIImageView *_loadingError;
-    
+
 }
 
 @end
@@ -30,25 +30,25 @@
 
 - (id)initWithPhotoBrowser:(MWPhotoBrowser *)browser {
     if ((self = [super init])) {
-        
+
         // Setup
         _index = NSUIntegerMax;
         _photoBrowser = browser;
-        
+
 		// Tap view for background
 		_tapView = [[MWTapDetectingView alloc] initWithFrame:self.bounds];
 		_tapView.tapDelegate = self;
 		_tapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 		_tapView.backgroundColor = [UIColor blackColor];
 		[self addSubview:_tapView];
-		
+
 		// Image view
 		_photoImageView = [[MWTapDetectingImageView alloc] initWithFrame:CGRectZero];
 		_photoImageView.tapDelegate = self;
 		_photoImageView.contentMode = UIViewContentModeCenter;
 		_photoImageView.backgroundColor = [UIColor blackColor];
 		[self addSubview:_photoImageView];
-		
+
 		// Loading indicator
 		_loadingIndicator = [[DACircularProgressView alloc] initWithFrame:CGRectMake(140.0f, 30.0f, 40.0f, 40.0f)];
         _loadingIndicator.userInteractionEnabled = NO;
@@ -68,7 +68,7 @@
                                                  selector:@selector(setProgressFromNotification:)
                                                      name:MWPHOTO_PROGRESS_NOTIFICATION
                                                    object:nil];
-        
+
 		// Setup
 		self.backgroundColor = [UIColor blackColor];
 		self.delegate = self;
@@ -76,7 +76,7 @@
 		self.showsVerticalScrollIndicator = NO;
 		self.decelerationRate = UIScrollViewDecelerationRateFast;
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        
+
     }
     return self;
 }
@@ -116,24 +116,24 @@
 // Get and display image
 - (void)displayImage {
 	if (_photo && _photoImageView.image == nil) {
-		
+
 		// Reset
 		self.maximumZoomScale = 1;
 		self.minimumZoomScale = 1;
 		self.zoomScale = 1;
 		self.contentSize = CGSizeMake(0, 0);
-		
+
 		// Get image from browser as it handles ordering of fetching
 		UIImage *img = [_photoBrowser imageForPhoto:_photo];
 		if (img) {
-			
+
 			// Hide indicator
 			[self hideLoadingIndicator];
-			
+
 			// Set image
 			_photoImageView.image = img;
 			_photoImageView.hidden = NO;
-			
+
 			// Setup photo frame
 			CGRect photoImageViewFrame;
 			photoImageViewFrame.origin = CGPointZero;
@@ -143,12 +143,12 @@
 
 			// Set zoom to minimum zoom
 			[self setMaxMinZoomScalesForCurrentBounds];
-			
+
 		} else {
-			
+
 			// Failed no image
             [self displayImageFailure];
-			
+
 		}
 		[self setNeedsLayout];
 	}
@@ -227,22 +227,22 @@
 }
 
 - (void)setMaxMinZoomScalesForCurrentBounds {
-	
+
 	// Reset
 	self.maximumZoomScale = 1;
 	self.minimumZoomScale = 1;
 	self.zoomScale = 1;
-	
+
 	// Bail if no image
 	if (_photoImageView.image == nil) return;
-    
+
 	// Reset position
 	_photoImageView.frame = CGRectMake(0, 0, _photoImageView.frame.size.width, _photoImageView.frame.size.height);
-	
+
 	// Sizes
     CGSize boundsSize = self.bounds.size;
     CGSize imageSize = _photoImageView.image.size;
-    
+
     // Calculate Min
     CGFloat xScale = boundsSize.width / imageSize.width;    // the scale needed to perfectly fit the image width-wise
     CGFloat yScale = boundsSize.height / imageSize.height;  // the scale needed to perfectly fit the image height-wise
@@ -254,19 +254,19 @@
         // Let them go a bit bigger on a bigger screen!
         maxScale = 4;
     }
-    
+
     // Image is smaller than screen so no zooming!
 	if (xScale >= 1 && yScale >= 1) {
 		minScale = 1.0;
 	}
-	
+
 	// Set min/max zoom
 	self.maximumZoomScale = maxScale;
 	self.minimumZoomScale = minScale;
-    
+
     // Initial zoom
     self.zoomScale = [self initialZoomScaleWithMinScale];
-    
+
     // If we're zooming to fill then centralise
     if (self.zoomScale != minScale) {
         // Centralise
@@ -275,7 +275,7 @@
         // Disable scrolling initially until the first pinch to fix issues with swiping on an initally zoomed in photo
         self.scrollEnabled = NO;
     }
-    
+
     // Layout
 	[self setNeedsLayout];
 
@@ -284,10 +284,10 @@
 #pragma mark - Layout
 
 - (void)layoutSubviews {
-	
+
 	// Update tap view frame
 	_tapView.frame = self.bounds;
-	
+
 	// Position indicators (centre does not seem to work!)
 	if (!_loadingIndicator.hidden)
         _loadingIndicator.frame = CGRectMake(floorf((self.bounds.size.width - _loadingIndicator.frame.size.width) / 2.),
@@ -302,29 +302,29 @@
 
 	// Super
 	[super layoutSubviews];
-	
+
     // Center the image as it becomes smaller than the size of the screen
     CGSize boundsSize = self.bounds.size;
     CGRect frameToCenter = _photoImageView.frame;
-    
+
     // Horizontally
     if (frameToCenter.size.width < boundsSize.width) {
         frameToCenter.origin.x = floorf((boundsSize.width - frameToCenter.size.width) / 2.0);
 	} else {
         frameToCenter.origin.x = 0;
 	}
-    
+
     // Vertically
     if (frameToCenter.size.height < boundsSize.height) {
         frameToCenter.origin.y = floorf((boundsSize.height - frameToCenter.size.height) / 2.0);
 	} else {
         frameToCenter.origin.y = 0;
 	}
-    
+
 	// Center
 	if (!CGRectEqualToRect(_photoImageView.frame, frameToCenter))
 		_photoImageView.frame = frameToCenter;
-	
+
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -358,18 +358,18 @@
 }
 
 - (void)handleDoubleTap:(CGPoint)touchPoint {
-	
+
 	// Cancel any single tap handling
 	[NSObject cancelPreviousPerformRequestsWithTarget:_photoBrowser];
-	
+
 	// Zoom
 	if (self.zoomScale != self.minimumZoomScale && self.zoomScale != [self initialZoomScaleWithMinScale]) {
-		
+
 		// Zoom out
 		[self setZoomScale:self.minimumZoomScale animated:YES];
-		
+
 	} else {
-		
+
 		// Zoom in to twice the size
         CGFloat newZoomScale = ((self.maximumZoomScale + self.minimumZoomScale) / 2);
         CGFloat xsize = self.bounds.size.width / newZoomScale;
@@ -377,14 +377,14 @@
         [self zoomToRect:CGRectMake(touchPoint.x - xsize/2, touchPoint.y - ysize/2, xsize, ysize) animated:YES];
 
 	}
-	
+
 	// Delay controls
 	[_photoBrowser hideControlsAfterDelay];
-	
+
 }
 
 // Image View
-- (void)imageView:(UIImageView *)imageView singleTapDetected:(UITouch *)touch { 
+- (void)imageView:(UIImageView *)imageView singleTapDetected:(UITouch *)touch {
     [self handleSingleTap:[touch locationInView:imageView]];
 }
 - (void)imageView:(UIImageView *)imageView doubleTapDetected:(UITouch *)touch {

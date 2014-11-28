@@ -83,8 +83,8 @@
 		4C6F96C814AF704100F8389A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6F96C714AF704100F8389A /* Foundation.framework */; };
 		4C6F96E214AF70BD00F8389A /* MWCaptionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C6F96D614AF70BD00F8389A /* MWCaptionView.h */; };
 		4C6F96E314AF70BD00F8389A /* MWCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F96D714AF70BD00F8389A /* MWCaptionView.m */; };
-		4C6F96E414AF70BD00F8389A /* MWPhotoObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C6F96D814AF70BD00F8389A /* MWPhotoObj.h */; settings = {ATTRIBUTES = (); }; };
-		4C6F96E514AF70BD00F8389A /* MWPhotoObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F96D914AF70BD00F8389A /* MWPhotoObj.m */; };
+		4C6F96E414AF70BD00F8389A /* MWPhoto.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C6F96D814AF70BD00F8389A /* MWPhoto.h */; settings = {ATTRIBUTES = (); }; };
+		4C6F96E514AF70BD00F8389A /* MWPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F96D914AF70BD00F8389A /* MWPhoto.m */; };
 		4C6F96E614AF70BD00F8389A /* MWPhotoBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C6F96DA14AF70BD00F8389A /* MWPhotoBrowser.h */; settings = {ATTRIBUTES = (); }; };
 		4C6F96E714AF70BD00F8389A /* MWPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F96DB14AF70BD00F8389A /* MWPhotoBrowser.m */; };
 		4C6F96E814AF70BD00F8389A /* MWTapDetectingImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C6F96DC14AF70BD00F8389A /* MWTapDetectingImageView.h */; };
@@ -178,8 +178,8 @@
 		4C6F96CB14AF704100F8389A /* MWPhotoBrowser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MWPhotoBrowser-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		4C6F96D614AF70BD00F8389A /* MWCaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWCaptionView.h; path = Classes/MWCaptionView.h; sourceTree = SOURCE_ROOT; };
 		4C6F96D714AF70BD00F8389A /* MWCaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWCaptionView.m; path = Classes/MWCaptionView.m; sourceTree = SOURCE_ROOT; };
-		4C6F96D814AF70BD00F8389A /* MWPhotoObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWPhotoObj.h; path = Classes/MWPhotoObj.h; sourceTree = SOURCE_ROOT; };
-		4C6F96D914AF70BD00F8389A /* MWPhotoObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWPhotoObj.m; path = Classes/MWPhotoObj.m; sourceTree = SOURCE_ROOT; };
+		4C6F96D814AF70BD00F8389A /* MWPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWPhoto.h; path = Classes/MWPhoto.h; sourceTree = SOURCE_ROOT; };
+		4C6F96D914AF70BD00F8389A /* MWPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWPhoto.m; path = Classes/MWPhoto.m; sourceTree = SOURCE_ROOT; };
 		4C6F96DA14AF70BD00F8389A /* MWPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWPhotoBrowser.h; path = Classes/MWPhotoBrowser.h; sourceTree = SOURCE_ROOT; };
 		4C6F96DB14AF70BD00F8389A /* MWPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWPhotoBrowser.m; path = Classes/MWPhotoBrowser.m; sourceTree = SOURCE_ROOT; };
 		4C6F96DC14AF70BD00F8389A /* MWTapDetectingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWTapDetectingImageView.h; path = Classes/MWTapDetectingImageView.h; sourceTree = SOURCE_ROOT; };
@@ -298,8 +298,8 @@
 				4C6F96DB14AF70BD00F8389A /* MWPhotoBrowser.m */,
 				0E3D5897180467550000E3A0 /* MWGridViewController.h */,
 				0E3D5898180467550000E3A0 /* MWGridViewController.m */,
-				4C6F96D814AF70BD00F8389A /* MWPhotoObj.h */,
-				4C6F96D914AF70BD00F8389A /* MWPhotoObj.m */,
+				4C6F96D814AF70BD00F8389A /* MWPhoto.h */,
+				4C6F96D914AF70BD00F8389A /* MWPhoto.m */,
 				4CB08BA214B1F38700730E9F /* MWPhotoProtocol.h */,
 				4C6F96D614AF70BD00F8389A /* MWCaptionView.h */,
 				4C6F96D714AF70BD00F8389A /* MWCaptionView.m */,
@@ -414,7 +414,7 @@
 				0E3D58C8180474330000E3A0 /* PSTCollectionViewLayout.h in Headers */,
 				0E3D58BE180474330000E3A0 /* PSTCollectionViewCommon.h in Headers */,
 				0E3D58D0180474330000E3A0 /* PSTGridLayoutRow.h in Headers */,
-				4C6F96E414AF70BD00F8389A /* MWPhotoObj.h in Headers */,
+				4C6F96E414AF70BD00F8389A /* MWPhoto.h in Headers */,
 				4C6F96E614AF70BD00F8389A /* MWPhotoBrowser.h in Headers */,
 				0E3D58CC180474330000E3A0 /* PSTGridLayoutInfo.h in Headers */,
 				2615E44F18CD57E500447857 /* MKAnnotationView+WebCache.h in Headers */,
@@ -514,7 +514,7 @@
 				0EF66C6819CC8E0000BC267E /* UIView+WebCacheOperation.m in Sources */,
 				0EF66C6619CC8E0000BC267E /* UIImageView+HighlightedWebCache.m in Sources */,
 				0E17D77C17FAEADE0094ABF6 /* UIImage+WebP.m in Sources */,
-				4C6F96E514AF70BD00F8389A /* MWPhotoObj.m in Sources */,
+				4C6F96E514AF70BD00F8389A /* MWPhoto.m in Sources */,
 				0E17D76F17FAEADE0094ABF6 /* SDWebImageDownloaderOperation.m in Sources */,
 				2615E45018CD57E500447857 /* MKAnnotationView+WebCache.m in Sources */,
 				0E17D76B17FAEADE0094ABF6 /* SDWebImageDecoder.m in Sources */,

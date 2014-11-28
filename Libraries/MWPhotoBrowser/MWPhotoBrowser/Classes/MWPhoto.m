@@ -6,41 +6,41 @@
 //  Copyright 2010 d3i. All rights reserved.
 //
 
-#import "MWPhotoObj.h"
+#import "MWPhoto.h"
 #import "MWPhotoBrowser.h"
 #import "SDWebImageDecoder.h"
 #import "SDWebImageManager.h"
 #import "SDWebImageOperation.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@interface MWPhotoObj () {
-    
+@interface MWPhoto () {
+
     BOOL _loadingInProgress;
     id <SDWebImageOperation> _webImageOperation;
-    
+
 }
 
 - (void)imageLoadingComplete;
 
 @end
 
-@implementation MWPhotoObj
+@implementation MWPhoto
 
 @synthesize underlyingImage = _underlyingImage; // synth property from protocol
 
 #pragma mark - Class Methods
 
-+ (MWPhotoObj *)photoWithImage:(UIImage *)image {
-    return [[MWPhotoObj alloc] initWithImage:image];
++ (MWPhoto *)photoWithImage:(UIImage *)image {
+    return [[MWPhoto alloc] initWithImage:image];
 }
 
 // Deprecated
-+ (MWPhotoObj *)photoWithFilePath:(NSString *)path {
-    return [MWPhotoObj photoWithURL:[NSURL fileURLWithPath:path]];
++ (MWPhoto *)photoWithFilePath:(NSString *)path {
+    return [MWPhoto photoWithURL:[NSURL fileURLWithPath:path]];
 }
 
-+ (MWPhotoObj *)photoWithURL:(NSURL *)url {
-    return [[MWPhotoObj alloc] initWithURL:url];
++ (MWPhoto *)photoWithURL:(NSURL *)url {
+    return [[MWPhoto alloc] initWithURL:url];
 }
 
 #pragma mark - Init
@@ -95,19 +95,19 @@
 
 // Set the underlyingImage
 - (void)performLoadUnderlyingImageAndNotify {
-    
+
     // Get underlying image
     if (_image) {
-        
+
         // We have UIImage!
         self.underlyingImage = _image;
         [self imageLoadingComplete];
-        
+
     } else if (_photoURL) {
-        
+
         // Check what type of url it is
         if ([[[_photoURL scheme] lowercaseString] isEqualToString:@"assets-library"]) {
-            
+
             // Load from asset library async
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 @autoreleasepool {
@@ -133,9 +133,9 @@
                     }
                 }
             });
-            
+
         } else if ([_photoURL isFileReferenceURL]) {
-            
+
             // Load from local file async
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 @autoreleasepool {
@@ -149,9 +149,9 @@
                     }
                 }
             });
-            
+
         } else {
-            
+
             // Load async from web (using SDWebImage)
             @try {
                 SDWebImageManager *manager = [SDWebImageManager sharedManager];
@@ -179,14 +179,14 @@
                 _webImageOperation = nil;
                 [self imageLoadingComplete];
             }
-            
+
         }
-        
+
     } else {
-        
+
         // Failed - no source
         @throw [NSException exceptionWithName:nil reason:nil userInfo:nil];
-        
+
     }
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MWPhotoObj.h"
+#import "MWPhoto.h"
 #import "MWGridViewController.h"
 #import "PSTCollectionView.h"
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8200C59C1A22B3B400DA518B /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8200C59B1A22B3B400DA518B /* FullScreenImageViewController.swift */; };
-		8200C59E1A22B97200DA518B /* FullScreenImage.html in Resources */ = {isa = PBXBuildFile; fileRef = 8200C59D1A22B97200DA518B /* FullScreenImage.html */; };
 		82084F2F19FC7AA6005DF388 /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82084F2D19FC7AA6005DF388 /* AccountInfoCell.swift */; };
 		82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */; };
 		820D1C651A01E9F200563814 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820D1C641A01E9F200563814 /* Types.swift */; };
@@ -102,7 +101,6 @@
 
 /* Begin PBXFileReference section */
 		8200C59B1A22B3B400DA518B /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullScreenImageViewController.swift; path = FileViewControllers/Image/FullScreenImageViewController.swift; sourceTree = "<group>"; };
-		8200C59D1A22B97200DA518B /* FullScreenImage.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = FullScreenImage.html; path = FileViewControllers/Image/FullScreenImage.html; sourceTree = "<group>"; };
 		82084F2D19FC7AA6005DF388 /* AccountInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
 		82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountInfoCell.xib; sourceTree = "<group>"; };
 		820D1C641A01E9F200563814 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 		827FE4411A1477E0008284BD /* BinarySettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySettingsCell.swift; path = AccountSettings/BinarySettingsCell.swift; sourceTree = "<group>"; };
 		827FE4421A1477E0008284BD /* BinarySettingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BinarySettingsCell.xib; path = AccountSettings/BinarySettingsCell.xib; sourceTree = "<group>"; };
 		828159001A1C41DA00BEC143 /* MWPhotoBrowser.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MWPhotoBrowser.xcodeproj; path = Libraries/MWPhotoBrowser/MWPhotoBrowser/MWPhotoBrowser.xcodeproj; sourceTree = "<group>"; };
-		828159081A1C5F5000BEC143 /* put_io-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "put_io-Bridging-Header.h"; path = "../put_io-Bridging-Header.h"; sourceTree = "<group>"; };
 		8290F97F19F76CBC00158036 /* TransfersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransfersViewController.swift; sourceTree = "<group>"; };
 		8290F98119F770E300158036 /* TransferCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCell.swift; sourceTree = "<group>"; };
 		8290F98219F770E300158036 /* TransferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransferCell.xib; sourceTree = "<group>"; };
@@ -150,6 +147,7 @@
 		82C9C22F1A04BFA0001DF290 /* KeyValueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueTableViewCell.swift; sourceTree = "<group>"; };
 		82C9C2321A04D070001DF290 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Utility/Util.swift; sourceTree = "<group>"; };
 		82D9CEC31A0EA81400A26FC4 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountSettingsViewController.swift; path = ../Transfers/AccountSettings/AccountSettingsViewController.swift; sourceTree = "<group>"; };
+		82EB66841A2908BF0044573A /* put_io-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "put_io-Bridging-Header.h"; sourceTree = "<group>"; };
 		82EFF62A1A05B25700C95D55 /* Transfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
 		82EFF6301A05EC9900C95D55 /* TransferStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,6 +194,7 @@
 		825B077A19F3312700E65789 = {
 			isa = PBXGroup;
 			children = (
+				82EB66841A2908BF0044573A /* put_io-Bridging-Header.h */,
 				828159001A1C41DA00BEC143 /* MWPhotoBrowser.xcodeproj */,
 				825CA1E519FB771E007281AB /* CoreData.framework */,
 				82C726DA19F398A00045496A /* SwiftHTTP.xcodeproj */,
@@ -223,7 +222,6 @@
 				8290F97819F76BFE00158036 /* Files */,
 				825B078819F3312700E65789 /* AppDelegate.swift */,
 				8258E92619F4402D00BB5E12 /* MainViewController.swift */,
-				828159081A1C5F5000BEC143 /* put_io-Bridging-Header.h */,
 				825B078F19F3312700E65789 /* Images.xcassets */,
 				825CA1EF19FB7771007281AB /* data.xcdatamodeld */,
 				825B078619F3312700E65789 /* Supporting Files */,
@@ -293,7 +291,6 @@
 				829B7BBD1A1806F8000569A8 /* ImageFile.swift */,
 				829B7BBE1A1806F8000569A8 /* ImageFile.xib */,
 				8200C59B1A22B3B400DA518B /* FullScreenImageViewController.swift */,
-				8200C59D1A22B97200DA518B /* FullScreenImage.html */,
 			);
 			name = Image;
 			sourceTree = "<group>";
@@ -444,6 +441,7 @@
 				TargetAttributes = {
 					825B078219F3312700E65789 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = HESNS6JK33;
 					};
 					825B079719F3312700E65789 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -523,7 +521,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8200C59E1A22B97200DA518B /* FullScreenImage.html in Resources */,
 				82B73E2F1A0CA04600F64F6B /* AddTransferViewController.xib in Resources */,
 				82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */,
 				8233C0341A173DCA007C7305 /* PlainFile.xib in Resources */,
