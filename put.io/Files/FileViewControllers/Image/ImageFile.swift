@@ -16,7 +16,8 @@ class ImageFile: FileTableViewCell {
         super.fill(file)
         self.img.contentMode = .ScaleAspectFit
 
-        dispatch_async(dispatch_get_main_queue()) {
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
             if let screenshot = file.screenshot {
                 if let url = NSURL(string: screenshot) {
                     if let data = NSData(contentsOfURL: url) {
@@ -24,7 +25,7 @@ class ImageFile: FileTableViewCell {
                     }
                 }
             }
-        }
+        })
     }
     override func awakeFromNib() {
         super.awakeFromNib()
