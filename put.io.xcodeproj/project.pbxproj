@@ -99,6 +99,20 @@
 			remoteGlobalIDString = 6BFD902119C8D8B500DD99B6;
 			remoteInfo = SwiftHTTPTests;
 		};
+		82EB66901A291D8D0044573A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82EB668A1A291D8D0044573A /* BeamMusicPlayerExample.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 97B7AA2E15760AAF0014E693;
+			remoteInfo = BeamMusicPlayerExample;
+		};
+		82EB66921A291D8D0044573A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82EB668A1A291D8D0044573A /* BeamMusicPlayerExample.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 97B7AA5215760AAF0014E693;
+			remoteInfo = BeamMusicPlayerExampleTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +166,7 @@
 		82EB66841A2908BF0044573A /* put_io-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "put_io-Bridging-Header.h"; sourceTree = "<group>"; };
 		82EB66861A29182B0044573A /* AudioFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioFile.swift; path = FileViewControllers/Audio/AudioFile.swift; sourceTree = "<group>"; };
 		82EB66871A29182B0044573A /* AudioFile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AudioFile.xib; path = FileViewControllers/Audio/AudioFile.xib; sourceTree = "<group>"; };
+		82EB668A1A291D8D0044573A /* BeamMusicPlayerExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BeamMusicPlayerExample.xcodeproj; path = Libraries/MusicPlayerViewController/BeamMusicPlayerExample.xcodeproj; sourceTree = "<group>"; };
 		82EFF62A1A05B25700C95D55 /* Transfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
 		82EFF6301A05EC9900C95D55 /* TransferStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,6 +213,7 @@
 		825B077A19F3312700E65789 = {
 			isa = PBXGroup;
 			children = (
+				82EB668A1A291D8D0044573A /* BeamMusicPlayerExample.xcodeproj */,
 				82EB66841A2908BF0044573A /* put_io-Bridging-Header.h */,
 				828159001A1C41DA00BEC143 /* MWPhotoBrowser.xcodeproj */,
 				825CA1E519FB771E007281AB /* CoreData.framework */,
@@ -406,6 +422,15 @@
 			name = "Aduio ";
 			sourceTree = "<group>";
 		};
+		82EB668B1A291D8D0044573A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				82EB66911A291D8D0044573A /* BeamMusicPlayerExample.app */,
+				82EB66931A291D8D0044573A /* BeamMusicPlayerExampleTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -476,6 +501,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 82EB668B1A291D8D0044573A /* Products */;
+					ProjectRef = 82EB668A1A291D8D0044573A /* BeamMusicPlayerExample.xcodeproj */;
+				},
+				{
 					ProductGroup = 828159011A1C41DA00BEC143 /* Products */;
 					ProjectRef = 828159001A1C41DA00BEC143 /* MWPhotoBrowser.xcodeproj */;
 				},
@@ -526,6 +555,20 @@
 			fileType = wrapper.cfbundle;
 			path = SwiftHTTPTests.xctest;
 			remoteRef = 82C726E119F398A00045496A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		82EB66911A291D8D0044573A /* BeamMusicPlayerExample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = BeamMusicPlayerExample.app;
+			remoteRef = 82EB66901A291D8D0044573A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		82EB66931A291D8D0044573A /* BeamMusicPlayerExampleTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BeamMusicPlayerExampleTests.octest;
+			remoteRef = 82EB66921A291D8D0044573A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

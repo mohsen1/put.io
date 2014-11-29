@@ -25,7 +25,7 @@ class FileViewController: UITableViewController {
 
         var videoFile = UINib(nibName: "VideoFile", bundle: nil)
         tableView.registerNib(videoFile, forCellReuseIdentifier: "VideoFile")
-        
+
         var audioFile = UINib(nibName: "AudioFile", bundle: nil)
         tableView.registerNib(audioFile, forCellReuseIdentifier: "AudioFile")
 
@@ -84,7 +84,7 @@ class FileViewController: UITableViewController {
         }
         return nil
     }
-    
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
             let type = Types.typeFor(file!.content_type!)
@@ -93,11 +93,12 @@ class FileViewController: UITableViewController {
                 fullImage.file = file
                 navigationController?.pushViewController(fullImage, animated: true)
             } else if type == .AUDIO {
-                
+                // let musicPlayer = BeamMusicPlayerViewController()
+                // navigationController?.pushViewController(musicPlayer, animated: true)
             }
         }
     }
-    
+
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == 0 && indexPath.row == 0 {
             return 320.0
