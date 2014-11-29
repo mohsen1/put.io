@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Alamofire
 import SwiftHTTP
 import Alamofire
 
