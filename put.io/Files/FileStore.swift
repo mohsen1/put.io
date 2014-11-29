@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import SwiftHTTP
+import Alamofire
 
 private let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 private let request = HTTPTask()
@@ -118,6 +119,7 @@ class FileStore {
             "parent_id": "\(parentId)"
         ]
         let url = "https://api.put.io/v2/files/create-folder"
+
         request.POST(url, parameters: params, success: {(response: HTTPResponse) in
             var jsonError:NSError?
             if let data = response.responseObject as? NSData {
@@ -165,21 +167,22 @@ class FileStore {
         }
         params["parent_id"] = "\(id)"
 
-        request.GET(url, parameters: params, success: {(response: HTTPResponse) in
-            if let data = response.responseObject as? NSData {
-                var jsonError:NSError?
-                if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
-                    if let jsonFiles = json["files"] as? NSArray {
-                        let resultFiles = FileStore.filesFromJsonArray(jsonFiles) as [File]
-                        completionHandler(resultFiles)
-                    }
-
+        Alamofire.request(.GET, url, parameters: params).responseJSON { (_, _, data, error) in
+            if let json = data as? NSDictionary {
+                if let jsonFiles = json["files"] as? NSArray {
+                    let resultFiles = FileStore.filesFromJsonArray(jsonFiles) as [File]
+                    completionHandler(resultFiles)
+                    return
                 }
             }
-        }, failure: {(error: NSError, response: HTTPResponse?) in
-                // TODO
-                println(error)
-        })
+
+            // TODO fail better
+            completionHandler([])
+
+            if error != nil {
+                println(error!)
+            }
+        }
     }
 
     private class func fetchFile(id:NSNumber, completionHandler: (File)->()) {
@@ -190,22 +193,19 @@ class FileStore {
         } else {
             print("Not logged in and trying to access files")
         }
-
-        request.GET(url, parameters: params, {(response: HTTPResponse) in
-            if let data = response.responseObject as? NSData {
-                var jsonError:NSError?
-                if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
-                    if let jsonFile = json["file"] as? NSDictionary {
-                        if let resultFile = FileStore.newFile(jsonFile) {
-                            completionHandler(resultFile)
-                        }
+        Alamofire.request(.GET, url, parameters: params).responseJSON { (_, _, data, error) -> Void in
+            if let json = data as? NSDictionary {
+                if let jsonFile = json["file"] as? NSDictionary {
+                    if let resultFile = FileStore.newFile(jsonFile) {
+                        completionHandler(resultFile)
+                        return
                     }
-
                 }
             }
-        }, failure: {(error: NSError, response: HTTPResponse?) in
-            // TODO
-            println(error)
-        })
+
+            if error != nil {
+                println(error!)
+            }
+        }
     }
 }
