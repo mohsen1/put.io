@@ -27,10 +27,9 @@ class FullScreenImageViewController: UIViewController {
 
     func load() {
       FileStore.getDownloadUrl(file!.id, completionHandler: { (url:NSURL?) in
-        if let urlString = url?.absoluteURL? {
+        if url != nil {
           dispatch_async(dispatch_get_main_queue()) {
-            let script = NSString(string:"document.getElementById('image').src = '\(urlString)'")
-            self.webview?.stringByEvaluatingJavaScriptFromString(script)
+            self.webview!.loadRequest(NSURLRequest(URL: url!))
           }
         }
       })
