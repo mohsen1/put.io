@@ -16,6 +16,8 @@
 		<string>github.com:daltoniam/SwiftHTTP.git</string>
 		<key>4E2F5E824C021282D3F5789E108FCDC580F66A19</key>
 		<string>https://github.com/ankurp/Dollar.swift.git</string>
+		<key>67620B5EFA902936DF04070AF595B76AB0333747</key>
+		<string>github.com:Alamofire/Alamofire.git</string>
 		<key>7CC59ADEFABEB5C6A0E051051D8FB9D7C8535925</key>
 		<string>github.com:BeamApp/MusicPlayerViewController.git</string>
 		<key>9F9B14DA276794D9192F387F0CC62561009373D0</key>
@@ -31,6 +33,8 @@
 		<string>../../../Desktop/SwiftHTTP</string>
 		<key>4E2F5E824C021282D3F5789E108FCDC580F66A19</key>
 		<string>../../Libraries/Dollar.swift</string>
+		<key>67620B5EFA902936DF04070AF595B76AB0333747</key>
+		<string>../../Libraries/Alamofire/</string>
 		<key>7CC59ADEFABEB5C6A0E051051D8FB9D7C8535925</key>
 		<string>../../Libraries/MusicPlayerViewController</string>
 		<key>9F9B14DA276794D9192F387F0CC62561009373D0</key>
@@ -44,6 +48,14 @@
 	<string>1D8AEABC1DDD25E22858520F501351CCA9FAA32D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>67620B5EFA902936DF04070AF595B76AB0333747</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Alamofire</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
