@@ -7,15 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8200C59C1A22B3B400DA518B /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8200C59B1A22B3B400DA518B /* FullScreenImageViewController.swift */; };
 		82084F2F19FC7AA6005DF388 /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82084F2D19FC7AA6005DF388 /* AccountInfoCell.swift */; };
 		82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */; };
 		820D1C651A01E9F200563814 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820D1C641A01E9F200563814 /* Types.swift */; };
+		821816771A2BA314008D1153 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821816751A2BA314008D1153 /* FileViewController.swift */; };
+		821816781A2BA314008D1153 /* FileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821816761A2BA314008D1153 /* FileViewController.xib */; };
 		822093301A02065100855701 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8220932E1A02065100855701 /* FolderTableViewCell.swift */; };
 		822093311A02065100855701 /* FolderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8220932F1A02065100855701 /* FolderTableViewCell.xib */; };
 		8224AC1B1A2A6046001F9ADB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8224AC101A2A6004001F9ADB /* Alamofire.framework */; };
-		8233C0331A173DCA007C7305 /* PlainFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8233C0311A173DCA007C7305 /* PlainFile.swift */; };
-		8233C0341A173DCA007C7305 /* PlainFile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8233C0321A173DCA007C7305 /* PlainFile.xib */; };
+		8233C0331A173DCA007C7305 /* PlainFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8233C0311A173DCA007C7305 /* PlainFileViewController.swift */; };
+		8233C0341A173DCA007C7305 /* PlainFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8233C0321A173DCA007C7305 /* PlainFileViewController.xib */; };
 		8258E8EE19F3D4F700BB5E12 /* AccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E8ED19F3D4F700BB5E12 /* AccountStore.swift */; };
 		8258E92819F4402D00BB5E12 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E92619F4402D00BB5E12 /* MainViewController.swift */; };
 		8258E92E19F4579400BB5E12 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E92C19F4579400BB5E12 /* AccountViewController.swift */; };
@@ -36,12 +37,10 @@
 		8290F98019F76CBC00158036 /* TransfersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F97F19F76CBC00158036 /* TransfersViewController.swift */; };
 		8290F98319F770E300158036 /* TransferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F98119F770E300158036 /* TransferCell.swift */; };
 		8290F98419F770E300158036 /* TransferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8290F98219F770E300158036 /* TransferCell.xib */; };
-		829B7BBB1A17E0E0000569A8 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829B7BB91A17E0E0000569A8 /* FileViewController.swift */; };
-		829B7BBF1A1806F8000569A8 /* ImageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829B7BBD1A1806F8000569A8 /* ImageFile.swift */; };
-		829B7BC01A1806F8000569A8 /* ImageFile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829B7BBE1A1806F8000569A8 /* ImageFile.xib */; };
-		829B7BC21A180893000569A8 /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829B7BC11A180893000569A8 /* FileTableViewCell.swift */; };
-		829B7BC61A182676000569A8 /* VideoFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829B7BC41A182676000569A8 /* VideoFile.swift */; };
-		829B7BC71A182676000569A8 /* VideoFile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829B7BC51A182676000569A8 /* VideoFile.xib */; };
+		829B7BBF1A1806F8000569A8 /* ImageFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829B7BBD1A1806F8000569A8 /* ImageFileViewController.swift */; };
+		829B7BC01A1806F8000569A8 /* ImageFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829B7BBE1A1806F8000569A8 /* ImageFileViewController.xib */; };
+		829B7BC61A182676000569A8 /* VideoFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829B7BC41A182676000569A8 /* VideoFileViewController.swift */; };
+		829B7BC71A182676000569A8 /* VideoFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829B7BC51A182676000569A8 /* VideoFileViewController.xib */; };
 		829F52AE19F4DC3E0032B485 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829F52AD19F4DC3E0032B485 /* LoginViewController.swift */; };
 		829F52B219F4DC8E0032B485 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829F52B119F4DC8E0032B485 /* LoginViewController.xib */; };
 		82B73E2E1A0CA04600F64F6B /* AddTransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B73E2C1A0CA04600F64F6B /* AddTransferViewController.swift */; };
@@ -51,8 +50,6 @@
 		82C9C2301A04BFA0001DF290 /* KeyValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C22F1A04BFA0001DF290 /* KeyValueTableViewCell.swift */; };
 		82C9C2331A04D070001DF290 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C2321A04D070001DF290 /* Util.swift */; };
 		82D9CEC41A0EA81400A26FC4 /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D9CEC31A0EA81400A26FC4 /* AccountSettingsViewController.swift */; };
-		82EB66881A29182B0044573A /* AudioFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EB66861A29182B0044573A /* AudioFile.swift */; };
-		82EB66891A29182B0044573A /* AudioFile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82EB66871A29182B0044573A /* AudioFile.xib */; };
 		82EFF62B1A05B25700C95D55 /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EFF62A1A05B25700C95D55 /* Transfer.swift */; };
 		82EFF6311A05EC9900C95D55 /* TransferStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EFF6301A05EC9900C95D55 /* TransferStore.swift */; };
 /* End PBXBuildFile section */
@@ -114,32 +111,19 @@
 			remoteGlobalIDString = 6BFD902119C8D8B500DD99B6;
 			remoteInfo = SwiftHTTPTests;
 		};
-		82EB66901A291D8D0044573A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82EB668A1A291D8D0044573A /* BeamMusicPlayerExample.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 97B7AA2E15760AAF0014E693;
-			remoteInfo = BeamMusicPlayerExample;
-		};
-		82EB66921A291D8D0044573A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82EB668A1A291D8D0044573A /* BeamMusicPlayerExample.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 97B7AA5215760AAF0014E693;
-			remoteInfo = BeamMusicPlayerExampleTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8200C59B1A22B3B400DA518B /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullScreenImageViewController.swift; path = FileViewControllers/Image/FullScreenImageViewController.swift; sourceTree = "<group>"; };
 		82084F2D19FC7AA6005DF388 /* AccountInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
 		82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountInfoCell.xib; sourceTree = "<group>"; };
 		820D1C641A01E9F200563814 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		821816751A2BA314008D1153 /* FileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileViewController.swift; path = FileViewControllers/FileViewController.swift; sourceTree = "<group>"; };
+		821816761A2BA314008D1153 /* FileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FileViewController.xib; path = FileViewControllers/FileViewController.xib; sourceTree = "<group>"; };
 		8220932E1A02065100855701 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FolderTableViewCell.swift; path = FolderCell/FolderTableViewCell.swift; sourceTree = "<group>"; };
 		8220932F1A02065100855701 /* FolderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FolderTableViewCell.xib; path = FolderCell/FolderTableViewCell.xib; sourceTree = "<group>"; };
 		8224AC0A1A2A6004001F9ADB /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Libraries/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
-		8233C0311A173DCA007C7305 /* PlainFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlainFile.swift; path = FileViewControllers/Plain/PlainFile.swift; sourceTree = "<group>"; };
-		8233C0321A173DCA007C7305 /* PlainFile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlainFile.xib; path = FileViewControllers/Plain/PlainFile.xib; sourceTree = "<group>"; };
+		8233C0311A173DCA007C7305 /* PlainFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlainFileViewController.swift; path = FileViewControllers/Plain/PlainFileViewController.swift; sourceTree = "<group>"; };
+		8233C0321A173DCA007C7305 /* PlainFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlainFileViewController.xib; path = FileViewControllers/Plain/PlainFileViewController.xib; sourceTree = "<group>"; };
 		8258E8ED19F3D4F700BB5E12 /* AccountStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountStore.swift; sourceTree = "<group>"; };
 		8258E92619F4402D00BB5E12 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8258E92C19F4579400BB5E12 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -164,12 +148,10 @@
 		8290F97F19F76CBC00158036 /* TransfersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransfersViewController.swift; sourceTree = "<group>"; };
 		8290F98119F770E300158036 /* TransferCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCell.swift; sourceTree = "<group>"; };
 		8290F98219F770E300158036 /* TransferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransferCell.xib; sourceTree = "<group>"; };
-		829B7BB91A17E0E0000569A8 /* FileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileViewController.swift; path = FileViewControllers/FileViewController.swift; sourceTree = "<group>"; };
-		829B7BBD1A1806F8000569A8 /* ImageFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageFile.swift; path = FileViewControllers/Image/ImageFile.swift; sourceTree = "<group>"; };
-		829B7BBE1A1806F8000569A8 /* ImageFile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageFile.xib; path = FileViewControllers/Image/ImageFile.xib; sourceTree = "<group>"; };
-		829B7BC11A180893000569A8 /* FileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileTableViewCell.swift; path = FileViewControllers/FileTableViewCell.swift; sourceTree = "<group>"; };
-		829B7BC41A182676000569A8 /* VideoFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoFile.swift; path = FileViewControllers/Video/VideoFile.swift; sourceTree = "<group>"; };
-		829B7BC51A182676000569A8 /* VideoFile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VideoFile.xib; path = FileViewControllers/Video/VideoFile.xib; sourceTree = "<group>"; };
+		829B7BBD1A1806F8000569A8 /* ImageFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageFileViewController.swift; path = FileViewControllers/Image/ImageFileViewController.swift; sourceTree = "<group>"; };
+		829B7BBE1A1806F8000569A8 /* ImageFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageFileViewController.xib; path = FileViewControllers/Image/ImageFileViewController.xib; sourceTree = "<group>"; };
+		829B7BC41A182676000569A8 /* VideoFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoFileViewController.swift; path = FileViewControllers/Video/VideoFileViewController.swift; sourceTree = "<group>"; };
+		829B7BC51A182676000569A8 /* VideoFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VideoFileViewController.xib; path = FileViewControllers/Video/VideoFileViewController.xib; sourceTree = "<group>"; };
 		829F52AD19F4DC3E0032B485 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		829F52B119F4DC8E0032B485 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		82B73E2C1A0CA04600F64F6B /* AddTransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTransferViewController.swift; path = AddTransfer/AddTransferViewController.swift; sourceTree = "<group>"; };
@@ -180,9 +162,6 @@
 		82C9C2321A04D070001DF290 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Utility/Util.swift; sourceTree = "<group>"; };
 		82D9CEC31A0EA81400A26FC4 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountSettingsViewController.swift; path = ../Transfers/AccountSettings/AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		82EB66841A2908BF0044573A /* put_io-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "put_io-Bridging-Header.h"; sourceTree = "<group>"; };
-		82EB66861A29182B0044573A /* AudioFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioFile.swift; path = FileViewControllers/Audio/AudioFile.swift; sourceTree = "<group>"; };
-		82EB66871A29182B0044573A /* AudioFile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AudioFile.xib; path = FileViewControllers/Audio/AudioFile.xib; sourceTree = "<group>"; };
-		82EB668A1A291D8D0044573A /* BeamMusicPlayerExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BeamMusicPlayerExample.xcodeproj; path = Libraries/MusicPlayerViewController/BeamMusicPlayerExample.xcodeproj; sourceTree = "<group>"; };
 		82EFF62A1A05B25700C95D55 /* Transfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
 		82EFF6301A05EC9900C95D55 /* TransferStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -240,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				8224AC0A1A2A6004001F9ADB /* Alamofire.xcodeproj */,
-				82EB668A1A291D8D0044573A /* BeamMusicPlayerExample.xcodeproj */,
 				82EB66841A2908BF0044573A /* put_io-Bridging-Header.h */,
 				828159001A1C41DA00BEC143 /* MWPhotoBrowser.xcodeproj */,
 				825CA1E519FB771E007281AB /* CoreData.framework */,
@@ -314,12 +292,9 @@
 		8266029F1A00B4B600CB31D9 /* FileViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				82EB66851A2917D40044573A /* Aduio  */,
 				829B7BC31A18265C000569A8 /* Video */,
 				826602A11A00B4E100CB31D9 /* Image */,
 				826602A01A00B4CE00CB31D9 /* Plain */,
-				829B7BB91A17E0E0000569A8 /* FileViewController.swift */,
-				829B7BC11A180893000569A8 /* FileTableViewCell.swift */,
 			);
 			name = FileViewControllers;
 			sourceTree = "<group>";
@@ -327,8 +302,8 @@
 		826602A01A00B4CE00CB31D9 /* Plain */ = {
 			isa = PBXGroup;
 			children = (
-				8233C0311A173DCA007C7305 /* PlainFile.swift */,
-				8233C0321A173DCA007C7305 /* PlainFile.xib */,
+				8233C0311A173DCA007C7305 /* PlainFileViewController.swift */,
+				8233C0321A173DCA007C7305 /* PlainFileViewController.xib */,
 			);
 			name = Plain;
 			sourceTree = "<group>";
@@ -336,9 +311,8 @@
 		826602A11A00B4E100CB31D9 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				829B7BBD1A1806F8000569A8 /* ImageFile.swift */,
-				829B7BBE1A1806F8000569A8 /* ImageFile.xib */,
-				8200C59B1A22B3B400DA518B /* FullScreenImageViewController.swift */,
+				829B7BBD1A1806F8000569A8 /* ImageFileViewController.swift */,
+				829B7BBE1A1806F8000569A8 /* ImageFileViewController.xib */,
 			);
 			name = Image;
 			sourceTree = "<group>";
@@ -360,6 +334,8 @@
 				825CA22019FB7E9C007281AB /* FileStore.swift */,
 				825CA22219FB8239007281AB /* File.swift */,
 				820D1C641A01E9F200563814 /* Types.swift */,
+				821816751A2BA314008D1153 /* FileViewController.swift */,
+				821816761A2BA314008D1153 /* FileViewController.xib */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -396,8 +372,8 @@
 		829B7BC31A18265C000569A8 /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				829B7BC41A182676000569A8 /* VideoFile.swift */,
-				829B7BC51A182676000569A8 /* VideoFile.xib */,
+				829B7BC41A182676000569A8 /* VideoFileViewController.swift */,
+				829B7BC51A182676000569A8 /* VideoFileViewController.xib */,
 			);
 			name = Video;
 			sourceTree = "<group>";
@@ -438,24 +414,6 @@
 				827FE4421A1477E0008284BD /* BinarySettingsCell.xib */,
 			);
 			name = AccountSettings;
-			sourceTree = "<group>";
-		};
-		82EB66851A2917D40044573A /* Aduio  */ = {
-			isa = PBXGroup;
-			children = (
-				82EB66861A29182B0044573A /* AudioFile.swift */,
-				82EB66871A29182B0044573A /* AudioFile.xib */,
-			);
-			name = "Aduio ";
-			sourceTree = "<group>";
-		};
-		82EB668B1A291D8D0044573A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				82EB66911A291D8D0044573A /* BeamMusicPlayerExample.app */,
-				82EB66931A291D8D0044573A /* BeamMusicPlayerExampleTests.octest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -532,10 +490,6 @@
 					ProjectRef = 8224AC0A1A2A6004001F9ADB /* Alamofire.xcodeproj */;
 				},
 				{
-					ProductGroup = 82EB668B1A291D8D0044573A /* Products */;
-					ProjectRef = 82EB668A1A291D8D0044573A /* BeamMusicPlayerExample.xcodeproj */;
-				},
-				{
 					ProductGroup = 828159011A1C41DA00BEC143 /* Products */;
 					ProjectRef = 828159001A1C41DA00BEC143 /* MWPhotoBrowser.xcodeproj */;
 				},
@@ -602,20 +556,6 @@
 			remoteRef = 82C726E119F398A00045496A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		82EB66911A291D8D0044573A /* BeamMusicPlayerExample.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = BeamMusicPlayerExample.app;
-			remoteRef = 82EB66901A291D8D0044573A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		82EB66931A291D8D0044573A /* BeamMusicPlayerExampleTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = BeamMusicPlayerExampleTests.octest;
-			remoteRef = 82EB66921A291D8D0044573A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -624,15 +564,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				82B73E2F1A0CA04600F64F6B /* AddTransferViewController.xib in Resources */,
-				82EB66891A29182B0044573A /* AudioFile.xib in Resources */,
 				82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */,
-				8233C0341A173DCA007C7305 /* PlainFile.xib in Resources */,
-				829B7BC71A182676000569A8 /* VideoFile.xib in Resources */,
+				8233C0341A173DCA007C7305 /* PlainFileViewController.xib in Resources */,
+				829B7BC71A182676000569A8 /* VideoFileViewController.xib in Resources */,
 				822093311A02065100855701 /* FolderTableViewCell.xib in Resources */,
 				825B079019F3312700E65789 /* Images.xcassets in Resources */,
 				827FE4441A1477E0008284BD /* BinarySettingsCell.xib in Resources */,
 				8290F98419F770E300158036 /* TransferCell.xib in Resources */,
-				829B7BC01A1806F8000569A8 /* ImageFile.xib in Resources */,
+				821816781A2BA314008D1153 /* FileViewController.xib in Resources */,
+				829B7BC01A1806F8000569A8 /* ImageFileViewController.xib in Resources */,
 				829F52B219F4DC8E0032B485 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,10 +593,10 @@
 			files = (
 				82EFF6311A05EC9900C95D55 /* TransferStore.swift in Sources */,
 				827FE4431A1477E0008284BD /* BinarySettingsCell.swift in Sources */,
-				8233C0331A173DCA007C7305 /* PlainFile.swift in Sources */,
+				8233C0331A173DCA007C7305 /* PlainFileViewController.swift in Sources */,
 				8290F98319F770E300158036 /* TransferCell.swift in Sources */,
 				820D1C651A01E9F200563814 /* Types.swift in Sources */,
-				829B7BBF1A1806F8000569A8 /* ImageFile.swift in Sources */,
+				829B7BBF1A1806F8000569A8 /* ImageFileViewController.swift in Sources */,
 				822093301A02065100855701 /* FolderTableViewCell.swift in Sources */,
 				825CA22319FB8239007281AB /* File.swift in Sources */,
 				825CA22119FB7E9C007281AB /* FileStore.swift in Sources */,
@@ -666,21 +606,18 @@
 				826A6EF419FC3F1300D348F1 /* Account.swift in Sources */,
 				82C9C2331A04D070001DF290 /* Util.swift in Sources */,
 				82D9CEC41A0EA81400A26FC4 /* AccountSettingsViewController.swift in Sources */,
-				829B7BC61A182676000569A8 /* VideoFile.swift in Sources */,
-				8200C59C1A22B3B400DA518B /* FullScreenImageViewController.swift in Sources */,
+				829B7BC61A182676000569A8 /* VideoFileViewController.swift in Sources */,
+				821816771A2BA314008D1153 /* FileViewController.swift in Sources */,
 				825CA22619FB914F007281AB /* CoreDataStore.swift in Sources */,
 				82C9C22A1A04B5A9001DF290 /* TransferViewController.swift in Sources */,
 				8258E92E19F4579400BB5E12 /* AccountViewController.swift in Sources */,
 				82084F2F19FC7AA6005DF388 /* AccountInfoCell.swift in Sources */,
-				829B7BBB1A17E0E0000569A8 /* FileViewController.swift in Sources */,
 				8258E92819F4402D00BB5E12 /* MainViewController.swift in Sources */,
 				82B73E2E1A0CA04600F64F6B /* AddTransferViewController.swift in Sources */,
 				8258E8EE19F3D4F700BB5E12 /* AccountStore.swift in Sources */,
 				825CA22C19FB9164007281AB /* CoreDataHelper.swift in Sources */,
 				825CA1F119FB7771007281AB /* data.xcdatamodeld in Sources */,
 				82C9C2301A04BFA0001DF290 /* KeyValueTableViewCell.swift in Sources */,
-				82EB66881A29182B0044573A /* AudioFile.swift in Sources */,
-				829B7BC21A180893000569A8 /* FileTableViewCell.swift in Sources */,
 				825B078919F3312700E65789 /* AppDelegate.swift in Sources */,
 				8290F98019F76CBC00158036 /* TransfersViewController.swift in Sources */,
 			);
@@ -788,6 +725,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = put.io/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -802,6 +740,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = put.io/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

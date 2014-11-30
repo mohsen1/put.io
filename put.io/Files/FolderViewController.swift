@@ -41,7 +41,6 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
         refresh()
     }
 
-
     func doRefresh(force: Bool) {
         startProgress()
         FileStore.getFolder(id, forceFetch: force, { result in
@@ -61,7 +60,6 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
     func forceRefresh() {
         doRefresh(true)
     }
-
 
     func openNewFolder() {
         let alertView = UIAlertView(title: "New Folder", message: "Enter folder name", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
@@ -97,7 +95,6 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
     }
 
     // MARK: - TableView
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.files.count
     }
@@ -115,15 +112,9 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let file = self.files[indexPath.row] as File
 
-        // if it's a folder drill down navigation
         if file.isFolder {
-            let folderViewController = FolderViewController()
-            folderViewController.id = file.id
-
-            self.navigationController?.pushViewController(folderViewController, animated: true)
+            pushFolderViewController(file.id)
         }
-
-        // else, it's a file. open file view controoler
         else {
             pushFileViewController(file)
         }
@@ -146,10 +137,14 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
     }
 
     func pushFileViewController(file: File) {
-        let type = Types.typeFor(file.content_type!)
         var fileViewController = FileViewController()
-
         fileViewController.file = file
         self.navigationController?.pushViewController(fileViewController, animated: true)
+    }
+
+    func pushFolderViewController(id:NSNumber) {
+        let folderViewController = FolderViewController()
+        folderViewController.id = id
+        self.navigationController?.pushViewController(folderViewController, animated: true)
     }
 }

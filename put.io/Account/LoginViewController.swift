@@ -30,7 +30,6 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
         nib.instantiateWithOwner(self, options: nil)
     }
 
-
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -51,7 +50,6 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
     }
 
     func webViewDidFinishLoad(webView: UIWebView) {
-
         let js = "document.querySelector('img').remove();" +
             "document.querySelector('h1').innerText = 'Please login';" +
             "document.querySelector('form').style.textAlign = 'center';" +
@@ -83,7 +81,6 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
         loginWebView.loadRequest(NSURLRequest(URL: NSURL(string: "about:blank")!))
         self.startRequest()
     }
-
 
     func startRequest() {
         let startUrl = "https://api.put.io/v2/oauth2/authenticate?client_id=1655&response_type=token&redirect_uri=http://mohsenweb.com/put.io/"

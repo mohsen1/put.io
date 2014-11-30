@@ -9,7 +9,7 @@
 import UIKit
 import MediaPlayer
 
-class VideoFile: FileTableViewCell {
+class VideoFileViewController: FileViewController {
 
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var img: UIImageView!
@@ -29,7 +29,7 @@ class VideoFile: FileTableViewCell {
                 player.shouldAutoplay = true
                 player.movieSourceType = .Streaming
                 player.prepareToPlay()
-                self.addSubview(player.view)
+//                self.addSubview(player.view)
                 player.setFullscreen(true, animated: true)
             }
 
@@ -47,20 +47,6 @@ class VideoFile: FileTableViewCell {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: MPMoviePlayerDidExitFullscreenNotification, object: player)
         player.stop()
         player.view?.removeFromSuperview()
-    }
-
-    override func fill(file:File) {
-        super.fill(file)
-        img.contentMode = .ScaleAspectFit
-        dispatch_async(dispatch_get_main_queue()) {
-            if let screenshot = file.screenshot {
-                if let url = NSURL(string: screenshot) {
-                    if let data = NSData(contentsOfURL: url) {
-                        self.img.image = UIImage(data: data)
-                    }
-                }
-            }
-        }
     }
 
 }
