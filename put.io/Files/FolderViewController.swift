@@ -111,13 +111,8 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let file = self.files[indexPath.row] as File
-
-        if file.isFolder {
-            pushFolderViewController(file.id)
-        }
-        else {
-            pushFileViewController(file)
-        }
+        
+        navigationController?.pushViewController(fileViewControllerFor(file), animated: true)
     }
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath: NSIndexPath) -> Bool {
@@ -134,17 +129,5 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
         })
         files.removeAtIndex(indexPath.row)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-    }
-
-    func pushFileViewController(file: File) {
-        var fileViewController = FileViewController()
-        fileViewController.file = file
-        self.navigationController?.pushViewController(fileViewController, animated: true)
-    }
-
-    func pushFolderViewController(id:NSNumber) {
-        let folderViewController = FolderViewController()
-        folderViewController.id = id
-        self.navigationController?.pushViewController(folderViewController, animated: true)
     }
 }

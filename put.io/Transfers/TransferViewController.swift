@@ -139,18 +139,7 @@ class TransferViewController: UITableViewController {
 
         // Go to file
         if indexPath.section == 1 && indexPath.row == 0 {
-            var vc:UIViewController
-            if transfer!.file!.isFolder {
-                let vc = FolderViewController()
-                if let _id = transfer?.file?.id {
-                    vc.id = _id
-                }
-                navigationController?.pushViewController(vc, animated: true)
-            } else {
-                let vc = FileViewController()
-                vc.file = transfer?.file
-                navigationController?.pushViewController(vc, animated: true)
-            }
+            navigationController?.pushViewController(fileViewControllerFor(transfer!.file!), animated: true)
         }
 
     }

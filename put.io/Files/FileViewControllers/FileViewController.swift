@@ -8,19 +8,28 @@
 
 import UIKit
 
-class FileViewController: UIViewController {
-    var file:File?
-    
-    @IBOutlet weak var preview: UIView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.title = file?.name
-        // Do any additional setup after loading the view.
+internal func fileViewControllerFor(file:File) -> UIViewController {
+    let type = Types.typeFor(file.content_type!)
+
+    switch type {
+    case .AUDIO:
+        println("Audio!")
+        break
+    case .VIDEO:
+        println("Video!")
+        break
+    case .IMAGE:
+        println("Image!")
+        break
+    case .FOLDER:
+        let vc = FolderViewController()
+        vc.id = file.id
+        return vc
+    default:
+        break
     }
-    override func loadView() {
-        super.loadView()
-        let nib = UINib(nibName: "FileViewController", bundle: nil)
-        nib.instantiateWithOwner(self, options: nil)
-    }
+
+    let vc = PlainFileViewController()
+    vc.file = file
+    return vc
 }

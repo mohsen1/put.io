@@ -10,13 +10,12 @@
 		82084F2F19FC7AA6005DF388 /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82084F2D19FC7AA6005DF388 /* AccountInfoCell.swift */; };
 		82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */; };
 		820D1C651A01E9F200563814 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820D1C641A01E9F200563814 /* Types.swift */; };
-		821816771A2BA314008D1153 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821816751A2BA314008D1153 /* FileViewController.swift */; };
-		821816781A2BA314008D1153 /* FileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821816761A2BA314008D1153 /* FileViewController.xib */; };
+		821816851A2BE80A008D1153 /* PlainFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821816831A2BE80A008D1153 /* PlainFileViewController.swift */; };
+		821816861A2BE80A008D1153 /* PlainFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821816841A2BE80A008D1153 /* PlainFileViewController.xib */; };
+		821816881A2BEA10008D1153 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821816871A2BEA10008D1153 /* FileViewController.swift */; };
 		822093301A02065100855701 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8220932E1A02065100855701 /* FolderTableViewCell.swift */; };
 		822093311A02065100855701 /* FolderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8220932F1A02065100855701 /* FolderTableViewCell.xib */; };
 		8224AC1B1A2A6046001F9ADB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8224AC101A2A6004001F9ADB /* Alamofire.framework */; };
-		8233C0331A173DCA007C7305 /* PlainFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8233C0311A173DCA007C7305 /* PlainFileViewController.swift */; };
-		8233C0341A173DCA007C7305 /* PlainFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8233C0321A173DCA007C7305 /* PlainFileViewController.xib */; };
 		8258E8EE19F3D4F700BB5E12 /* AccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E8ED19F3D4F700BB5E12 /* AccountStore.swift */; };
 		8258E92819F4402D00BB5E12 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E92619F4402D00BB5E12 /* MainViewController.swift */; };
 		8258E92E19F4579400BB5E12 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E92C19F4579400BB5E12 /* AccountViewController.swift */; };
@@ -37,10 +36,6 @@
 		8290F98019F76CBC00158036 /* TransfersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F97F19F76CBC00158036 /* TransfersViewController.swift */; };
 		8290F98319F770E300158036 /* TransferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F98119F770E300158036 /* TransferCell.swift */; };
 		8290F98419F770E300158036 /* TransferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8290F98219F770E300158036 /* TransferCell.xib */; };
-		829B7BBF1A1806F8000569A8 /* ImageFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829B7BBD1A1806F8000569A8 /* ImageFileViewController.swift */; };
-		829B7BC01A1806F8000569A8 /* ImageFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829B7BBE1A1806F8000569A8 /* ImageFileViewController.xib */; };
-		829B7BC61A182676000569A8 /* VideoFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829B7BC41A182676000569A8 /* VideoFileViewController.swift */; };
-		829B7BC71A182676000569A8 /* VideoFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829B7BC51A182676000569A8 /* VideoFileViewController.xib */; };
 		829F52AE19F4DC3E0032B485 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829F52AD19F4DC3E0032B485 /* LoginViewController.swift */; };
 		829F52B219F4DC8E0032B485 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829F52B119F4DC8E0032B485 /* LoginViewController.xib */; };
 		82B73E2E1A0CA04600F64F6B /* AddTransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B73E2C1A0CA04600F64F6B /* AddTransferViewController.swift */; };
@@ -117,13 +112,12 @@
 		82084F2D19FC7AA6005DF388 /* AccountInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
 		82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountInfoCell.xib; sourceTree = "<group>"; };
 		820D1C641A01E9F200563814 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
-		821816751A2BA314008D1153 /* FileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileViewController.swift; path = FileViewControllers/FileViewController.swift; sourceTree = "<group>"; };
-		821816761A2BA314008D1153 /* FileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FileViewController.xib; path = FileViewControllers/FileViewController.xib; sourceTree = "<group>"; };
+		821816831A2BE80A008D1153 /* PlainFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlainFileViewController.swift; path = FileViewControllers/PlainFileViewController.swift; sourceTree = "<group>"; };
+		821816841A2BE80A008D1153 /* PlainFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlainFileViewController.xib; path = FileViewControllers/PlainFileViewController.xib; sourceTree = "<group>"; };
+		821816871A2BEA10008D1153 /* FileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileViewController.swift; path = FileViewControllers/FileViewController.swift; sourceTree = "<group>"; };
 		8220932E1A02065100855701 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FolderTableViewCell.swift; path = FolderCell/FolderTableViewCell.swift; sourceTree = "<group>"; };
 		8220932F1A02065100855701 /* FolderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FolderTableViewCell.xib; path = FolderCell/FolderTableViewCell.xib; sourceTree = "<group>"; };
 		8224AC0A1A2A6004001F9ADB /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Libraries/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
-		8233C0311A173DCA007C7305 /* PlainFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlainFileViewController.swift; path = FileViewControllers/Plain/PlainFileViewController.swift; sourceTree = "<group>"; };
-		8233C0321A173DCA007C7305 /* PlainFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlainFileViewController.xib; path = FileViewControllers/Plain/PlainFileViewController.xib; sourceTree = "<group>"; };
 		8258E8ED19F3D4F700BB5E12 /* AccountStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountStore.swift; sourceTree = "<group>"; };
 		8258E92619F4402D00BB5E12 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8258E92C19F4579400BB5E12 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -148,10 +142,6 @@
 		8290F97F19F76CBC00158036 /* TransfersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransfersViewController.swift; sourceTree = "<group>"; };
 		8290F98119F770E300158036 /* TransferCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCell.swift; sourceTree = "<group>"; };
 		8290F98219F770E300158036 /* TransferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransferCell.xib; sourceTree = "<group>"; };
-		829B7BBD1A1806F8000569A8 /* ImageFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageFileViewController.swift; path = FileViewControllers/Image/ImageFileViewController.swift; sourceTree = "<group>"; };
-		829B7BBE1A1806F8000569A8 /* ImageFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageFileViewController.xib; path = FileViewControllers/Image/ImageFileViewController.xib; sourceTree = "<group>"; };
-		829B7BC41A182676000569A8 /* VideoFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoFileViewController.swift; path = FileViewControllers/Video/VideoFileViewController.swift; sourceTree = "<group>"; };
-		829B7BC51A182676000569A8 /* VideoFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VideoFileViewController.xib; path = FileViewControllers/Video/VideoFileViewController.xib; sourceTree = "<group>"; };
 		829F52AD19F4DC3E0032B485 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		829F52B119F4DC8E0032B485 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		82B73E2C1A0CA04600F64F6B /* AddTransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTransferViewController.swift; path = AddTransfer/AddTransferViewController.swift; sourceTree = "<group>"; };
@@ -292,29 +282,11 @@
 		8266029F1A00B4B600CB31D9 /* FileViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				829B7BC31A18265C000569A8 /* Video */,
-				826602A11A00B4E100CB31D9 /* Image */,
-				826602A01A00B4CE00CB31D9 /* Plain */,
+				821816831A2BE80A008D1153 /* PlainFileViewController.swift */,
+				821816841A2BE80A008D1153 /* PlainFileViewController.xib */,
+				821816871A2BEA10008D1153 /* FileViewController.swift */,
 			);
 			name = FileViewControllers;
-			sourceTree = "<group>";
-		};
-		826602A01A00B4CE00CB31D9 /* Plain */ = {
-			isa = PBXGroup;
-			children = (
-				8233C0311A173DCA007C7305 /* PlainFileViewController.swift */,
-				8233C0321A173DCA007C7305 /* PlainFileViewController.xib */,
-			);
-			name = Plain;
-			sourceTree = "<group>";
-		};
-		826602A11A00B4E100CB31D9 /* Image */ = {
-			isa = PBXGroup;
-			children = (
-				829B7BBD1A1806F8000569A8 /* ImageFileViewController.swift */,
-				829B7BBE1A1806F8000569A8 /* ImageFileViewController.xib */,
-			);
-			name = Image;
 			sourceTree = "<group>";
 		};
 		828159011A1C41DA00BEC143 /* Products */ = {
@@ -334,8 +306,6 @@
 				825CA22019FB7E9C007281AB /* FileStore.swift */,
 				825CA22219FB8239007281AB /* File.swift */,
 				820D1C641A01E9F200563814 /* Types.swift */,
-				821816751A2BA314008D1153 /* FileViewController.swift */,
-				821816761A2BA314008D1153 /* FileViewController.xib */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -367,15 +337,6 @@
 				82B73E341A0CA04F00F64F6B /* AddTransfer */,
 			);
 			path = Transfers;
-			sourceTree = "<group>";
-		};
-		829B7BC31A18265C000569A8 /* Video */ = {
-			isa = PBXGroup;
-			children = (
-				829B7BC41A182676000569A8 /* VideoFileViewController.swift */,
-				829B7BC51A182676000569A8 /* VideoFileViewController.xib */,
-			);
-			name = Video;
 			sourceTree = "<group>";
 		};
 		82B73E341A0CA04F00F64F6B /* AddTransfer */ = {
@@ -565,15 +526,12 @@
 			files = (
 				82B73E2F1A0CA04600F64F6B /* AddTransferViewController.xib in Resources */,
 				82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */,
-				8233C0341A173DCA007C7305 /* PlainFileViewController.xib in Resources */,
-				829B7BC71A182676000569A8 /* VideoFileViewController.xib in Resources */,
 				822093311A02065100855701 /* FolderTableViewCell.xib in Resources */,
 				825B079019F3312700E65789 /* Images.xcassets in Resources */,
 				827FE4441A1477E0008284BD /* BinarySettingsCell.xib in Resources */,
 				8290F98419F770E300158036 /* TransferCell.xib in Resources */,
-				821816781A2BA314008D1153 /* FileViewController.xib in Resources */,
-				829B7BC01A1806F8000569A8 /* ImageFileViewController.xib in Resources */,
 				829F52B219F4DC8E0032B485 /* LoginViewController.xib in Resources */,
+				821816861A2BE80A008D1153 /* PlainFileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,11 +551,10 @@
 			files = (
 				82EFF6311A05EC9900C95D55 /* TransferStore.swift in Sources */,
 				827FE4431A1477E0008284BD /* BinarySettingsCell.swift in Sources */,
-				8233C0331A173DCA007C7305 /* PlainFileViewController.swift in Sources */,
 				8290F98319F770E300158036 /* TransferCell.swift in Sources */,
 				820D1C651A01E9F200563814 /* Types.swift in Sources */,
-				829B7BBF1A1806F8000569A8 /* ImageFileViewController.swift in Sources */,
 				822093301A02065100855701 /* FolderTableViewCell.swift in Sources */,
+				821816851A2BE80A008D1153 /* PlainFileViewController.swift in Sources */,
 				825CA22319FB8239007281AB /* File.swift in Sources */,
 				825CA22119FB7E9C007281AB /* FileStore.swift in Sources */,
 				829F52AE19F4DC3E0032B485 /* LoginViewController.swift in Sources */,
@@ -606,12 +563,11 @@
 				826A6EF419FC3F1300D348F1 /* Account.swift in Sources */,
 				82C9C2331A04D070001DF290 /* Util.swift in Sources */,
 				82D9CEC41A0EA81400A26FC4 /* AccountSettingsViewController.swift in Sources */,
-				829B7BC61A182676000569A8 /* VideoFileViewController.swift in Sources */,
-				821816771A2BA314008D1153 /* FileViewController.swift in Sources */,
 				825CA22619FB914F007281AB /* CoreDataStore.swift in Sources */,
 				82C9C22A1A04B5A9001DF290 /* TransferViewController.swift in Sources */,
 				8258E92E19F4579400BB5E12 /* AccountViewController.swift in Sources */,
 				82084F2F19FC7AA6005DF388 /* AccountInfoCell.swift in Sources */,
+				821816881A2BEA10008D1153 /* FileViewController.swift in Sources */,
 				8258E92819F4402D00BB5E12 /* MainViewController.swift in Sources */,
 				82B73E2E1A0CA04600F64F6B /* AddTransferViewController.swift in Sources */,
 				8258E8EE19F3D4F700BB5E12 /* AccountStore.swift in Sources */,

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6221" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlainFileViewController" customModule="put_io">
+            <connections>
+                <outlet property="extensionLabel" destination="JlR-gz-uR5" id="WwU-GT-2IG"/>
+                <outlet property="fileNameLabel" destination="vQa-QB-tz5" id="sGd-ai-7Yp"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="9ob-f5-YoD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="PlainIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fwc-Il-i9F">
+                    <rect key="frame" x="263" y="93" width="75" height="75"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQa-QB-tz5">
+                    <rect key="frame" x="8" y="226" width="584" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JlR-gz-uR5" userLabel="Extension">
+                    <rect key="frame" x="8" y="176" width="584" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="JlR-gz-uR5" firstAttribute="top" secondItem="fwc-Il-i9F" secondAttribute="bottom" constant="8" id="52K-Xu-v5B"/>
+                <constraint firstItem="vQa-QB-tz5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="9Py-dH-Bot"/>
+                <constraint firstAttribute="trailing" secondItem="vQa-QB-tz5" secondAttribute="trailing" constant="8" id="Ae8-SR-XBQ"/>
+                <constraint firstItem="vQa-QB-tz5" firstAttribute="top" secondItem="JlR-gz-uR5" secondAttribute="bottom" constant="26" id="BmI-UG-qb6"/>
+                <constraint firstItem="fwc-Il-i9F" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="93" id="ENy-1J-5P4"/>
+                <constraint firstItem="JlR-gz-uR5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="MlH-OS-1g8"/>
+                <constraint firstAttribute="trailing" secondItem="JlR-gz-uR5" secondAttribute="trailing" constant="8" id="SPv-aD-ylv"/>
+                <constraint firstAttribute="centerX" secondItem="fwc-Il-i9F" secondAttribute="centerX" id="uUI-M5-fjG"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="PlainIcon" width="75" height="75"/>
+    </resources>
+</document>
