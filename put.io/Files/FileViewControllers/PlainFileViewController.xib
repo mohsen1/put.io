@@ -31,6 +31,15 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1g-Av-cbm">
+                    <rect key="frame" x="261" y="255" width="78" height="30"/>
+                    <state key="normal" title="See Details">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="openDetails:" destination="-1" eventType="touchDown" id="rg4-Nv-tpu"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -39,8 +48,10 @@
                 <constraint firstAttribute="trailing" secondItem="vQa-QB-tz5" secondAttribute="trailing" constant="8" id="Ae8-SR-XBQ"/>
                 <constraint firstItem="vQa-QB-tz5" firstAttribute="top" secondItem="JlR-gz-uR5" secondAttribute="bottom" constant="26" id="BmI-UG-qb6"/>
                 <constraint firstItem="fwc-Il-i9F" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="93" id="ENy-1J-5P4"/>
+                <constraint firstAttribute="centerX" secondItem="j1g-Av-cbm" secondAttribute="centerX" id="GKT-Jl-3MD"/>
                 <constraint firstItem="JlR-gz-uR5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="MlH-OS-1g8"/>
                 <constraint firstAttribute="trailing" secondItem="JlR-gz-uR5" secondAttribute="trailing" constant="8" id="SPv-aD-ylv"/>
+                <constraint firstItem="j1g-Av-cbm" firstAttribute="top" secondItem="vQa-QB-tz5" secondAttribute="bottom" constant="8" id="Wox-zP-wUZ"/>
                 <constraint firstAttribute="centerX" secondItem="fwc-Il-i9F" secondAttribute="centerX" id="uUI-M5-fjG"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>

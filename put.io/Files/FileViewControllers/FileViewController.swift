@@ -8,6 +8,16 @@
 
 import UIKit
 
+class FileViewController: UIViewController {
+    var file:File?
+    
+    func openDetailsViewController() {
+        let nav = UINavigationController()
+        nav.pushViewController(FileDetailsTableViewController(), animated: false)
+        presentViewController(nav, animated: true, completion: {})
+    }
+}
+
 internal func fileViewControllerFor(file:File) -> UIViewController {
     let type = Types.typeFor(file.content_type!)
 

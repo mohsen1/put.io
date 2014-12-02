@@ -13,6 +13,7 @@
 		821816851A2BE80A008D1153 /* PlainFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821816831A2BE80A008D1153 /* PlainFileViewController.swift */; };
 		821816861A2BE80A008D1153 /* PlainFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821816841A2BE80A008D1153 /* PlainFileViewController.xib */; };
 		821816881A2BEA10008D1153 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821816871A2BEA10008D1153 /* FileViewController.swift */; };
+		8218168A1A2BF39C008D1153 /* FileDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821816891A2BF39C008D1153 /* FileDetailsTableViewController.swift */; };
 		822093301A02065100855701 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8220932E1A02065100855701 /* FolderTableViewCell.swift */; };
 		822093311A02065100855701 /* FolderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8220932F1A02065100855701 /* FolderTableViewCell.xib */; };
 		8224AC1B1A2A6046001F9ADB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8224AC101A2A6004001F9ADB /* Alamofire.framework */; };
@@ -115,6 +116,7 @@
 		821816831A2BE80A008D1153 /* PlainFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlainFileViewController.swift; path = FileViewControllers/PlainFileViewController.swift; sourceTree = "<group>"; };
 		821816841A2BE80A008D1153 /* PlainFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlainFileViewController.xib; path = FileViewControllers/PlainFileViewController.xib; sourceTree = "<group>"; };
 		821816871A2BEA10008D1153 /* FileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileViewController.swift; path = FileViewControllers/FileViewController.swift; sourceTree = "<group>"; };
+		821816891A2BF39C008D1153 /* FileDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileDetailsTableViewController.swift; path = FileViewControllers/FileDetailsTableViewController.swift; sourceTree = "<group>"; };
 		8220932E1A02065100855701 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FolderTableViewCell.swift; path = FolderCell/FolderTableViewCell.swift; sourceTree = "<group>"; };
 		8220932F1A02065100855701 /* FolderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FolderTableViewCell.xib; path = FolderCell/FolderTableViewCell.xib; sourceTree = "<group>"; };
 		8224AC0A1A2A6004001F9ADB /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Libraries/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				821816831A2BE80A008D1153 /* PlainFileViewController.swift */,
 				821816841A2BE80A008D1153 /* PlainFileViewController.xib */,
 				821816871A2BEA10008D1153 /* FileViewController.swift */,
+				821816891A2BF39C008D1153 /* FileDetailsTableViewController.swift */,
 			);
 			name = FileViewControllers;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				82084F2F19FC7AA6005DF388 /* AccountInfoCell.swift in Sources */,
 				821816881A2BEA10008D1153 /* FileViewController.swift in Sources */,
 				8258E92819F4402D00BB5E12 /* MainViewController.swift in Sources */,
+				8218168A1A2BF39C008D1153 /* FileDetailsTableViewController.swift in Sources */,
 				82B73E2E1A0CA04600F64F6B /* AddTransferViewController.swift in Sources */,
 				8258E8EE19F3D4F700BB5E12 /* AccountStore.swift in Sources */,
 				825CA22C19FB9164007281AB /* CoreDataHelper.swift in Sources */,

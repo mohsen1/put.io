@@ -8,8 +8,7 @@
 
 import UIKit
 
-class PlainFileViewController: UIViewController {
-    var file:File?
+class PlainFileViewController: FileViewController {
 
     @IBOutlet weak var fileNameLabel: UILabel!
     @IBOutlet weak var extensionLabel: UILabel!
@@ -29,5 +28,8 @@ class PlainFileViewController: UIViewController {
         
         let nib = UINib(nibName: "PlainFileViewController", bundle: nil)
         nib.instantiateWithOwner(self, options: nil)
+    }
+    @IBAction func openDetails(sender: AnyObject) {
+        super.openDetailsViewController()
     }
 }
