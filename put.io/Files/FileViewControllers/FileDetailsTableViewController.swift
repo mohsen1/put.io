@@ -9,14 +9,16 @@
 import UIKit
 
 class FileDetailsTableViewController: UITableViewController {
-
+    var file:File?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Details"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: Selector("close"))
     }
     
     func close() {
-        presentingViewController?.dismissViewControllerAnimated(true, completion: {})
+        dismissViewControllerAnimated(true, completion: {})
     }
 
     // MARK: - Table view data source

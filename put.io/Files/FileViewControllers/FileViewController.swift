@@ -13,7 +13,11 @@ class FileViewController: UIViewController {
     
     func openDetailsViewController() {
         let nav = UINavigationController()
-        nav.pushViewController(FileDetailsTableViewController(), animated: false)
+        let details = FileDetailsTableViewController()
+        
+        details.file = file
+        nav.modalPresentationStyle = UIModalPresentationStyle.CurrentContext
+        nav.pushViewController(details, animated: false)
         presentViewController(nav, animated: true, completion: {})
     }
 }
