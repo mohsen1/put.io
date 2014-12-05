@@ -17,22 +17,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="PlainIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fwc-Il-i9F">
-                    <rect key="frame" x="263" y="93" width="75" height="75"/>
+                    <rect key="frame" x="263" y="70" width="75" height="75"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQa-QB-tz5">
-                    <rect key="frame" x="8" y="226" width="584" height="21"/>
+                    <rect key="frame" x="8" y="203" width="584" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JlR-gz-uR5" userLabel="Extension">
-                    <rect key="frame" x="8" y="176" width="584" height="24"/>
+                    <rect key="frame" x="8" y="153" width="584" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1g-Av-cbm">
-                    <rect key="frame" x="261" y="255" width="78" height="30"/>
+                    <rect key="frame" x="261" y="231.5" width="78" height="30"/>
                     <state key="normal" title="See Details">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -47,7 +47,9 @@
                 <constraint firstItem="vQa-QB-tz5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="9Py-dH-Bot"/>
                 <constraint firstAttribute="trailing" secondItem="vQa-QB-tz5" secondAttribute="trailing" constant="8" id="Ae8-SR-XBQ"/>
                 <constraint firstItem="vQa-QB-tz5" firstAttribute="top" secondItem="JlR-gz-uR5" secondAttribute="bottom" constant="26" id="BmI-UG-qb6"/>
-                <constraint firstItem="fwc-Il-i9F" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="93" id="ENy-1J-5P4"/>
+                <constraint firstItem="fwc-Il-i9F" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="ENy-1J-5P4">
+                    <variation key="heightClass=compact" constant="40"/>
+                </constraint>
                 <constraint firstAttribute="centerX" secondItem="j1g-Av-cbm" secondAttribute="centerX" id="GKT-Jl-3MD"/>
                 <constraint firstItem="JlR-gz-uR5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="MlH-OS-1g8"/>
                 <constraint firstAttribute="trailing" secondItem="JlR-gz-uR5" secondAttribute="trailing" constant="8" id="SPv-aD-ylv"/>
