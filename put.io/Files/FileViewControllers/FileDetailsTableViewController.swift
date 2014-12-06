@@ -38,7 +38,6 @@ class FileDetailsTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -47,7 +46,6 @@ class FileDetailsTableViewController: UITableViewController {
         return 4
     }
 
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DetailsTabeViewCell", forIndexPath: indexPath) as UITableViewCell
         switch indexPath.row {
@@ -56,8 +54,12 @@ class FileDetailsTableViewController: UITableViewController {
             cell.detailTextLabel?.text = file?.name
             break
         case 1:
-            cell.textLabel?.text = "Accessed at"
-            cell.detailTextLabel?.text = dateFormatter.stringFromDate(file!.first_accessed_at!)
+            cell.textLabel?.text = "Accessed"
+            if let accessed = file?.first_accessed_at? {
+                cell.detailTextLabel?.text = dateFormatter.stringFromDate(accessed)
+            } else {
+                cell.detailTextLabel?.text = "Never"
+            }
         case 2:
             cell.textLabel?.text = "MP4 available"
             if let yes = file?.is_mp4_available {
