@@ -65,7 +65,11 @@ class FileStore {
         httpRequest.HTTPMethod = "HEAD"
         let queue = NSOperationQueue()
         NSURLConnection.sendAsynchronousRequest(httpRequest, queue: queue, completionHandler: { response, data, error in
-            completionHandler(response.URL)
+            if response == nil {
+                completionHandler(nil)
+            } else {
+                completionHandler(response.URL)
+            }
         })
     }
 

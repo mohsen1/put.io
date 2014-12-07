@@ -20,6 +20,11 @@ class FileViewController: UIViewController {
         nav.pushViewController(details, animated: false)
         presentViewController(nav, animated: true, completion: {})
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.title = file?.name
+    }
 }
 
 internal func fileViewControllerFor(file:File) -> UIViewController {
@@ -35,6 +40,10 @@ internal func fileViewControllerFor(file:File) -> UIViewController {
     case .IMAGE:
         println("Image!")
         break
+    case .PDF:
+        let vc = PDFFileViewController()
+        vc.file = file
+        return vc
     case .FOLDER:
         let vc = FolderViewController()
         vc.id = file.id

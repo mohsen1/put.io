@@ -12,6 +12,7 @@ enum FileType {
     case VIDEO
     case IMAGE
     case AUDIO
+    case PDF
     case FOLDER
     case PLAIN
 }
@@ -24,13 +25,16 @@ class Types {
         if let range = contentType.rangeOfString("video/") {
             return FileType.VIDEO
         }
-        if let range = contentType.rangeOfString("image/") {
+        else if let range = contentType.rangeOfString("image/") {
             return FileType.IMAGE
         }
-        if let range = contentType.rangeOfString("audio/") {
+        else if let range = contentType.rangeOfString("audio/") {
             return FileType.AUDIO
         }
-        if let range = contentType.rangeOfString("application/x-directory") {
+        else if let range = contentType.rangeOfString("application/pdf") {
+            return FileType.PDF
+        }
+        else if let range = contentType.rangeOfString("application/x-directory") {
             return FileType.FOLDER
         }
         return FileType.PLAIN
@@ -40,6 +44,7 @@ class Types {
             FileType.VIDEO: "Video",
             FileType.IMAGE: "Image",
             FileType.AUDIO: "Audio",
+            FileType.PDF: "PDF",
             FileType.FOLDER: "Folder",
             FileType.PLAIN: "Plain"
         ];

@@ -19,7 +19,6 @@ class PlainFileViewController: FileViewController {
             let ns = NSString(string: file!.name!)
             extensionLabel.text = ns.pathExtension.uppercaseString
             fileNameLabel.text = file!.name
-            navigationItem.title = file?.name
         }
     }
     
