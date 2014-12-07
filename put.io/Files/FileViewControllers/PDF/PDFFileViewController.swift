@@ -15,12 +15,10 @@ class PDFFileViewController: FileViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         statusLabel.text = "Loading..."
-        dispatch_async(dispatch_get_main_queue()) {
-            self.loadFile()
-        }
-
         let detailsButton = UIBarButtonItem(title: "Details", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("openDetailsViewController"))
         navigationItem.rightBarButtonItem = detailsButton
+        
+        loadFile()
     }
     
     override func loadView() {
@@ -28,12 +26,14 @@ class PDFFileViewController: FileViewController {
         let nib = UINib(nibName: "PDFFileViewController", bundle: nil)
         nib.instantiateWithOwner(self, options: nil)
     }
-    
+
     func loadFile() {
         if file != nil {
             FileStore.getDownloadUrl(file!.id, completionHandler: { (url:NSURL?) -> () in
                 if url != nil {
-                    self.loadWebView(url!)
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.loadWebView(url!)
+                    }
                 } else {
                     self.statusLabel.text = "Failed to get download link"
                 }
@@ -45,7 +45,7 @@ class PDFFileViewController: FileViewController {
     
     func loadWebView(url:NSURL) {
         webView.loadRequest(NSURLRequest(URL: url))
+        statusLabel.text = "Loaded"
         webView.hidden = false
-        statusLabel.text = ""
     }
 }

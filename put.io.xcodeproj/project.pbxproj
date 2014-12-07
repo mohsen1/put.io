@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		82084F2F19FC7AA6005DF388 /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82084F2D19FC7AA6005DF388 /* AccountInfoCell.swift */; };
 		82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */; };
-		820D1C651A01E9F200563814 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820D1C641A01E9F200563814 /* Types.swift */; };
+		820D1C651A01E9F200563814 /* FileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820D1C641A01E9F200563814 /* FileTypes.swift */; };
 		821816851A2BE80A008D1153 /* PlainFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821816831A2BE80A008D1153 /* PlainFileViewController.swift */; };
 		821816861A2BE80A008D1153 /* PlainFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821816841A2BE80A008D1153 /* PlainFileViewController.xib */; };
 		821816881A2BEA10008D1153 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821816871A2BEA10008D1153 /* FileViewController.swift */; };
@@ -114,7 +114,7 @@
 /* Begin PBXFileReference section */
 		82084F2D19FC7AA6005DF388 /* AccountInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
 		82084F2E19FC7AA6005DF388 /* AccountInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountInfoCell.xib; sourceTree = "<group>"; };
-		820D1C641A01E9F200563814 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		820D1C641A01E9F200563814 /* FileTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTypes.swift; sourceTree = "<group>"; };
 		821816831A2BE80A008D1153 /* PlainFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlainFileViewController.swift; path = FileViewControllers/PlainFileViewController.swift; sourceTree = "<group>"; };
 		821816841A2BE80A008D1153 /* PlainFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlainFileViewController.xib; path = FileViewControllers/PlainFileViewController.xib; sourceTree = "<group>"; };
 		821816871A2BEA10008D1153 /* FileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileViewController.swift; path = FileViewControllers/FileViewController.swift; sourceTree = "<group>"; };
@@ -330,7 +330,7 @@
 				825B07B419F337C900E65789 /* FolderViewController.swift */,
 				825CA22019FB7E9C007281AB /* FileStore.swift */,
 				825CA22219FB8239007281AB /* File.swift */,
-				820D1C641A01E9F200563814 /* Types.swift */,
+				820D1C641A01E9F200563814 /* FileTypes.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -578,7 +578,7 @@
 				82EFF6311A05EC9900C95D55 /* TransferStore.swift in Sources */,
 				827FE4431A1477E0008284BD /* BinarySettingsCell.swift in Sources */,
 				8290F98319F770E300158036 /* TransferCell.swift in Sources */,
-				820D1C651A01E9F200563814 /* Types.swift in Sources */,
+				820D1C651A01E9F200563814 /* FileTypes.swift in Sources */,
 				822093301A02065100855701 /* FolderTableViewCell.swift in Sources */,
 				821816851A2BE80A008D1153 /* PlainFileViewController.swift in Sources */,
 				825CA22319FB8239007281AB /* File.swift in Sources */,
