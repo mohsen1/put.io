@@ -18,6 +18,9 @@ class PDFFileViewController: FileViewController {
         dispatch_async(dispatch_get_main_queue()) {
             self.loadFile()
         }
+
+        let detailsButton = UIBarButtonItem(title: "Details", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("openDetailsViewController"))
+        navigationItem.rightBarButtonItem = detailsButton
     }
     
     override func loadView() {
