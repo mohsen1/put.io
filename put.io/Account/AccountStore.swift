@@ -8,10 +8,9 @@
 
 import UIKit
 import CoreData
-import SwiftHTTP
+import Alamofire
 
 private let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-private let request = HTTPTask()
 
 class AccountStore {
 
@@ -80,38 +79,31 @@ class AccountStore {
         let url = "https://api.put.io/v2/account/info"
         var params = ["oauth_token": "\(acct.token!)"]
 
-        request.GET(url, parameters: params, success: {(response: HTTPResponse) in
-            if let data = response.responseObject as? NSData {
-                var jsonError:NSError?
-                if var json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
-
-                    if let info = json["info"] as? NSDictionary {
-                        self.updateAccount(acct, json: info)
-                        completionHandler(acct)
-                    }
+        Alamofire.request(.GET, url, parameters: params).responseJSON { (_, _, data, error) in
+            if let json = data as? NSDictionary {
+                if let info = json["info"] as? NSDictionary {
+                    self.updateAccount(acct, json: info)
+                    completionHandler(acct)
+                    return
                 }
             }
-            }, failure: {(error: NSError, response: HTTPResponse?) in
-                print(error) // TODO
-        })
+            if error != nil {
+                // completionHandler(nil) // TODO Make Account optional and pass nil when there is an error
+            }
+        }
     }
 
     class func updateSettings(var settings: [String:AnyObject], completionHandler: (NSError?)->()) {
         let url = "https://api.put.io/v2/account/settings?oauth_token=\(getAccountSync()!.token!)"
 
-        request.POST(url, parameters: settings,
-        success: {(response: HTTPResponse) in
-            if let data = response.responseObject as? NSData {
-                var jsonError:NSError?
-                if var json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
-
-                    if let result = json["settings"] as? NSDictionary {
-                        completionHandler(nil)
-                    }
+        Alamofire.request(.GET, url).responseJSON { (_, _, data, error) in
+            if let json = data as? NSDictionary {
+                if let result = json["settings"] as? NSDictionary {
+                    completionHandler(nil)
+                    return
                 }
             }
-        },failure: {(error: NSError, response: HTTPResponse?) in
             completionHandler(error)
-        })
+        }
     }
 }
