@@ -9,10 +9,8 @@
 import UIKit
 import CoreData
 import Alamofire
-import SwiftHTTP
 
 private let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-private let request = HTTPTask()
 
 class FileStore {
 
@@ -124,21 +122,15 @@ class FileStore {
         ]
         let url = "https://api.put.io/v2/files/create-folder"
 
-        request.POST(url, parameters: params, success: {(response: HTTPResponse) in
-            var jsonError:NSError?
-            if let data = response.responseObject as? NSData {
-                if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
-                    if let jsonFile = json["file"] as? NSDictionary {
-                        if let resultFile = FileStore.newFile(jsonFile){
-                            completionHandler(resultFile)
-                        }
+        Alamofire.request(.POST, url, parameters: params).responseJSON { (_, _, data, error) in
+            if let json = data as? NSDictionary {
+                if let jsonFile = json["file"] as? NSDictionary {
+                    if let resultFile = FileStore.newFile(jsonFile){
+                        completionHandler(resultFile)
                     }
                 }
             }
-        }, failure: {(error: NSError, response: HTTPResponse?) in
-                // TODO
-                println(error)
-        })
+        }
     }
 
     class func deleteFiles(ids:[NSNumber], completionHandler: (NSError?)->()) {
@@ -149,11 +141,10 @@ class FileStore {
             "file_ids": "\(idsStr)"
         ]
         let url = "https://api.put.io/v2/files/delete"
-        request.POST(url, parameters: params, success: {(response: HTTPResponse) in
-            completionHandler(nil)
-        }, failure: {(error: NSError, response: HTTPResponse?) in
+
+        Alamofire.request(.POST, url, parameters: params).responseJSON { (_, _, data, error) in
             completionHandler(error)
-        })
+        }
     }
 
     private class func saveContext() {

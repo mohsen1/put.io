@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftHTTP
 
 class AddTransferViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
