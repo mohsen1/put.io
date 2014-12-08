@@ -10,7 +10,6 @@ import UIKit
 import CoreData
 import Alamofire
 import SwiftHTTP
-import Alamofire
 
 private let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 private let request = HTTPTask()

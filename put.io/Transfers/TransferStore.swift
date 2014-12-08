@@ -14,7 +14,7 @@ private var transfers = [Transfer]()
 private let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 
 class TransferStore {
-    
+
     class func getAll(completionHnadler: ([Transfer])->()) {
         let url = "https://api.put.io/v2/transfers/list"
         var params = [String:String]()
@@ -31,10 +31,10 @@ class TransferStore {
                     for dic in arr {
                         if let dictionary = dic as? NSDictionary {
                             transfers.append(Transfer(json: dictionary))
-                            return
                         }
                     }
                     completionHnadler(transfers)
+                    return
                 }
             }
             completionHnadler([])
@@ -56,7 +56,7 @@ class TransferStore {
             }
         }
     }
-    
+
     class func cancel(transfer: Transfer, completionHandler: (NSError?)->()) {
         let account = AccountStore.getAccountSync()
         let url = "https://api.put.io/v2/transfers/cancel"
@@ -74,17 +74,37 @@ class TransferStore {
             }
         }
     }
-    
+
+    class func add(url:String, completionHandler: (success:Bool)->()){
+        let token = AccountStore.getAccountSync()!.token!
+        let params = [
+            "url": url,
+            "extract": "True",
+            "save_parent_id": "0",
+            "oauth_token": token
+        ]
+        let url = "https://api.put.io/v2/transfers/add"
+
+        Alamofire.request(.POST, url, parameters: params).responseJSON { (_, _, data, error) in
+            if error == nil {
+                completionHandler(success: false)
+            } else {
+                completionHandler(success: true)
+                NSLog("\(error)")
+            }
+        }
+    }
+
     class func getOne(transferId: NSInteger, completionHander: (Transfer?)->()) {
         let url = "https://api.put.io/v2/transfers/\(transferId)"
         var params = [String:String]()
-        
+
         if let account = AccountStore.getAccountSync() {
             params = ["oauth_token": "\(account.token!)"]
         } else {
             print("Not logged in, trying to access a transfer")
         }
-        
+
         Alamofire.request(.GET, url, parameters: params).responseJSON { (_, _, data, error) in
             if let json = data as? NSDictionary {
                 if let tr = json["transfer"] as? NSDictionary {
@@ -97,11 +117,11 @@ class TransferStore {
             completionHander(nil)
         }
     }
-    
+
     private class func saveContext() {
         appDelegate.cdh.saveContext(appDelegate.cdh.managedObjectContext!)
     }
-    
+
     class func fetchFile(transfer: Transfer, completionHandler: (File)->()) {
         FileStore.getFile(transfer.fileId, { (result:File) in
             transfer.file = result

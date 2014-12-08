@@ -75,20 +75,11 @@ class AddTransferViewController: UIViewController {
     }
 
     @IBAction func add(sender: AnyObject) {
-        let request = HTTPTask()
-        let token = AccountStore.getAccountSync()!.token!
-        let params = [
-            "url": textView.text!,
-            "extract": "True",
-            "save_parent_id": "0",
-            "oauth_token": token
-        ]
-
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
         progressLabel.text = "Submitting..."
-        request.POST("https://api.put.io/v2/transfers/add", parameters: params, success: { (response:HTTPResponse) in
-            dispatch_async(dispatch_get_main_queue()) {
+        TransferStore.add(textView.text!) { (success:Bool) in
+            if success {
                 self.activityIndicator.hidden = true
                 self.activityIndicator.stopAnimating()
                 self.progressLabel.text = "Successfully added!"
@@ -96,9 +87,7 @@ class AddTransferViewController: UIViewController {
                 self.resultIcon.text = "✓"
                 self.resultIcon.hidden = false
                 self.dismiss()
-            }
-        }, failure: { (error:NSError?, response:HTTPResponse?) in
-            dispatch_async(dispatch_get_main_queue()) {
+            } else {
                 self.activityIndicator.hidden = true
                 self.activityIndicator.stopAnimating()
                 self.progressLabel.text = "Error!"
@@ -106,6 +95,6 @@ class AddTransferViewController: UIViewController {
                 self.resultIcon.text = "✗"
                 self.resultIcon.hidden = false
             }
-        })
+        }
     }
 }

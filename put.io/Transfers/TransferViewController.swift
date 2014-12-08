@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import SwiftHTTP
 
 class TransferViewController: UITableViewController {
     var transfer:Transfer?
+    var file:File?
     var activityIndicator = UIActivityIndicatorView()
     var progressBarButtton = UIBarButtonItem()
     var refreshBarButton = UIBarButtonItem()
@@ -18,12 +18,13 @@ class TransferViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = transfer?.name
-        
+
         // Fetch file if available
         transfer?.fetchFile({ (result:File?) in
             if result != nil {
+                self.file = result
+                self.transfer!.file = result
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.transfer!.file = result
                     self.tableView.reloadData()
                 }
             }
@@ -89,9 +90,12 @@ class TransferViewController: UITableViewController {
                 cell.textLabel?.text = "Go to file"
                 cell.accessoryType = .DisclosureIndicator
 
-                if transfer?.file == nil {
+                if file == nil {
                     cell.userInteractionEnabled = false
                     cell.textLabel?.textColor = UIColor.lightGrayColor()
+                } else {
+                    cell.userInteractionEnabled = true
+                    cell.textLabel?.textColor = UIColor.blackColor()
                 }
             } else {
                 // Disabled cancel button by default

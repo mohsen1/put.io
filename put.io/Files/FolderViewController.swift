@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftHTTP
 
 class FolderViewController: UITableViewController, UIAlertViewDelegate {
     var files = [File]()
@@ -111,7 +110,7 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let file = self.files[indexPath.row] as File
-        
+
         navigationController?.pushViewController(fileViewControllerFor(file), animated: true)
     }
 

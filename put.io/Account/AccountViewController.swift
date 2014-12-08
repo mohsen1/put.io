@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftHTTP
 
 class AccountViewController: UITableViewController, UIAlertViewDelegate {
     var account:Account?
