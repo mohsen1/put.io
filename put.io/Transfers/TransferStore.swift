@@ -7,11 +7,10 @@
 //
 
 import Foundation
-import SwiftHTTP
 import UIKit
+import Alamofire
 
 private var transfers = [Transfer]()
-private let request = HTTPTask()
 private let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 
 class TransferStore {
@@ -25,25 +24,21 @@ class TransferStore {
         } else {
             print("Not logged in, trying to access transfers")
         }
-        
-        request.GET(url, parameters: params, success: {(response: HTTPResponse) in
-            if let data = response.responseObject as? NSData {
-                var jsonError:NSError?
-                if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
-                    if let arr = json["transfers"] as? NSArray {
-                        transfers = []
-                        for dic in arr {
-                            if let dictionary = dic as? NSDictionary {
-                                transfers.append(Transfer(json: dictionary))
-                            }
+        Alamofire.request(.GET, url, parameters: params).responseJSON { (_, _, data, error) in
+            if let json = data as? NSDictionary {
+                if let arr = json["transfers"] as? NSArray {
+                    transfers = []
+                    for dic in arr {
+                        if let dictionary = dic as? NSDictionary {
+                            transfers.append(Transfer(json: dictionary))
+                            return
                         }
                     }
+                    completionHnadler(transfers)
                 }
-                completionHnadler(transfers)
             }
-        }, failure: {(error: NSError, response: HTTPResponse?) in
-                completionHnadler([])
-        })
+            completionHnadler([])
+        }
     }
 
     class func clean(completionHnadler: (NSError?)->()) {
@@ -52,16 +47,17 @@ class TransferStore {
         if let account = AccountStore.getAccountSync() {
             params = ["oauth_token": "\(account.token!)"]
         }
-
-        request.POST(url, parameters: params, success: {(response: HTTPResponse) in
-            completionHnadler(nil)
-        }, failure: {(error: NSError, response: HTTPResponse?) in
-            completionHnadler(error)
-            print(error)
-        })
+        Alamofire.request(.POST, url, parameters: params).responseJSON { (_, _, data, error) in
+            if error == nil {
+                completionHnadler(nil)
+            } else {
+                completionHnadler(error)
+                NSLog("\(error)")
+            }
+        }
     }
     
-    class func cancel(transfer: Transfer, completionHander: (NSError?)->()) {
+    class func cancel(transfer: Transfer, completionHandler: (NSError?)->()) {
         let account = AccountStore.getAccountSync()
         let url = "https://api.put.io/v2/transfers/cancel"
         var params: Dictionary<String, String> = [
@@ -69,11 +65,14 @@ class TransferStore {
             "oauth_token": "\(account!.token!)"
         ]
 
-        request.POST(url, parameters: params, success: {(response: HTTPResponse) in
-            completionHander(nil)
-        }, failure: {(error: NSError, response: HTTPResponse?) in
-            completionHander(error)
-        })
+        Alamofire.request(.POST, url, parameters: params).responseJSON { (_, _, data, error) in
+            if error == nil {
+                completionHandler(nil)
+            } else {
+                completionHandler(error)
+                NSLog("\(error)")
+            }
+        }
     }
     
     class func getOne(transferId: NSInteger, completionHander: (Transfer?)->()) {
@@ -86,18 +85,17 @@ class TransferStore {
             print("Not logged in, trying to access a transfer")
         }
         
-        request.GET(url, parameters: params, success: {(response: HTTPResponse) in
-            if let data = response.responseObject as? NSData {
-                var jsonError:NSError?
-                if let json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary {
-                    if let tr = json["transfer"] as? NSDictionary {
-                        completionHander(Transfer(json: tr))
-                    } else  { completionHander(nil) }
-                } else  { completionHander(nil) }
+        Alamofire.request(.GET, url, parameters: params).responseJSON { (_, _, data, error) in
+            if let json = data as? NSDictionary {
+                if let tr = json["transfer"] as? NSDictionary {
+                    completionHander(Transfer(json: tr))
+                } else  {
+                    completionHander(nil)
+                }
+                return
             }
-        }, failure: {(error: NSError, response: HTTPResponse?) in
-                completionHander(nil)
-        })
+            completionHander(nil)
+        }
     }
     
     private class func saveContext() {

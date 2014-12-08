@@ -96,7 +96,7 @@ class AccountStore {
     class func updateSettings(var settings: [String:AnyObject], completionHandler: (NSError?)->()) {
         let url = "https://api.put.io/v2/account/settings?oauth_token=\(getAccountSync()!.token!)"
 
-        Alamofire.request(.GET, url).responseJSON { (_, _, data, error) in
+        Alamofire.request(.POST, url).responseJSON { (_, _, data, error) in
             if let json = data as? NSDictionary {
                 if let result = json["settings"] as? NSDictionary {
                     completionHandler(nil)
