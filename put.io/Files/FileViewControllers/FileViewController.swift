@@ -40,7 +40,7 @@ internal func fileViewControllerFor(file:File) -> UIViewController {
     case .IMAGE:
         println("Image!")
         break
-    case .PDF:
+    case .TEXT, .PDF:
         let vc = PDFFileViewController()
         vc.file = file
         return vc
