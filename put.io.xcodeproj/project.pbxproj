@@ -14,6 +14,8 @@
 		821816861A2BE80A008D1153 /* PlainFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821816841A2BE80A008D1153 /* PlainFileViewController.xib */; };
 		821816881A2BEA10008D1153 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821816871A2BEA10008D1153 /* FileViewController.swift */; };
 		8218168A1A2BF39C008D1153 /* FileDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821816891A2BF39C008D1153 /* FileDetailsTableViewController.swift */; };
+		821D43B31A36E073005EFCAF /* ImageFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D43B11A36E073005EFCAF /* ImageFileViewController.swift */; };
+		821D43B41A36E073005EFCAF /* ImageFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821D43B21A36E073005EFCAF /* ImageFileViewController.xib */; };
 		822093301A02065100855701 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8220932E1A02065100855701 /* FolderTableViewCell.swift */; };
 		822093311A02065100855701 /* FolderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8220932F1A02065100855701 /* FolderTableViewCell.xib */; };
 		8224AC1B1A2A6046001F9ADB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8224AC101A2A6004001F9ADB /* Alamofire.framework */; };
@@ -34,8 +36,8 @@
 		827FE4431A1477E0008284BD /* BinarySettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FE4411A1477E0008284BD /* BinarySettingsCell.swift */; };
 		827FE4441A1477E0008284BD /* BinarySettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 827FE4421A1477E0008284BD /* BinarySettingsCell.xib */; };
 		828159061A1C41EF00BEC143 /* libMWPhotoBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 828159051A1C41DB00BEC143 /* libMWPhotoBrowser.a */; };
-		828B73701A33EB7000E156BE /* PDFFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828B736E1A33EB7000E156BE /* PDFFileViewController.swift */; };
-		828B73711A33EB7000E156BE /* PDFFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828B736F1A33EB7000E156BE /* PDFFileViewController.xib */; };
+		828B73701A33EB7000E156BE /* WebViewFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828B736E1A33EB7000E156BE /* WebViewFileViewController.swift */; };
+		828B73711A33EB7000E156BE /* WebViewFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828B736F1A33EB7000E156BE /* WebViewFileViewController.xib */; };
 		8290F98019F76CBC00158036 /* TransfersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F97F19F76CBC00158036 /* TransfersViewController.swift */; };
 		8290F98319F770E300158036 /* TransferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F98119F770E300158036 /* TransferCell.swift */; };
 		8290F98419F770E300158036 /* TransferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8290F98219F770E300158036 /* TransferCell.xib */; };
@@ -90,6 +92,8 @@
 		821816841A2BE80A008D1153 /* PlainFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlainFileViewController.xib; path = FileViewControllers/PlainFileViewController.xib; sourceTree = "<group>"; };
 		821816871A2BEA10008D1153 /* FileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileViewController.swift; path = FileViewControllers/FileViewController.swift; sourceTree = "<group>"; };
 		821816891A2BF39C008D1153 /* FileDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileDetailsTableViewController.swift; path = FileViewControllers/FileDetailsTableViewController.swift; sourceTree = "<group>"; };
+		821D43B11A36E073005EFCAF /* ImageFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageFileViewController.swift; path = FileViewControllers/Image/ImageFileViewController.swift; sourceTree = "<group>"; };
+		821D43B21A36E073005EFCAF /* ImageFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageFileViewController.xib; path = FileViewControllers/Image/ImageFileViewController.xib; sourceTree = "<group>"; };
 		8220932E1A02065100855701 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FolderTableViewCell.swift; path = FolderCell/FolderTableViewCell.swift; sourceTree = "<group>"; };
 		8220932F1A02065100855701 /* FolderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FolderTableViewCell.xib; path = FolderCell/FolderTableViewCell.xib; sourceTree = "<group>"; };
 		8224AC0A1A2A6004001F9ADB /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Libraries/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
@@ -114,8 +118,8 @@
 		827FE4411A1477E0008284BD /* BinarySettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySettingsCell.swift; path = AccountSettings/BinarySettingsCell.swift; sourceTree = "<group>"; };
 		827FE4421A1477E0008284BD /* BinarySettingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BinarySettingsCell.xib; path = AccountSettings/BinarySettingsCell.xib; sourceTree = "<group>"; };
 		828159001A1C41DA00BEC143 /* MWPhotoBrowser.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MWPhotoBrowser.xcodeproj; path = Libraries/MWPhotoBrowser/MWPhotoBrowser/MWPhotoBrowser.xcodeproj; sourceTree = "<group>"; };
-		828B736E1A33EB7000E156BE /* PDFFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDFFileViewController.swift; path = FileViewControllers/PDF/PDFFileViewController.swift; sourceTree = "<group>"; };
-		828B736F1A33EB7000E156BE /* PDFFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PDFFileViewController.xib; path = FileViewControllers/PDF/PDFFileViewController.xib; sourceTree = "<group>"; };
+		828B736E1A33EB7000E156BE /* WebViewFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewFileViewController.swift; path = FileViewControllers/WebView/WebViewFileViewController.swift; sourceTree = "<group>"; };
+		828B736F1A33EB7000E156BE /* WebViewFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WebViewFileViewController.xib; path = FileViewControllers/WebView/WebViewFileViewController.xib; sourceTree = "<group>"; };
 		8290F97F19F76CBC00158036 /* TransfersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransfersViewController.swift; sourceTree = "<group>"; };
 		8290F98119F770E300158036 /* TransferCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCell.swift; sourceTree = "<group>"; };
 		8290F98219F770E300158036 /* TransferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransferCell.xib; sourceTree = "<group>"; };
@@ -160,6 +164,15 @@
 				829F52B119F4DC8E0032B485 /* LoginViewController.xib */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		821D43B81A36E0AC005EFCAF /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				821D43B11A36E073005EFCAF /* ImageFileViewController.swift */,
+				821D43B21A36E073005EFCAF /* ImageFileViewController.xib */,
+			);
+			name = Image;
 			sourceTree = "<group>";
 		};
 		822093321A02065E00855701 /* FolderCell */ = {
@@ -256,7 +269,8 @@
 		8266029F1A00B4B600CB31D9 /* FileViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				828B736D1A33EB4600E156BE /* PDF */,
+				828B736D1A33EB4600E156BE /* WebView */,
+				821D43B81A36E0AC005EFCAF /* Image */,
 				828B73651A33EB3200E156BE /* Plain */,
 				821816871A2BEA10008D1153 /* FileViewController.swift */,
 				821816891A2BF39C008D1153 /* FileDetailsTableViewController.swift */,
@@ -281,13 +295,13 @@
 			name = Plain;
 			sourceTree = "<group>";
 		};
-		828B736D1A33EB4600E156BE /* PDF */ = {
+		828B736D1A33EB4600E156BE /* WebView */ = {
 			isa = PBXGroup;
 			children = (
-				828B736E1A33EB7000E156BE /* PDFFileViewController.swift */,
-				828B736F1A33EB7000E156BE /* PDFFileViewController.xib */,
+				828B736E1A33EB7000E156BE /* WebViewFileViewController.swift */,
+				828B736F1A33EB7000E156BE /* WebViewFileViewController.xib */,
 			);
-			name = PDF;
+			name = WebView;
 			sourceTree = "<group>";
 		};
 		8290F97819F76BFE00158036 /* Files */ = {
@@ -474,10 +488,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				821D43B41A36E073005EFCAF /* ImageFileViewController.xib in Resources */,
 				82B73E2F1A0CA04600F64F6B /* AddTransferViewController.xib in Resources */,
 				82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */,
 				822093311A02065100855701 /* FolderTableViewCell.xib in Resources */,
-				828B73711A33EB7000E156BE /* PDFFileViewController.xib in Resources */,
+				828B73711A33EB7000E156BE /* WebViewFileViewController.xib in Resources */,
 				825B079019F3312700E65789 /* Images.xcassets in Resources */,
 				827FE4441A1477E0008284BD /* BinarySettingsCell.xib in Resources */,
 				8290F98419F770E300158036 /* TransferCell.xib in Resources */,
@@ -518,10 +533,11 @@
 				82C9C22A1A04B5A9001DF290 /* TransferViewController.swift in Sources */,
 				8258E92E19F4579400BB5E12 /* AccountViewController.swift in Sources */,
 				82084F2F19FC7AA6005DF388 /* AccountInfoCell.swift in Sources */,
-				828B73701A33EB7000E156BE /* PDFFileViewController.swift in Sources */,
+				828B73701A33EB7000E156BE /* WebViewFileViewController.swift in Sources */,
 				821816881A2BEA10008D1153 /* FileViewController.swift in Sources */,
 				8258E92819F4402D00BB5E12 /* MainViewController.swift in Sources */,
 				8218168A1A2BF39C008D1153 /* FileDetailsTableViewController.swift in Sources */,
+				821D43B31A36E073005EFCAF /* ImageFileViewController.swift in Sources */,
 				82B73E2E1A0CA04600F64F6B /* AddTransferViewController.swift in Sources */,
 				8258E8EE19F3D4F700BB5E12 /* AccountStore.swift in Sources */,
 				825CA22C19FB9164007281AB /* CoreDataHelper.swift in Sources */,

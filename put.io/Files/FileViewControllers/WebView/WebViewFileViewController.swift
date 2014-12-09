@@ -1,5 +1,5 @@
 //
-//  PDFFileViewController.swift
+//  WebViewFileViewController.swift
 //  put.io
 //
 //  Created by Mohsen Azimi on 12/6/14.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PDFFileViewController: FileViewController {
+class WebViewFileViewController: FileViewController {
 
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var statusLabel: UILabel!
@@ -17,13 +17,13 @@ class PDFFileViewController: FileViewController {
         statusLabel.text = "Loading..."
         let detailsButton = UIBarButtonItem(title: "Details", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("openDetailsViewController"))
         navigationItem.rightBarButtonItem = detailsButton
-        
+
         loadFile()
     }
-    
+
     override func loadView() {
         super.loadView()
-        let nib = UINib(nibName: "PDFFileViewController", bundle: nil)
+        let nib = UINib(nibName: "WebViewFileViewController", bundle: nil)
         nib.instantiateWithOwner(self, options: nil)
     }
 
@@ -42,7 +42,7 @@ class PDFFileViewController: FileViewController {
             statusLabel.text = "Failed to load PDF file"
         }
     }
-    
+
     func loadWebView(url:NSURL) {
         webView.loadRequest(NSURLRequest(URL: url))
         statusLabel.text = "Loaded"

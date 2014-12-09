@@ -38,10 +38,12 @@ internal func fileViewControllerFor(file:File) -> UIViewController {
         println("Video!")
         break
     case .IMAGE:
-        println("Image!")
+        let vc = ImageFileViewController()
+        vc.file = file
+        return vc
         break
     case .TEXT, .PDF:
-        let vc = PDFFileViewController()
+        let vc = WebViewFileViewController()
         vc.file = file
         return vc
     case .FOLDER:
