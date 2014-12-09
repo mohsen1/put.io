@@ -29,32 +29,21 @@ class FileViewController: UIViewController {
 
 internal func fileViewControllerFor(file:File) -> UIViewController {
     let type = Types.typeFor(file.content_type!)
+    var vc:FileViewController!
 
     switch type {
-    case .AUDIO:
-        println("Audio!")
-        break
-    case .VIDEO:
-        println("Video!")
-        break
-    case .IMAGE:
-        let vc = ImageFileViewController()
-        vc.file = file
-        return vc
-        break
-    case .TEXT, .PDF:
-        let vc = WebViewFileViewController()
-        vc.file = file
-        return vc
     case .FOLDER:
         let vc = FolderViewController()
         vc.id = file.id
         return vc
+    case .IMAGE:
+        vc = ImageFileViewController()
+    case .TEXT, .PDF:
+        vc = WebViewFileViewController()
     default:
-        break
+        vc = PlainFileViewController()
     }
 
-    let vc = PlainFileViewController()
     vc.file = file
     return vc
 }
