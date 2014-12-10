@@ -11,6 +11,11 @@ import UIKit
 class FileViewController: UIViewController {
     var file:File?
     
+    func assingDetailsButtonToNavigationItem() {
+        let detailsButton = UIBarButtonItem(title: "Details", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("openDetailsViewController"))
+        navigationItem.rightBarButtonItem = detailsButton
+    }
+    
     func openDetailsViewController() {
         let nav = UINavigationController()
         let details = FileDetailsTableViewController()

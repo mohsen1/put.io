@@ -15,9 +15,7 @@ class WebViewFileViewController: FileViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         statusLabel.text = "Loading..."
-        let detailsButton = UIBarButtonItem(title: "Details", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("openDetailsViewController"))
-        navigationItem.rightBarButtonItem = detailsButton
-
+        super.assingDetailsButtonToNavigationItem()
         loadFile()
     }
 

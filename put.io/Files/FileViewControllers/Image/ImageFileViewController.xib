@@ -4,24 +4,32 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageViewController" customModule="put_io" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageFileViewController" customModule="put_io" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="imageView" destination="Tlc-Er-iAg" id="iw2-5F-VOx"/>
+                <outlet property="view" destination="iN0-l3-epB" id="49g-iF-SCM"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="64" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TODO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGq-Gg-k4x">
-                    <rect key="frame" x="279" y="289" width="48" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tlc-Er-iAg">
+                    <rect key="frame" x="0.0" y="65" width="600" height="485"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Tlc-Er-iAg" secondAttribute="bottom" constant="50" id="2Pk-dt-2Yl"/>
+                <constraint firstItem="Tlc-Er-iAg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="65" id="VUQ-QC-jox">
+                    <variation key="heightClass=compact" constant="33"/>
+                </constraint>
+                <constraint firstAttribute="trailing" secondItem="Tlc-Er-iAg" secondAttribute="trailing" id="fhk-5t-cb6"/>
+                <constraint firstItem="Tlc-Er-iAg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uUf-rP-Yqg"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
         </view>
     </objects>
 </document>

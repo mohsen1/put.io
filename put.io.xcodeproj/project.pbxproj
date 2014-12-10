@@ -15,7 +15,6 @@
 		821816881A2BEA10008D1153 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821816871A2BEA10008D1153 /* FileViewController.swift */; };
 		8218168A1A2BF39C008D1153 /* FileDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821816891A2BF39C008D1153 /* FileDetailsTableViewController.swift */; };
 		821D43B31A36E073005EFCAF /* ImageFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D43B11A36E073005EFCAF /* ImageFileViewController.swift */; };
-		821D43B41A36E073005EFCAF /* ImageFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821D43B21A36E073005EFCAF /* ImageFileViewController.xib */; };
 		822093301A02065100855701 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8220932E1A02065100855701 /* FolderTableViewCell.swift */; };
 		822093311A02065100855701 /* FolderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8220932F1A02065100855701 /* FolderTableViewCell.xib */; };
 		8224AC1B1A2A6046001F9ADB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8224AC101A2A6004001F9ADB /* Alamofire.framework */; };
@@ -35,7 +34,7 @@
 		826A6EF419FC3F1300D348F1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A6EF319FC3F1300D348F1 /* Account.swift */; };
 		827FE4431A1477E0008284BD /* BinarySettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FE4411A1477E0008284BD /* BinarySettingsCell.swift */; };
 		827FE4441A1477E0008284BD /* BinarySettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 827FE4421A1477E0008284BD /* BinarySettingsCell.xib */; };
-		828159061A1C41EF00BEC143 /* libMWPhotoBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 828159051A1C41DB00BEC143 /* libMWPhotoBrowser.a */; };
+		8280980E1A382BF500185C63 /* ImageFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8280980D1A382BF500185C63 /* ImageFileViewController.xib */; };
 		828B73701A33EB7000E156BE /* WebViewFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828B736E1A33EB7000E156BE /* WebViewFileViewController.swift */; };
 		828B73711A33EB7000E156BE /* WebViewFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828B736F1A33EB7000E156BE /* WebViewFileViewController.xib */; };
 		8290F98019F76CBC00158036 /* TransfersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F97F19F76CBC00158036 /* TransfersViewController.swift */; };
@@ -75,13 +74,6 @@
 			remoteGlobalIDString = 825B078219F3312700E65789;
 			remoteInfo = put.io;
 		};
-		828159041A1C41DB00BEC143 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 828159001A1C41DA00BEC143 /* MWPhotoBrowser.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4C6F96C414AF704100F8389A;
-			remoteInfo = MWPhotoBrowser;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -92,8 +84,7 @@
 		821816841A2BE80A008D1153 /* PlainFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlainFileViewController.xib; path = FileViewControllers/PlainFileViewController.xib; sourceTree = "<group>"; };
 		821816871A2BEA10008D1153 /* FileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileViewController.swift; path = FileViewControllers/FileViewController.swift; sourceTree = "<group>"; };
 		821816891A2BF39C008D1153 /* FileDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileDetailsTableViewController.swift; path = FileViewControllers/FileDetailsTableViewController.swift; sourceTree = "<group>"; };
-		821D43B11A36E073005EFCAF /* ImageFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageFileViewController.swift; path = FileViewControllers/Image/ImageFileViewController.swift; sourceTree = "<group>"; };
-		821D43B21A36E073005EFCAF /* ImageFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageFileViewController.xib; path = FileViewControllers/Image/ImageFileViewController.xib; sourceTree = "<group>"; };
+		821D43B11A36E073005EFCAF /* ImageFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageFileViewController.swift; path = FileViewControllers/Image/ImageFileViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
 		8220932E1A02065100855701 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FolderTableViewCell.swift; path = FolderCell/FolderTableViewCell.swift; sourceTree = "<group>"; };
 		8220932F1A02065100855701 /* FolderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FolderTableViewCell.xib; path = FolderCell/FolderTableViewCell.xib; sourceTree = "<group>"; };
 		8224AC0A1A2A6004001F9ADB /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Libraries/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
@@ -117,7 +108,7 @@
 		826A6EF319FC3F1300D348F1 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		827FE4411A1477E0008284BD /* BinarySettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySettingsCell.swift; path = AccountSettings/BinarySettingsCell.swift; sourceTree = "<group>"; };
 		827FE4421A1477E0008284BD /* BinarySettingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BinarySettingsCell.xib; path = AccountSettings/BinarySettingsCell.xib; sourceTree = "<group>"; };
-		828159001A1C41DA00BEC143 /* MWPhotoBrowser.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MWPhotoBrowser.xcodeproj; path = Libraries/MWPhotoBrowser/MWPhotoBrowser/MWPhotoBrowser.xcodeproj; sourceTree = "<group>"; };
+		8280980D1A382BF500185C63 /* ImageFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageFileViewController.xib; path = FileViewControllers/Image/ImageFileViewController.xib; sourceTree = "<group>"; };
 		828B736E1A33EB7000E156BE /* WebViewFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewFileViewController.swift; path = FileViewControllers/WebView/WebViewFileViewController.swift; sourceTree = "<group>"; };
 		828B736F1A33EB7000E156BE /* WebViewFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WebViewFileViewController.xib; path = FileViewControllers/WebView/WebViewFileViewController.xib; sourceTree = "<group>"; };
 		8290F97F19F76CBC00158036 /* TransfersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransfersViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +133,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8224AC1B1A2A6046001F9ADB /* Alamofire.framework in Frameworks */,
-				828159061A1C41EF00BEC143 /* libMWPhotoBrowser.a in Frameworks */,
 				825CA1E619FB771E007281AB /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,7 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				821D43B11A36E073005EFCAF /* ImageFileViewController.swift */,
-				821D43B21A36E073005EFCAF /* ImageFileViewController.xib */,
+				8280980D1A382BF500185C63 /* ImageFileViewController.xib */,
 			);
 			name = Image;
 			sourceTree = "<group>";
@@ -198,7 +188,6 @@
 			children = (
 				8224AC0A1A2A6004001F9ADB /* Alamofire.xcodeproj */,
 				82EB66841A2908BF0044573A /* put_io-Bridging-Header.h */,
-				828159001A1C41DA00BEC143 /* MWPhotoBrowser.xcodeproj */,
 				825CA1E519FB771E007281AB /* CoreData.framework */,
 				825B078519F3312700E65789 /* put.io */,
 				825B079B19F3312700E65789 /* put.ioTests */,
@@ -276,14 +265,6 @@
 				821816891A2BF39C008D1153 /* FileDetailsTableViewController.swift */,
 			);
 			name = FileViewControllers;
-			sourceTree = "<group>";
-		};
-		828159011A1C41DA00BEC143 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				828159051A1C41DB00BEC143 /* libMWPhotoBrowser.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		828B73651A33EB3200E156BE /* Plain */ = {
@@ -446,10 +427,6 @@
 					ProductGroup = 8224AC0B1A2A6004001F9ADB /* Products */;
 					ProjectRef = 8224AC0A1A2A6004001F9ADB /* Alamofire.xcodeproj */;
 				},
-				{
-					ProductGroup = 828159011A1C41DA00BEC143 /* Products */;
-					ProjectRef = 828159001A1C41DA00BEC143 /* MWPhotoBrowser.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -474,13 +451,6 @@
 			remoteRef = 8224AC111A2A6004001F9ADB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		828159051A1C41DB00BEC143 /* libMWPhotoBrowser.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libMWPhotoBrowser.a;
-			remoteRef = 828159041A1C41DB00BEC143 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -488,7 +458,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				821D43B41A36E073005EFCAF /* ImageFileViewController.xib in Resources */,
+				8280980E1A382BF500185C63 /* ImageFileViewController.xib in Resources */,
 				82B73E2F1A0CA04600F64F6B /* AddTransferViewController.xib in Resources */,
 				82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */,
 				822093311A02065100855701 /* FolderTableViewCell.xib in Resources */,
