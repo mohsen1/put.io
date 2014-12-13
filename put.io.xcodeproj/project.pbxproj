@@ -42,6 +42,8 @@
 		8290F98419F770E300158036 /* TransferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8290F98219F770E300158036 /* TransferCell.xib */; };
 		829F52AE19F4DC3E0032B485 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829F52AD19F4DC3E0032B485 /* LoginViewController.swift */; };
 		829F52B219F4DC8E0032B485 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829F52B119F4DC8E0032B485 /* LoginViewController.xib */; };
+		82B057D11A3CB44F00B0B76C /* MusicFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B057CF1A3CB44F00B0B76C /* MusicFileViewController.swift */; };
+		82B057D41A3CB91000B0B76C /* MusicFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82B057D31A3CB91000B0B76C /* MusicFileViewController.xib */; };
 		82B73E2E1A0CA04600F64F6B /* AddTransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B73E2C1A0CA04600F64F6B /* AddTransferViewController.swift */; };
 		82B73E2F1A0CA04600F64F6B /* AddTransferViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82B73E2D1A0CA04600F64F6B /* AddTransferViewController.xib */; };
 		82C9C22A1A04B5A9001DF290 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C2291A04B5A9001DF290 /* TransferViewController.swift */; };
@@ -116,6 +118,8 @@
 		8290F98219F770E300158036 /* TransferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransferCell.xib; sourceTree = "<group>"; };
 		829F52AD19F4DC3E0032B485 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		829F52B119F4DC8E0032B485 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		82B057CF1A3CB44F00B0B76C /* MusicFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusicFileViewController.swift; path = FileViewControllers/Music/MusicFileViewController.swift; sourceTree = "<group>"; };
+		82B057D31A3CB91000B0B76C /* MusicFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MusicFileViewController.xib; path = FileViewControllers/Music/MusicFileViewController.xib; sourceTree = "<group>"; };
 		82B73E2C1A0CA04600F64F6B /* AddTransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTransferViewController.swift; path = AddTransfer/AddTransferViewController.swift; sourceTree = "<group>"; };
 		82B73E2D1A0CA04600F64F6B /* AddTransferViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddTransferViewController.xib; path = AddTransfer/AddTransferViewController.xib; sourceTree = "<group>"; };
 		82C9C2291A04B5A9001DF290 /* TransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +262,7 @@
 		8266029F1A00B4B600CB31D9 /* FileViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				82B057CC1A3CB3D200B0B76C /* Music */,
 				828B736D1A33EB4600E156BE /* WebView */,
 				821D43B81A36E0AC005EFCAF /* Image */,
 				828B73651A33EB3200E156BE /* Plain */,
@@ -325,6 +330,15 @@
 				82B73E341A0CA04F00F64F6B /* AddTransfer */,
 			);
 			path = Transfers;
+			sourceTree = "<group>";
+		};
+		82B057CC1A3CB3D200B0B76C /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				82B057CF1A3CB44F00B0B76C /* MusicFileViewController.swift */,
+				82B057D31A3CB91000B0B76C /* MusicFileViewController.xib */,
+			);
+			name = Music;
 			sourceTree = "<group>";
 		};
 		82B73E341A0CA04F00F64F6B /* AddTransfer */ = {
@@ -461,6 +475,7 @@
 				8280980E1A382BF500185C63 /* ImageFileViewController.xib in Resources */,
 				82B73E2F1A0CA04600F64F6B /* AddTransferViewController.xib in Resources */,
 				82084F3019FC7AA6005DF388 /* AccountInfoCell.xib in Resources */,
+				82B057D41A3CB91000B0B76C /* MusicFileViewController.xib in Resources */,
 				822093311A02065100855701 /* FolderTableViewCell.xib in Resources */,
 				828B73711A33EB7000E156BE /* WebViewFileViewController.xib in Resources */,
 				825B079019F3312700E65789 /* Images.xcassets in Resources */,
@@ -514,6 +529,7 @@
 				825CA1F119FB7771007281AB /* data.xcdatamodeld in Sources */,
 				82C9C2301A04BFA0001DF290 /* KeyValueTableViewCell.swift in Sources */,
 				825B078919F3312700E65789 /* AppDelegate.swift in Sources */,
+				82B057D11A3CB44F00B0B76C /* MusicFileViewController.swift in Sources */,
 				8290F98019F76CBC00158036 /* TransfersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

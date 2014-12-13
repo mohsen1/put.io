@@ -43,6 +43,8 @@ internal func fileViewControllerFor(file:File) -> UIViewController {
         return vc
     case .IMAGE:
         vc = ImageFileViewController()
+    case .AUDIO:
+        vc = MusicFileViewController()
     case .TEXT, .PDF:
         vc = WebViewFileViewController()
     default:
