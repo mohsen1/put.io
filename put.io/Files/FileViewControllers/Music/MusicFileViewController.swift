@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+
 
 class   MusicFileViewController: FileViewController {
 
@@ -24,6 +26,14 @@ class   MusicFileViewController: FileViewController {
         nib.instantiateWithOwner(self, options: nil)
     }
     @IBAction func startPlaying(sender: AnyObject) {
-        NSLog("Playing \(file?.name)")
+        FileStore.getDownloadUrl(file!.id) { (downloadUrl:NSURL?) in
+            if downloadUrl != nil {
+                var player = MPMoviePlayerViewController(contentURL: downloadUrl!)
+                player.moviePlayer.controlStyle = MPMovieControlStyle.Fullscreen
+                player.moviePlayer.fullscreen = true
+                player.moviePlayer.play()
+                self.navigationController?.pushViewController(player, animated: true)
+            }
+        }
     }
 }
