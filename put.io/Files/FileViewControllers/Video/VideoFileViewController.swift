@@ -9,10 +9,21 @@
 import UIKit
 
 class VideoFileViewController: FileViewController {
+    @IBOutlet var screenshot: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         super.assingDetailsButtonToNavigationItem()
+        
+        dispatch_async(dispatch_get_main_queue()){
+            self.loadScreenshot()
+        }
+    }
+    
+    func loadScreenshot() {
+        if self.file != nil {
+            self.screenshot.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.file!.screenshot!)!)!)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,14 +36,4 @@ class VideoFileViewController: FileViewController {
         let nib = UINib(nibName: "VideoFileViewController", bundle: nil)
         nib.instantiateWithOwner(self, options: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

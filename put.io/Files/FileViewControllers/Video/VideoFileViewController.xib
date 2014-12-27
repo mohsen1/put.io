@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6221" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoFileViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoFileViewController" customModule="put_io" customModuleProvider="target">
             <connections>
+                <outlet property="screenshot" destination="dpK-6I-v4G" id="mX7-ye-jmL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +14,23 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dpK-6I-v4G" userLabel="Screenshot">
+                    <rect key="frame" x="0.0" y="150" width="600" height="300"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="300" id="G8N-ZG-ZU1"/>
+                        <constraint firstAttribute="width" constant="600" id="VpJ-gN-BIo"/>
+                    </constraints>
+                </imageView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="dpK-6I-v4G" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0ai-iq-i8W"/>
+                <constraint firstAttribute="centerX" secondItem="dpK-6I-v4G" secondAttribute="centerX" id="fLt-jA-10I"/>
+                <constraint firstAttribute="trailing" secondItem="dpK-6I-v4G" secondAttribute="trailing" id="fjC-F3-Ks0"/>
+                <constraint firstAttribute="centerY" secondItem="dpK-6I-v4G" secondAttribute="centerY" id="mMs-na-5Nv"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
         </view>
     </objects>
 </document>
