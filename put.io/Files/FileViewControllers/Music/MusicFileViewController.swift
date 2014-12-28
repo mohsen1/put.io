@@ -10,13 +10,17 @@ import UIKit
 import AVFoundation
 
 
-class   MusicFileViewController: FileViewController {
+class MusicFileViewController: FileViewController {
 
+    var downloadUrl:NSURL?
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         super.assingDetailsButtonToNavigationItem()
+        fetchDownloadUrl()
+        setDetails()
     }
     
     
@@ -26,14 +30,29 @@ class   MusicFileViewController: FileViewController {
         nib.instantiateWithOwner(self, options: nil)
     }
     @IBAction func startPlaying(sender: AnyObject) {
+        if downloadUrl != nil {
+            let player = MPMoviePlayerViewController(contentURL: downloadUrl!)
+            let defaultNotificationCenter = NSNotificationCenter.defaultCenter()
+            player.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+            player.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+            navigationController?.presentMoviePlayerViewControllerAnimated(player)
+            player.moviePlayer.fullscreen = true
+            player.moviePlayer.prepareToPlay()
+            player.moviePlayer.play()
+        }
+    }
+    
+    func fetchDownloadUrl() {
         FileStore.getDownloadUrl(file!.id) { (downloadUrl:NSURL?) in
-            if downloadUrl != nil {
-                var player = MPMoviePlayerViewController(contentURL: downloadUrl!)
-                player.moviePlayer.controlStyle = MPMovieControlStyle.Fullscreen
-                player.moviePlayer.fullscreen = true
-                player.moviePlayer.play()
-                self.navigationController?.pushViewController(player, animated: true)
+            self.downloadUrl = downloadUrl
+            NSLog("download url is \(downloadUrl)")
+            dispatch_async(dispatch_get_main_queue()) {
+                self.playButton.hidden = false
             }
         }
+    }
+    
+    func setDetails() {
+        self.nameLabel.text = file?.name
     }
 }

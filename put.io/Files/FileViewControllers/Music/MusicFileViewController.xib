@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MusicFileViewController" customModule="put_io" customModuleProvider="target">
             <connections>
+                <outlet property="nameLabel" destination="lEj-qV-Gad" id="hKr-U9-cVZ"/>
                 <outlet property="playButton" destination="hBf-Xy-L8j" id="kPw-RE-hOv"/>
                 <outlet property="view" destination="iN0-l3-epB" id="wWd-Zl-Ws2"/>
             </connections>
@@ -15,8 +16,8 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBf-Xy-L8j">
-                    <rect key="frame" x="285" y="285" width="30" height="30"/>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBf-Xy-L8j">
+                    <rect key="frame" x="285" y="372" width="30" height="30"/>
                     <state key="normal" title="Play">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -24,12 +25,41 @@
                         <action selector="startPlaying:" destination="-1" eventType="touchDown" id="hDS-Hz-e4m"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xz4-7l-vUq" userLabel="DetailsView">
+                    <rect key="frame" x="8" y="236" width="584" height="128"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEj-qV-Gad" userLabel="Name">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="EDS-pQ-MY2"/>
+                        <constraint firstItem="lEj-qV-Gad" firstAttribute="leading" secondItem="xz4-7l-vUq" secondAttribute="leading" id="EGw-Uc-bxJ"/>
+                        <constraint firstAttribute="trailing" secondItem="lEj-qV-Gad" secondAttribute="trailing" id="ext-GM-zZb"/>
+                        <constraint firstItem="lEj-qV-Gad" firstAttribute="top" secondItem="xz4-7l-vUq" secondAttribute="top" id="g6p-yp-f8I"/>
+                    </constraints>
+                </view>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="AudioIcon" translatesAutoresizingMaskIntoConstraints="NO" id="psH-Bl-pzL">
+                    <rect key="frame" x="263" y="153" width="75" height="75"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="hBf-Xy-L8j" secondAttribute="centerX" id="hT0-75-7aT"/>
-                <constraint firstAttribute="centerY" secondItem="hBf-Xy-L8j" secondAttribute="centerY" id="rgc-L3-ERk"/>
+                <constraint firstItem="xz4-7l-vUq" firstAttribute="top" secondItem="psH-Bl-pzL" secondAttribute="bottom" constant="8" id="HIb-aM-Qpr"/>
+                <constraint firstAttribute="centerY" secondItem="xz4-7l-vUq" secondAttribute="centerY" id="Msv-HT-fBt"/>
+                <constraint firstItem="hBf-Xy-L8j" firstAttribute="centerX" secondItem="xz4-7l-vUq" secondAttribute="centerX" id="dAb-ie-2Ay"/>
+                <constraint firstAttribute="centerX" secondItem="psH-Bl-pzL" secondAttribute="centerX" constant="-0.5" id="hUo-SA-PSH"/>
+                <constraint firstAttribute="centerX" secondItem="xz4-7l-vUq" secondAttribute="centerX" id="jZn-f9-HJP"/>
+                <constraint firstItem="xz4-7l-vUq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="tOL-a9-ffL"/>
+                <constraint firstAttribute="trailing" secondItem="xz4-7l-vUq" secondAttribute="trailing" constant="8" id="y6P-QF-VVk"/>
+                <constraint firstItem="hBf-Xy-L8j" firstAttribute="top" secondItem="xz4-7l-vUq" secondAttribute="bottom" constant="8" id="yY3-2J-tNI"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="AudioIcon" width="75" height="75"/>
+    </resources>
 </document>
