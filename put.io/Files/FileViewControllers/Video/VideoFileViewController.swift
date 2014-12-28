@@ -24,10 +24,15 @@ class VideoFileViewController: FileViewController {
     }
     
     func loadScreenshot() {
-        if self.file != nil {
-            // TODO: cache the screenshot
-            self.screenshot.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.file!.screenshot!)!)!)
-            self.playButton.hidden = false
+        // TODO: cache the screenshot
+        if let screenshot = file?.screenshot {
+            if let url = NSURL(string: file!.screenshot!) {
+                if let data = NSData(contentsOfURL: url) {
+                    if let image = UIImage(data: data){
+                        self.screenshot.image = image
+                    }
+                }
+            }
         }
     }
     
@@ -35,16 +40,21 @@ class VideoFileViewController: FileViewController {
         if self.file != nil {
             FileStore.getDownloadUrl(file!.id) { (url:NSURL?) in
                 self.streamUrl = url
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.playButton.hidden = false
+                }
             }
         }
     }
     
     @IBAction func startPlaying(sender: UIButton) {
         if streamUrl != nil {
+            let player = MPMoviePlayerViewController(contentURL: streamUrl!)
+            let defaultNotificationCenter = NSNotificationCenter.defaultCenter()
 
-            var player = MPMoviePlayerViewController(contentURL: streamUrl!)
-            presentMoviePlayerViewControllerAnimated(player)
+            navigationController?.presentMoviePlayerViewControllerAnimated(player)
             player.moviePlayer.fullscreen = true
+            player.moviePlayer.prepareToPlay()
             player.moviePlayer.play()
         }
     }
