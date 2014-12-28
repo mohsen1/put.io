@@ -12,6 +12,7 @@ class VideoFileViewController: FileViewController {
     @IBOutlet var screenshot: UIImageView!
     @IBOutlet var playButton: UIButton!
     var streamUrl:NSURL?
+    var vcs:[AnyObject]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,8 @@ class VideoFileViewController: FileViewController {
         if streamUrl != nil {
             let player = MPMoviePlayerViewController(contentURL: streamUrl!)
             let defaultNotificationCenter = NSNotificationCenter.defaultCenter()
-
+            player.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+            player.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
             navigationController?.presentMoviePlayerViewControllerAnimated(player)
             player.moviePlayer.fullscreen = true
             player.moviePlayer.prepareToPlay()
@@ -59,11 +61,6 @@ class VideoFileViewController: FileViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     override func loadView() {
         super.loadView()
         let nib = UINib(nibName: "VideoFileViewController", bundle: nil)
