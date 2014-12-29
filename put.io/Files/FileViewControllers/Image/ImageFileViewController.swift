@@ -10,22 +10,15 @@ import UIKit
 
 class ImageFileViewController: FileViewController {
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var openButton: UIButton!
+    
+    var fullImageUrl:NSURL?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         super.assingDetailsButtonToNavigationItem()
-        
-        if file?.screenshot != nil {
-            dispatch_async(dispatch_get_main_queue()) {
-                self.loadScreenshot()
-            }
-        }
-//        FileStore.getDownloadUrl(file!.id) { (url:NSURL?) in
-//            if url != nil {
-//                dispatch_async(dispatch_get_main_queue()){
-//
-//                }
-//            }
-//        }
+        loadScreenshot()
+        fetchDownloadUrl()
     }
     override func loadView() {
         super.loadView()
@@ -34,11 +27,30 @@ class ImageFileViewController: FileViewController {
     }
     
     func loadScreenshot () {
-        if let url = NSURL(string:file!.screenshot!) {
-            if let data = NSData(contentsOfURL: url){
-                imageView.contentMode = UIViewContentMode.ScaleAspectFit
-                imageView.image = UIImage(data: data)
+        if file?.screenshot != nil {
+            dispatch_async(dispatch_get_main_queue()){
+                if let url = NSURL(string: self.file!.screenshot!) {
+                    if let data = NSData(contentsOfURL: url){
+                        self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
+                        self.imageView.image = UIImage(data: data)
+                    }
+                }
             }
         }
+    }
+    
+    func fetchDownloadUrl() {
+        if file != nil {
+            FileStore.getDownloadUrl(file!.id) { (url:NSURL?) in
+                self.fullImageUrl = url
+                self.openButton.hidden = false
+            }
+        }
+    }
+    
+    @IBAction func openFull(sender: UIButton) {
+        var vc = FullImageFileViewController()
+        vc.url = fullImageUrl
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

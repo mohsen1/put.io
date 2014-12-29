@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6221" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FullImageFileViewController" customModule="put_io" customModuleProvider="target">
+            <connections>
+                <outlet property="showNavButton" destination="d20-4f-eiG" id="SF4-3d-UyC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHm-Oc-7Gv">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ho-zP-3cu">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        </imageView>
+                    </subviews>
+                </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d20-4f-eiG" userLabel="ShowNav">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="showNav:" destination="-1" eventType="touchDown" id="NVr-wc-JxF"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="d20-4f-eiG" secondAttribute="trailing" id="2cR-HV-7Xf"/>
+                <constraint firstItem="d20-4f-eiG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6Rf-4V-mob"/>
+                <constraint firstItem="kHm-Oc-7Gv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FUG-RJ-Ive"/>
+                <constraint firstAttribute="bottom" secondItem="d20-4f-eiG" secondAttribute="bottom" id="cDa-C9-gw4"/>
+                <constraint firstAttribute="trailing" secondItem="kHm-Oc-7Gv" secondAttribute="trailing" id="l1S-VE-ugU"/>
+                <constraint firstItem="kHm-Oc-7Gv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qg6-X7-fTQ"/>
+                <constraint firstAttribute="bottom" secondItem="kHm-Oc-7Gv" secondAttribute="bottom" id="rmX-jt-N3D"/>
+                <constraint firstItem="d20-4f-eiG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vin-zM-Wx6"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

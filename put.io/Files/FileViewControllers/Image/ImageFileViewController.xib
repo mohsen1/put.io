@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageFileViewController" customModule="put_io" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="Tlc-Er-iAg" id="iw2-5F-VOx"/>
+                <outlet property="openButton" destination="ldy-RB-Yo6" id="ou4-jG-2Jz"/>
                 <outlet property="view" destination="iN0-l3-epB" id="49g-iF-SCM"/>
             </connections>
         </placeholder>
@@ -18,15 +19,28 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tlc-Er-iAg">
                     <rect key="frame" x="0.0" y="65" width="600" height="485"/>
                 </imageView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldy-RB-Yo6" userLabel="Open">
+                    <rect key="frame" x="0.0" y="65" width="600" height="485"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="openFull:" destination="-1" eventType="touchDown" id="hRs-rA-47p"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Tlc-Er-iAg" secondAttribute="bottom" constant="50" id="2Pk-dt-2Yl"/>
+                <constraint firstItem="Tlc-Er-iAg" firstAttribute="width" secondItem="ldy-RB-Yo6" secondAttribute="width" id="DaY-ni-tI4"/>
                 <constraint firstItem="Tlc-Er-iAg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="65" id="VUQ-QC-jox">
                     <variation key="heightClass=compact" constant="33"/>
                 </constraint>
+                <constraint firstItem="Tlc-Er-iAg" firstAttribute="leading" secondItem="ldy-RB-Yo6" secondAttribute="leading" id="dY9-q1-ABu"/>
                 <constraint firstAttribute="trailing" secondItem="Tlc-Er-iAg" secondAttribute="trailing" id="fhk-5t-cb6"/>
+                <constraint firstItem="Tlc-Er-iAg" firstAttribute="top" secondItem="ldy-RB-Yo6" secondAttribute="top" id="pOu-gH-7eg"/>
                 <constraint firstItem="Tlc-Er-iAg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uUf-rP-Yqg"/>
+                <constraint firstItem="Tlc-Er-iAg" firstAttribute="height" secondItem="ldy-RB-Yo6" secondAttribute="height" id="xMv-Zz-3Pa"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
