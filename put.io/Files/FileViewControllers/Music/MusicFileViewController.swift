@@ -32,7 +32,6 @@ class MusicFileViewController: FileViewController {
     @IBAction func startPlaying(sender: AnyObject) {
         if downloadUrl != nil {
             let player = MPMoviePlayerViewController(contentURL: downloadUrl!)
-            let defaultNotificationCenter = NSNotificationCenter.defaultCenter()
             player.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
             player.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
             navigationController?.presentMoviePlayerViewControllerAnimated(player)

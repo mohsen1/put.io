@@ -51,7 +51,6 @@ class VideoFileViewController: FileViewController {
     @IBAction func startPlaying(sender: UIButton) {
         if streamUrl != nil {
             let player = MPMoviePlayerViewController(contentURL: streamUrl!)
-            let defaultNotificationCenter = NSNotificationCenter.defaultCenter()
             player.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
             player.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
             navigationController?.presentMoviePlayerViewControllerAnimated(player)
