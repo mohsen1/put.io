@@ -6,6 +6,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FullImageFileViewController" customModule="put_io" customModuleProvider="target">
             <connections>
+                <outlet property="imageConstraintBottom" destination="Mdv-Pb-CKv" id="q60-Mh-cOp"/>
+                <outlet property="imageConstraintLeft" destination="z7f-d6-DLm" id="tf2-Uc-upT"/>
+                <outlet property="imageConstraintRight" destination="Wby-Or-uuE" id="wdA-mS-XPe"/>
+                <outlet property="imageConstraintTop" destination="8yE-mC-dEv" id="L7P-FY-vND"/>
+                <outlet property="imageView" destination="6ho-zP-3cu" id="QND-YJ-7ti"/>
+                <outlet property="scrollView" destination="kHm-Oc-7Gv" id="vbD-V4-V7u"/>
                 <outlet property="showNavButton" destination="d20-4f-eiG" id="SF4-3d-UyC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -15,34 +21,36 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHm-Oc-7Gv">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kHm-Oc-7Gv">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ho-zP-3cu">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d20-4f-eiG" userLabel="ShowNav">
+                            <rect key="frame" x="266" y="295" width="600" height="600"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="showNav:" destination="-1" eventType="touchDown" id="NVr-wc-JxF"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ho-zP-3cu">
+                            <rect key="frame" x="250" y="250" width="100" height="100"/>
                         </imageView>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="6ho-zP-3cu" firstAttribute="top" secondItem="kHm-Oc-7Gv" secondAttribute="top" constant="250" id="8yE-mC-dEv"/>
+                        <constraint firstAttribute="bottom" secondItem="6ho-zP-3cu" secondAttribute="bottom" constant="-1" id="Mdv-Pb-CKv"/>
+                        <constraint firstAttribute="trailing" secondItem="6ho-zP-3cu" secondAttribute="trailing" constant="-1" id="Wby-Or-uuE"/>
+                        <constraint firstItem="6ho-zP-3cu" firstAttribute="leading" secondItem="kHm-Oc-7Gv" secondAttribute="leading" constant="250" id="z7f-d6-DLm"/>
+                    </constraints>
                 </scrollView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d20-4f-eiG" userLabel="ShowNav">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <state key="normal">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="showNav:" destination="-1" eventType="touchDown" id="NVr-wc-JxF"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="d20-4f-eiG" secondAttribute="trailing" id="2cR-HV-7Xf"/>
-                <constraint firstItem="d20-4f-eiG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6Rf-4V-mob"/>
                 <constraint firstItem="kHm-Oc-7Gv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FUG-RJ-Ive"/>
-                <constraint firstAttribute="bottom" secondItem="d20-4f-eiG" secondAttribute="bottom" id="cDa-C9-gw4"/>
                 <constraint firstAttribute="trailing" secondItem="kHm-Oc-7Gv" secondAttribute="trailing" id="l1S-VE-ugU"/>
                 <constraint firstItem="kHm-Oc-7Gv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qg6-X7-fTQ"/>
                 <constraint firstAttribute="bottom" secondItem="kHm-Oc-7Gv" secondAttribute="bottom" id="rmX-jt-N3D"/>
-                <constraint firstItem="d20-4f-eiG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vin-zM-Wx6"/>
             </constraints>
         </view>
     </objects>
