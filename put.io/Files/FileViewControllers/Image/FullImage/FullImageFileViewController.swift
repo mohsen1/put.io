@@ -10,41 +10,36 @@ import UIKit
 
 class FullImageFileViewController: FileViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
     var url:NSURL!
-    var navigationBarBackgroundImage:UIImage!
-    var navigationBarShadowImage:UIImage!
-    
-    @IBOutlet weak var showNavButton: UIButton!
-    
+
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
-    
+    @IBOutlet weak var doneButton: UIButton!
+
     @IBOutlet weak var imageConstraintTop: NSLayoutConstraint!
     @IBOutlet weak var imageConstraintRight: NSLayoutConstraint!
     @IBOutlet weak var imageConstraintLeft: NSLayoutConstraint!
     @IBOutlet weak var imageConstraintBottom: NSLayoutConstraint!
-    
+
     var lastZoomScale: CGFloat = -1
-//    @IBOutlet weak var scrollView: UIScrollView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         loadImage()
         tabBarController?.tabBar.hidden = true
-//        navigationController?.setNavigationBarHidden(true, animated: true)
-        navigationBarBackgroundImage = navigationController?.navigationBar.backgroundImageForBarMetrics(UIBarMetrics.Default)
-        navigationBarShadowImage = navigationController?.navigationBar.shadowImage
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.translucent = true
+        navigationController?.setNavigationBarHidden(true, animated: true)
         
         let tapRecegnizer = UITapGestureRecognizer(target: self, action: Selector("showNav:"))
         tapRecegnizer.numberOfTapsRequired = 1
         tapRecegnizer.delegate = self
-        imageView.addGestureRecognizer(tapRecegnizer)
+        scrollView.addGestureRecognizer(tapRecegnizer)
         
         view.backgroundColor = UIColor.blackColor()
     }
     
+
+    @IBAction func dismiss(sender: AnyObject) {
+        presentingViewController?.dismissViewControllerAnimated(false, completion: {})
+    }
     func loadImage() {
         dispatch_async(dispatch_get_main_queue()) {
             if let data = NSData(contentsOfURL: self.url){
@@ -60,30 +55,26 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate, UIG
         let nib = UINib(nibName: "FullImageFileViewController", bundle: nil)
         nib.instantiateWithOwner(self, options: nil)
     }
-    
+
     func showNav(sender: AnyObject) {
         dispatch_async(dispatch_get_main_queue()) {
-            self.navigationController!.setNavigationBarHidden(!self.navigationController!.navigationBarHidden, animated: true)
+            self.doneButton.hidden = !self.doneButton.hidden
             return
         }
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.navigationBar.setBackgroundImage(navigationBarBackgroundImage, forBarMetrics: UIBarMetrics.Default)
-        navigationController?.navigationBar.shadowImage = navigationBarShadowImage
-        navigationController?.navigationBar.translucent = true
         tabBarController?.tabBar.hidden = false
     }
 
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         scrollView.delegate = self
         updateZoom()
         
     }
-    
+
     // Update zoom scale and constraints
     // It will also animate because willAnimateRotationToInterfaceOrientation
     // is called from within an animation block
@@ -95,7 +86,7 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate, UIG
             super.willAnimateRotationToInterfaceOrientation(toInterfaceOrientation, duration: duration)
             updateZoom()
     }
-    
+
     func updateConstraints() {
         if let image = imageView.image {
             let imageWidth = image.size.width
@@ -121,7 +112,7 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate, UIG
             view.layoutIfNeeded()
         }
     }
-    
+
     // Zoom to show as much image as possible unless image is smaller than screen
     private func updateZoom() {
         if let image = imageView.image {
@@ -139,16 +130,13 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate, UIG
             lastZoomScale = minZoom
         }
     }
-    
+
     // UIScrollViewDelegate
     // -----------------------
-    
     func scrollViewDidZoom(scrollView: UIScrollView) {
         updateConstraints()
     }
-    
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return imageView
     }
-    
 }

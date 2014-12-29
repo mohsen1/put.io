@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FullImageFileViewController" customModule="put_io" customModuleProvider="target">
             <connections>
+                <outlet property="doneButton" destination="ma5-hZ-hie" id="Yu5-5Z-SsZ"/>
                 <outlet property="imageConstraintBottom" destination="Mdv-Pb-CKv" id="q60-Mh-cOp"/>
                 <outlet property="imageConstraintLeft" destination="z7f-d6-DLm" id="tf2-Uc-upT"/>
                 <outlet property="imageConstraintRight" destination="Wby-Or-uuE" id="wdA-mS-XPe"/>
@@ -34,14 +35,30 @@
                         <constraint firstItem="6ho-zP-3cu" firstAttribute="leading" secondItem="kHm-Oc-7Gv" secondAttribute="leading" constant="250" id="z7f-d6-DLm"/>
                     </constraints>
                 </scrollView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma5-hZ-hie">
+                    <rect key="frame" x="8" y="16" width="45" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="TXN-Zf-eew"/>
+                    </constraints>
+                    <state key="normal" title="Done">
+                        <color key="titleColor" red="0.94276588400000005" green="0.94276588400000005" blue="0.94276588400000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="dismiss:" destination="-1" eventType="touchDown" id="fY4-0t-xRR"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="ma5-hZ-hie" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="0LF-ra-Vau"/>
                 <constraint firstItem="kHm-Oc-7Gv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FUG-RJ-Ive"/>
+                <constraint firstItem="ma5-hZ-hie" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="aAI-iT-xHc"/>
                 <constraint firstAttribute="trailing" secondItem="kHm-Oc-7Gv" secondAttribute="trailing" id="l1S-VE-ugU"/>
                 <constraint firstItem="kHm-Oc-7Gv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qg6-X7-fTQ"/>
                 <constraint firstAttribute="bottom" secondItem="kHm-Oc-7Gv" secondAttribute="bottom" id="rmX-jt-N3D"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
 </document>

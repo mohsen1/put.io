@@ -51,6 +51,7 @@ class ImageFileViewController: FileViewController {
     @IBAction func openFull(sender: UIButton) {
         var vc = FullImageFileViewController()
         vc.url = fullImageUrl
-        navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = UIModalPresentationStyle.CurrentContext
+        navigationController?.presentViewController(vc, animated: false, completion: {})
     }
 }
