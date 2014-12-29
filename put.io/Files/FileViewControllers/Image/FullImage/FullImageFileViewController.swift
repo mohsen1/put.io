@@ -25,8 +25,7 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate, UIG
     override func viewDidLoad() {
         super.viewDidLoad()
         loadImage()
-        tabBarController?.tabBar.hidden = true
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        presentingViewController?.tabBarController?.tabBar.hidden = true
         
         let tapRecegnizer = UITapGestureRecognizer(target: self, action: Selector("showNav:"))
         tapRecegnizer.numberOfTapsRequired = 1
@@ -65,7 +64,7 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate, UIG
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        tabBarController?.tabBar.hidden = false
+        presentingViewController?.tabBarController?.tabBar.hidden = false
     }
 
     override func viewDidAppear(animated: Bool) {
