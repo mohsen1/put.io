@@ -12,7 +12,6 @@
                 <outlet property="imageConstraintTop" destination="8yE-mC-dEv" id="L7P-FY-vND"/>
                 <outlet property="imageView" destination="6ho-zP-3cu" id="QND-YJ-7ti"/>
                 <outlet property="scrollView" destination="kHm-Oc-7Gv" id="vbD-V4-V7u"/>
-                <outlet property="showNavButton" destination="d20-4f-eiG" id="SF4-3d-UyC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,15 +23,6 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kHm-Oc-7Gv">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d20-4f-eiG" userLabel="ShowNav">
-                            <rect key="frame" x="266" y="295" width="600" height="600"/>
-                            <state key="normal">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="showNav:" destination="-1" eventType="touchDown" id="NVr-wc-JxF"/>
-                            </connections>
-                        </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ho-zP-3cu">
                             <rect key="frame" x="250" y="250" width="100" height="100"/>
                         </imageView>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FullImageFileViewController: FileViewController, UIScrollViewDelegate {
+class FullImageFileViewController: FileViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
     var url:NSURL!
     var navigationBarBackgroundImage:UIImage!
     var navigationBarShadowImage:UIImage!
@@ -30,13 +30,19 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         loadImage()
         tabBarController?.tabBar.hidden = true
-        navigationController?.setNavigationBarHidden(true, animated: true)
+//        navigationController?.setNavigationBarHidden(true, animated: true)
         navigationBarBackgroundImage = navigationController?.navigationBar.backgroundImageForBarMetrics(UIBarMetrics.Default)
         navigationBarShadowImage = navigationController?.navigationBar.shadowImage
         navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.translucent = true
         
+        let tapRecegnizer = UITapGestureRecognizer(target: self, action: Selector("showNav:"))
+        tapRecegnizer.numberOfTapsRequired = 1
+        tapRecegnizer.delegate = self
+        imageView.addGestureRecognizer(tapRecegnizer)
+        
+        view.backgroundColor = UIColor.blackColor()
     }
     
     func loadImage() {
@@ -55,7 +61,7 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate {
         nib.instantiateWithOwner(self, options: nil)
     }
     
-    @IBAction func showNav(sender: AnyObject) {
+    func showNav(sender: AnyObject) {
         dispatch_async(dispatch_get_main_queue()) {
             self.navigationController!.setNavigationBarHidden(!self.navigationController!.navigationBarHidden, animated: true)
             return
@@ -67,6 +73,7 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate {
         navigationController?.navigationBar.setBackgroundImage(navigationBarBackgroundImage, forBarMetrics: UIBarMetrics.Default)
         navigationController?.navigationBar.shadowImage = navigationBarShadowImage
         navigationController?.navigationBar.translucent = true
+        tabBarController?.tabBar.hidden = false
     }
 
     
@@ -74,6 +81,7 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate {
         super.viewDidAppear(animated)
         scrollView.delegate = self
         updateZoom()
+        
     }
     
     // Update zoom scale and constraints
