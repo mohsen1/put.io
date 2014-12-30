@@ -13,7 +13,6 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate, UIG
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var doneButton: UIButton!
 
     @IBOutlet weak var imageConstraintTop: NSLayoutConstraint!
     @IBOutlet weak var imageConstraintRight: NSLayoutConstraint!
@@ -27,7 +26,7 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate, UIG
         loadImage()
         presentingViewController?.tabBarController?.tabBar.hidden = true
         
-        let tapRecegnizer = UITapGestureRecognizer(target: self, action: Selector("showNav:"))
+        let tapRecegnizer = UITapGestureRecognizer(target: self, action: Selector("dismiss:"))
         tapRecegnizer.numberOfTapsRequired = 1
         tapRecegnizer.delegate = self
         scrollView.addGestureRecognizer(tapRecegnizer)
@@ -43,6 +42,7 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate, UIG
         if let data = NSData(contentsOfURL: self.url){
             if let image = UIImage(data: data) {
                 self.imageView.image = image
+                self.updateConstraints()
             }
         }
     }
@@ -53,12 +53,6 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate, UIG
         nib.instantiateWithOwner(self, options: nil)
     }
 
-    func showNav(sender: AnyObject) {
-        dispatch_async(dispatch_get_main_queue()) {
-            self.doneButton.hidden = !self.doneButton.hidden
-            return
-        }
-    }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -69,7 +63,6 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate, UIG
         super.viewDidAppear(animated)
         scrollView.delegate = self
         updateZoom()
-        
     }
 
     // Update zoom scale and constraints

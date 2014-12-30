@@ -44,7 +44,7 @@ class MusicFileViewController: FileViewController {
     func fetchDownloadUrl() {
         FileStore.getDownloadUrl(file!.id) { (downloadUrl:NSURL?) in
             self.downloadUrl = downloadUrl
-            NSLog("download url is \(downloadUrl)")
+            println("download url is \(downloadUrl)")
             dispatch_async(dispatch_get_main_queue()) {
                 self.playButton.hidden = false
             }
