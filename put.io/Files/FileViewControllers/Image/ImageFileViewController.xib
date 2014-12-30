@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageFileViewController" customModule="put_io" customModuleProvider="target">
             <connections>
+                <outlet property="downloadingLabel" destination="ux9-bW-12L" id="k4P-zB-Q40"/>
                 <outlet property="imageView" destination="Tlc-Er-iAg" id="iw2-5F-VOx"/>
                 <outlet property="openButton" destination="ldy-RB-Yo6" id="ou4-jG-2Jz"/>
                 <outlet property="view" destination="iN0-l3-epB" id="49g-iF-SCM"/>
@@ -19,6 +20,12 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tlc-Er-iAg">
                     <rect key="frame" x="0.0" y="65" width="600" height="485"/>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading full resolution" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ux9-bW-12L">
+                    <rect key="frame" x="8" y="523" width="584" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldy-RB-Yo6" userLabel="Open">
                     <rect key="frame" x="0.0" y="65" width="600" height="485"/>
                     <state key="normal">
@@ -31,8 +38,11 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="ux9-bW-12L" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="0Tk-2k-U3G"/>
                 <constraint firstAttribute="bottom" secondItem="Tlc-Er-iAg" secondAttribute="bottom" constant="50" id="2Pk-dt-2Yl"/>
+                <constraint firstItem="ux9-bW-12L" firstAttribute="top" secondItem="ldy-RB-Yo6" secondAttribute="bottom" constant="-27" id="3BB-Ot-ysz"/>
                 <constraint firstItem="Tlc-Er-iAg" firstAttribute="width" secondItem="ldy-RB-Yo6" secondAttribute="width" id="DaY-ni-tI4"/>
+                <constraint firstAttribute="trailing" secondItem="ux9-bW-12L" secondAttribute="trailing" constant="8" id="OV2-w8-vyn"/>
                 <constraint firstItem="Tlc-Er-iAg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="65" id="VUQ-QC-jox">
                     <variation key="heightClass=compact" constant="33"/>
                 </constraint>

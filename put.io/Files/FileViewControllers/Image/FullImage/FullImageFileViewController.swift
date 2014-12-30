@@ -40,11 +40,9 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate, UIG
         presentingViewController?.dismissViewControllerAnimated(false, completion: {})
     }
     func loadImage() {
-        dispatch_async(dispatch_get_main_queue()) {
-            if let data = NSData(contentsOfURL: self.url){
-                if let image = UIImage(data: data) {
-                    self.imageView.image = image
-                }
+        if let data = NSData(contentsOfURL: self.url){
+            if let image = UIImage(data: data) {
+                self.imageView.image = image
             }
         }
     }

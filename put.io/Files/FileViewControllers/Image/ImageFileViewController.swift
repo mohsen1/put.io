@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Alamofire
 
 class ImageFileViewController: FileViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var openButton: UIButton!
+    @IBOutlet weak var downloadingLabel: UILabel!
     
     var fullImageUrl:NSURL?
     
@@ -18,7 +20,7 @@ class ImageFileViewController: FileViewController {
         super.viewDidLoad()
         super.assingDetailsButtonToNavigationItem()
         loadScreenshot()
-        fetchDownloadUrl()
+        downloadFullImage()
     }
     override func loadView() {
         super.loadView()
@@ -39,11 +41,32 @@ class ImageFileViewController: FileViewController {
         }
     }
     
-    func fetchDownloadUrl() {
+    func downloadFullImage() {
         if file != nil {
             FileStore.getDownloadUrl(file!.id) { (url:NSURL?) in
-                self.fullImageUrl = url
-                self.openButton.hidden = false
+                if url != nil {
+                    Alamofire.download(.GET, url!, { (temporaryURL, response) in
+                        if let directoryURL = NSFileManager.defaultManager()
+                            .URLsForDirectory(.DocumentDirectory,
+                                inDomains: .UserDomainMask)[0]
+                            as? NSURL {
+                                let pathComponent = response.suggestedFilename
+                                self.fullImageUrl = directoryURL.URLByAppendingPathComponent(pathComponent!)
+                                return self.fullImageUrl!
+                        }
+                        self.fullImageUrl = temporaryURL
+                        return temporaryURL
+                    })
+                    .progress({ (bytesRead, totalBytesRead, totalBytesExpectedToRead) in
+                        let percent = totalBytesRead / totalBytesExpectedToRead  * 100
+                        self.downloadingLabel.text = "Downloading full resolution: \(percent)%"
+                    })
+                    .response { (request, response, _, error) in
+                        self.downloadingLabel.text = "Downloaded full resolution"
+                        self.openButton.hidden = false
+                    }
+                }
+                
             }
         }
     }
