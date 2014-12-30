@@ -10,12 +10,12 @@ import UIKit
 
 class FileViewController: UIViewController {
     var file:File?
-    
+
     func assingDetailsButtonToNavigationItem() {
         let detailsButton = UIBarButtonItem(title: "Details", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("openDetailsViewController"))
         navigationItem.rightBarButtonItem = detailsButton
     }
-    
+
     func openDetailsViewController() {
         let nav = UINavigationController()
         let details = FileDetailsTableViewController()
@@ -25,7 +25,7 @@ class FileViewController: UIViewController {
         nav.pushViewController(details, animated: false)
         presentViewController(nav, animated: true, completion: {})
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = file?.name

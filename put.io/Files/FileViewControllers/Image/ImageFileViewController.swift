@@ -12,7 +12,6 @@ import Alamofire
 class ImageFileViewController: FileViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var openButton: UIButton!
-    @IBOutlet weak var downloadingLabel: UILabel!
     
     var fullImageUrl:NSURL?
     
@@ -57,12 +56,8 @@ class ImageFileViewController: FileViewController {
                         self.fullImageUrl = temporaryURL
                         return temporaryURL
                     })
-                    .progress({ (bytesRead, totalBytesRead, totalBytesExpectedToRead) in
-                        let percent = totalBytesRead / totalBytesExpectedToRead  * 100
-                        self.downloadingLabel.text = "Downloading full resolution: \(percent)%"
-                    })
                     .response { (request, response, _, error) in
-                        self.downloadingLabel.text = "Downloaded full resolution"
+                        self.navigationItem.title = "✔︎ \(self.file!.name!)"
                         self.openButton.hidden = false
                     }
                 }
