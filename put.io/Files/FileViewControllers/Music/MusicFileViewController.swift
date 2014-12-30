@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AVFoundation
+import MediaPlayer
 
 
 class MusicFileViewController: FileViewController {
