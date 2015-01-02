@@ -63,15 +63,20 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
 
         if currentUrl?.rangeOfString("/login") != nil {
             webView.stringByEvaluatingJavaScriptFromString(js)
+            webView.hidden = false
         }
 
-        if let token = webView.stringByEvaluatingJavaScriptFromString("if(location.hash.indexOf('access_token=') > -1) location.hash.split('=')[1]") {
+
+        if let token = webView.stringByEvaluatingJavaScriptFromString("if(location.href.indexOf('access_token=') > -1) location.href.split('=')[1]") {
                 if token != "" {
+                    println("toekn was found: \(token)")
                     FinishLogin(token)
+                } else {
+                    println("was not able to get the token")
                 }
         }
 
-        if currentUrl == "http://mohsenweb.com/put.io/" {
+        if currentUrl == "http://azimi.me/put.io/" {
             refresh(0)
         }
     }
@@ -83,7 +88,7 @@ class LoginViewController: UIViewController , UIWebViewDelegate {
     }
 
     func startRequest() {
-        let startUrl = "https://api.put.io/v2/oauth2/authenticate?client_id=1655&response_type=token&redirect_uri=http://mohsenweb.com/put.io/"
+        let startUrl = "https://api.put.io/v2/oauth2/authenticate?client_id=1831&response_type=token&redirect_uri=http://azimi.me/put.io/"
         var startRequest = NSMutableURLRequest(URL: NSURL(string: startUrl)!)
 
         loadingActivityIndicator.hidden = false

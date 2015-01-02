@@ -148,7 +148,7 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
                 let aboutVc = UIViewController()
                 aboutVc.view = about
                 aboutVc.navigationItem.title = "About"
-                about.loadRequest(NSURLRequest(URL: NSURL(string: "http://mohsenweb.com/put.io/about")!))
+                about.loadRequest(NSURLRequest(URL: NSURL(string: "http://azimi.me/put.io/about")!))
                 navigationController?.pushViewController(aboutVc, animated: true)
             }
 
@@ -157,7 +157,7 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
                 let reportVc = UIViewController()
                 reportVc.view = report
                 reportVc.navigationItem.title = "Report an issue"
-                report.loadRequest(NSURLRequest(URL: NSURL(string: "http://mohsenweb.com/put.io/report")!))
+                report.loadRequest(NSURLRequest(URL: NSURL(string: "http://azimi.me/put.io/report")!))
                 navigationController?.pushViewController(reportVc, animated: true)
             }
         }
