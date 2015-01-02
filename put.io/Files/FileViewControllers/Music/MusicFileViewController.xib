@@ -16,15 +16,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBf-Xy-L8j">
-                    <rect key="frame" x="285" y="372" width="30" height="30"/>
-                    <state key="normal" title="Play">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="startPlaying:" destination="-1" eventType="touchDown" id="hDS-Hz-e4m"/>
-                    </connections>
-                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xz4-7l-vUq" userLabel="DetailsView">
                     <rect key="frame" x="8" y="236" width="584" height="128"/>
                     <subviews>
@@ -45,12 +36,35 @@
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="AudioIcon" translatesAutoresizingMaskIntoConstraints="NO" id="psH-Bl-pzL">
                     <rect key="frame" x="263" y="153" width="75" height="75"/>
                 </imageView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBf-Xy-L8j" customClass="PUTButton" customModule="put_io" customModuleProvider="target">
+                    <rect key="frame" x="240" y="372" width="120" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="EJD-Ra-dQk"/>
+                    </constraints>
+                    <state key="normal" title="Play">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="startPlaying:" destination="-1" eventType="touchDown" id="hDS-Hz-e4m"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="hBf-Xy-L8j" firstAttribute="centerX" secondItem="xz4-7l-vUq" secondAttribute="centerX" id="D1p-X3-Pc3"/>
                 <constraint firstItem="xz4-7l-vUq" firstAttribute="top" secondItem="psH-Bl-pzL" secondAttribute="bottom" constant="8" id="HIb-aM-Qpr"/>
                 <constraint firstAttribute="centerY" secondItem="xz4-7l-vUq" secondAttribute="centerY" id="Msv-HT-fBt"/>
-                <constraint firstItem="hBf-Xy-L8j" firstAttribute="centerX" secondItem="xz4-7l-vUq" secondAttribute="centerX" id="dAb-ie-2Ay"/>
                 <constraint firstAttribute="centerX" secondItem="psH-Bl-pzL" secondAttribute="centerX" constant="-0.5" id="hUo-SA-PSH"/>
                 <constraint firstAttribute="centerX" secondItem="xz4-7l-vUq" secondAttribute="centerX" id="jZn-f9-HJP"/>
                 <constraint firstItem="xz4-7l-vUq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="tOL-a9-ffL"/>

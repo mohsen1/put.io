@@ -14,7 +14,7 @@ class MusicFileViewController: FileViewController {
 
     var downloadUrl:NSURL?
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var playButton: PUTButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
