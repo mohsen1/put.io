@@ -8,8 +8,8 @@
 
 import UIKit
 
-class AddTransferViewController: UIViewController {
-    @IBOutlet weak var addButton: UIButton!
+@IBDesignable class AddTransferViewController: UIViewController {
+    @IBOutlet weak var addButton: PUTButton!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var bottomHeight: NSLayoutConstraint!

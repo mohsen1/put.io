@@ -48,6 +48,7 @@
 		82B057D41A3CB91000B0B76C /* MusicFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82B057D31A3CB91000B0B76C /* MusicFileViewController.xib */; };
 		82B73E2E1A0CA04600F64F6B /* AddTransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B73E2C1A0CA04600F64F6B /* AddTransferViewController.swift */; };
 		82B73E2F1A0CA04600F64F6B /* AddTransferViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82B73E2D1A0CA04600F64F6B /* AddTransferViewController.xib */; };
+		82B8B2961A563E46006B74F3 /* PUTButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B8B2951A563E46006B74F3 /* PUTButton.swift */; };
 		82C9C22A1A04B5A9001DF290 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C2291A04B5A9001DF290 /* TransferViewController.swift */; };
 		82C9C2301A04BFA0001DF290 /* KeyValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C22F1A04BFA0001DF290 /* KeyValueTableViewCell.swift */; };
 		82C9C2331A04D070001DF290 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C2321A04D070001DF290 /* Util.swift */; };
@@ -151,6 +152,7 @@
 		82B057D31A3CB91000B0B76C /* MusicFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MusicFileViewController.xib; path = FileViewControllers/Music/MusicFileViewController.xib; sourceTree = "<group>"; };
 		82B73E2C1A0CA04600F64F6B /* AddTransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTransferViewController.swift; path = AddTransfer/AddTransferViewController.swift; sourceTree = "<group>"; };
 		82B73E2D1A0CA04600F64F6B /* AddTransferViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddTransferViewController.xib; path = AddTransfer/AddTransferViewController.xib; sourceTree = "<group>"; };
+		82B8B2951A563E46006B74F3 /* PUTButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PUTButton.swift; path = UI/PUTButton.swift; sourceTree = "<group>"; };
 		82C9C2291A04B5A9001DF290 /* TransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
 		82C9C22F1A04BFA0001DF290 /* KeyValueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueTableViewCell.swift; sourceTree = "<group>"; };
 		82C9C2321A04D070001DF290 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Utility/Util.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 		825B078519F3312700E65789 /* put.io */ = {
 			isa = PBXGroup;
 			children = (
+				82B8B2931A563E28006B74F3 /* UI */,
 				8266029E1A00B3F100CB31D9 /* CoreData */,
 				8290F97C19F76C4E00158036 /* Transfers */,
 				8290F97B19F76C2000158036 /* Account */,
@@ -391,6 +394,14 @@
 				82B73E2D1A0CA04600F64F6B /* AddTransferViewController.xib */,
 			);
 			name = AddTransfer;
+			sourceTree = "<group>";
+		};
+		82B8B2931A563E28006B74F3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				82B8B2951A563E46006B74F3 /* PUTButton.swift */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		82C9C2381A04D075001DF290 /* Utility */ = {
@@ -563,6 +574,7 @@
 				822093301A02065100855701 /* FolderTableViewCell.swift in Sources */,
 				821816851A2BE80A008D1153 /* PlainFileViewController.swift in Sources */,
 				825CA22319FB8239007281AB /* File.swift in Sources */,
+				82B8B2961A563E46006B74F3 /* PUTButton.swift in Sources */,
 				825CA22119FB7E9C007281AB /* FileStore.swift in Sources */,
 				829F52AE19F4DC3E0032B485 /* LoginViewController.swift in Sources */,
 				825B07B519F337C900E65789 /* FolderViewController.swift in Sources */,
