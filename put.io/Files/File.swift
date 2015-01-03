@@ -14,8 +14,8 @@ private let byteFormatter = NSByteCountFormatter()
 class File: NSManagedObject {
     @NSManaged var id: NSNumber
     @NSManaged var parent_id: NSNumber
-    @NSManaged var name: String?
-    @NSManaged var content_type: String?
+    @NSManaged var name: String!
+    @NSManaged var content_type: String!
     @NSManaged var isFolder: Bool
     @NSManaged var created_at: NSDate?
     @NSManaged var first_accessed_at: NSDate?
@@ -82,5 +82,9 @@ class File: NSManagedObject {
         } else {
             isFolder = true // Assume it's root folder
         }
+    }
+    
+    func debugQuickLookObject() -> AnyObject? {
+        return "\(name)\ntype:\(content_type)"
     }
 }
