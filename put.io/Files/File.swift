@@ -26,7 +26,13 @@ class File: NSManagedObject {
     @NSManaged var size: String?
     @NSManaged var sizeString: String?
 
-    func fillWithJson(json:NSDictionary){
+    convenience init(json:NSDictionary, insertIntoManagedObjectContext context: NSManagedObjectContext!) {
+        let entity = NSEntityDescription.entityForName("File", inManagedObjectContext: context)!
+        self.init(entity: entity, insertIntoManagedObjectContext: context)
+        updateWithJson(json)
+    }
+
+    func updateWithJson(json:NSDictionary){
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
 

@@ -21,12 +21,11 @@ class FileStore {
             fetchRequest.predicate = NSPredicate(format: "id == \(id)")
             if let result = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchRequest, error:&error) as? [File]{
                 if result.count == 0 {
-                    var file = NSEntityDescription.insertNewObjectForEntityForName("File", inManagedObjectContext: appDelegate.cdh.managedObjectContext!) as File
-                    file.fillWithJson(json)
+                    let file = File(json: json, insertIntoManagedObjectContext: appDelegate.cdh.managedObjectContext!)
                     saveContext()
                     return file
                 } else {
-                    result[0].fillWithJson(json)
+                    result[0].updateWithJson(json)
                     return result[0]
                 }
             }
