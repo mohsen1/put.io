@@ -33,7 +33,6 @@ class ImageFileViewController: FileViewController {
             dispatch_async(dispatch_get_main_queue()){
                 if let url = NSURL(string: self.file!.screenshot!) {
                     self.imageView.hnk_setImageFromURL(url)
-                    self.imageView.contentMode = .ScaleAspectFit
                 }
             }
         }
