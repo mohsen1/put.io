@@ -37,14 +37,16 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
         refreshCtrl.attributedTitle = NSAttributedString(string: "Refreshing")
         refreshControl = refreshCtrl
 
-        refresh()
+        // Fetch from local db (forced: true) then force fetch from remote
+        doRefresh(silent: true, forced: false)
+        doRefresh(silent: true, forced: true)
     }
 
-    func doRefresh(silent: Bool) {
+    func doRefresh(silent: Bool = true, forced: Bool = false) {
         if !silent {
             startProgress()
         }
-        FileStore.getFolder(id, forceFetch: true, { result in
+        FileStore.getFolder(id, forceFetch: forced, { result in
             self.files = result
             dispatch_async(dispatch_get_main_queue()) {
                 self.refreshControl?.endRefreshing()
@@ -57,11 +59,11 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
     }
 
     func refresh(){
-        doRefresh(true)
+        doRefresh(silent: true)
     }
 
     func forceRefresh() {
-        doRefresh(false)
+        doRefresh(silent: false)
     }
 
     func openNewFolder() {
