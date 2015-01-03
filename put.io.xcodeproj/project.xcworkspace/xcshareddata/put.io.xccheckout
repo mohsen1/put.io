@@ -24,6 +24,8 @@
 		<string>github.com:BeamApp/MusicPlayerViewController.git</string>
 		<key>9F9B14DA276794D9192F387F0CC62561009373D0</key>
 		<string>git://github.com/mwaterfall/MWPhotoBrowser.git</string>
+		<key>C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F</key>
+		<string>github.com:Haneke/HanekeSwift.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>put.io.xcodeproj</string>
@@ -43,6 +45,8 @@
 		<string>../../Libraries/MusicPlayerViewController</string>
 		<key>9F9B14DA276794D9192F387F0CC62561009373D0</key>
 		<string>../../Libraries/MWPhotoBrowser</string>
+		<key>C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F</key>
+		<string>../../Libraries/HanekeSwift/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:mohsen1/put.io.git</string>
@@ -75,6 +79,14 @@
 			<string>72F8984C6879C862B97C92599A88FCD127E9E83C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>FSImageViewer</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HanekeSwift</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

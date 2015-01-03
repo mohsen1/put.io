@@ -8,6 +8,7 @@
 
 import UIKit
 import MediaPlayer
+import Haneke
 
 class VideoFileViewController: FileViewController {
     @IBOutlet var screenshot: UIImageView!
@@ -26,14 +27,9 @@ class VideoFileViewController: FileViewController {
     }
     
     func loadScreenshot() {
-        // TODO: cache the screenshot
         if let screenshot = file?.screenshot {
             if let url = NSURL(string: file!.screenshot!) {
-                if let data = NSData(contentsOfURL: url) {
-                    if let image = UIImage(data: data){
-                        self.screenshot.image = image
-                    }
-                }
+                self.screenshot.hnk_setImageFromURL(url)
             }
         }
     }
