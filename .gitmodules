@@ -1,3 +1,6 @@
 [submodule "Libraries/HanekeSwift"]
 	path = Libraries/HanekeSwift
 	url = git@github.com:Haneke/HanekeSwift.git
+[submodule "Libraries/Alamofire"]
+	path = Libraries/Alamofire
+	url = git@github.com:Alamofire/Alamofire.git 
