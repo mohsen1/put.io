@@ -40,24 +40,28 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
         refresh()
     }
 
-    func doRefresh(force: Bool) {
-        startProgress()
-        FileStore.getFolder(id, forceFetch: force, { result in
+    func doRefresh(silent: Bool) {
+        if !silent {
+            startProgress()
+        }
+        FileStore.getFolder(id, forceFetch: true, { result in
             self.files = result
             dispatch_async(dispatch_get_main_queue()) {
                 self.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
-                self.stopProgress()
+                if !silent {
+                    self.stopProgress()
+                }
             }
         })
     }
 
     func refresh(){
-        doRefresh(false)
+        doRefresh(true)
     }
 
     func forceRefresh() {
-        doRefresh(true)
+        doRefresh(false)
     }
 
     func openNewFolder() {
