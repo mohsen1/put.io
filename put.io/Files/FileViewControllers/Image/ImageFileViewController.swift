@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Haneke
 
 class ImageFileViewController: FileViewController {
     @IBOutlet weak var imageView: UIImageView!
@@ -31,10 +32,8 @@ class ImageFileViewController: FileViewController {
         if file?.screenshot != nil {
             dispatch_async(dispatch_get_main_queue()){
                 if let url = NSURL(string: self.file!.screenshot!) {
-                    if let data = NSData(contentsOfURL: url){
-                        self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
-                        self.imageView.image = UIImage(data: data)
-                    }
+                    self.imageView.hnk_setImageFromURL(url)
+                    self.imageView.contentMode = .ScaleAspectFit
                 }
             }
         }
@@ -44,24 +43,12 @@ class ImageFileViewController: FileViewController {
         if file != nil {
             FileStore.getDownloadUrl(file!.id) { (url:NSURL?) in
                 if url != nil {
-                    Alamofire.download(.GET, url!, { (temporaryURL, response) in
-                        if let directoryURL = NSFileManager.defaultManager()
-                            .URLsForDirectory(.DocumentDirectory,
-                                inDomains: .UserDomainMask)[0]
-                            as? NSURL {
-                                let pathComponent = response.suggestedFilename
-                                self.fullImageUrl = directoryURL.URLByAppendingPathComponent(pathComponent!)
-                                return self.fullImageUrl!
-                        }
-                        self.fullImageUrl = temporaryURL
-                        return temporaryURL
-                    })
-                    .response { (request, response, _, error) in
+                    self.fullImageUrl = url
+                    Shared.dataCache.fetch(URL: url!).onSuccess { _ in
                         self.navigationItem.title = "✔︎ \(self.file!.name!)"
                         self.openButton.hidden = false
                     }
                 }
-                
             }
         }
     }

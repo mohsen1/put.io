@@ -33,18 +33,13 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate, UIG
         
         view.backgroundColor = UIColor.blackColor()
     }
-    
 
     @IBAction func dismiss(sender: AnyObject) {
         presentingViewController?.dismissViewControllerAnimated(false, completion: {})
     }
     func loadImage() {
-        if let data = NSData(contentsOfURL: self.url){
-            if let image = UIImage(data: data) {
-                self.imageView.image = image
-                self.updateConstraints()
-            }
-        }
+        imageView.hnk_setImageFromURL(self.url)
+        updateConstraints()
     }
 
     override func loadView() {
