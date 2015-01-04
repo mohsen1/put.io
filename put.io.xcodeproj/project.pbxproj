@@ -59,6 +59,7 @@
 		82EF9C611A4F3C6A00C11F51 /* VideoFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EF9C601A4F3C6A00C11F51 /* VideoFileViewController.swift */; };
 		82EFF62B1A05B25700C95D55 /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EFF62A1A05B25700C95D55 /* Transfer.swift */; };
 		82EFF6311A05EC9900C95D55 /* TransferStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EFF6301A05EC9900C95D55 /* TransferStore.swift */; };
+		82F0D92C1A59C44400FB1291 /* PUTWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F0D92B1A59C44400FB1291 /* PUTWebViewController.swift */; };
 		82FC26B61A5284E500BCDEF5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8224AC101A2A6004001F9ADB /* Alamofire.framework */; };
 		82FC26B71A5284E500BCDEF5 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8224AC101A2A6004001F9ADB /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -194,6 +195,7 @@
 		82EF9C601A4F3C6A00C11F51 /* VideoFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoFileViewController.swift; path = FileViewControllers/Video/VideoFileViewController.swift; sourceTree = "<group>"; };
 		82EFF62A1A05B25700C95D55 /* Transfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
 		82EFF6301A05EC9900C95D55 /* TransferStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferStore.swift; sourceTree = "<group>"; };
+		82F0D92B1A59C44400FB1291 /* PUTWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PUTWebViewController.swift; path = UI/PUTWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,6 +446,7 @@
 			isa = PBXGroup;
 			children = (
 				82B8B2951A563E46006B74F3 /* PUTButton.swift */,
+				82F0D92B1A59C44400FB1291 /* PUTWebViewController.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -651,6 +654,7 @@
 				82EFF62B1A05B25700C95D55 /* Transfer.swift in Sources */,
 				826A6EF419FC3F1300D348F1 /* Account.swift in Sources */,
 				82C9C2331A04D070001DF290 /* Util.swift in Sources */,
+				82F0D92C1A59C44400FB1291 /* PUTWebViewController.swift in Sources */,
 				824BA38B1A50DCA30000220F /* FullImageFileViewController.swift in Sources */,
 				82D9CEC41A0EA81400A26FC4 /* AccountSettingsViewController.swift in Sources */,
 				82EF9C611A4F3C6A00C11F51 /* VideoFileViewController.swift in Sources */,

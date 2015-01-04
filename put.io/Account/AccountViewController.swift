@@ -144,21 +144,13 @@ class AccountViewController: UITableViewController, UIAlertViewDelegate {
             }
 
             if indexPath.row == 1 { // About
-                let about = UIWebView()
-                let aboutVc = UIViewController()
-                aboutVc.view = about
-                aboutVc.navigationItem.title = "About"
-                about.loadRequest(NSURLRequest(URL: NSURL(string: "http://azimi.me/put.io/about")!))
-                navigationController?.pushViewController(aboutVc, animated: true)
+                let aboutVC = PUTWebViewController(title: "About", URL: NSURL(string: "http://azimi.me/put.io/about")!)
+                navigationController?.pushViewController(aboutVC, animated: true)
             }
 
             if indexPath.row == 2 { // Report
-                let report = UIWebView()
-                let reportVc = UIViewController()
-                reportVc.view = report
-                reportVc.navigationItem.title = "Report an issue"
-                report.loadRequest(NSURLRequest(URL: NSURL(string: "http://azimi.me/put.io/report")!))
-                navigationController?.pushViewController(reportVc, animated: true)
+                let reportVC = PUTWebViewController(title: "Report an Issue", URL: NSURL(string: "http://azimi.me/put.io/report")!)
+                navigationController?.pushViewController(reportVC, animated: true)
             }
         }
     }
