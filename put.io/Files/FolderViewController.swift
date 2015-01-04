@@ -21,11 +21,11 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
         var folderTableViewCellNib = UINib(nibName: "FolderTableViewCell", bundle: nil)
         tableView.registerNib(folderTableViewCellNib, forCellReuseIdentifier: "FolderTableViewCell")
         tableView.rowHeight = 54
-        FileStore.getFile(id, { (result:File) in
+        FileStore.getFile(id, forceFetch: false) { (result:File) in
             dispatch_async(dispatch_get_main_queue()) {
                 self.navigationItem.title = result.name
             }
-        })
+        }
         activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
         activityIndicator?.hidden = true
         activityIndicatorBarButton = UIBarButtonItem(customView: activityIndicator!)

@@ -123,10 +123,10 @@ class TransferStore {
     }
 
     class func fetchFile(transfer: Transfer, completionHandler: (File)->()) {
-        FileStore.getFile(transfer.fileId, { (result:File) in
-            transfer.file = result
+        FileStore.getFile(transfer.fileId, forceFetch:false) {
+            transfer.file = $0
             self.saveContext()
-            completionHandler(result)
-        })
+            completionHandler($0)
+        }
     }
 }

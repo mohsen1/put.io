@@ -93,7 +93,7 @@ class FileStore {
 
     }
 
-    class func getFile (id:NSNumber, completionHandler: (File)->()) {
+    class func getFile (id:NSNumber, forceFetch:Bool = false, completionHandler: (File)->()) {
         var error: NSError?
         var fetchReq = NSFetchRequest(entityName: "File")
 
@@ -101,7 +101,7 @@ class FileStore {
 
         if let result = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchReq, error:&error) as? [File]{
 
-            if result.count > 0 {
+            if result.count > 0 && !forceFetch {
                 completionHandler(result[0])
             } else {
                 fetchFile(id, completionHandler: { fetchResult in

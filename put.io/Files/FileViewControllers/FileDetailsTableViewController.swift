@@ -31,6 +31,13 @@ class FileDetailsTableViewController: UITableViewController {
         tableView.allowsSelection = false
         dateFormatter.dateStyle = .MediumStyle
         dateFormatter.timeStyle = .MediumStyle
+        
+        if file != nil {
+            FileStore.getFile(file!.id, forceFetch: true) {
+                self.file = $0
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func close() {
