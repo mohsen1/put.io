@@ -46,14 +46,18 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
         if !silent {
             startProgress()
         }
-        FileStore.getFolder(id, forceFetch: forced, { result in
-            self.files = result
-            dispatch_async(dispatch_get_main_queue()) {
+        FileStore.getFolder(id, forceFetch: forced, { (result:[File]?, error:NSError?) in
+            if result != nil {
+                self.files = result!
+
                 self.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
                 if !silent {
                     self.stopProgress()
                 }
+            } else {
+                // TODO: Alert user that there was an issue loading this folder
+                println(error?.localizedDescription)
             }
         })
     }

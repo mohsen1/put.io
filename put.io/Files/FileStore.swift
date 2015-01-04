@@ -69,7 +69,7 @@ class FileStore {
         })
     }
 
-    class func getFolder(id:NSNumber, forceFetch:Bool, completionHandler: ([File])->()) {
+    class func getFolder(id:NSNumber, forceFetch:Bool, completionHandler: ([File]?, NSError?)->()) {
         var error: NSError? = nil
         var fetchReq = NSFetchRequest(entityName: "File")
         let sorter: NSSortDescriptor = NSSortDescriptor(key: "name" , ascending: false)
@@ -80,13 +80,15 @@ class FileStore {
         if let result = appDelegate.cdh.managedObjectContext!.executeFetchRequest(fetchReq, error:&error) as? [File]{
 
             if result.count > 0 && !forceFetch {
-                completionHandler(result)
+                completionHandler(result, nil)
             } else {
                 self.saveContext()
-                fetchList(id, completionHandler: { (resultFiles:[File]) in
-                    completionHandler(resultFiles)
+                fetchList(id, completionHandler: { (resultFiles:[File]?, error:NSError?) in
+                    completionHandler(resultFiles, error)
                 })
             }
+        } else {
+            completionHandler(nil, NSError(domain: "Unable to fetch folder", code: 1000, userInfo: nil))
         }
 
     }
@@ -147,7 +149,7 @@ class FileStore {
     }
 
     // MARK: - HTTP
-    private class func fetchList(id:NSNumber, completionHandler: ([File])->()) {
+    private class func fetchList(id:NSNumber, completionHandler: ([File]?, NSError?)->()) {
         let url = "https://api.put.io/v2/files/list"
         var params = [String:String]()
         if let account = AccountStore.getAccountSync() {
@@ -161,17 +163,12 @@ class FileStore {
             if let json = data as? NSDictionary {
                 if let jsonFiles = json["files"] as? NSArray {
                     let resultFiles = FileStore.filesFromJsonArray(jsonFiles) as [File]
-                    completionHandler(resultFiles)
+                    completionHandler(resultFiles, nil)
                     return
                 }
             }
 
-            // TODO fail better
-            completionHandler([])
-
-            if error != nil {
-                println(error!)
-            }
+            completionHandler(nil, error)
         }
     }
 
