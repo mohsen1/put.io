@@ -20,6 +20,7 @@
 		822093301A02065100855701 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8220932E1A02065100855701 /* FolderTableViewCell.swift */; };
 		822093311A02065100855701 /* FolderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8220932F1A02065100855701 /* FolderTableViewCell.xib */; };
 		8224AC1B1A2A6046001F9ADB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8224AC101A2A6004001F9ADB /* Alamofire.framework */; };
+		8228ADCA1A5CD19B00E6AA30 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8228ADC91A5CD19B00E6AA30 /* NSDate.swift */; };
 		824BA38B1A50DCA30000220F /* FullImageFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824BA3891A50DCA30000220F /* FullImageFileViewController.swift */; };
 		824BA38C1A50DCA30000220F /* FullImageFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 824BA38A1A50DCA30000220F /* FullImageFileViewController.xib */; };
 		8258E8EE19F3D4F700BB5E12 /* AccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E8ED19F3D4F700BB5E12 /* AccountStore.swift */; };
@@ -151,6 +152,7 @@
 		8220932E1A02065100855701 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FolderTableViewCell.swift; path = FolderCell/FolderTableViewCell.swift; sourceTree = "<group>"; };
 		8220932F1A02065100855701 /* FolderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FolderTableViewCell.xib; path = FolderCell/FolderTableViewCell.xib; sourceTree = "<group>"; };
 		8224AC0A1A2A6004001F9ADB /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Libraries/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		8228ADC91A5CD19B00E6AA30 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDate.swift; path = Swift/OperatorOverloadings/NSDate.swift; sourceTree = "<group>"; };
 		824BA3891A50DCA30000220F /* FullImageFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullImageFileViewController.swift; path = FileViewControllers/Image/FullImage/FullImageFileViewController.swift; sourceTree = "<group>"; };
 		824BA38A1A50DCA30000220F /* FullImageFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FullImageFileViewController.xib; path = FileViewControllers/Image/FullImage/FullImageFileViewController.xib; sourceTree = "<group>"; };
 		8258E8ED19F3D4F700BB5E12 /* AccountStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountStore.swift; sourceTree = "<group>"; };
@@ -267,6 +269,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8228ADCE1A5CD1A100E6AA30 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				8228ADCF1A5CD1A500E6AA30 /* OperatorOverloadings */,
+			);
+			name = Swift;
+			sourceTree = "<group>";
+		};
+		8228ADCF1A5CD1A500E6AA30 /* OperatorOverloadings */ = {
+			isa = PBXGroup;
+			children = (
+				8228ADC91A5CD19B00E6AA30 /* NSDate.swift */,
+			);
+			name = OperatorOverloadings;
+			sourceTree = "<group>";
+		};
 		824BA38D1A50DCA80000220F /* FullImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +319,7 @@
 		825B078519F3312700E65789 /* put.io */ = {
 			isa = PBXGroup;
 			children = (
+				8228ADCE1A5CD1A100E6AA30 /* Swift */,
 				82B8B2931A563E28006B74F3 /* UI */,
 				8266029E1A00B3F100CB31D9 /* CoreData */,
 				8290F97C19F76C4E00158036 /* Transfers */,
@@ -662,6 +681,7 @@
 				82C9C22A1A04B5A9001DF290 /* TransferViewController.swift in Sources */,
 				8258E92E19F4579400BB5E12 /* AccountViewController.swift in Sources */,
 				82084F2F19FC7AA6005DF388 /* AccountInfoCell.swift in Sources */,
+				8228ADCA1A5CD19B00E6AA30 /* NSDate.swift in Sources */,
 				828B73701A33EB7000E156BE /* WebViewFileViewController.swift in Sources */,
 				821816881A2BEA10008D1153 /* FileViewController.swift in Sources */,
 				8258E92819F4402D00BB5E12 /* MainViewController.swift in Sources */,

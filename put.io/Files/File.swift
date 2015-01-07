@@ -17,7 +17,7 @@ class File: NSManagedObject {
     @NSManaged var name: String!
     @NSManaged var content_type: String!
     @NSManaged var isFolder: Bool
-    @NSManaged var created_at: NSDate?
+    @NSManaged var created_at: NSDate!
     @NSManaged var first_accessed_at: NSDate?
     @NSManaged var is_mp4_available: NSNumber? // 0 false, 1 true
     @NSManaged var is_shared: NSNumber? // 0 fasle, 1 true
@@ -54,6 +54,8 @@ class File: NSManagedObject {
 
         if let _created_at = json["created_at"] as? String {
             created_at = dateFormatter.dateFromString(_created_at)!
+        } else {
+            created_at = NSDate(timeIntervalSince1970: 0)
         }
 
         if let _first_accessed_at = json["first_accessed_at"] as? String {

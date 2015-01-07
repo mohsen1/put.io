@@ -9,7 +9,13 @@
 import UIKit
 
 class FolderViewController: UITableViewController, UIAlertViewDelegate {
-    var files = [File]()
+    var files:[File]! = [File]() {
+        didSet {
+            files.sort { (a:File, b:File) -> Bool in
+                return a.created_at! > b.created_at!
+            }
+        }
+    }
     var id:NSNumber = NSNumber(integer: 0)
     var refreshCtrl = UIRefreshControl()
     var activityIndicator: UIActivityIndicatorView?
