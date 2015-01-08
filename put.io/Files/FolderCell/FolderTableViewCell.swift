@@ -8,8 +8,6 @@
 
 import UIKit
 
-private let byteFormatter = NSByteCountFormatter()
-
 class FolderTableViewCell: UITableViewCell {
 
     @IBOutlet weak var icon: UIImageView!
@@ -27,9 +25,7 @@ class FolderTableViewCell: UITableViewCell {
         }
 
         if file.size != nil {
-            // All this dance because XCode is not supporting Ints in core data properly!
-            let nsSizeStr = NSString(string: file.size!)
-            self.fileSize.text = byteFormatter.stringFromByteCount(Int64(nsSizeStr.intValue))
+            fileSize.text = file.sizeString
         }
 
         if !file.isFolder && (file.first_accessed_at != nil) {

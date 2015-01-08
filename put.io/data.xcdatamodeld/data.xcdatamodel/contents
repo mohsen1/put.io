@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14A389" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6735" systemVersion="14B25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Account" representedClassName="Account" syncable="YES">
         <attribute name="avatar_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="default_download_folder_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -26,7 +26,7 @@
         <attribute name="opensubtitles_hash" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="parent_id" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="screenshot" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="size" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="sizeString" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Transfer" syncable="YES">

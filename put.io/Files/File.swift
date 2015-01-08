@@ -23,7 +23,7 @@ class File: NSManagedObject {
     @NSManaged var is_shared: NSNumber? // 0 fasle, 1 true
     @NSManaged var opensubtitles_hash: String?
     @NSManaged var screenshot: String?
-    @NSManaged var size: String?
+    @NSManaged var size: NSNumber!
     @NSManaged var sizeString: String?
 
     convenience init(json:NSDictionary, insertIntoManagedObjectContext context: NSManagedObjectContext!) {
@@ -79,9 +79,8 @@ class File: NSManagedObject {
         }
 
         if let _size = json["size"] as? NSNumber {
-            size = "\(_size)"
-            sizeString = byteFormatter.stringFromByteCount(Int64(_size.intValue))
-
+            size = _size
+            sizeString = byteFormatter.stringFromByteCount(Int64(size.integerValue))
         }
 
         // Determine if it's a folder and assign children
