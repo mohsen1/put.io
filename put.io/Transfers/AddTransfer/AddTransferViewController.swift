@@ -56,7 +56,6 @@ import UIKit
     }
 
     func dismiss() {
-        // TODO: tab is being switched back to 0, fix it
         dismissViewControllerAnimated(true, completion: {
             self.presentingViewController?.tabBarController?.selectedIndex = 1
             return

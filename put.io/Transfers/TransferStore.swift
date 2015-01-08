@@ -85,11 +85,12 @@ class TransferStore {
         ]
         let url = "https://api.put.io/v2/transfers/add"
 
-        Alamofire.request(.POST, url, parameters: params).responseJSON { (_, _, data, error) in
+        Alamofire.request(.POST, url, parameters: params).response { (_, _, _, error) in
             if error == nil {
-                completionHandler(success: false)
-            } else {
+                NSLog("error adding transfer \(error?.localizedDescription)")
                 completionHandler(success: true)
+            } else {
+                completionHandler(success: false)
                 NSLog("\(error)")
             }
         }
