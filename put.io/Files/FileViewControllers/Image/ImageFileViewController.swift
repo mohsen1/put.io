@@ -20,7 +20,9 @@ class ImageFileViewController: FileViewController {
         super.viewDidLoad()
         super.assingDetailsButtonToNavigationItem()
         loadScreenshot()
-        downloadFullImage()
+        
+        // Disable Full load image for initial release
+        //downloadFullImage()
     }
     override func loadView() {
         super.loadView()

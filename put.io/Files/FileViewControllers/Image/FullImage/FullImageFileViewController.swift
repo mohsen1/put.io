@@ -24,6 +24,7 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate, UIG
     override func viewDidLoad() {
         super.viewDidLoad()
         loadImage()
+        view.layoutIfNeeded()
         presentingViewController?.tabBarController?.tabBar.hidden = true
         
         let tapRecegnizer = UITapGestureRecognizer(target: self, action: Selector("dismiss:"))
@@ -76,6 +77,9 @@ class FullImageFileViewController: FileViewController, UIScrollViewDelegate, UIG
         if let image = imageView.image {
             let imageWidth = image.size.width
             let imageHeight = image.size.height
+            
+            println(imageWidth)
+            println(imageHeight)
             
             let viewWidth = view.bounds.size.width
             let viewHeight = view.bounds.size.height

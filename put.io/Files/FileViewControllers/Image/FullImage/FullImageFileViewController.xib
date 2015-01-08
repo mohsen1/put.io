@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6221" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FullImageFileViewController" customModule="put_io" customModuleProvider="target">
@@ -23,15 +23,15 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kHm-Oc-7Gv">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ho-zP-3cu">
-                            <rect key="frame" x="250" y="250" width="100" height="100"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ho-zP-3cu">
+                            <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         </imageView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="6ho-zP-3cu" firstAttribute="top" secondItem="kHm-Oc-7Gv" secondAttribute="top" constant="250" id="8yE-mC-dEv"/>
+                        <constraint firstItem="6ho-zP-3cu" firstAttribute="top" secondItem="kHm-Oc-7Gv" secondAttribute="top" id="8yE-mC-dEv"/>
                         <constraint firstAttribute="bottom" secondItem="6ho-zP-3cu" secondAttribute="bottom" constant="-1" id="Mdv-Pb-CKv"/>
                         <constraint firstAttribute="trailing" secondItem="6ho-zP-3cu" secondAttribute="trailing" constant="-1" id="Wby-Or-uuE"/>
-                        <constraint firstItem="6ho-zP-3cu" firstAttribute="leading" secondItem="kHm-Oc-7Gv" secondAttribute="leading" constant="250" id="z7f-d6-DLm"/>
+                        <constraint firstItem="6ho-zP-3cu" firstAttribute="leading" secondItem="kHm-Oc-7Gv" secondAttribute="leading" id="z7f-d6-DLm"/>
                     </constraints>
                 </scrollView>
             </subviews>
