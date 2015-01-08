@@ -91,6 +91,9 @@ class FileStore {
             completionHandler(nil, NSError(domain: "Unable to fetch folder", code: 1000, userInfo: nil))
         }
 
+        
+        // also update this folder File object
+        self.getFile(id, forceFetch: true, completionHandler: {_ in })
     }
 
     class func getFile (id:NSNumber, forceFetch:Bool = false, completionHandler: (File)->()) {
@@ -130,9 +133,9 @@ class FileStore {
         }
     }
 
-    class func deleteFiles(ids:[NSNumber], completionHandler: (NSError?)->()) {
+    class func deleteFiles(files:[File], completionHandler: (NSError?)->()) {
         let joiner = ","
-        let idsStr = joiner.join(ids.map {(i:NSNumber) -> String in return "\(i.integerValue)"})
+        let idsStr = joiner.join(files.map {(file:File) -> String in return "\(file.id.integerValue)"})
         var params:[String:AnyObject] = [
             "oauth_token": "\(AccountStore.getAccountSync()!.token!)",
             "file_ids": "\(idsStr)"
@@ -142,6 +145,11 @@ class FileStore {
         Alamofire.request(.POST, url, parameters: params).responseJSON { (_, _, data, error) in
             completionHandler(error)
         }
+        
+        for file in files {
+            appDelegate.cdh.managedObjectContext!.deleteObject(file)
+        }
+        saveContext()
     }
 
     private class func saveContext() {

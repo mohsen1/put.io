@@ -137,7 +137,7 @@ class FolderViewController: UITableViewController, UIAlertViewDelegate {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
         let file = files[indexPath.row] as File
         startProgress()
-        FileStore.deleteFiles([file.id], {_ in
+        FileStore.deleteFiles([file], {_ in
             dispatch_async(dispatch_get_main_queue()) {
                 self.stopProgress()
             }

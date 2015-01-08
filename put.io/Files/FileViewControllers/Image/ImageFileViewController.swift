@@ -44,8 +44,10 @@ class ImageFileViewController: FileViewController {
                 if url != nil {
                     self.fullImageUrl = url
                     Shared.dataCache.fetch(URL: url!).onSuccess { _ in
-                        self.navigationItem.title = "✔︎ \(self.file!.name!)"
-                        self.openButton.hidden = false
+                        dispatch_async(dispatch_get_main_queue()){
+                            self.navigationItem.title = "✔︎ \(self.file!.name!)"
+                            self.openButton.hidden = false
+                        }
                     }
                 }
             }
