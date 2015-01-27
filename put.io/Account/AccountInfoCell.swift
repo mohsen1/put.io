@@ -40,7 +40,7 @@ class AccountInfoCell: UITableViewCell {
             username?.text = account?.username
             email?.text = account?.mail
             storage?.text = "\(avail) available of \(size)"
-            subtitleLang?.text = "Default subtitle language: \(account!.default_subtitle_language!)"
+            subtitleLang?.text = "Default subtitle language: \(account?.default_subtitle_language)"
             expires?.text = "Plan expires at \(date)"
 
             var avatarImageName = "avatar.png"

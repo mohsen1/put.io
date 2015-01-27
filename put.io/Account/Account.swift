@@ -73,11 +73,12 @@ class Account : NSManagedObject {
             plan_expiration_date = formatter.dateFromString(_plan_expiration_date)!
         }
         if let _settings = json["settings"] as? NSDictionary {
-            invisible = _settings["is_invisible"] as Bool
-            if let _extract = _settings["extraction_default"] as? Bool {
-                extract = _extract
-            } else {
-                extract = false
+            if let invisible = _settings["is_invisible"] as? Bool {
+                if let _extract = _settings["extraction_default"] as? Bool {
+                    extract = _extract
+                } else {
+                    extract = false
+                }
             }
         }
     }
